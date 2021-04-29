@@ -15,7 +15,7 @@ During each new development/test session:
     cd frontend
     npm run dev
 
-Producera och leverera mjukvara: Gruppinlämningsuppgift - ClearBnB
+# Producera och leverera mjukvara: Gruppinlämningsuppgift - ClearBnB
 
 Uppgiften
 
