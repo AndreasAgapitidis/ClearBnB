@@ -195,5 +195,3 @@ fabric.properties
 
 # IntelliJ config file added by Matt
 .idea/vcs.xml
-.idea/compiler.xml
-.idea\compiler.xml
