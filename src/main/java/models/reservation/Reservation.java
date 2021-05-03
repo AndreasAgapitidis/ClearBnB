@@ -16,6 +16,15 @@ public class Reservation {
 
     public Reservation() {} //Default constructor, think this is needed with the use of Java Express. //Mac
 
+    //<editor-fold desc="----------- GETTER & SETTERS ----------">
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -55,6 +64,7 @@ public class Reservation {
     public void setPrice(int price) {
         this.price = price;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {
