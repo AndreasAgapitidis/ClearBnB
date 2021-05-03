@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>{{ footerText }}</p>
+  <h1>Hello</h1>
   </footer>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data(){
     return {
-      footerText: "This is a footer"
+     
     }
   }
 }
@@ -18,7 +18,9 @@ export default {
   footer {
 
   background-color: #454545;
+  margin: 0px;
   color: #FAFAFA;
-  padding: 10px;
-  }
+}
+
+
 </style>

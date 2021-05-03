@@ -1,12 +1,9 @@
 <template>
-  <header><Header /></header>
-
+ <Header />
   <main>
     <router-view />
   </main>
-
-  <Footer />
-
+ <Footer />
 </template>
 
 <script>
@@ -29,6 +26,11 @@ export default {
 </script>
 
 <style>
+
+body{
+  margin: 0px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
