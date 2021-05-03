@@ -1,13 +1,20 @@
 package users;
 
+import nosqlite.annotations.Document;
+import nosqlite.annotations.Id;
+
+@Document
 public class RenterAccount {
 
+    @Id
     private String id;
     private String email;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String profilePicture;
+
+    public RenterAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
 
     //<editor-fold desc="----------- GETTER & SETTERS -----------">
     public String getId() {
