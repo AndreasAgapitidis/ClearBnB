@@ -30,6 +30,16 @@ public class Listing {
     }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getOwner() {
         return owner;
     }
