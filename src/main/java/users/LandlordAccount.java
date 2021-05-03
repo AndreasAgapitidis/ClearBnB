@@ -1,7 +1,9 @@
 package users;
 
+import nosqlite.annotations.Document;
 import nosqlite.annotations.Id;
 
+@Document
 public class LandlordAccount {
 
     @Id
