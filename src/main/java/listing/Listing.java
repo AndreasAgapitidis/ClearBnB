@@ -24,9 +24,10 @@ public class Listing {
     private HashMap<String, String> unavailableDates = new HashMap<>();
     private ArrayList <String> images = new ArrayList<>();
 
+    //Default constructor, think this is needed with the use of Java Express. //Mac
     public Listing(String owner) {
-        this.owner = owner; 
-    } //Default constructor, think this is needed with the use of Java Express. //Mac
+        this.owner = owner;
+    }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
     public String getOwner() {
