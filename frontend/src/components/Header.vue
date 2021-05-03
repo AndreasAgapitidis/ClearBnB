@@ -3,8 +3,14 @@
   
       <nav class="container">
         <ul>
-          <li class="logo"><img src=".\assets\Logo ClearBnB\Company Logo\Logo ClearBnB White.png" alt=""></li>
-          <li>Login</li>
+          <li>
+            <a href="#">
+              <img src="../assets/Logo ClearBnB/Company Logo/Logo.png" alt="" srcset="">
+            </a>
+            </li>
+          <li>
+            <a href="#">Login</a>
+            </li>
         </ul>
       </nav>
 
@@ -12,9 +18,11 @@
 </template>
 
 <script>
+
 export default {
   data(){
     return {
+    
     }
   }
 }
@@ -25,7 +33,7 @@ export default {
 
   header{
     background-color: #454545;
-    height: 50px;
+    height: 100px;
     text-align: center;
     color: #FAFAFA;
     display: flex;
@@ -47,15 +55,21 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
-  li:nth-child(2){
-    margin-right: 10px;
-  }
   li:nth-child(1){
     margin-left: 10px;
   }
+  li:nth-child(2){
+    margin-right: 10px;
+  }
+  li:nth-child(2)>a{
+    text-decoration: none;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  
 
   img{
-    height: 50px;
-    width: 50px;
+    height: 5em;
+    width: 5em;
   }
 </style>
