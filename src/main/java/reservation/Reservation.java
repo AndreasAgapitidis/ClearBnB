@@ -1,16 +1,20 @@
 package reservation;
 
 import nosqlite.annotations.Document;
+import nosqlite.annotations.Id;
 
 @Document
 public class Reservation {
 
+    @Id
     private String id;
     private String userId;
     private String listingId;
     private String startDate;
     private String endDate;
     private int price;
+
+    public Reservation() {} //Default constructor, think this is needed with the use of Java Express. //Mac
 
     public String getUserId() {
         return userId;
