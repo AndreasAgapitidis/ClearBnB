@@ -1,21 +1,23 @@
 <template>
-  <header></header>
+  <div>
+    <header></header>
 
-  <main>
-    <router-view />
-  </main>
+    <main>
+      <router-view />
+    </main>
 
-  <footer></footer>
+    <footer></footer>
+  </div>
 </template>
 
 <script>
 export default {
   async created() {
-    let res = await fetch('/rest/hello')
-    let message = await res.json()
+    let res = await fetch("/rest/hello");
+    let message = await res.json();
     console.log(message);
-  }
-}
+  },
+};
 </script>
 
 <style>
