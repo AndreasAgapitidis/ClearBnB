@@ -1,4 +1,4 @@
-package reservation;
+package models.reservation;
 
 import nosqlite.annotations.Document;
 import nosqlite.annotations.Id;

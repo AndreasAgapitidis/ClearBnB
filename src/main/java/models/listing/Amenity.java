@@ -1,4 +1,4 @@
-package listing;
+package models.listing;
 
 public class Amenity {
 
