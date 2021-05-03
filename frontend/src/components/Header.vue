@@ -30,14 +30,18 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
   header{
-    background-color: #454545;
-    height: 100px;
+    background-image: url('../assets/Footer-Header/Header-final.png');
+    height: 10em;
     text-align: center;
     color: #FAFAFA;
     display: flex;
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
   }
 
 .container{
@@ -48,7 +52,7 @@ export default {
   ul{
     width: 100%;
     margin: 0;
-    
+    height: 100px;
     padding: 5px;
     list-style: none;
      display: flex;
