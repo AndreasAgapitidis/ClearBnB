@@ -31,7 +31,6 @@ public class Listing {
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
 
-
     public String getId() {
         return id;
     }
