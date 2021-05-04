@@ -19,8 +19,6 @@ public class Main {
     collection(op -> op.useBrowser = true);
 
     collection();
-
-
     
     /*app.get("/rest/hello", (req, res) -> {
       res.json(Map.of("message", "Hello from express"));
@@ -38,7 +36,7 @@ public class Main {
     city.setName(name);
     city.addImage(urlImage);
 
-    collection("City").save(city);
+    collection(City.class).save(city);
 
   }
 
