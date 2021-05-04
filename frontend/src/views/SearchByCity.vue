@@ -7,6 +7,10 @@
 import SearchCityAndPickDate from "../components/SearchCityAndPickDate.vue";
 
 export default {
+  created() {
+    this.$store.dispatch("getCities");
+  },
+
   data() {
     return {};
   },
