@@ -1,4 +1,5 @@
 import express.Express;
+import models.city.City;
 
 import java.nio.file.Paths;
 import java.util.List;
@@ -15,9 +16,11 @@ import static nosqlite.utilities.Filter.*;
  */
 
 public class Main {
+
   public static void main(String[] args) {
     Express app = new Express();
-    
+    collection(op -> op.useBrowser = true);
+
     collection();
 
     // init Auth
@@ -26,4 +29,17 @@ public class Main {
     // start server
     app.listen(4000);
   }
+
+
+  //Temporarily function, used for adding dummy data
+  public static void addNewCity(String name, String urlImage){
+
+    City city = new City();
+    city.setName(name);
+    city.addImage(urlImage);
+
+    collection(City.class).save(city);
+
+  }
+
 }

@@ -4,19 +4,20 @@ import nosqlite.annotations.Document;
 import nosqlite.annotations.Id;
 
 @Document
-public class LandlordAccount {
+public class UserAccount {
 
     @Id
     private String id;
     private String email;
+    private String password;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String profilePicture;
 
-    public LandlordAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
+    public UserAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
 
-    //<editor-fold desc="----------- GETTER & SETTERS ----------">
+    //<editor-fold desc="----------- GETTER & SETTERS -----------">
     public String getId() {
         return id;
     }
@@ -35,6 +36,14 @@ public class LandlordAccount {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setFirstName(String firstName) {
@@ -63,13 +72,13 @@ public class LandlordAccount {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
-
     }
-//</editor-fold>
+
+    //</editor-fold>
 
     @Override
     public String toString() {
-        return "LandlordAccount{" +
+        return "UserAccount{" +
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
@@ -78,5 +87,4 @@ public class LandlordAccount {
                 ", profilePicture='" + profilePicture + '\'' +
                 '}';
     }
-
 }

@@ -3,12 +3,15 @@ package models.city;
 import nosqlite.annotations.Document;
 import nosqlite.annotations.Id;
 
+import java.util.ArrayList;
+
 @Document
 public class City {
 
     @Id
     private String id;
     private String name;
+    private ArrayList<String> images = new ArrayList<>();
 
     public City() {    }
 
@@ -26,6 +29,18 @@ public class City {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
+    }
+
+    public void addImage(String URL){
+        this.images.add(URL);
     }
 
     @Override
