@@ -25,8 +25,16 @@ public class Listing {
     private ArrayList <String> images = new ArrayList<>();
 
     //Default constructor, think this is needed with the use of Java Express. //Mac
-    public Listing(String owner) {
-        this.owner = owner;
+    public Listing() {
+
+    }
+
+    public void addImage(String imageURL){
+        this.images.add(imageURL);
+    }
+
+    public void addBookedDate(String id, String date){
+        this.unavailableDates.put(id, date);
     }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
@@ -135,9 +143,7 @@ public class Listing {
         this.images = images;
     }
 
-    public void addImage(String imageURL){
-        this.images.add(imageURL);
-    }
+
 
     //</editor-fold>
 
