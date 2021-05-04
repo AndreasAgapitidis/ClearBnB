@@ -1,10 +1,12 @@
 package models.city;
 
 import nosqlite.annotations.Document;
+import nosqlite.annotations.Id;
 
 @Document
 public class City {
 
+    @Id
     private String id;
     private String name;
 
