@@ -1,8 +1,11 @@
 import express.Express;
 
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Map;
 
 import static nosqlite.Database.collection;
+import static nosqlite.utilities.Filter.*;
 
 /*
     C - Create  POST
@@ -16,10 +19,9 @@ public class Main {
     Express app = new Express();
     
     collection();
-    
-    app.get("/rest/hello", (req, res) -> {
-      res.json(Map.of("message", "Hello from express"));
-    });
+
+    // init Auth
+    new Auth(app);
     
     // start server
     app.listen(4000);
