@@ -12,6 +12,7 @@ export default createRouter({
       component: Home
     },
     {
+      name: SearchByCity,
       path: '/SearchByCity',
       component: SearchByCity
     },
