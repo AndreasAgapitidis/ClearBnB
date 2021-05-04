@@ -14,7 +14,7 @@
           <p>Blabla street 69<br>23365 155 Schweiz</p>
           </div>
           <div class="getBack">
-            <a href="#">
+            <a href="#" @click="scrollToTop()">
               <img src="../assets/Logo ClearBnB/Footer/Arrow - Up Square.png" alt="">
             </a>
           </div>
@@ -46,6 +46,14 @@
 export default {
   data(){
     return {
+     
+    }
+  },
+
+  methods:
+  {
+    scrollToTop(){
+      window.scrollTo(0,0);
      
     }
   }
