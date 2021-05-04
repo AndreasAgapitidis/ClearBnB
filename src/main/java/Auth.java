@@ -1,10 +1,11 @@
+import models.users.UserAccount;
+
 import express.Express;
 import nosqlite.utilities.Filter;
-import utilities.HashPassword;
-
-import java.util.Map;
-
 import static nosqlite.Database.collection;
+
+import utilities.HashPassword;
+import java.util.Map;
 
 /*
     /rest - is ONLY for manipulating raw entities
