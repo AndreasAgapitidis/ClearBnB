@@ -34,6 +34,7 @@ export default {
 
 
   header{
+   
     background-image: url('../assets/Footer-Header/Header-final.png');
     height: 10em;
     text-align: center;
@@ -42,6 +43,7 @@ export default {
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    width: 100%;
   }
 
 .container{
@@ -60,10 +62,10 @@ export default {
     align-items: center;
   }
   li:nth-child(1){
-    margin-left: 10px;
+    margin-left: 20px;
   }
   li:nth-child(2){
-    margin-right: 10px;
+    margin-right: 20px;
   }
   li:nth-child(2)>a{
     text-decoration: none;
