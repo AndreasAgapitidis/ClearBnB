@@ -39,6 +39,10 @@ public class City {
         this.images = images;
     }
 
+    public void addImage(String URL){
+        this.images.add(URL);
+    }
+
     @Override
     public String toString() {
         return "City{" +
