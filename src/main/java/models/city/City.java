@@ -3,12 +3,15 @@ package models.city;
 import nosqlite.annotations.Document;
 import nosqlite.annotations.Id;
 
+import java.util.ArrayList;
+
 @Document
 public class City {
 
     @Id
     private String id;
     private String name;
+    private ArrayList<String> images = new ArrayList<>();
 
     public City() {    }
 
