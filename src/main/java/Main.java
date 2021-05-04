@@ -23,7 +23,6 @@ public class Main {
     collection(op -> op.useBrowser = true);
 
     collection();
-    addNewListing();
     
     /*app.get("/rest/hello", (req, res) -> {
       res.json(Map.of("message", "Hello from express"));
@@ -32,7 +31,6 @@ public class Main {
     // start server
     app.listen(4000);
   }
-
 
   //Temporarily function, used for adding dummy data
   public static void addNewCity(String name, String urlImage){
@@ -60,11 +58,10 @@ public class Main {
     newListing.setPrice(650);
     newListing.setRating(9.5);
 
-    newListing.addBookedDate("id", "date");
+    newListing.addBookedDate("reservationID", "date");
     newListing.addImage("");
 
     collection(Listing.class).save(newListing);
-
 
   }
 
