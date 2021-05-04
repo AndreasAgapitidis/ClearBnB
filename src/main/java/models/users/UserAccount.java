@@ -13,7 +13,6 @@ public class UserAccount {
     private String lastName;
     private String phoneNumber;
     private String profilePicture;
-    private boolean isLandlord = false;
 
     public UserAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
 
@@ -64,16 +63,9 @@ public class UserAccount {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
 
-    }
-    public boolean isLandlord() {
-        return isLandlord;
-    }
-    public void setLandlord(boolean landlord) {
-        isLandlord = landlord;
-    }
     //</editor-fold>
-
 
     @Override
     public String toString() {
@@ -84,7 +76,6 @@ public class UserAccount {
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profilePicture='" + profilePicture + '\'' +
-                ", isLandlord=" + isLandlord +
                 '}';
     }
 }
