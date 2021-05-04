@@ -134,6 +134,11 @@ public class Listing {
     public void setImages(ArrayList<String> images) {
         this.images = images;
     }
+
+    public void addImage(String imageURL){
+        this.images.add(imageURL);
+    }
+
     //</editor-fold>
 
     @Override
