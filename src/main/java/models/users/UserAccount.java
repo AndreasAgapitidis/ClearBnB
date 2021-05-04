@@ -9,6 +9,7 @@ public class UserAccount {
     @Id
     private String id;
     private String email;
+    private String password;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -35,6 +36,14 @@ public class UserAccount {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setFirstName(String firstName) {
