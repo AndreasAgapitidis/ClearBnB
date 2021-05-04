@@ -61,9 +61,11 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 footer{
   height: auto;
+  
 }
 
   .container {
@@ -78,10 +80,11 @@ footer{
   flex-flow: column;
   justify-content: flex-end;
   align-items: center;
-
+  font-family: Roboto, sans-serif;
 }
 
 .top{
+ 
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -92,7 +95,7 @@ footer{
 }
 
 .top > p {
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 
@@ -103,10 +106,12 @@ footer{
 
 .Maps{
   text-align: justify;
+  margin-top: 20px;
 }
 
 .Contact {
   text-align: justify;
+  margin-top: 20px;
 }
 
 .divider {
