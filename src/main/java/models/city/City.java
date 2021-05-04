@@ -31,6 +31,14 @@ public class City {
         this.name = name;
     }
 
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
+    }
+
     @Override
     public String toString() {
         return "City{" +
