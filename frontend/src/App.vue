@@ -8,15 +8,12 @@
   <footer></footer>
 </template>
 
-<script>
+<!--<script>
 export default {
   async created() {
-    let res = await fetch('/rest/hello')
-    let message = await res.json()
-    console.log(message);
   }
 }
-</script>
+</script>-->
 
 <style>
 #app {
