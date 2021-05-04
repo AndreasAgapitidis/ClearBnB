@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/rest': 'http://localhost:4000', // same port as Java Express
-      '/api': 'http://localhost:4000'
+      '/api': 'http://localhost:4000',
     }
   }
 })
