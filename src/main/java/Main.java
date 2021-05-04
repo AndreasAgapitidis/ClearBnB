@@ -19,7 +19,7 @@ public class Main {
     collection(op -> op.useBrowser = true);
 
     collection();
-    
+
 
     
     /*app.get("/rest/hello", (req, res) -> {
@@ -31,7 +31,7 @@ public class Main {
   }
 
 
-  //Temporarily method, used for adding dummy data
+  //Temporarily function, used for adding dummy data
   public static void addNewCity(String name, String urlImage){
 
     City city = new City();
