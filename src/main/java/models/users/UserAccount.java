@@ -77,13 +77,14 @@ public class UserAccount {
 
     @Override
     public String toString() {
-        return "RenterAccount{" +
+        return "UserAccount{" +
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profilePicture='" + profilePicture + '\'' +
+                ", isLandlord=" + isLandlord +
                 '}';
     }
 }
