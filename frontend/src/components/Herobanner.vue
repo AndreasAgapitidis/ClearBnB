@@ -32,6 +32,9 @@ export default {};
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 #cities {
   width: 250px;
   height: 50px;
@@ -58,6 +61,7 @@ export default {};
   flex-direction: column;
   justify-content: flex-end;
   height: 35em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .searchContainer{
@@ -76,13 +80,15 @@ export default {};
   justify-content: space-around;
   width: 20em;
   height: 7em;
+ 
   background: rgba(0, 0, 0, 0.6);
   color: #fafafa;
   border-radius: 17px;
 }
 
 .popDestination > h3,
-h4 {
+h4 { 
+  font-weight: 200;
   text-align: right;
   margin: 0px;
   margin-right: 15px;
