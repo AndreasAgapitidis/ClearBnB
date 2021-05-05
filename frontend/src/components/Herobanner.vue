@@ -1,5 +1,5 @@
 <template>
-  <div class="component1">
+  <div class="wrapper">
     <label for="cities">Choose City:</label>
     <select name="cities" id="cities">
       <option value="malmö">Malmö</option>
@@ -25,14 +25,29 @@ export default {};
 </script>
 
 <style scoped>
-.component1 {
+#cities {
+  width: 250px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 13px 0px;
+}
+
+#start {
+  width: 250px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 13px 0px;
+}
+
+.wrapper {
   background: url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
-  mix-blend-mode: darken;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 15em;
+  height: 20em;
 }
 </style>
