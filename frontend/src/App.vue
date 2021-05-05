@@ -1,5 +1,7 @@
 <template>
   <Header />
+  <Login />
+  <Signup />
   <main>
     <router-view />
   </main>
@@ -9,6 +11,8 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import Login from "./components/Login.vue";
+import Signup from "./components/Signup.vue";
 
 export default {
   async created() {
@@ -19,6 +23,8 @@ export default {
   components: {
     Header,
     Footer,
+    Login,
+    Signup,
   },
 };
 </script>

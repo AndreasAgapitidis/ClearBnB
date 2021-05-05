@@ -12,10 +12,6 @@
 
 <script>
 export default {
-  async created() {
-    this.$store.dispatch("whoAmI");
-  },
-
   data() {
     return {
       firstName: "",
