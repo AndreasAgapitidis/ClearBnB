@@ -40,12 +40,10 @@ export default createStore({
 
     async fetchCities(store) {
 
-      let res = await fetch('/rest/cities')
-      let cities = await res.json()
+      let res = await fetch('/SearchByCity')
 
-      console.log(cities)
+      console.log("from fetchCities: ", res)
 
-      store.commit('setCities', cities)
 
     },
 

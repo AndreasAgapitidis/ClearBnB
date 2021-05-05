@@ -1,5 +1,6 @@
 import express.Express;
 import models.city.City;
+import models.city.CityFunctions;
 import models.listing.Listing;
 
 import java.util.Map;
@@ -37,6 +38,8 @@ public class Main {
           // update
           res.json(listing);
       });
+
+      new CityFunctions(app);
 
     // start server
     app.listen(4000);

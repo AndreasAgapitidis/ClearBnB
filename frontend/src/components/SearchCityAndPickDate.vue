@@ -1,13 +1,9 @@
-<template>
-  {{ cities }}
-</template>
+<template></template>
 
 <script>
 export default {
   computed: {
-    cities() {
-      return this.$state.cities;
-    },
+    cities() {},
   },
 };
 </script>
