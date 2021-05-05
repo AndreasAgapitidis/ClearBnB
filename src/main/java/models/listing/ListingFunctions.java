@@ -10,7 +10,28 @@ public class ListingFunctions {
 
     public ListingFunctions(Express app) {
         this.app = app;
+        initFunctions();
+    }
 
+    public void initFunctions(){
+        app.get("/rest/listings",(req,res) -> {
+            res.json(collection("Listing").find());
+            System.out.println("this is listings page");
+        });
+
+        app.get("/rest/listings/:id",(req,res) -> {
+            res.json(collection("Listing").findById(req.params("id")));
+            System.out.println(":id");
+        });
+
+        // create listing from frontend, but this can wait
+        app.post("/rest/listings",(req,res) -> {
+            Listing listing = req.body(Listing.class);
+            // getting an id
+            collection("Listing").save(listing);
+            // update
+            res.json(listing);
+        });
     }
 
     //Temporarily function, used for adding dummy data
