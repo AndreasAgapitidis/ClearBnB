@@ -40,10 +40,21 @@ export default createStore({
 
     async fetchCities(store) {
 
-      let res = await fetch('/SearchByCity')
+      /*   let res = await fetch('/SearchByCity').then(response => response.json())
+        let cities = await res.json();
+  
+        console.log("from fetchCities: ", res)
+        /* console.log("from fetchCities: ", cities) */
 
-      console.log("from fetchCities: ", res)
-
+      fetch("/SearchByCity").then(async response => {
+        try {
+          const data = await response.json()
+          console.log('response data?', data)
+        } catch (error) {
+          console.log('Error happened here!')
+          console.error(error)
+        }
+      })
 
     },
 
