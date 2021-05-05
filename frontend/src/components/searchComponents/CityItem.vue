@@ -1,11 +1,14 @@
 <template>
   <div class="card">
-    <img :src="city.images[0]" alt="" />
+    <h1>{{ city.name }} {{ city.id }}</h1>
   </div>
 </template>
 
 <script>
 export default {
+  created() {
+    console.log(this.$route);
+  },
   props: ["city"],
 };
 </script>

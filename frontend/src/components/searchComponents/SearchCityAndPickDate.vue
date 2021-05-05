@@ -2,11 +2,7 @@
   <h1>Sök stad:</h1>
   <input type="text" placeholder="Search city:" />
   <div>
-    <CityItem
-      v-for="(city, i) of cities"
-      v-bind:key="city.name + i"
-      v-bind:city="city"
-    />
+    <CityItem v-for="city of cities" v-bind:key="city.id" v-bind:city="city" />
   </div>
 </template>
 

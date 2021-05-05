@@ -18,6 +18,10 @@ export default createRouter({
       component: SearchByCity,
     },
     {
+      path: '/SearchByCity/:id',
+      component: SearchByCity,
+    },
+    {
       name: "details",
       path: '/rest/listings/:id',
       component: HouseDetails
