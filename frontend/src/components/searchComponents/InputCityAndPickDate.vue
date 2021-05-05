@@ -9,6 +9,7 @@
         v-bind:city="city"
       />
     </div>
+    <div><input type="date" name="Arrival date" id="" /></div>
   </div>
 </template>
 
@@ -63,6 +64,7 @@ export default {
   background: rgb(252, 252, 252);
   border: solid 1px gray;
   max-height: 300px;
+  z-index: 10;
 }
 
 input {
