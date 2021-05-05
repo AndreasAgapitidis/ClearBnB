@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import views
 import Home from './views/Home.vue'
 import SearchByCity from './views/SearchByCity.vue'
+import HouseDetails from './views/HouseDetails.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -12,9 +13,15 @@ export default createRouter({
       component: Home
     },
     {
-      name: SearchByCity,
+      name: "SearchByCity",
       path: '/SearchByCity',
-      component: SearchByCity
+      component: SearchByCity,
     },
+    {
+      name: "details",
+      path: '/rest/listings/:id',
+      component: HouseDetails
+
+    }
   ]
 })

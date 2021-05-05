@@ -14,6 +14,7 @@ export default {
     /*   let res = await fetch('/rest/hello')
     let message = await res.json()
     console.log(message); */
+    this.$store.dispatch("fetchListings");
   },
 };
 </script>

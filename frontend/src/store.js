@@ -5,7 +5,21 @@ export default createStore({
 
     cities: [],
 
-
+    listing: {
+      id: '',
+      owner: '',
+      isApartment: '',
+      isHouse: '',
+      city: '',
+      address: '',
+      description: '',
+      area: '',
+      beds: '',
+      price: '',
+      rating: '',
+      unavailableDates: '',
+      images: ''
+    }
   },
 
   // this.$store.commit('mutationName')
@@ -15,6 +29,10 @@ export default createStore({
       state.cities = cities
     },
 
+    // listings updates and overwrite by java listing object
+    setListings(state, listings) {
+      state.listings = listings
+    }
   },
 
   // this.$store.dispatch('actionName')
@@ -29,7 +47,15 @@ export default createStore({
 
       store.commit('setCities', cities)
 
-    }
+    },
 
+    async fetchListings(store) {
+
+      let res = await fetch('/rest/listings');
+      let listings = await res.json();
+
+      // setListing runs setListing in mutations
+      store.commit('setListings', listings)
+    }
   }
 })
