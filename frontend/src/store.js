@@ -40,13 +40,14 @@ export default createStore({
 
     async fetchCities(store) {
 
-      /*   let res = await fetch('/SearchByCity').then(response => response.json())
-        let cities = await res.json();
-  
-        console.log("from fetchCities: ", res)
-        /* console.log("from fetchCities: ", cities) */
+      let res = await fetch('/rest/SearchByCity')
+      let cities = await res.json();
 
-      fetch("/SearchByCity").then(async response => {
+      console.log("from fetchCities: ", res)
+      console.log("from fetchCities: ", cities)
+      /* console.log("from fetchCities: ", cities) */
+
+      /* fetch("/SearchByCity").then(async response => {
         try {
           const data = await response.json()
           console.log('response data?', data)
@@ -54,8 +55,8 @@ export default createStore({
           console.log('Error happened here!')
           console.error(error)
         }
-      })
-
+      }) */
+      store.commit('setCities', cities)
     },
 
     async fetchListings(store) {
