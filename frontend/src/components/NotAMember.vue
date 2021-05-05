@@ -12,7 +12,10 @@ export default {};
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 .component2 {
+  font-family: Roboto, sans-serif;
   display: flex;
   align-items: flex-end;
   flex-direction: row;
@@ -25,9 +28,9 @@ export default {};
 
 .userSignUp {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 200px;
   padding-inline: 2px 2px;
-  text-shadow: 3px 3px 3px grey;
+  font-style: italic;
   color: black;
   margin-bottom: 10px;
 }
@@ -35,11 +38,11 @@ export default {};
 .registerBtn {
   height: 50px;
   width: 180px;
-  border-radius: 20px;
+  border-radius: 50px;
   background-color: rgb(37, 37, 37);
   color: white;
-  font-weight: bold;
+  font-weight: 100;
   font-size: 16px;
-  cursor: grab;
+  cursor: pointer;
 }
 </style>

@@ -22,4 +22,22 @@ export default {};
   justify-content: space-evenly;
   margin-bottom: 10%;
 }
+
+.studentTxt {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.rndLocationBtn {
+  height: 55px;
+  width: 240px;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: grab;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
 </style>

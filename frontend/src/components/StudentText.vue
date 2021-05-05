@@ -24,4 +24,9 @@ export default {
   justify-content: space-evenly;
   margin-bottom: 10%;
 }
+
+.studentTxt{
+  font-size: 24px;
+  font-weight: bold;
+}
 </style>

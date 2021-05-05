@@ -5,8 +5,8 @@
     <NotAMember />
     <AdBanner />
     <AvailableHouses />
-    <LandLordBanner />
     <StudentText />
+    <LandLordBanner />
     <RandomLocation />
 
   </div>
@@ -17,8 +17,8 @@ import Herobanner from "../components/Herobanner.vue";
 import NotAMember from "../components/NotAMember.vue";
 import AdBanner from "../components/AdBanner.vue";
 import AvailableHouses from "../components/AvailableHouses.vue";
-import LandLordBanner from "../components/LandLordBanner.vue";
 import StudentText from "../components/StudentText.vue";
+import LandLordBanner from "../components/LandLordBanner.vue";
 import RandomLocation from "../components/RandomLocation.vue";
 
 export default {
@@ -27,8 +27,8 @@ export default {
     NotAMember,
     AdBanner,
     AvailableHouses,
+     StudentText,
     LandLordBanner,
-    StudentText,
     RandomLocation
   },
 };
