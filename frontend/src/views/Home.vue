@@ -1,32 +1,10 @@
 <template>
   <div>
-    <div class="component1">
-      <label for="cities">Choose City:</label>
-      <select name="cities" id="cities">
-        <option value="malmö">Malmö</option>
-        <option value="göteborg">Göteborg</option>
-        <option value="stockholm">Stockholm</option>
-      </select>
+    
+    <Herobanner />
+    <NotAMember />
 
-      <label for="checkInOutDate">Check in/out:</label>
-      <input
-        type="date"
-        id="start"
-        name="checkInOut"
-        min="2021-01-01"
-        max="2022-12-31"
-      />
-
-      <button class="PLACEHOLDER">PLACEHOLDER</button>
-    </div>
-
-    <div class="component2">
-      <div class="userSignUp">
-        <label for="userSignUp">Not a member?</label>
-      </div>
-
-      <button class="registerBtn">Register here</button>
-    </div>
+      
 
     <div class="component3">
       <img
@@ -110,28 +88,26 @@
 </template>
 
 <script>
-export default {};
+import Herobanner from '../components/Herobanner'
+import NotAMember from '../components/NotAMemeber'
+
+export default {
+
+
+  components: {
+    Herobanner,
+    NotAMember
+}
+
+};
+
+
 </script>
 
 <style>
-.component1 {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-bottom: 20%;
-  margin-right: 5%;
-}
 
-.component2 {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-}
+
+
 
 .component3 {
   display: flex;
