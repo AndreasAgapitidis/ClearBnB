@@ -19,22 +19,6 @@ public class Main {
     Express app = new Express();
     collection(op -> op.useBrowser = true);
 
-    /*app.get("/rest/hello", (req, res) -> {
-      res.json(Map.of("message", "Hello from express"));
-    });*/
-//    Listing l = new Listing("test");
-//    collection("Listing").save(l);
-
-//    app.get("/rest/listing/:id",(req,res) -> {
-////               get dynamic url variable with req.params
-//              String id = req.params("id");
-//              System.out.println(id); // :id  ??
-//              Listing listing = collection("Listing").findById(id);
-//            System.out.println(listing);
-//              res.json(listing);
-////        res.json(collection("Listing").findById("XYkYPbku0bidOmixpU0EE"));
-//            });
-
       app.get("/rest/listings",(req,res) -> {
           res.json(collection("Listing").find());
           System.out.println("this is listings page");
