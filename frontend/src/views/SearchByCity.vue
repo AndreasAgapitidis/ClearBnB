@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import SearchCityAndPickDate from "../components/searchComponents/SearchCityAndPickDate.vue";
+import InputCityAndPickDate from "../components/searchComponents/InputCityAndPickDate.vue";
 
 export default {
   components: {
-    SearchCityAndPickDate,
+    InputCityAndPickDate,
   },
 };
 </script>
