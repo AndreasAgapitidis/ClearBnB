@@ -25,9 +25,8 @@ public class Listing {
     private ArrayList <String> images = new ArrayList<>();
 
     //Default constructor, think this is needed with the use of Java Express. //Mac
-    public Listing(String owner) {
-        this.owner = owner;
-    }
+//    public Listing() {
+//    }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
 
