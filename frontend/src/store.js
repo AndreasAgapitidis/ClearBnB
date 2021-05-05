@@ -82,6 +82,7 @@ export default createStore({
         store.commit('setUser', null)
         return
       }
+      store.commit('setUser', loggedInUser)
     },
 
     async fetchCities(store) {
@@ -102,7 +103,6 @@ export default createStore({
 
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
-      store.commit('setUser', loggedInUser)
     }
   }
 })

@@ -1,5 +1,5 @@
 <template>
-  <SearchCityAndPickDate />
+  <InputCityAndPickDate />
 </template>
 
 <script>
