@@ -10,7 +10,9 @@
       />
     </div>
     <div>
-      <p>Arrival</p>
+      <p>Incheckning</p>
+      <input type="date" name="Arrival date" id="" />
+      <p>Utcheckning</p>
       <input type="date" name="Arrival date" id="" />
     </div>
   </div>
