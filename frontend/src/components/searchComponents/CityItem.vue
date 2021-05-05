@@ -1,6 +1,6 @@
 <template>
   <div class="card" @click="goToCityPage">
-    <h1>{{ city.name }} {{ city.id }}</h1>
+    <h1>{{ city.name }}</h1>
   </div>
 </template>
 
@@ -19,5 +19,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  padding: 12px;
+}
 </style>
