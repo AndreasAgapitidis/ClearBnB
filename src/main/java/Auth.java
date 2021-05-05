@@ -35,7 +35,7 @@ public class Auth {
             }
 
             // hash password (encrypt password)
-            String hashedPassword = HashPassword.hash(user.getPassword()); // "hemligt" -> "doqwiuhqwoidhqepofuihwef"
+            String hashedPassword = HashPassword.hash(user.getPassword());
             user.setPassword(hashedPassword);
 
             collection("UserAccount").save(user);
@@ -78,8 +78,6 @@ public class Auth {
         app.get("/api/logout", (req, res) -> {
             // remove user from session
             req.session("current-user", null);
-
-            res.json(Map.of("ok", "logged out"));
         });
     }
 

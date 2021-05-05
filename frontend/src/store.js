@@ -24,7 +24,6 @@ export default createStore({
     async whoAmI(store) {
       let res = await fetch('/api/whoami')
       let user = await res.json()
-      console.log(user);
 
       store.commit('setUser', user)
     },
@@ -37,8 +36,6 @@ export default createStore({
 
       let loggedInUser = await res.json()
 
-      console.log('registered user', loggedInUser)
-
       store.commit('setUser', loggedInUser)
     },
 
@@ -49,8 +46,6 @@ export default createStore({
       })
 
       let loggedInUser = await res.json()
-
-      console.log('logged in user', loggedInUser)
 
       store.commit('setUser', loggedInUser)
     }
