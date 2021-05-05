@@ -12,6 +12,7 @@
 export default {
   async created() {
     this.$store.dispatch("fetchListings");
+    this.$$store.dispatch("cities");
   },
 };
 </script>
