@@ -1,27 +1,44 @@
 <template>
-  <header></header>
-
+  <Header />
   <main>
     <router-view />
   </main>
-
-  <footer></footer>
+  <Footer />
 </template>
 
-<!--<script>
+<script>
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+
 export default {
   async created() {
-  }
-}
-</script>-->
+    let res = await fetch("/rest/hello");
+    let message = await res.json();
+    console.log(message);
+  },
+  components: {
+    Header,
+    Footer,
+  },
+};
+</script>
 
 <style>
+body {
+  margin: 0px;
+}
+
+main {
+  height: 100vh;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #181818;
-  margin-top: 60px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 </style>
