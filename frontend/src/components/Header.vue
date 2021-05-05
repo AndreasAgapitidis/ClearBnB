@@ -7,10 +7,13 @@
             <a href="#">
               <img src="../assets/Logo ClearBnB/Company Logo/Logo.png" alt="" srcset="">
             </a>
-            </li>
-          <li>
+          </li>
+          <li v-if="!$store.state.user">
             <a @click="openLogin">Login</a>
-            </li>
+          </li>
+          <li v-else>
+            <a @click="logout">Logout</a>
+          </li>
         </ul>
       </nav>
 
@@ -20,6 +23,10 @@
 <script>
 
 export default {
+  created() {
+    this.$store.dispatch('whoAmI')
+  },
+
   data(){
     return {
     
@@ -28,7 +35,10 @@ export default {
 
   methods: {
     openLogin() {
-      document.getElementById("login-overlay").style.display = "flex";
+      document.getElementById("login-overlay").style.display = "flex"
+    },
+    logout() {
+      this.$store.dispatch("logout")
     },
   },
 }

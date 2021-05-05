@@ -25,16 +25,21 @@ export default {
   },
 
   methods: {
-    login() {
+    async login() {
       let credentials = {
         email: this.email,
         password: this.password,
       };
 
-      this.$store.dispatch("login", credentials);
+      await this.$store.dispatch("login", credentials)
+      
+      // if login was successful, close the login overlay
+      if (this.$store.state.user) {
+        this.close()
+      }
     },
     close() {
-      document.getElementById("login-overlay").style.display = "none";
+      document.getElementById("login-overlay").style.display = "none"
     },
   },
 };
@@ -57,7 +62,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.96); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .close-btn {
@@ -93,5 +98,4 @@ button {
 .signup-prompt a {
   font-weight: bold;
 }
-
 </style>
