@@ -74,7 +74,6 @@ public class Main {
 
       collection(Listing.class).save(newListing);
 
-
     }
 
 }
