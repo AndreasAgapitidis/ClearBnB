@@ -1,6 +1,6 @@
 <template>
   <div class="inputCityAndDateContainer">
-    <h1>Sök stad:</h1>
+    <h2>Sök stad:</h2>
     <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
     <div class="searchResults" v-if="userSearchedFor">
       <CityItem
@@ -9,7 +9,10 @@
         v-bind:city="city"
       />
     </div>
-    <div><input type="date" name="Arrival date" id="" /></div>
+    <div>
+      <p>Arrival</p>
+      <input type="date" name="Arrival date" id="" />
+    </div>
   </div>
 </template>
 
