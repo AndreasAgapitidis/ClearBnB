@@ -1,8 +1,14 @@
 <template>
-  <h1>Sök stad:</h1>
-  <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
-  <div v-if="userSearchedFor">
-    <CityItem v-for="city of cities" v-bind:key="city.id" v-bind:city="city" />
+  <div class="inputCityAndDateContainer">
+    <h1>Sök stad:</h1>
+    <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
+    <div v-if="userSearchedFor">
+      <CityItem
+        v-for="city of cities"
+        v-bind:key="city.id"
+        v-bind:city="city"
+      />
+    </div>
   </div>
 </template>
 
@@ -44,7 +50,13 @@ export default {
 </script>
 
 <style scoped>
+.inputCityAndDateContainer {
+  width: 200px;
+  margin: auto;
+}
+
 input {
+  width: 100%;
   padding: 10px;
   font-size: 120%;
 }

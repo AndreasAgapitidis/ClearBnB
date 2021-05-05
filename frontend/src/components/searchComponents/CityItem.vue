@@ -21,6 +21,11 @@ export default {
 
 <style scoped>
 .card {
-  padding: 12px;
+  width: 200px;
+  background: rgb(216, 216, 216);
+}
+.card:hover {
+  background: rgb(255, 255, 255);
+  cursor: pointer;
 }
 </style>
