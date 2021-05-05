@@ -1,6 +1,6 @@
 <template>
-  <div class="login-overlay">
-    <a class="close-btn">x</a>
+  <div id="login-overlay">
+    <a class="close-btn" @click="close">x</a>
     <div class="login-container">
       <form @submit.prevent="login">
         <input v-model="email" type="text" placeholder="email" />
@@ -33,6 +33,9 @@ export default {
 
       this.$store.dispatch("login", credentials);
     },
+    close() {
+      document.getElementById("login-overlay").style.display = "none";
+    },
   },
 };
 </script>
@@ -40,10 +43,9 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-.login-overlay {
+#login-overlay {
   position: fixed; /* Sit on top of the page content */
-  /*display: none; /* Hidden by default */
-  display: flex;
+  display: none; /* Hidden by default */
   justify-content: center;
   align-items: center;
   width: 100%; /* Full width (cover the whole page) */
@@ -55,6 +57,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.96); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
+  font-family: 'Roboto', sans-serif;
 }
 
 .close-btn {
@@ -85,6 +88,10 @@ button {
 .signup-prompt p {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.signup-prompt a {
+  font-weight: bold;
 }
 
 </style>

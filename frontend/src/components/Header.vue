@@ -9,7 +9,7 @@
             </a>
             </li>
           <li>
-            <a>Login</a>
+            <a @click="openLogin">Login</a>
             </li>
         </ul>
       </nav>
@@ -24,7 +24,13 @@ export default {
     return {
     
     }
-  }
+  },
+
+  methods: {
+    openLogin() {
+      document.getElementById("login-overlay").style.display = "flex";
+    },
+  },
 }
 </script>
 
