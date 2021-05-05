@@ -2,7 +2,7 @@
   <div class="inputCityAndDateContainer">
     <h1>Sök stad:</h1>
     <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
-    <div v-if="userSearchedFor">
+    <div class="searchResults" v-if="userSearchedFor">
       <CityItem
         v-for="city of cities"
         v-bind:key="city.id"
@@ -50,14 +50,24 @@ export default {
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
+
 .inputCityAndDateContainer {
   width: 200px;
   margin: auto;
 }
 
+.searchResults {
+  background: rgb(252, 252, 252);
+  border: solid 1px gray;
+  max-height: 300px;
+}
+
 input {
-  width: 100%;
+  width: 200px;
+  max-width: 100%;
   padding: 10px;
-  font-size: 120%;
 }
 </style>

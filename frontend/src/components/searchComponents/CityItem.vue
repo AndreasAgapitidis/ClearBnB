@@ -1,6 +1,6 @@
 <template>
   <div class="card" @click="goToCityPage">
-    <h1>{{ city.name }}</h1>
+    <h3>{{ city.name }}</h3>
   </div>
 </template>
 
@@ -21,11 +21,13 @@ export default {
 
 <style scoped>
 .card {
-  width: 200px;
-  background: rgb(216, 216, 216);
+  max-width: 180px;
+  text-align: left;
+  margin-left: 10px;
 }
+
 .card:hover {
-  background: rgb(255, 255, 255);
   cursor: pointer;
+  transform: scale(1.03);
 }
 </style>
