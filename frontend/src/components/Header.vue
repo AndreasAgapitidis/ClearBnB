@@ -44,6 +44,8 @@ export default {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     width: 100%;
+    position: absolute;
+    z-index: 1;
   }
 
 .container{

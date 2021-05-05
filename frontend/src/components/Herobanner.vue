@@ -1,13 +1,15 @@
 <template>
   <div class="wrapper">
-    <label for="cities"></label>
+
+    <div class="searchContainer">
+    <label for="cities"><h4 class="checkInCity">City</h4></label>
     <select name="cities" id="cities">
       <option value="malmö">Malmö</option>
       <option value="göteborg">Göteborg</option>
       <option value="stockholm">Stockholm</option>
     </select>
 
-    <label for="checkInOutDate"><h4 class="checkIn">Check in</h4></label>
+    <label for="checkInOutDate"><h4 class="checkInDate">Check in</h4></label>
     <input
       type="date"
       id="start"
@@ -19,7 +21,9 @@
     <div class="popDestination">
       <h3>Popular destinations</h3>
       <h4>Malmö | Stockholm | Göteborg</h4>
+      </div>
     </div>
+   
   </div>
 </template>
 
@@ -37,24 +41,33 @@ export default {};
 }
 
 #start {
+  color: transparent;
   width: 250px;
   height: 50px;
   outline: none;
   border: none;
   border-radius: 13px 0px;
+  font-weight: 200;
 }
 
 .wrapper {
-  background: #eb01a5;
-  background-image: url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
-  background-image: url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg"),
-    linear-gradient(#ffffff, #d1363100);
+  background-image: linear-gradient( rgb(255 255 255 / 0%), rgb(255 255 255) ) ,url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  height: 35em;
+}
+
+.searchContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 25em;
+  align-items: flex-end;
+  margin-right: 25px;
+
 }
 
 .popDestination {
@@ -65,19 +78,23 @@ export default {};
   height: 7em;
   background: rgba(0, 0, 0, 0.6);
   color: #fafafa;
-  border-radius: 17px 0px 0px 17px;
+  border-radius: 17px;
 }
 
 .popDestination > h3,
 h4 {
-  word-spacing: 2px;
   text-align: right;
   margin: 0px;
   margin-right: 15px;
 }
 
-.checkIn {
+.checkInDate,
+.checkInCity {
   color: #fafafa;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 2px black;
 }
 </style>
