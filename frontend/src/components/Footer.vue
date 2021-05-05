@@ -110,8 +110,17 @@ footer{
 }
 
 .Contact {
-  text-align: justify;
+  text-align: center;
   margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.getBack {
+  display: flex;
+  align-items: flex-end;
 }
 
 .divider {
