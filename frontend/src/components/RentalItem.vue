@@ -1,5 +1,8 @@
 <template>
-  <div class="rentalCard"><img :src="listing.images[0]" alt="" /></div>
+  <div class="rentalCard">
+    <!-- <h1>{{ listing.city }}</h1> -->
+    <img :src="listing.images[0]" alt="" />
+  </div>
 </template>
 
 <script>
