@@ -5,6 +5,7 @@
   <main>
     <router-view />
   </main>
+
   <Footer />
 </template>
 
@@ -34,7 +35,8 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
 }
 
 #app {

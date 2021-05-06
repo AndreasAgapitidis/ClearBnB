@@ -84,6 +84,19 @@ li:nth-child(2) > a {
   color: #fafafa;
   text-transform: uppercase;
 }
+header {
+  background-image: url("../assets/Footer-Header/Header-final.png");
+  height: 10em;
+  text-align: center;
+  color: #fafafa;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
 
 img {
   height: 5em;
@@ -93,5 +106,4 @@ img {
 .login-logout {
   cursor: pointer;
 }
-
 </style>
