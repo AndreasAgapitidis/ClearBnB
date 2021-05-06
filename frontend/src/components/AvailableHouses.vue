@@ -7,60 +7,53 @@
     </div>
 
     <div class="component4">
-      <div class="leftSide">
-        <a href="">
-          <img
-            src="../assets/Houses/HouseWithPool1.jpg"
-            alt="HouseWithPool"
-            width="250"
-            height="300"
-          />
-          <div class="textHouseWithPool1">
-            <h4>Price1</h4>
-          </div>
-        </a>
+      <a href="">
+        <img
+          class="HouseWithPool1"
+          src="../assets/Houses/HouseWithPool1.jpg"
+          alt="HouseWithPool"
+          width="260"
+          height="250"
+        />
 
-        <a href="">
-          <img
-            src="../assets/Houses/HouseWithPool2.jpg"
-            alt="HouseWithPool2"
-            width="250"
-            height="300"
-          />
+        <div type="button" class="textHouseWithPool1">Price1</div>
+      </a>
 
-          <div class="textHouseWithPool2">
-            <h4>Price2</h4>
-          </div>
-        </a>
-      </div>
+      <a href="">
+        <img
+          class="HouseWithPool2"
+          src="../assets/Houses/HouseWithPool2.jpg"
+          alt="HouseWithPool2"
+          width="260"
+          height="250"
+        />
 
-      <div class="rightSide">
-        <a href="">
-          <img
-            src="../assets/Houses/House1.jpg"
-            alt="House1"
-            width="250"
-            height="300"
-          />
+        <div type="button" class="textHouseWithPool2">Price2</div>
+      </a>
 
-          <div class="textHouse1">
-            <h4>Price3</h4>
-          </div>
-        </a>
+      <a href="">
+        <img
+          class="House1"
+          src="../assets/Houses/House1.jpg"
+          alt="House1"
+          width="260"
+          height="250"
+        />
 
-        <a href="">
-          <img
-            src="../assets/Houses/House2.jpg"
-            alt="House2"
-            width="250"
-            height="300"
-          />
+        <div class="textHouse1">PriceA</div>
+      </a>
 
-          <div class="textHouse2">
-            <h4>Price4</h4>
-          </div>
-        </a>
-      </div>
+      <a href="">
+        <img
+          class="House2"
+          src="../assets/Houses/House2.jpg"
+          alt="House2"
+          width="260"
+          height="250"
+        />
+
+        <div class="textHouse2">PriceB</div>
+      </a>
     </div>
   </div>
 </template>
@@ -73,61 +66,87 @@ export default {};
 .availableHouseTxt {
   font-size: 24px;
   font-weight: bold;
-  margin-left: 40%;
+  margin-left: 35%;
 }
 
 .component4 {
-  display: grid;
   display: inline-grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 50px 100px;
+  grid-template-columns: 5% 5%;
+  grid-gap: 50px 400px;
   margin-left: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
-.leftSide {
-}
-
-.rightSide {
+.HouseWithPool1 {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 2px 2px black;
+  border-bottom: 80px solid white;
 }
 
 .textHouseWithPool1 {
+  position: relative;
+  top: -60px;
+  left: 70px;
   margin-right: 25%;
   margin-left: 40%;
-  margin-bottom: 10%;
   width: 10%;
-  height: 10%;
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+
+.HouseWithPool2 {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 2px 2px black;
+  border-bottom: 80px solid white;
 }
 
 .textHouseWithPool2 {
+  position: relative;
+  top: -60px;
+  left: 70px;
   margin-right: 25%;
   margin-left: 40%;
-  margin-bottom: 10%;
   width: 10%;
-  height: 10%;
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+
+.House1 {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 2px 2px black;
+  border-bottom: 80px solid white;
 }
 
 .textHouse1 {
+  position: relative;
+  top: -60px;
+  left: 70px;
   margin-right: 25%;
   margin-left: 40%;
-  margin-bottom: 10%;
   width: 10%;
-  height: 10%;
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+
+.House2 {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 2px 2px black;
+  border-bottom: 80px solid white;
 }
 
 .textHouse2 {
+  position: relative;
+  top: -60px;
+  left: 70px;
   margin-right: 25%;
   margin-left: 40%;
-  margin-bottom: 10%;
   width: 10%;
-  height: 10%;
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
 }
 </style>
