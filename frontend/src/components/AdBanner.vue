@@ -38,6 +38,7 @@ export default {};
 
 .poolHousePic {
   margin-bottom: 10%;
+  border-radius: 18px;
 }
 
 .shameLessTxt {
