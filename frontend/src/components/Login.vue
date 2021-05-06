@@ -3,7 +3,7 @@
     <a class="close-btn" @click="close">x</a>
     <div class="login-container">
       <form @submit.prevent="login">
-        <input v-model="email" type="text" placeholder="email" />
+        <input v-model="email" type="email" placeholder="email" />
         <input v-model="password" type="password" placeholder="password" />
         <button>Login</button>
       </form>
@@ -40,6 +40,10 @@ export default {
     },
     close() {
       document.getElementById("login-overlay").style.display = "none"
+    },
+    signUpPage() {
+      this.close();
+      document.getElementById("signup-overlay").style.display = "flex";
     },
   },
 };
@@ -97,5 +101,6 @@ button {
 
 .signup-prompt a {
   font-weight: bold;
+  cursor: pointer;
 }
 </style>
