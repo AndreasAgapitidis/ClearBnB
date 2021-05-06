@@ -41,8 +41,6 @@
 
 <script>
 export default {
-  // name: "Slider",
-
   props: ["carouselprop"],
 
   methods: {
@@ -66,24 +64,9 @@ export default {
   data() {
     return {
       count: 0,
-      img: [], // ['http://i.imgur.com/1.jpg', 'http://i.imgur.com/2.jpg'] ==================================
-      // BUT HOW TO DEAL WITH IT when having object arraylist?
-      // listing1.img does not work
-
-      // listing.images, through props already fetched all ImageURL, do i still need img:[]?
-      // child component, props of props?
+      img: [],
     };
-
-    // this.img = listing.images; ??
   },
-
-  // async created() {
-  // await this.$store.dispatch("fetchListings");
-  // for (let listing of this.$store.state.listings) {
-  //   if (listing.id == this.$route.params.id) {
-  //     this.listing1 = listing;
-  //   }
-  // },
 };
 </script>
 
