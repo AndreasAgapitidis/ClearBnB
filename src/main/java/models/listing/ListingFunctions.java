@@ -42,8 +42,8 @@ public class ListingFunctions {
         newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
         newListing.setApartment(true);
         newListing.setHouse(false);
-        newListing.setCity("Malmö");
-        newListing.setAddress("Bragegatan 31, 241 46");
+        newListing.setCity("Madrid");
+        newListing.setAddress("Esplana 31, 241 46");
         newListing.setDescription("A lovely apartment");
         newListing.setArea(10);
         newListing.setBeds(3);
@@ -51,7 +51,7 @@ public class ListingFunctions {
         newListing.setRating(9.5);
 
         newListing.addBookedDate("id", "date");
-        newListing.addImage("https://images.sembo.se/ImageService/ImageHandler.ashx?service=url&nameOfImage=https%3a%2f%2fstatic-cdn.r360online.se%2fbranas%2fimages%2febef3e51bdf6c2decf91922d40bc1afa_org.jpg&resizeMode=FitOutside&width=1220&height=768&formatSettings=jpeg(quality-90)");
+        newListing.addImage("https://www.skistar.com/sv/boka-online/accommodation/Image/Get?imageId=129260&ImageSize=7&keepRatio=false");
 
         collection(Listing.class).save(newListing);
 

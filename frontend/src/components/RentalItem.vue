@@ -14,11 +14,16 @@ export default {
 
 <style scoped>
 .rentalCard {
-  margin: 20px auto;
+  margin: 35px auto;
   width: 80%;
   height: 180px;
   border-radius: 0 75px 0 75px;
   overflow: hidden;
+}
+
+.rentalCard:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 img {
@@ -26,6 +31,6 @@ img {
   height: 180px;
   object-fit: cover;
   object-position: center;
-  opacity: 50%;
+  opacity: 70%;
 }
 </style>
