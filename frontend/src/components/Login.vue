@@ -75,7 +75,6 @@ export default {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.96); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
   font-family: "Roboto", sans-serif;
 }
 
@@ -91,6 +90,7 @@ export default {
   right: 16px;
   font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 form {
@@ -104,6 +104,7 @@ input {
 
 button {
   margin-bottom: 6px;
+  cursor: pointer;
 }
 
 .signup-prompt {

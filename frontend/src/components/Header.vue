@@ -12,10 +12,10 @@
           </a>
         </li>
         <li v-if="!$store.state.user">
-          <a @click="openLogin">Login</a>
+          <a class="login-logout" @click="openLogin">Login</a>
         </li>
         <li v-else>
-          <a @click="logout">Logout</a>
+          <a class="login-logout" @click="logout">Logout</a>
         </li>
       </ul>
     </nav>
@@ -89,4 +89,9 @@ img {
   height: 5em;
   width: 5em;
 }
+
+.login-logout {
+  cursor: pointer;
+}
+
 </style>
