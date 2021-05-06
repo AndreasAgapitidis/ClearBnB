@@ -7,38 +7,35 @@
       :src="carouselprop.images[count]"
       alt="photo of the listing cover"
     />
-
+  </div>
+  <div class="slides" v-if="carouselprop">
+    <!-- <button class="btn-left" @click="prevIndex">Prev</button> -->
+    <span class="btn-left" @click="prevIndex"></span>
     <img
       class="photo1"
-      v-if="carouselprop"
       :src="carouselprop.images[1]"
       alt="photo of the listing1"
     />
 
     <img
       class="photo2"
-      v-if="carouselprop"
       :src="carouselprop.images[2]"
       alt="photo of the listing2"
     />
 
     <img
       class="photo3"
-      v-if="carouselprop"
       :src="carouselprop.images[3]"
       alt="photo of the listing3"
     />
 
     <img
       class="photo4"
-      prevIndex
-      v-if="carouselprop"
       :src="carouselprop.images[4]"
       alt="photo of the listing4"
     />
-
-    <button class="btn-left" @click="prevIndex">Prev</button>
-    <button class="btn-right" @click="nextIndex">Next</button>
+    <!-- <button class="btn-right" @click="nextIndex">Next</button> -->
+    <span class="btn-right" @click="nextIndex"></span>
   </div>
 </template>
 
@@ -52,7 +49,7 @@ export default {
     prevIndex() {
       this.count = this.count - 1;
       if (this.count < 0) {
-        this.count = this.carouselprop.images.length;
+        this.count = this.carouselprop.images.length - 1;
       }
 
       console.log(this.count);
@@ -114,6 +111,13 @@ h1 {
   filter: brightness(60%);
 }
 
+.slides {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  justify-content: space-around;
+}
+
 .photo1,
 .photo2,
 .photo3,
@@ -122,11 +126,25 @@ h1 {
   width: 50px;
 }
 
-button {
+/* button {
   padding: 5px;
-  margin: 10px 10px 10px 10px;
+  height: 20px;
   border-radius: 10%;
   border-style: none;
   border: 2px solid gray;
+} */
+
+.btn-left {
+  align-self: center;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid black;
+}
+
+.btn-right {
+  align-self: center;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid black;
 }
 </style>
