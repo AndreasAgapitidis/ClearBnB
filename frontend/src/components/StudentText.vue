@@ -28,6 +28,5 @@ export default {
 .studentTxt{
   font-size: 24px;
   font-weight: bold;
-  color: black;
 }
 </style>

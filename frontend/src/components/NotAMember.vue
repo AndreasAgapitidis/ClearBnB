@@ -44,19 +44,5 @@ export default {};
   font-weight: 100;
   font-size: 16px;
   cursor: pointer;
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-  border: none;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-=======
-<<<<<<< HEAD
-  box-shadow:4px 4px 4px black;
-=======
-  border: none;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
->>>>>>> cbee313fbed084bb82ba3626a2d72bbad7b330fb
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 }
 </style>
