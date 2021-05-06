@@ -63,6 +63,7 @@ export default {
 .inputCityAndDateContainer {
   width: 200px;
   margin: auto;
+  position: relative;
 }
 
 .searchResults {
@@ -70,6 +71,9 @@ export default {
   border: solid 1px gray;
   max-height: 300px;
   z-index: 10;
+  position: absolute;
+  top: 86px;
+  width: 100%;
 }
 
 input {

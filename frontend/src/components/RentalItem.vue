@@ -12,8 +12,20 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.rentalCard {
+  margin: 20px auto;
+  width: 80%;
+  height: 180px;
+  border-radius: 0 75px 0 75px;
+  overflow: hidden;
+}
+
 img {
-  max-width: 100%;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 50%;
 }
 </style>
