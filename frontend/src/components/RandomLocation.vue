@@ -26,7 +26,6 @@ export default {};
 .studentTxt {
   font-size: 20px;
   font-weight: bolder;
-  color: black;
 }
 
 .rndLocationBtn {
