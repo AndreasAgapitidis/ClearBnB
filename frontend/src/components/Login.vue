@@ -3,7 +3,7 @@
     <a class="close-btn" @click="close">x</a>
     <div class="login-container">
       <form @submit.prevent="login">
-        <p id="error-text">Invalid username or password</p>
+        <p id="login-error-text">Invalid email or password</p>
         <input v-model="email" type="email" placeholder="email" />
         <input v-model="password" type="password" placeholder="password" />
         <button>Login</button>
@@ -32,30 +32,28 @@ export default {
         password: this.password,
       };
 
-      await this.$store.dispatch("login", credentials);
+      await this.$store.dispatch("login", credentials)
 
       // if login was successful, close the login overlay
       if (this.$store.state.user) {
-        this.hideErrorText();
-        this.close();
+        this.close()
       } else {
-        this.showErrorText();
+        this.showErrorText()
       }
     },
     close() {
       this.hideErrorText();
-      document.getElementById("login-overlay").style.display = "none";
+      document.getElementById("login-overlay").style.display = "none"
     },
     showErrorText() {
-      document.getElementById("error-text").style.display = "block";
+      document.getElementById("login-error-text").style.display = "block"
     },
     hideErrorText() {
-      document.getElementById("error-text").style.display = "none";
+      document.getElementById("login-error-text").style.display = "none"
     },
     signUpPage() {
-      this.hideErrorText();
-      this.close();
-      document.getElementById("signup-overlay").style.display = "flex";
+      this.close()
+      document.getElementById("signup-overlay").style.display = "flex"
     },
   },
 };
@@ -81,7 +79,7 @@ export default {
   font-family: "Roboto", sans-serif;
 }
 
-#error-text {
+#login-error-text {
   display: none;
   color: red;
 }

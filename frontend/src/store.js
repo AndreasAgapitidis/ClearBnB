@@ -36,6 +36,11 @@ export default createStore({
 
       let loggedInUser = await res.json()
 
+      if (loggedInUser.error) {
+        store.commit('setUser', null)
+        return
+      }
+
       store.commit('setUser', loggedInUser)
     },
 
@@ -46,7 +51,7 @@ export default createStore({
       })
 
       let loggedInUser = await res.json()
-      
+
       if (loggedInUser.error) {
         store.commit('setUser', null)
         return

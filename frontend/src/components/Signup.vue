@@ -3,6 +3,7 @@
     <a class="close-btn" @click="close">x</a>
     <div class="signup-container">
       <form @submit.prevent="register">
+        <p id="signup-error-text">Email already has account</p>
         <input v-model="firstName" type="text" placeholder="first name" />
         <input v-model="lastName" type="text" placeholder="last name" />
         <input v-model="email" type="email" placeholder="email" />
@@ -42,10 +43,19 @@ export default {
       // if login was successful, close the sign-up overlay
       if (this.$store.state.user) {
         this.close();
+      } else {
+        this.showErrorText();
       }
     },
     close() {
+      this.hideErrorText();
       document.getElementById("signup-overlay").style.display = "none";
+    },
+    showErrorText() {
+      document.getElementById("signup-error-text").style.display = "block";
+    },
+    hideErrorText() {
+      document.getElementById("signup-error-text").style.display = "none";
     },
     loginPage() {
       this.close();
@@ -75,6 +85,11 @@ export default {
   font-family: "Roboto", sans-serif;
 }
 
+#signup-error-text {
+  display: none;
+  color: red;
+}
+
 .close-btn {
   color: white;
   position: absolute;
@@ -86,6 +101,7 @@ export default {
 
 form {
   display: grid;
+  min-width: 214px;
 }
 
 input {
