@@ -74,7 +74,7 @@ export default {};
   flex-direction: row;
   justify-content: space-evenly;
   margin-bottom: 10%;
-  margin-top: -30%;
+  margin-top: -50%;
   flex-wrap: wrap;
   gap: 5%;
 }
