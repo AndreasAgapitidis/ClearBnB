@@ -1,11 +1,7 @@
 <template>
-  <!-- <p>{{ listing1.beds }}</p> -->
   <p>This is house details page</p>
-  <p>This apartment has {{ listing1.beds }} beds</p>
-  <p>This apartment is in {{ listing1.city }} city</p>
-  <!-- <img :src="listing1.images[0]" alt="" /> -->
-  <PictureCarousel v-bind:listing="listing1" />
-  <DetailInfo />
+  <PictureCarousel v-bind:carouselprop="listing1" />
+  <DetailInfo v-bind:detailprop="listing1" />
   <BookingSelectables />
   <Cheapest />
   <StudentText />
@@ -38,22 +34,21 @@ export default {
 
   async created() {
     // maybe try to fetch listing with id
-    await this.$store.dispatch("fetchListings");
-    for (let listing of this.$store.state.listings) {
-      if (listing.id == this.$route.params.id) {
-        this.listing1 = listing;
-        console.log(listing);
-        console.log(this.listing1);
+    // await this.$store.dispatch("fetchListings");
+    // for (let listing of this.$store.state.listings) {
+    //   if (listing.id == this.$route.params.id) {
+    //     this.listing1 = listing;
 
-        // console.log(this.$store.state.listings);
-        // only 1 empty listing?
-        // for (let listing of this.$store.state.listings) {
-        //   if (listing.id == this.$route.params.id) {
-        //     this.listing = listing;
-        //   }
-        // }
-      }
-    }
+    let res = await fetch("/rest/listings/" + this.$route.params.id);
+    this.listing1 = await res.json();
+
+    // console.log(this.$store.state.listings);
+    // only 1 empty listing?
+    // for (let listing of this.$store.state.listings) {
+    //   if (listing.id == this.$route.params.id) {
+    //     this.listing = listing;
+    //   }
+    // }
   },
 
   // mounted() {

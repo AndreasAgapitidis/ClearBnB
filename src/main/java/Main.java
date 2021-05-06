@@ -23,7 +23,7 @@ public class Main {
     collection(op -> op.useBrowser = true);
 
     collection();
-    addNewListing();
+//    addNewListing();
     
     /*app.get("/rest/hello", (req, res) -> {
       res.json(Map.of("message", "Hello from express"));
@@ -40,7 +40,6 @@ public class Main {
 //              res.json(listing);
 ////        res.json(collection("Listing").findById("XYkYPbku0bidOmixpU0EE"));
 //            });
-      
 
       app.get("/rest/listings",(req,res) -> {
           res.json(collection("Listing").find());
@@ -76,6 +75,7 @@ public class Main {
 
   }
 
+
   //Temporarily function, used for adding dummy data
   public static void addNewListing(){
     Listing newListing = new Listing();
@@ -84,16 +84,17 @@ public class Main {
     newListing.setApartment(true);
     newListing.setHouse(false);
     newListing.setCity("Malmö");
-    newListing.setAddress("Bragegatan 31, 241 46");
-    newListing.setDescription("A lovely apartment");
+    newListing.setAddress("Btc valley 18");
+    newListing.setDescription("An otaku apartment");
     newListing.setArea(10);
     newListing.setBeds(3);
     newListing.setPrice(650);
     newListing.setRating(9.5);
 
     newListing.addBookedDate("id", "date");
-    newListing.addImage("");
-
+    newListing.addImage("https://i.pinimg.com/originals/96/f9/12/96f91221f7719729c142d1d15f63ac59.jpg");
+    newListing.addImage("http://pm1.narvii.com/5879/e761ec65257a70b84ff1d988c517fae086ad3691_00.jpg");
+    newListing.addImage("https://p1-tt.byteimg.com/large/pgc-image/1af894d774f2409d89710241a2d3d92f");
     collection(Listing.class).save(newListing);
 
 
