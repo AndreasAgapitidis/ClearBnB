@@ -91,18 +91,22 @@ public class Main {
     newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
     newListing.setApartment(true);
     newListing.setHouse(false);
-    newListing.setCity("Malmö");
-    newListing.setAddress("Btc valley 18");
-    newListing.setDescription("An otaku apartment");
-    newListing.setArea(10);
-    newListing.setBeds(3);
-    newListing.setPrice(650);
+    newListing.setCity("Kyoto");
+    newListing.setAddress(" Aisukuriimu daisuki 10");
+    newListing.setDescription("A traditional japanese ryokan");
+    newListing.setArea(30);
+    newListing.setBeds(2);
+    newListing.setPrice(850);
     newListing.setRating(9.5);
 
     newListing.addBookedDate("id", "date");
-    newListing.addImage("https://i.pinimg.com/originals/96/f9/12/96f91221f7719729c142d1d15f63ac59.jpg");
-    newListing.addImage("http://pm1.narvii.com/5879/e761ec65257a70b84ff1d988c517fae086ad3691_00.jpg");
-    newListing.addImage("https://p1-tt.byteimg.com/large/pgc-image/1af894d774f2409d89710241a2d3d92f");
+    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/330px-Tamatsukuri_onsen_yado02s3648.jpg");
+    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg/330px-Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg");
+    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/1920px-Tamatsukuri_onsen_yado02s3648.jpg");
+    newListing.addImage("https://www.nicolelabarge.com/wp-content/uploads/2020/01/DOZEN-RYOKAN-1024x683.jpg");
+    newListing.addImage("https://sugoii-japan.com/wp-content/uploads/2020/02/Japanese-Traditional-Inn-3-Kinnotake-Tonosawa-Adult-Only-1-1280x720.jpg");
+    newListing.addImage("https://travelcollecting.com/wp-content/uploads/2019/03/Ryokan-hostess-in-kimono.jpg");
+
     collection(Listing.class).save(newListing);
 
 

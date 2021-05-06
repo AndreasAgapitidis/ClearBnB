@@ -1,25 +1,45 @@
 <template>
-  <div class="slideshow">
+  <div class="slideshow" v-if="carouselprop">
+    <h1>{{ carouselprop.address }}</h1>
     <img
+      class="sliderCover"
       v-if="carouselprop"
       :src="carouselprop.images[count]"
-      alt="photo of the listing"
+      alt="photo of the listing cover"
     />
+
+    <img
+      class="photo1"
+      v-if="carouselprop"
+      :src="carouselprop.images[1]"
+      alt="photo of the listing1"
+    />
+
+    <img
+      class="photo2"
+      v-if="carouselprop"
+      :src="carouselprop.images[2]"
+      alt="photo of the listing2"
+    />
+
+    <img
+      class="photo3"
+      v-if="carouselprop"
+      :src="carouselprop.images[3]"
+      alt="photo of the listing3"
+    />
+
+    <img
+      class="photo4"
+      prevIndex
+      v-if="carouselprop"
+      :src="carouselprop.images[4]"
+      alt="photo of the listing4"
+    />
+
+    <button class="btn-left" @click="prevIndex">Prev</button>
+    <button class="btn-right" @click="nextIndex">Next</button>
   </div>
-  <button class="btn-left" @click="prevIndex">Prev</button>
-  <button class="btn-right" @click="nextIndex">Next</button>
-  <!-- <div class="slider"> -->
-  <!-- <div
-      v-for="(imgUrl, index) in carouselprop.images"
-      v-show="index === count"
-      :key="index"
-      class="slideshow"
-    >
-      <a href="#">
-        <img :src="imgUrl" />
-      </a>
-    </div> -->
-  <!-- </div> -->
 </template>
 
 <script>
@@ -32,14 +52,15 @@ export default {
     prevIndex() {
       this.count = this.count - 1;
       if (this.count < 0) {
-        this.count = 2;
+        this.count = this.carouselprop.images.length;
       }
+
       console.log(this.count);
     },
 
     nextIndex() {
       this.count = this.count + 1;
-      if (this.count > 2) {
+      if (this.count >= this.carouselprop.images.length) {
         this.count = 0;
       }
     },
@@ -70,15 +91,35 @@ export default {
 </script>
 
 <style scoped>
-img {
+h1 {
+  z-index: 1;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.slideshow {
+  top: 50px;
+  left: 0;
+  position: relative;
+}
+
+.sliderCover {
   height: 300px;
   width: 100vw;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 1px red solid;
-  z-index: 3;
+  z-index: -1;
+  filter: brightness(60%);
+}
+
+.photo1,
+.photo2,
+.photo3,
+.photo4 {
+  height: 75px;
+  width: 50px;
 }
 
 button {
