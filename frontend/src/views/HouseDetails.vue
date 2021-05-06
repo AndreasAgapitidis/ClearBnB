@@ -1,5 +1,4 @@
 <template>
-  <p>This is house details page</p>
   <PictureCarousel v-bind:carouselprop="listing1" />
   <DetailInfo v-bind:detailprop="listing1" />
   <BookingSelectables />

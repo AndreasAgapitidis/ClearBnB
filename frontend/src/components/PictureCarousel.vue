@@ -1,6 +1,4 @@
 <template>
-  <p>This is carousel component</p>
-
   <div class="slideshow">
     <img
       v-if="carouselprop"
@@ -74,8 +72,13 @@ export default {
 <style scoped>
 img {
   height: 300px;
-  width: 300px;
+  width: 100vw;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px red solid;
+  z-index: 3;
 }
 
 button {
