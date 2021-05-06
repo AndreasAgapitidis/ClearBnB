@@ -55,6 +55,8 @@ export default {};
 
 .wrapper {
   background-image: linear-gradient( rgb(255 255 255 / 0%), rgb(255 255 255) ) ,url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;

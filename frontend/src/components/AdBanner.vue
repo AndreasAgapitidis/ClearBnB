@@ -47,7 +47,12 @@ export default {};
   justify-content: center;
   align-items: flex-end;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  filter: grayscale(0.5);
+}
 
+.picture:hover{
+  transition: 0.5s;
+  filter: none;
 }
 
 
