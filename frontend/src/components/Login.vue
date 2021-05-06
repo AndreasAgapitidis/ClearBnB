@@ -4,8 +4,8 @@
     <div class="login-container">
       <form @submit.prevent="login">
         <p id="login-error-text">Invalid email or password</p>
-        <input v-model="email" type="email" placeholder="email" />
-        <input v-model="password" type="password" placeholder="password" />
+        <input v-model="email" type="email" placeholder="email" required />
+        <input v-model="password" type="password" placeholder="password" required />
         <button>Login</button>
       </form>
       <div class="signup-prompt">
