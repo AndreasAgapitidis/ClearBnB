@@ -13,7 +13,7 @@ export default createRouter({
     },
     {
       name: "details",
-      path: '/rest/listings/:id',
+      path: '/house_details/:id',
       component: HouseDetails
     }
   ]

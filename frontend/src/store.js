@@ -2,21 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    listing: {
-      id: '',
-      owner: '',
-      isApartment: '',
-      isHouse: '',
-      city: '',
-      address: '',
-      description: '',
-      area: '',
-      beds: '',
-      price: '',
-      rating: '',
-      unavailableDates: '',
-      images: ''
-    }
+    listings: {}
   },
 
   // this.$store.commit('mutationName')
@@ -35,6 +21,7 @@ export default createStore({
 
       let res = await fetch('/rest/listings');
       let listings = await res.json();
+
 
       // setListing runs setListing in mutations
       store.commit('setListings', listings)

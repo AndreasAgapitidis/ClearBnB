@@ -1,29 +1,61 @@
 <template>
-  <div class="carousel">
-    <h1>hallo</h1>
+  <div class="slider">
+    <p>This is carousel component</p>
+    <p>{{ listing.city }}</p>
+    <!-- <p>{{ listingprop.beds }}</p> -->
+    <!-- {{ listing }} -->
+
+    <span class="btn-left" @click="prevIndex"></span>
+    <div
+      v-for="(imgUrl, index) in listing.images"
+      v-show="index === count"
+      :key="index"
+      class="slideshow"
+    >
+      <a href="#">
+        <img :src="imgUrl" />
+      </a>
+    </div>
   </div>
-  <p>DUUUU</p>
 </template>
 
 <script>
 export default {
-  name: "Slider",
-  data() {
-    return {
-      listing: null,
-    };
-  },
-  // create runs before render, mount runs after render
-  created() {
-    console.log(this.$route.params.id);
-    console.log(this.$store.state.listings);
+  // name: "Slider",
 
-    // loop store listings for matching listing
-    for (let listing of this.$store.state.listings) {
-      if (listing.id == this.$route.params.id) {
-        this.listing = listing;
+  props: ["listing"],
+
+  methods: {
+    prevIndex() {
+      this.count = this.count - 1;
+      if (this.count < 0) {
+        this.count = 2;
       }
-    }
+      console.log(this.count);
+    },
+
+    data() {
+      return {
+        listing1: null,
+        count: 0,
+        img: [], // ['http://i.imgur.com/1.jpg', 'http://i.imgur.com/2.jpg'] ==================================
+        // BUT HOW TO DEAL WITH IT when having object arraylist?
+        // listing1.img does not work
+
+        // listing.images, through props already fetched all ImageURL, do i still need img:[]?
+        // child component, props of props?
+      };
+
+      // this.img = listing.images; ??
+    },
+
+    async created() {
+      // await this.$store.dispatch("fetchListings");
+      // for (let listing of this.$store.state.listings) {
+      //   if (listing.id == this.$route.params.id) {
+      //     this.listing1 = listing;
+      //   }
+    },
   },
 };
 </script>

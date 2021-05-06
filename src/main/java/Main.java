@@ -34,15 +34,15 @@ public class Main {
 //              res.json(listing);
 ////        res.json(collection("Listing").findById("XYkYPbku0bidOmixpU0EE"));
 //            });
+      
 
       app.get("/rest/listings",(req,res) -> {
           res.json(collection("Listing").find());
-          System.out.println("this is listings page");
       });
 
       app.get("/rest/listings/:id",(req,res) -> {
           res.json(collection("Listing").findById(req.params("id")));
-          System.out.println(":id");
+          System.out.println(req.params("id"));
       });
 
       // create listing from frontend, but this can wait
