@@ -14,7 +14,7 @@ export default {};
 <style>
 .component6 {
   height: 250px;
-  background-image: url('../assets/landlordpic.png');
+   background-image: linear-gradient( rgb(0 0 0 / 40%), rgb(0 0 0 / 40%) ), url('../assets/landlordpic.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -24,13 +24,6 @@ export default {};
   margin-bottom: 10%;
   width: 100%;
 }
-
-.component6{
-
-}
-
-
-
 
 .LandLordBtn {
   height: 55px;
