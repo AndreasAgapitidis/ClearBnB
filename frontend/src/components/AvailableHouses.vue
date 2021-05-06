@@ -10,7 +10,7 @@
         />
 
         <div class="textHouseWithPool1">
-          <h4>Price</h4>
+          <h4>Price1</h4>
         </div>
       </a>
 
@@ -23,7 +23,7 @@
         />
 
         <div class="textHouseWithPool2">
-          <h4>Price</h4>
+          <h4>Price2</h4>
         </div>
       </a>
     </div>
@@ -42,7 +42,7 @@
           />
 
           <div class="textHouse1">
-            <h4>Price</h4>
+            <h4>Price3</h4>
           </div>
         </a>
 
@@ -55,7 +55,7 @@
           />
 
           <div class="textHouse2">
-            <h4>Price</h4>
+            <h4>Price4</h4>
           </div>
         </a>
       </div>
