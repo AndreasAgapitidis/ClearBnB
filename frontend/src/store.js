@@ -5,21 +5,7 @@ export default createStore({
 
     cities: [],
 
-    listing: {
-      id: '',
-      owner: '',
-      isApartment: '',
-      isHouse: '',
-      city: '',
-      address: '',
-      description: '',
-      area: '',
-      beds: '',
-      price: '',
-      rating: '',
-      unavailableDates: '',
-      images: ''
-    },
+    listings: {},
 
     user: null
   },
@@ -89,9 +75,6 @@ export default createStore({
 
       let res = await fetch('/rest/SearchByCity')
       let cities = await res.json();
-
-      console.log("from fetchCities (store): ", res)
-      console.log("from fetchCities (store): ", cities)
 
       store.commit('setCities', cities)
     },

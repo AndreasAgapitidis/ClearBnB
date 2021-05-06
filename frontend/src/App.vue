@@ -16,7 +16,7 @@ import Signup from "./components/Signup.vue";
 
 export default {
   async created() {
-    this.$store.dispatch("fetchListings");
+    await this.$store.dispatch("fetchListings");
   },
   components: {
     Header,

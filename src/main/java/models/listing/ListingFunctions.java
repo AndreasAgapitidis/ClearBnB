@@ -11,6 +11,7 @@ public class ListingFunctions {
     public ListingFunctions(Express app) {
         this.app = app;
         initFunctions();
+        //addNewListing();
     }
 
     public void initFunctions(){
@@ -50,7 +51,7 @@ public class ListingFunctions {
         newListing.setRating(9.5);
 
         newListing.addBookedDate("id", "date");
-        newListing.addImage("");
+        newListing.addImage("https://images.sembo.se/ImageService/ImageHandler.ashx?service=url&nameOfImage=https%3a%2f%2fstatic-cdn.r360online.se%2fbranas%2fimages%2febef3e51bdf6c2decf91922d40bc1afa_org.jpg&resizeMode=FitOutside&width=1220&height=768&formatSettings=jpeg(quality-90)");
 
         collection(Listing.class).save(newListing);
 

@@ -12,7 +12,7 @@ public class CityFunctions {
     public CityFunctions(Express app) {
         this.app = app;
         initFunctions();
-        //addNewCity("Malmö", "https://malmo.se/images/18.4f363e7d1766a784af11e2b2/1614241290216/Flygfoto%20Malm%C3%B6%20stad_2015_webben_Fotograf%20Bojana%20Lukac.jpg");
+        //addNewCity("Madrid", "https://malmo.se/images/18.4f363e7d1766a784af11e2b2/1614241290216/Flygfoto%20Malm%C3%B6%20stad_2015_webben_Fotograf%20Bojana%20Lukac.jpg");
     }
 
     public void initFunctions(){
