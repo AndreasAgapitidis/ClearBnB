@@ -1,14 +1,8 @@
 <template>
   <div class="component6">
     <div class="LookingForCustomers">
-      <label for="LookingForCustomers">Looking For Customers?</label>
+      <label for="LookingForCustomers"><h1>Looking For Customers?</h1></label>
     </div>
-
-    <img
-      class="LandLordPic"
-      src="../assets/landlordpic.png"
-      alt="LandLordPic"
-    />
     <button class="LandLordBtn">Become a landlord</button>
   </div>
 </template>
@@ -19,43 +13,54 @@ export default {};
 
 <style>
 .component6 {
+  height: 250px;
+  background-image: url('../assets/landlordpic.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
-  flex-direction: unset;
+  justify-content: space-around;
+  flex-direction: column;
   margin-bottom: 10%;
+  width: 100%;
 }
 
-.LandLordPic {
-  width: 100%;
-  height: 20%;
+.component6{
+
 }
+
+
+
 
 .LandLordBtn {
-  position: absolute;
   height: 55px;
   width: 240px;
-  border-radius: 20px;
-  background-color: black;
-  color: rgb(255, 174, 0);
-  box-shadow: 2px 2px 2px white;
-  font-weight: bold;
+  border-radius: 50px;
+  background-color: #FAFAFA;
+  color: rgb(58, 58, 58);
+  font-weight: 100;
   font-size: 18px;
-  cursor: grab;
-  margin-bottom: 5%;
-  margin-left: 75%;
+  cursor: pointer;
+  margin-bottom: 15px;
+
 }
 
+
 .LookingForCustomers {
-  position: absolute;
-  font-size: 32px;
+  
+
   font-weight: bold;
   padding-inline: 2px 2px;
-  font-style: italic;
-  color: rgb(255, 174, 0);
-  margin-bottom: 50px;
-  margin-left: 5%;
+  margin: 0;
   padding: 3px 3px;
-  box-shadow: 2px 2px 2px white;
-  text-shadow: 2px 2px rgb(0, 0, 0);
+
+  
 }
+
+label > h1 {
+  font-size: 2em;
+  color: rgb(240, 240, 240); 
+  font-weight: bolder;
+}
+
 </style>

@@ -3,8 +3,8 @@
       <div class="studentTxt">
         <label for="studentTxt"
           >Student?<br />No worries,with our beneficial student package<br />
-          you'll be eligible for student dotms/apt. in no time!<br />Read more
-          here</label
+          you'll be eligible for student dorms/apt. in no time!<br />
+          <span>Read more here</span></label
         >
       </div>
     </div>
@@ -16,18 +16,27 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .component5 {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 10%;
-}
+  margin: 30px auto;
+  text-align: left;
+  letter-spacing: 1px;
+  width: 90%;
+  
+  }
 
 .studentTxt{
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: normal;
   color: black;
+}
+
+.studentTxt > span{
+  font-weight: bold;
+
 }
 </style>
