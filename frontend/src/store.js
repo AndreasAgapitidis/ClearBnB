@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    listings: {}
+    listings: {},
+    user: null
   },
 
   // this.$store.commit('mutationName')
@@ -11,20 +12,67 @@ export default createStore({
     // listings updates and overwrite by java listing object
     setListings(state, listings) {
       state.listings = listings
+    },
+
+    setUser(state, user) {
+      state.user = user
     }
   },
 
   // this.$store.dispatch('actionName')
   actions: {
+    async logout(store) {
+      let res = await fetch('/api/logout')
+
+      // remove user from state
+      store.commit('setUser', null)
+    },
+
+    async whoAmI(store) {
+      let res = await fetch('/api/whoami')
+      let user = await res.json()
+
+      store.commit('setUser', user)
+    },
+
+    async register(store, credentials) {
+      let res = await fetch('/api/register', {
+        method: 'POST',
+        body: JSON.stringify(credentials)
+      })
+
+      let loggedInUser = await res.json()
+
+      if (loggedInUser.error) {
+        store.commit('setUser', null)
+        return
+      }
+
+      store.commit('setUser', loggedInUser)
+    },
+
+    async login(store, credentials) {
+      let res = await fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify(credentials)
+      })
+
+      let loggedInUser = await res.json()
+
+      if (loggedInUser.error) {
+        store.commit('setUser', null)
+        return
+      }
+      store.commit('setUser', loggedInUser)
+    },
 
     async fetchListings(store) {
 
       let res = await fetch('/rest/listings');
       let listings = await res.json();
-
-
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
     }
   }
-})
+});
+
