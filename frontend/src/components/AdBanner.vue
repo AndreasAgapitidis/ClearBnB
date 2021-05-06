@@ -1,21 +1,25 @@
 <template>
   <div class="component3">
-    
-    <div class="picture">
-      <button class="bookNowBtn">Book now!</button>
-    </div>
-    
+    <a href="">
+      <img
+        class="poolHousePic"
+        src="../assets/Houses/HouseWithPool1.jpg"
+        alt="HouseWithPool"
+        width="600"
+        height="400"
+      />
+    </a>
+
+    <button class="bookNowBtn">Book Now!</button>
 
     <div class="shameLessTxt">
       <label for="shameLessTxt">
         Treat yourself and your family.<br />This gem is located close<br />to
-        the italian wine-yards in Toscana.<br /><br /><br />
-        <span>Read more.</span>
-        
-        </label>
+        the italian wine-yards in Toscana.<br /><br /><br />Read more.</label
+      >
     </div>
 
-    
+    <button class="bookNowBtn">Book Now!</button>
   </div>
 </template>
 
@@ -24,17 +28,12 @@ export default {};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 .component3 {
-  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: flex-end;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10%;
-  width: 100%;
-  height: 300px;
 }
 
 .picture{
@@ -55,33 +54,27 @@ export default {};
   filter: none;
 }
 
-
 .shameLessTxt {
-  text-align: right;
-  display: flex;
   font-size: 20px;
   font-weight: bold;
   padding-inline: 2px 2px;
   color: black;
-  height: 100%;
-  align-items: center;
-}
-
-span {
-  text-decoration: underline;
+  margin-bottom: 15%;
+  margin-right: 5%;
 }
 
 .bookNowBtn {
-  font-family: 'Roboto', sans-serif;
+  position: absolute;
   height: 40px;
   width: 200px;
   border-radius: 20px;
-  background-color: #2C2B2B;
+  background-color: rgb(37, 37, 37);
   color: white;
-  font-weight: 100;
+  font-weight: bold;
   font-size: 16px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  outline: none;
+  cursor: grab;
+  margin-bottom: 10%;
+  margin-left: 16%;
+  box-shadow: 3px 3px 3px black;
 }
 </style>

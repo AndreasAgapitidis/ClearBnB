@@ -12,10 +12,7 @@ export default {};
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
 .component2 {
-  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: flex-end;
   flex-direction: row;
@@ -36,16 +33,14 @@ export default {};
 }
 
 .registerBtn {
-  font-family: 'Roboto', sans-serif;
   height: 50px;
   width: 180px;
   border-radius: 50px;
-  background-color: #2C2B2B;
-  color: #FAFAFA;
-  font-weight: 100;
+  background-color: rgb(37, 37, 37);
+  color: white;
+  font-weight: bolder;
   font-size: 16px;
-  cursor: pointer;
-  border: none;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  cursor: grab;
+  box-shadow: 3px 3px 3px black;
 }
 </style>
