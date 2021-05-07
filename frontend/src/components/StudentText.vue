@@ -22,7 +22,7 @@ export default {
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 30px auto;
+  margin: 15% auto;
   text-align: left;
   letter-spacing: 1px;
   width: 90%;
