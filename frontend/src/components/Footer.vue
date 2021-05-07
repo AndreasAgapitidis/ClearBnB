@@ -73,7 +73,7 @@ footer{
   background-image: url('../assets/Footer-Header/Footer-Final.png');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 98vw;
+  width: 100vw;
   margin: 0px;
   color: #FAFAFA;
   display: flex;

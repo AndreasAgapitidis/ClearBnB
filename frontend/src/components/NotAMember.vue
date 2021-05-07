@@ -26,7 +26,7 @@ export default {};
 }
 
 .userSignUp {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 200px;
   padding-inline: 2px 2px;
   font-style: italic;
@@ -43,9 +43,9 @@ export default {};
 
 .registerBtn {
   font-family: 'Roboto', sans-serif;
-  height: 50px;
+  height: 2em;
   letter-spacing: 1px;
-  width: 180px;
+  width: 10em;
   border-radius: 50px;
   background-color: rgb(37, 37, 37);
   color: white;
