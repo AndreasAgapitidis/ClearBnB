@@ -11,13 +11,12 @@ public class ListingFunctions {
     public ListingFunctions(Express app) {
         this.app = app;
         initFunctions();
-        addNewListing();
+        //addNewListing();
     }
 
     public void initFunctions(){
         app.get("/rest/listings",(req,res) -> {
             res.json(collection("Listing").find());
-            System.out.println("this is listings page");
         });
 
         app.get("/rest/listings/:id",(req,res) -> {
