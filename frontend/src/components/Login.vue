@@ -3,8 +3,9 @@
     <a class="close-btn" @click="close">x</a>
     <div class="login-container">
       <form @submit.prevent="login">
-        <input v-model="email" type="text" placeholder="email" />
-        <input v-model="password" type="password" placeholder="password" />
+        <p id="login-error-text">Invalid email or password</p>
+        <input v-model="email" type="email" placeholder="email" required />
+        <input v-model="password" type="password" placeholder="password" required />
         <button>Login</button>
       </form>
       <div class="signup-prompt">
@@ -32,14 +33,27 @@ export default {
       };
 
       await this.$store.dispatch("login", credentials)
-      
+
       // if login was successful, close the login overlay
       if (this.$store.state.user) {
         this.close()
+      } else {
+        this.showErrorText()
       }
     },
     close() {
+      this.hideErrorText();
       document.getElementById("login-overlay").style.display = "none"
+    },
+    showErrorText() {
+      document.getElementById("login-error-text").style.display = "block"
+    },
+    hideErrorText() {
+      document.getElementById("login-error-text").style.display = "none"
+    },
+    signUpPage() {
+      this.close()
+      document.getElementById("signup-overlay").style.display = "flex"
     },
   },
 };
@@ -61,8 +75,12 @@ export default {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.96); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
   font-family: "Roboto", sans-serif;
+}
+
+#login-error-text {
+  display: none;
+  color: red;
 }
 
 .close-btn {
@@ -72,10 +90,12 @@ export default {
   right: 16px;
   font-size: 24px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 form {
   display: grid;
+  min-width: 214px;
 }
 
 input {
@@ -84,6 +104,7 @@ input {
 
 button {
   margin-bottom: 6px;
+  cursor: pointer;
 }
 
 .signup-prompt {
@@ -97,5 +118,6 @@ button {
 
 .signup-prompt a {
   font-weight: bold;
+  cursor: pointer;
 }
 </style>

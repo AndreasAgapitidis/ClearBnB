@@ -32,8 +32,6 @@ export default createStore({
     async logout(store) {
       let res = await fetch('/api/logout')
 
-      console.log("logged out")
-
       // remove user from state
       store.commit('setUser', null)
     },
@@ -52,6 +50,11 @@ export default createStore({
       })
 
       let loggedInUser = await res.json()
+
+      if (loggedInUser.error) {
+        store.commit('setUser', null)
+        return
+      }
 
       store.commit('setUser', loggedInUser)
     },

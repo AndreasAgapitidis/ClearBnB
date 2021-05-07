@@ -32,8 +32,9 @@ body {
   margin: 0px;
 }
 
-main {
-  height: 100vh;
+main{
+  min-height: 100vh;
+  position: relative;
 }
 
 #app {

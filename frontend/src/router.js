@@ -4,7 +4,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import SearchByCity from './views/SearchByCity.vue'
 import HouseDetails from './views/HouseDetails.vue'
-import Auth from './components/Auth.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -27,9 +26,5 @@ export default createRouter({
       path: '/rest/listings/:id',
       component: HouseDetails,
     },
-    {
-      path: '/auth',
-      component: Auth
-    }
   ]
 })
