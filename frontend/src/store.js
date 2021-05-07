@@ -89,6 +89,23 @@ export default createStore({
 
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
-    }
+    },
+
+    async fetchCitiesByDate(store, range) {
+      if (!range.start) {
+        return
+      }
+
+      console.log(this.$route)
+
+      let res = await fetch('/rest/datelistings/' + $route.params.id, {
+        method: 'POST',
+        body: JSON.stringify(range)
+      })
+
+      let listings = await res.json()
+
+      store.commit('setListings', listings)
+    },
   }
 })

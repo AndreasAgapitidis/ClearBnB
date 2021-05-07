@@ -1,15 +1,17 @@
 <template>
-  <div class="inputCityAndDateContainer">
-    <h2>Sök stad:</h2>
-    <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
-    <div class="searchResults" v-if="userSearchedFor">
-      <CityItem
-        v-for="city of cities"
-        v-bind:key="city.id"
-        v-bind:city="city"
-      />
+  <div class="HeroBanner2">
+    <div class="inputCityAndDateContainer">
+      <h2>City:</h2>
+      <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
+      <div class="searchResults" v-if="userSearchedFor">
+        <CityItem
+          v-for="city of cities"
+          v-bind:key="city.id"
+          v-bind:city="city"
+        />
+      </div>
+      <BookingCalendar />
     </div>
-    <BookingCalendar />
   </div>
 </template>
 
@@ -57,6 +59,11 @@ export default {
   box-sizing: border-box;
 }
 
+.HeroBanner2 {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
 .inputCityAndDateContainer {
   width: 200px;
   margin: auto;
@@ -77,6 +84,18 @@ export default {
 input {
   width: 200px;
   max-width: 100%;
+  font-weight: 200;
+  margin: 2em 0;
+  height: 2em;
+  justify-content: center;
+  border: none;
   padding: 10px;
+  border-radius: 0 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+input:focus {
+  outline: none;
 }
 </style>
