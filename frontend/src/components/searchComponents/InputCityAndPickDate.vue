@@ -60,6 +60,8 @@ export default {
     filterIntoUsersChoice(userSearchedFor) {
       let filteredListings = this.$store.state.listings;
 
+      this.newListing = [];
+
       filteredListings = this.$store.state.listings.filter((listing) => {
         if (listing.city == userSearchedFor) {
           this.newListing.push(listing);
