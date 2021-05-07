@@ -26,8 +26,6 @@ export default createRouter({
       name: "details",
       path: '/rest/listings/:id',
       component: HouseDetails,
-
-
     },
     {
       path: '/auth',
