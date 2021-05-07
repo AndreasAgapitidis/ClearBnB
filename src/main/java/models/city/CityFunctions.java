@@ -26,7 +26,7 @@ public class CityFunctions {
          System.out.println("searched");
         });
      app.get("/rest/listingsFromChosenCity/:id", (request, response) -> {
-         List<Listing> filteredListings = collection("Listing").find(eq("city",request.params("id")));
+         List<Listing> filteredListings = collection("Listing").find();
          response.json(filteredListings);
          System.out.println("getAll");
      });
