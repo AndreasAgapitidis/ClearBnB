@@ -32,7 +32,7 @@ body {
   margin: 0px;
 }
 
-main{
+main {
   min-height: 100vh;
   position: relative;
 }

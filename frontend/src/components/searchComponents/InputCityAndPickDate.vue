@@ -1,19 +1,14 @@
 <template>
   <div class="inputCityAndDateContainer">
     <h2>Sök stad:</h2>
-    <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
-    <div class="searchResults" v-if="userSearchedFor">
+    <input v-model="userInput" type="text" placeholder="Search city:" />
+    <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
         v-bind:key="city.id"
         v-bind:city="city"
+        @click="clearTheSearchBox(city)"
       />
-    </div>
-    <div>
-      <p>Incheckning</p>
-      <input type="date" name="Arrival date" id="" />
-      <p>Utcheckning</p>
-      <input type="date" name="Arrival date" id="" />
     </div>
   </div>
 </template>
@@ -28,17 +23,19 @@ export default {
 
   data() {
     return {
+      userInput: "",
       userSearchedFor: "",
+      newListing: [],
     };
   },
 
   computed: {
     //User input and search for it from a fetched city list
     cities() {
-      if (this.userSearchedFor) {
+      if (this.userInput) {
         return this.$store.state.cities.filter((city) => {
           let name = city.name.toLowerCase();
-          let userSearch = this.userSearchedFor.toLowerCase();
+          let userSearch = this.userInput.toLowerCase();
 
           if (name.includes(userSearch)) {
             return city;
@@ -52,6 +49,26 @@ export default {
   components: {
     CityItem,
   },
+  methods: {
+    clearTheSearchBox(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = "";
+      /* this.$emit("this.userSearchedFor"); */
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    },
+
+    filterIntoUsersChoice(userSearchedFor) {
+      let filteredListings = this.$store.state.listings;
+
+      filteredListings = this.$store.state.listings.filter((listing) => {
+        if (listing.city == userSearchedFor) {
+          this.newListing.push(listing);
+        }
+      });
+
+      this.$parent.filteredListings = this.newListing;
+    },
+  },
 };
 </script>
 
@@ -64,6 +81,7 @@ export default {
   width: 200px;
   margin: auto;
   position: relative;
+  margin-top: 200px;
 }
 
 .searchResults {
@@ -80,5 +98,8 @@ input {
   width: 200px;
   max-width: 100%;
   padding: 10px;
+}
+
+.cityTitle {
 }
 </style>
