@@ -69,8 +69,8 @@ export default {};
   "H3 H4"
   ;
   grid-gap: 2em 2em;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  margin-bottom: 15%;
+  margin-top: 15%;
   place-content: center;
 }
 
