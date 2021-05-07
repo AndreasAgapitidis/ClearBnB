@@ -1,25 +1,21 @@
 <template>
-  <div>
-    <div class="availableHouses">
-      <label for="availableHouses" class="availableHouseTxt"
-        >Available apt./houses</label
-      >
-    </div>
-
+  
     <div class="component4">
-      <a href="">
+      <div class="availableHouses">
+        <p>Available apt./houses</p>
+        </div>
+
+      <div class="HouseCard1">
         <img
           class="HouseWithPool1"
           src="../assets/Houses/HouseWithPool1.jpg"
           alt="HouseWithPool"
-          width="260"
-          height="250"
         />
 
-        <div type="button" class="textHouseWithPool1">Price1</div>
-      </a>
+        <div class="textHouseWithPool1 text"><h4>5000sek</h4></div>
+      </div>
 
-      <a href="">
+      <div class="HouseCard2">
         <img
           class="HouseWithPool2"
           src="../assets/Houses/HouseWithPool2.jpg"
@@ -28,34 +24,31 @@
           height="250"
         />
 
-        <div type="button" class="textHouseWithPool2">Price2</div>
-      </a>
+        <div class="textHouseWithPool2 text"><h4>12.000sek</h4></div>
+      </div>
 
-      <a href="">
+      <div class="HouseCard3">
         <img
           class="House1"
           src="../assets/Houses/House1.jpg"
           alt="House1"
-          width="260"
-          height="250"
+       
         />
 
-        <div class="textHouse1">PriceA</div>
-      </a>
+        <div class="textHouse1 text"><h4>3500sek</h4></div>
+      </div>
 
-      <a href="">
+      <div class="HouseCard4">
         <img
           class="House2"
           src="../assets/Houses/House2.jpg"
           alt="House2"
-          width="260"
-          height="250"
         />
+        <div class="textHouse2 text"><h4>5000sek</h4></div>
+      </div>
 
-        <div class="textHouse2">PriceB</div>
-      </a>
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -63,90 +56,97 @@ export default {};
 </script>
 
 <style scoped>
-.availableHouseTxt {
-  font-size: 24px;
-  font-weight: bold;
-  margin-left: 35%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .component4 {
-  display: inline-grid;
-  grid-template-columns: 5% 5%;
-  grid-gap: 50px 400px;
-  margin-left: 10%;
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 10% 0.5fr 0.5fr;
+  grid-template-areas: 
+  ". title"
+  "H1 H2"
+  "H3 H4"
+  ;
+  grid-gap: 2em 2em;
   margin-bottom: 5%;
-  margin-top: 2%;
+  margin-top: 5%;
+  place-content: center;
 }
 
-.HouseWithPool1 {
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 2px 2px black;
-  border-bottom: 80px solid white;
+.availableHouses {
+
+  font-weight: bold;
+  grid-area: title;
+  font-size: 20px;
+
+}
+
+.HouseCard1{
+grid-area: H1;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.HouseCard2{
+grid-area: H2;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.HouseCard3{
+grid-area: H3;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.HouseCard4{
+grid-area: H4;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .textHouseWithPool1 {
-  position: relative;
-  top: -60px;
-  left: 70px;
-  margin-right: 25%;
-  margin-left: 40%;
-  width: 10%;
+  text-align: center;
   font-size: 24px;
   font-style: italic;
   color: black;
-}
-
-.HouseWithPool2 {
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 2px 2px black;
-  border-bottom: 80px solid white;
 }
 
 .textHouseWithPool2 {
-  position: relative;
-  top: -60px;
-  left: 70px;
-  margin-right: 25%;
-  margin-left: 40%;
-  width: 10%;
+ 
   font-size: 24px;
   font-style: italic;
   color: black;
-}
-
-.House1 {
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 2px 2px black;
-  border-bottom: 80px solid white;
 }
 
 .textHouse1 {
-  position: relative;
-  top: -60px;
-  left: 70px;
-  margin-right: 25%;
-  margin-left: 40%;
-  width: 10%;
+  
   font-size: 24px;
   font-style: italic;
   color: black;
-}
-
-.House2 {
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0px 0px 2px 2px black;
-  border-bottom: 80px solid white;
 }
 
 .textHouse2 {
-  position: relative;
-  top: -60px;
-  left: 70px;
-  margin-right: 25%;
-  margin-left: 40%;
-  width: 10%;
+ 
   font-size: 24px;
   font-style: italic;
   color: black;
 }
+
+.component4 > div > img {
+  height: 150px;
+  width: 200px;
+  border-radius: 20px 20px 0 0;
+}
+
+.component4 > div > div > h4{
+ margin: 0.5em;
+}
+
 </style>
