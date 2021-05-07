@@ -1,7 +1,7 @@
 <template>
   <div class="component2">
     <div class="userSignUp">
-      <label for="userSignUp">Not a member?</label>
+      <label for="userSignUp">Not a <span>member?</span></label>
     </div>
     <button class="registerBtn">Register here</button>
   </div>
@@ -34,15 +34,24 @@ export default {};
   margin-bottom: 10px;
 }
 
+.userSignUp > label > span {
+ text-decoration: underline;
+ color: rgb(226, 99, 26);
+}
+
+
+
 .registerBtn {
+  font-family: 'Roboto', sans-serif;
   height: 50px;
+  letter-spacing: 1px;
   width: 180px;
   border-radius: 50px;
   background-color: rgb(37, 37, 37);
   color: white;
   font-weight: 200;
   font-size: 16px;
-  cursor: grab;
+  cursor: pointer;
   box-shadow: 3px 3px 3px black;
 }
 </style>

@@ -2,12 +2,20 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+
+    cities: [],
+
     listings: {},
+
     user: null
   },
 
   // this.$store.commit('mutationName')
   mutations: {
+
+    setCities(state, cities) {
+      state.cities = cities
+    },
 
     // listings updates and overwrite by java listing object
     setListings(state, listings) {
@@ -64,6 +72,14 @@ export default createStore({
         return
       }
       store.commit('setUser', loggedInUser)
+    },
+
+    async fetchCities(store) {
+
+      let res = await fetch('/rest/SearchByCity')
+      let cities = await res.json();
+
+      store.commit('setCities', cities)
     },
 
     async fetchListings(store) {

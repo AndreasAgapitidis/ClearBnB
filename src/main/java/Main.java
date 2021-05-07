@@ -3,6 +3,8 @@ import models.city.City;
 import models.listing.Listing;
 import models.users.UserAccount;
 import utilities.HashPassword;
+import models.city.CityFunctions;
+import models.listing.Listing;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import static nosqlite.Database.collection;
 import models.listing.Listing;
 import static nosqlite.utilities.Filter.*;
 
+import models.listing.Listing;
+import models.listing.ListingFunctions;
 /*
     C - Create  POST
     R - Read    GET
@@ -46,29 +50,18 @@ public class Main {
 ////        res.json(collection("Listing").findById("XYkYPbku0bidOmixpU0EE"));
 //            });
 
-      app.get("/rest/listings",(req,res) -> {
-          res.json(collection("Listing").find());
-      });
-
-      app.get("/rest/listings/:id",(req,res) -> {
-          res.json(collection("Listing").findById(req.params("id")));
-          System.out.println(req.params("id"));
-      });
-
-      // create listing from frontend, but this can wait
-      app.post("/rest/listings",(req,res) -> {
-          Listing listing = req.body(Listing.class);
-          // getting an id
-          collection("Listing").save(listing);
-          // update
-          res.json(listing);
-      });
-
-    // start server
-    app.listen(4000);
 
     // init Auth
     new Auth(app);
+    
+
+    new CityFunctions(app);
+    new ListingFunctions(app);
+
+
+
+    // start server
+    app.listen(4000);
   }
 
 

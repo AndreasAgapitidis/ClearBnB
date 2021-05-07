@@ -5,7 +5,6 @@
   <main>
     <router-view />
   </main>
-
   <Footer />
 </template>
 
@@ -19,7 +18,6 @@ export default {
   async created() {
     await this.$store.dispatch("fetchListings");
   },
-
   components: {
     Header,
     Footer,

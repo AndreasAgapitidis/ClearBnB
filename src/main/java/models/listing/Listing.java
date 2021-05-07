@@ -26,15 +26,10 @@ public class Listing {
 
     //Default constructor, think this is needed with the use of Java Express. //Mac
     public Listing() {
-
     }
 
-    public void addImage(String imageURL){
-        this.images.add(imageURL);
-    }
-
-    public void addBookedDate(String id, String date){
-        this.unavailableDates.put(id, date);
+    public void addBookedDate(String reservationID, String date){
+        this.unavailableDates.put(reservationID, date);
     }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
@@ -143,7 +138,9 @@ public class Listing {
         this.images = images;
     }
 
-
+    public void addImage(String imageURL){
+        this.images.add(imageURL);
+    }
 
     //</editor-fold>
 

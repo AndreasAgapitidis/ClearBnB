@@ -1,68 +1,54 @@
 <template>
-  <div>
-    <div class="availableHouses">
-      <label for="availableHouses" class="availableHouseTxt"
-        >Available apt./houses</label
-      >
-    </div>
-
+  
     <div class="component4">
-      <div class="leftSide">
-        <a href="">
-          <img
-            src="../assets/Houses/HouseWithPool1.jpg"
-            alt="HouseWithPool"
-            width="250"
-            height="300"
-          />
-          <div class="textHouseWithPool1">
-            <h4>Price1</h4>
-          </div>
-        </a>
+      <div class="availableHouses">
+        <p>Available apt./houses</p>
+        </div>
 
-        <a href="">
-          <img
-            src="../assets/Houses/HouseWithPool2.jpg"
-            alt="HouseWithPool2"
-            width="250"
-            height="300"
-          />
+      <div class="HouseCard1">
+        <img
+          class="HouseWithPool1"
+          src="../assets/Houses/HouseWithPool1.jpg"
+          alt="HouseWithPool"
+        />
 
-          <div class="textHouseWithPool2">
-            <h4>Price2</h4>
-          </div>
-        </a>
+        <div class="textHouseWithPool1 text"><h4>5000sek</h4></div>
       </div>
 
-      <div class="rightSide">
-        <a href="">
-          <img
-            src="../assets/Houses/House1.jpg"
-            alt="House1"
-            width="250"
-            height="300"
-          />
+      <div class="HouseCard2">
+        <img
+          class="HouseWithPool2"
+          src="../assets/Houses/HouseWithPool2.jpg"
+          alt="HouseWithPool2"
+          width="260"
+          height="250"
+        />
 
-          <div class="textHouse1">
-            <h4>Price3</h4>
-          </div>
-        </a>
-
-        <a href="">
-          <img
-            src="../assets/Houses/House2.jpg"
-            alt="House2"
-            width="250"
-            height="300"
-          />
-
-          <div class="textHouse2">
-            <h4>Price4</h4>
-          </div>
-        </a>
+        <div class="textHouseWithPool2 text"><h4>12.000sek</h4></div>
       </div>
+
+      <div class="HouseCard3">
+        <img
+          class="House1"
+          src="../assets/Houses/House1.jpg"
+          alt="House1"
+       
+        />
+
+        <div class="textHouse1 text"><h4>3500sek</h4></div>
+      </div>
+
+      <div class="HouseCard4">
+        <img
+          class="House2"
+          src="../assets/Houses/House2.jpg"
+          alt="House2"
+        />
+        <div class="textHouse2 text"><h4>5000sek</h4></div>
+      </div>
+
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -70,64 +56,102 @@ export default {};
 </script>
 
 <style scoped>
-.availableHouseTxt {
-  font-size: 24px;
-  font-weight: bold;
-  margin-left: 40%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .component4 {
+  font-family: 'Roboto', sans-serif;
   display: grid;
-  display: inline-grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 50px 100px;
-  margin-left: 10%;
-  margin-bottom: 10%;
+  grid-template-columns: auto auto;
+  grid-template-rows: 10% 0.5fr 0.5fr;
+  grid-template-areas: 
+  ". title"
+  "H1 H2"
+  "H3 H4"
+  ;
+  grid-gap: 2em 2em;
+  margin-bottom: 15%;
+  margin-top: 15%;
+  place-content: center;
 }
 
-.leftSide {
+.availableHouses {
+
+  font-weight: bold;
+  grid-area: title;
+  font-size: 20px;
+
 }
 
-.rightSide {
+.HouseCard1{
+grid-area: H1;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.HouseCard2{
+grid-area: H2;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.HouseCard3{
+grid-area: H3;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.HouseCard4{
+grid-area: H4;
+border: 1px solid black;
+border-radius: 20px;
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .textHouseWithPool1 {
-  margin-right: 25%;
-  margin-left: 40%;
-  margin-bottom: 10%;
-  width: 10%;
-  height: 10%;
+  text-align: center;
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
 }
 
 .textHouseWithPool2 {
-  margin-right: 25%;
-  margin-left: 40%;
-  margin-bottom: 10%;
-  width: 10%;
-  height: 10%;
+ 
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
 }
 
 .textHouse1 {
-  margin-right: 25%;
-  margin-left: 40%;
-  margin-bottom: 10%;
-  width: 10%;
-  height: 10%;
+  
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
 }
 
 .textHouse2 {
-  margin-right: 25%;
-  margin-left: 40%;
-  margin-bottom: 10%;
-  width: 10%;
-  height: 10%;
+ 
   font-size: 24px;
-  font-weight: bold;
+  font-style: italic;
+  color: black;
 }
+
+.component4 > div > img {
+  height: 150px;
+  width: 200px;
+  border-radius: 20px 20px 0 0;
+  filter: grayscale(0.5);
+  transition: 0.5s;
+}
+.component4 > div > img:hover{
+  filter: none;
+}
+
+.component4 > div > div > h4{
+ margin: 0.5em;
+}
+
 </style>

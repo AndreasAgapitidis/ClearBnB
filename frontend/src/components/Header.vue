@@ -56,6 +56,8 @@ header {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 .container {
@@ -105,5 +107,6 @@ img {
 
 .login-logout {
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
 }
 </style>

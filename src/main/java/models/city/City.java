@@ -15,6 +15,11 @@ public class City {
 
     public City() {    }
 
+    public void addImage(String URL){
+        this.images.add(URL);
+    }
+
+    //<editor-fold desc="----------- GETTER & SETTERS ----------">
     public String getId() {
         return id;
     }
@@ -38,10 +43,8 @@ public class City {
     public void setImages(ArrayList<String> images) {
         this.images = images;
     }
+    //</editor-fold>
 
-    public void addImage(String URL){
-        this.images.add(URL);
-    }
 
     @Override
     public String toString() {
