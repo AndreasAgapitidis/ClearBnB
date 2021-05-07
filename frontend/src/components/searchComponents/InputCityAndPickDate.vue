@@ -30,7 +30,7 @@ export default {
   },
 
   computed: {
-    //User input and search for it from a fetched city list
+    //Search for what the user inputed, from a fetched city list
     cities() {
       if (this.userInput) {
         return this.$store.state.cities.filter((city) => {
