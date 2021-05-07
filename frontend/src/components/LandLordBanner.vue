@@ -12,6 +12,9 @@ export default {};
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 .component6 {
   height: 250px;
    background-image: linear-gradient( rgb(0 0 0 / 40%), rgb(0 0 0 / 40%) ), url('../assets/landlordpic.png');
@@ -26,6 +29,7 @@ export default {};
 }
 
 .LandLordBtn {
+  font-family: 'Roboto', sans-serif;
   height: 55px;
   width: 240px;
   border-radius: 50px;
@@ -35,7 +39,7 @@ export default {};
   font-size: 18px;
   cursor: pointer;
   margin-bottom: 15px;
-
+  letter-spacing: 1px;
 }
 
 

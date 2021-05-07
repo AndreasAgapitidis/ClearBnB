@@ -42,14 +42,16 @@ export default {};
 
 
 .registerBtn {
+  font-family: 'Roboto', sans-serif;
   height: 50px;
+  letter-spacing: 1px;
   width: 180px;
   border-radius: 50px;
   background-color: rgb(37, 37, 37);
   color: white;
   font-weight: 200;
   font-size: 16px;
-  cursor: grab;
+  cursor: pointer;
   box-shadow: 3px 3px 3px black;
 }
 </style>
