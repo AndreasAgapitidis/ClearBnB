@@ -94,6 +94,7 @@ img {
 
 .login-logout {
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 
 </style>

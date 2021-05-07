@@ -87,28 +87,28 @@ grid-area: H1;
 border: 1px solid black;
 border-radius: 20px;
 width: 200px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard2{
 grid-area: H2;
 border: 1px solid black;
 border-radius: 20px;
 width: 200px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard3{
 grid-area: H3;
 border: 1px solid black;
 border-radius: 20px;
 width: 200px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard4{
 grid-area: H4;
 border: 1px solid black;
 border-radius: 20px;
 width: 200px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .textHouseWithPool1 {
@@ -143,6 +143,11 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: 150px;
   width: 200px;
   border-radius: 20px 20px 0 0;
+  filter: grayscale(0.5);
+  transition: 0.5s;
+}
+.component4 > div > img:hover{
+  filter: none;
 }
 
 .component4 > div > div > h4{
