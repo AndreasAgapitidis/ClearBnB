@@ -9,17 +9,13 @@
         v-bind:city="city"
       />
     </div>
-    <div>
-      <p>Incheckning</p>
-      <input type="date" name="Arrival date" id="" />
-      <p>Utcheckning</p>
-      <input type="date" name="Arrival date" id="" />
-    </div>
+    <BookingCalendar />
   </div>
 </template>
 
 <script>
 import CityItem from "./CityItem.vue";
+import BookingCalendar from "./BookingCalendar.vue";
 
 export default {
   mounted() {
@@ -51,6 +47,7 @@ export default {
   },
   components: {
     CityItem,
+    BookingCalendar,
   },
 };
 </script>
@@ -64,6 +61,7 @@ export default {
   width: 200px;
   margin: auto;
   position: relative;
+  top: 10em;
 }
 
 .searchResults {
