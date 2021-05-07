@@ -64,7 +64,7 @@ export default {};
   grid-template-columns: auto auto;
   grid-template-rows: 10% 0.5fr 0.5fr;
   grid-template-areas: 
-  ". title"
+  "title ."
   "H1 H2"
   "H3 H4"
   ;
@@ -78,7 +78,8 @@ export default {};
 
   font-weight: bold;
   grid-area: title;
-  font-size: 20px;
+  font-size: 15px;
+  width: 100%;
 
 }
 
@@ -86,62 +87,47 @@ export default {};
 grid-area: H1;
 border: 1px solid black;
 border-radius: 20px;
-width: 200px;
+width: 150px;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard2{
 grid-area: H2;
 border: 1px solid black;
 border-radius: 20px;
-width: 200px;
+width: 150px;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard3{
 grid-area: H3;
 border: 1px solid black;
 border-radius: 20px;
-width: 200px;
+width: 150px;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard4{
 grid-area: H4;
 border: 1px solid black;
 border-radius: 20px;
-width: 200px;
+width: 150px;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.textHouseWithPool1 {
+.textHouseWithPool1,
+.textHouseWithPool2,
+.textHouse1,
+.textHouse2 
+  {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  font-size: 24px;
-  font-style: italic;
-  color: black;
-}
-
-.textHouseWithPool2 {
- 
-  font-size: 24px;
-  font-style: italic;
-  color: black;
-}
-
-.textHouse1 {
-  
-  font-size: 24px;
-  font-style: italic;
-  color: black;
-}
-
-.textHouse2 {
- 
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 200;
   font-style: italic;
   color: black;
 }
 
 .component4 > div > img {
-  height: 150px;
-  width: 200px;
+  height: 120px;
+  width: 150px;
   border-radius: 20px 20px 0 0;
   filter: grayscale(0.5);
   transition: 0.5s;
