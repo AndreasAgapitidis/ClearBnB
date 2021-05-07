@@ -1,18 +1,19 @@
 <template>
-  <div class="Herobanner2"></div>
-  <v-date-picker v-model="range" is-range>
+  <v-date-picker v-model="range" is-range @change="filterOnDate">
     <template v-slot="{ inputValue, inputEvents }">
-      <div class="flex justify-center items-center">
+      <div class="wrapper">
         <input
           :value="inputValue.start"
           v-on="inputEvents.start"
           class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
+          id="InputStart"
         />
 
         <input
           :value="inputValue.end"
           v-on="inputEvents.end"
           class="border px-2 py-1 w-32 rounded focus:outline-none focus:border-indigo-300"
+          id="InputEnd"
         />
       </div>
     </template>
@@ -29,13 +30,53 @@ export default {
       },
     };
   },
+
+  computed: {
+    filterOnDate() {
+      this.$store.dispatch("fetchCitiesByDate", this.range);
+    },
+  },
 };
 </script>
 
 <style scoped>
-.HeroBanner2 {
-  height: 200px;
-  width: 200px;
-  background: Black;
+.wrapper {
+  font-weight: 200;
+  margin-top: 20px;
+  justify-content: center;
+  margin: 0 auto;
+  height: 2em;
+  display: flex;
+  border: none;
+  padding: 10px;
+  border-radius: 0 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+#InputStart {
+  width: 80px;
+  border: none;
+  outline: none;
+  text-align: left;
+}
+#InputEnd {
+  width: 80px;
+  border: none;
+  outline: none;
+  text-align: right;
+}
+
+#InputStart,
+#InputEnd:focus {
+  outline: none;
+}
+
+#InputStart,
+#InputEnd:hover {
+  pointer: none;
+}
+
+.inputCityAndDateContainer > div {
+  margin-top: 15px;
 }
 </style>

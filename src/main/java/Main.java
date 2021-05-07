@@ -39,7 +39,16 @@ public class Main {
     new CityFunctions(app);
     new ListingFunctions(app);
 
+    app.get("/rest/datelistings/:id",(req,res) -> {
+      System.out.println(req.body());
+      System.out.println(req.params("id"));
 
+      ArrayList<Listing> listings = collection("Listing").findById(req.params("id"));
+
+      /*for (int i = 0; i < listings.length; i++) {
+        for (int j = 0; j < listing.)
+      }*/
+    });
 
     // start server
     app.listen(4000);
