@@ -12,8 +12,8 @@ public class Listing {
     @Id
     private String id;
     private String owner;
-    private boolean isApartment = false;
-    private boolean isHouse = false;
+    private boolean isApartment;
+    private boolean isHouse;
     private String city;
     private String address;
     private String description;

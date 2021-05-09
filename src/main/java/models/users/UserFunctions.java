@@ -2,7 +2,12 @@ package models.users;
 
 import express.Express;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import static nosqlite.Database.collection;
+import static nosqlite.utilities.Filter.*;
 
 public class UserFunctions {
 
@@ -14,13 +19,20 @@ public class UserFunctions {
     }
 
     public void initFunctions(){
+
         app.get("/rest/getAllUsers", (request, response) -> {
             System.out.println("Hej");
             response.json(collection("UserAccount").find());
         });
+
         app.get("/rest/findUser/:id", (request, response) -> {
-            System.out.println("id");
-            response.json(collection("UserAccount").find());
+            String name = request.params("id");
+            char firstLetter = name.toUpperCase().charAt(0);
+            String restOfLetters = name.toLowerCase().substring(1);
+
+            name = firstLetter + restOfLetters;
+
+            response.json(collection("UserAccount").find(text("firstName", "%" + name + "%")));
         });
     }
 

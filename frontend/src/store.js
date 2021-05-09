@@ -89,6 +89,7 @@ export default createStore({
 
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
-    }
+    },
+
   }
 })

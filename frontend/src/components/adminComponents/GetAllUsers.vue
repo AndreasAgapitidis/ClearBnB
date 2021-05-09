@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <button @click="getAllUsers">List All Users</button>
     <div v-if="listOfAllUsers" class="renderAllUsersContainer">
       <UserItem
         v-for="user of listOfAllUsers"
@@ -23,6 +22,10 @@ export default {
 
   computed: {},
 
+  created() {
+    this.getAllUsers();
+  },
+
   methods: {
     async getAllUsers() {
       let res = await fetch("/rest/getAllUsers");
@@ -36,5 +39,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>
