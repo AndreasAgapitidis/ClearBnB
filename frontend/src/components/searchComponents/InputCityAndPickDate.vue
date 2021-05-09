@@ -60,15 +60,16 @@ export default {
 }
 
 .HeroBanner2 {
-  height: 200px;
-  width: 200px;
-  border: 1px solid black;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 .inputCityAndDateContainer {
   width: 200px;
-  margin: auto;
   position: relative;
   top: 10em;
+  margin-right:3em;
 }
 
 .searchResults {
@@ -98,4 +99,6 @@ input {
 input:focus {
   outline: none;
 }
+
+
 </style>
