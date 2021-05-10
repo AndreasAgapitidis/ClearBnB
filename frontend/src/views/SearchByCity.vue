@@ -1,6 +1,6 @@
 <template>
   <InputCityAndPickDate />
-  <ListOfListings v-bind:listings="listings" />
+  <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
 <script>
@@ -8,6 +8,12 @@ import InputCityAndPickDate from "../components/searchComponents/InputCityAndPic
 import ListOfListings from "../components/searchComponents/ListOfListings.vue";
 
 export default {
+  data() {
+    return {
+      filteredListings: [],
+    };
+  },
+
   components: {
     InputCityAndPickDate,
     ListOfListings,
@@ -21,5 +27,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

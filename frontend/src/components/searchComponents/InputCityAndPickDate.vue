@@ -1,15 +1,14 @@
 <template>
-  <div class="HeroBanner2">
-    <div class="inputCityAndDateContainer">
-      <h2>City:</h2>
-      <input v-model="userSearchedFor" type="text" placeholder="Search city:" />
-      <div class="searchResults" v-if="userSearchedFor">
-        <CityItem
-          v-for="city of cities"
-          v-bind:key="city.id"
-          v-bind:city="city"
-        />
-      </div>
+  <div class="inputCityAndDateContainer">
+    <h2>Sök stad:</h2>
+    <input v-model="userInput" type="text" placeholder="Search city:" />
+    <div class="searchResults" v-if="userInput">
+      <CityItem
+        v-for="city of cities"
+        v-bind:key="city.id"
+        v-bind:city="city"
+        @click="clearTheSearchBox(city)"
+      />
       <BookingCalendar />
     </div>
   </div>
@@ -26,17 +25,19 @@ export default {
 
   data() {
     return {
+      userInput: "",
       userSearchedFor: "",
+      newListing: [],
     };
   },
 
   computed: {
     //User input and search for it from a fetched city list
     cities() {
-      if (this.userSearchedFor) {
+      if (this.userInput) {
         return this.$store.state.cities.filter((city) => {
           let name = city.name.toLowerCase();
-          let userSearch = this.userSearchedFor.toLowerCase();
+          let userSearch = this.userInput.toLowerCase();
 
           if (name.includes(userSearch)) {
             return city;
@@ -50,6 +51,28 @@ export default {
   components: {
     CityItem,
     BookingCalendar,
+  },
+  methods: {
+    clearTheSearchBox(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = "";
+      /* this.$emit("this.userSearchedFor"); */
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    },
+
+    filterIntoUsersChoice(userSearchedFor) {
+      let filteredListings = this.$store.state.listings;
+
+      this.newListing = [];
+
+      filteredListings = this.$store.state.listings.filter((listing) => {
+        if (listing.city == userSearchedFor) {
+          this.newListing.push(listing);
+        }
+      });
+
+      this.$parent.filteredListings = this.newListing;
+    },
   },
 };
 </script>
@@ -97,5 +120,8 @@ input {
 
 input:focus {
   outline: none;
+}
+
+.cityTitle {
 }
 </style>

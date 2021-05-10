@@ -47,7 +47,7 @@ export default {};
 }
 
 .shameLessTxt {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   padding-inline: 2px 2px;
   color: black;
@@ -62,7 +62,7 @@ export default {};
   font-family: 'Roboto', sans-serif;
   margin-bottom: 15px;
   height: 40px;
-  width: 11em;
+  width: 10em;
   border-radius: 20px;
   background-color: rgb(39, 39, 39);
   color: white;

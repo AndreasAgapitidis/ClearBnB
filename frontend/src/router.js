@@ -26,5 +26,9 @@ export default createRouter({
       path: '/rest/listings/:id',
       component: HouseDetails,
     },
+    {
+      path: '/rest/listingsFromChosenCity/:id',
+      component: SearchByCity,
+    },
   ]
 })
