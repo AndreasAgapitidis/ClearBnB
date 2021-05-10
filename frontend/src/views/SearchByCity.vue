@@ -1,8 +1,10 @@
 <template>
-  <div class="calendar">
+  <!-- <div class="calendar">
     <InputCityAndPickDate />
     <BookingCalendar />
-  </div>
+  </div> -->
+  <InputCityAndPickDate />
+  <BookingCalendar />
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
