@@ -111,7 +111,4 @@ input {
 input:focus {
   outline: none;
 }
-
-.cityTitle {
-}
 </style>
