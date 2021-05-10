@@ -31,9 +31,33 @@ export default {
     };
   },
 
+  methods: {
+    filterHelper(array) {
+      let newArray = [];
+      for (let i = 0; i < array.length; i++) {
+        let conflict = false;
+        for (let j = 0; j < array[i].unavailableDates.length; j++) {
+          // compare to UNIX time stored in Java (which is the UNIX time divided by 1000)
+          if (
+            array[i].unavailableDates[j] >= this.range.start.getTime() / 1000 &&
+            array[i].unavailableDates[j] <=
+              this.range.end.getTime() / 1000 - 86400
+          ) {
+            conflict = true;
+            break;
+          }
+        }
+        if (!conflict) {
+          newArray.push(array[i]);
+        }
+      }
+      return newArray;
+    },
+  },
+
   computed: {
     // filter listings based on user inputted dates
-    filterOnDate() {
+    async filterOnDate() {
       if (!this.range.start || !this.range.end) {
         return;
       } else {
@@ -43,24 +67,13 @@ export default {
 
         let updatedListings = [];
 
-        this.$parent.filteredListings.filter((listing) => {
-          let conflict = false;
-          for (let i = 0; i < listing.unavailableDates.length; i++) {
-            // compare to UNIX time stored in Java (which is the UNIX time divided by 1000)
-            if (
-              listing.unavailableDates[i] >=
-                this.range.start.getTime() / 1000 ||
-              listing.unavailableDates[i] <= this.range.end.getTime() / 1000
-            ) {
-              conflict = true;
-              break;
-            }
-          }
-
-          if (!conflict) {
-            updatedListings.push(listing)
-          }
-        });
+        if (!this.$route.params.id) {
+          updatedListings = this.filterHelper(this.$store.state.listings);
+        } else {
+          let res = await fetch("/rest/listings/city/" + this.$route.params.id);
+          let listings = await res.json();
+          updatedListings = this.filterHelper(listings);
+        }
 
         this.$parent.filteredListings = updatedListings;
       }
