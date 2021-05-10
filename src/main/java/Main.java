@@ -56,7 +56,7 @@ public class Main {
     new ListingFunctions(app);
     new Booking(app);
 
-
+    //ListingFunctions.addNewListing();
 
     // start server
     app.listen(4000);
