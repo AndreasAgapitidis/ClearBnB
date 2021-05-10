@@ -102,14 +102,14 @@ export default {
   height: 100%;
   border: none;
   outline: none;
-  text-align: left;
+  text-align: center;
 }
 #InputEnd {
   width: 100%;
   height: 100%;
   border: none;
   outline: none;
-  text-align: right;
+  text-align: center;
 }
 
 #InputStart,
