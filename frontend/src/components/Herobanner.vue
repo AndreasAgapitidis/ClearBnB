@@ -40,7 +40,7 @@ export default {};
   height: 50px;
   outline: none;
   border: none;
-  border-radius: 13px 0px;
+border-radius: 0 20px 0px 20px;
 }
 
 #start {
@@ -49,7 +49,7 @@ export default {};
   height: 50px;
   outline: none;
   border: none;
-  border-radius: 13px 0px;
+  border-radius: 0 20px 0px 20px;
   font-weight: 200;
 }
 
