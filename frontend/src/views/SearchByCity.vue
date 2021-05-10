@@ -23,12 +23,6 @@ export default {
     BookingCalendar,
     ListOfListings,
   },
-
-  computed: {
-    listings() {
-      return this.$store.state.listings;
-    },
-  },
 };
 </script>
 

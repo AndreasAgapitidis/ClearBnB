@@ -59,11 +59,9 @@ export default {
     },
 
     filterIntoUsersChoice(userSearchedFor) {
-      let filteredListings = this.$store.state.listings;
-
       this.newListing = [];
 
-      filteredListings = this.$store.state.listings.filter((listing) => {
+      this.$store.state.listings.filter((listing) => {
         if (listing.city == userSearchedFor) {
           this.newListing.push(listing);
         }
@@ -84,8 +82,6 @@ export default {
   height: 200px;
   width: 200px;
   border: 1px solid black;
-}
-.inputCityAndDateContainer {
 }
 
 .searchResults {
