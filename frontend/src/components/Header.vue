@@ -55,7 +55,7 @@ header {
   justify-content: center;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  width: 100%;
+  width: 100vw;
   position: absolute;
   z-index: 1;
   top: 0;

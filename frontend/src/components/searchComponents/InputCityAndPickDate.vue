@@ -1,7 +1,13 @@
 <template>
   <div class="inputCityAndDateContainer">
-    <h2>Sök stad:</h2>
+    
+    <div class="InputContainer">
+      <h2>City</h2>
     <input v-model="userInput" type="text" placeholder="Search city:" />
+    <h2>Check-in/out</h2>
+    <Calendar />
+    </div>
+    
     <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
@@ -15,7 +21,7 @@
 
 <script>
 import CityItem from "./CityItem.vue";
-
+import Calendar from "./BookingCalendar.vue";
 export default {
   mounted() {
     this.$store.dispatch("fetchCities");
@@ -48,6 +54,7 @@ export default {
   },
   components: {
     CityItem,
+    Calendar
   },
   methods: {
     clearTheSearchBox(city) {
@@ -77,16 +84,41 @@ export default {
   box-sizing: border-box;
 }
 
-.HeroBanner2 {
+/* .HeroBanner2 {
   height: 200px;
-  width: 200px;
-  border: 1px solid black;
-}
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  
+} */
+
 .inputCityAndDateContainer {
-  width: 200px;
-  margin: auto;
+  width: 100%;
+  top: 4em;
   position: relative;
-  top: 10em;
+  height: 35em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 auto;
+  background-image: linear-gradient( rgb(255 255 255 / 0%), rgb(255 255 255) ) ,url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2{
+  color: white;
+}
+
+.InputContainer{
+height: 300px;
+width: auto;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+margin-right: 1em;
+margin-bottom: 2em;
 }
 
 .searchResults {
@@ -100,14 +132,12 @@ export default {
 }
 
 input {
-  width: 200px;
-  max-width: 100%;
+  width: 220px;
+  height: 4em;
   font-weight: 200;
-  margin: 2em 0;
-  height: 2em;
   justify-content: center;
   border: none;
-  padding: 10px;
+  padding-left: 1em;
   border-radius: 0 20px 0 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
