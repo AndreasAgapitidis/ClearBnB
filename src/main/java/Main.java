@@ -91,7 +91,7 @@ public class Main {
     newListing.setRating(9.5);
 
     Date date = new Date();
-    newListing.addBookedDate("id", "date");
+
     newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/330px-Tamatsukuri_onsen_yado02s3648.jpg");
     newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg/330px-Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg");
     newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/1920px-Tamatsukuri_onsen_yado02s3648.jpg");
