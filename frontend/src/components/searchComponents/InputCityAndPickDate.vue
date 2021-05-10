@@ -112,10 +112,11 @@ flex-direction: column;
 justify-content: space-around;
 margin-right: 2em;
 margin-bottom: 2em;
+
 }
 
 .searchResults {
-
+  position: absolute;
   margin-top: 5px;
   background: rgba(252, 252, 252, 0.7);
   max-height: 300px;
@@ -123,12 +124,14 @@ margin-bottom: 2em;
   width: 220px;
   border-radius: 0 0 20px 20px;
   font-size: 10px;
+  top: 26em;
 
 }
 
 input {
   width: 220px;
   height: 4em;
+ 
   font-weight: 200;
   justify-content: center;
   border: none;
