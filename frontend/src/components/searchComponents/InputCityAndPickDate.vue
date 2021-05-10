@@ -107,6 +107,10 @@ export default {
   background-size: cover;
 }
 
+h2{
+  color: white;
+}
+
 .InputContainer{
 height: 300px;
 width: auto;
