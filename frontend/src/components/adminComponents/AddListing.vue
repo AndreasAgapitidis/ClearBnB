@@ -79,7 +79,7 @@ export default {
         owner: this.owner,
         address: this.address,
         isApartment: this.isApartment,
-        isHouse: this.isHouse,
+        isHouse: true,
         city: this.city,
         area: this.area,
         beds: this.beds,

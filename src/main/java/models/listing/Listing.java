@@ -12,15 +12,15 @@ public class Listing {
     @Id
     private String id;
     private String owner;
-    private boolean isApartment;
-    private boolean isHouse;
+    private String isApartment;
+    private String isHouse;
     private String city;
     private String address;
     private String description;
-    private int area;
-    private int beds;
-    private int price;
-    private double rating;
+    private String area;
+    private String beds;
+    private String price;
+    private String rating;
     private ArrayList<Long> unavailableDates = new ArrayList<>();
     private ArrayList <String> images = new ArrayList<>();
 
@@ -30,13 +30,6 @@ public class Listing {
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getOwner() {
         return owner;
@@ -46,20 +39,28 @@ public class Listing {
         this.owner = owner;
     }
 
-    public boolean isApartment() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIsApartment() {
         return isApartment;
     }
 
-    public void setApartment(boolean apartment) {
-        isApartment = apartment;
+    public void setIsApartment(String isApartment) {
+        this.isApartment = isApartment;
     }
 
-    public boolean isHouse() {
+    public String getIsHouse() {
         return isHouse;
     }
 
-    public void setHouse(boolean house) {
-        isHouse = house;
+    public void setIsHouse(String isHouse) {
+        this.isHouse = isHouse;
     }
 
     public String getCity() {
@@ -86,35 +87,35 @@ public class Listing {
         this.description = description;
     }
 
-    public int getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public int getBeds() {
+    public String getBeds() {
         return beds;
     }
 
-    public void setBeds(int beds) {
+    public void setBeds(String beds) {
         this.beds = beds;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

@@ -41,15 +41,15 @@ public class ListingFunctions {
         Listing newListing = new Listing();
 
         newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
-        newListing.setApartment(true);
-        newListing.setHouse(false);
+        newListing.setIsApartment("Apartment");
+        newListing.setIsHouse("House");
         newListing.setCity("Madrid");
         newListing.setAddress("Esplana 31, 241 46");
         newListing.setDescription("A lovely apartment");
-        newListing.setArea(10);
-        newListing.setBeds(3);
-        newListing.setPrice(650);
-        newListing.setRating(9.5);
+        newListing.setArea("");
+        newListing.setBeds("");
+        newListing.setPrice("");
+        newListing.setRating("");
 
         //newListing.addBookedDate("id", "date");
         newListing.addImage("https://www.skistar.com/sv/boka-online/accommodation/Image/Get?imageId=129260&ImageSize=7&keepRatio=false");
