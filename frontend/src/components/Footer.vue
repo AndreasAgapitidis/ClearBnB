@@ -92,10 +92,12 @@ footer{
 
 .top > .Maps h3, p{
   margin: 0;
+  
 }
 
 .top > p {
   margin-top: 10px;
+
 }
 
 
