@@ -50,7 +50,7 @@ public class ListingFunctions {
         newListing.setPrice(650);
         newListing.setRating(9.5);
 
-        newListing.addBookedDate("id", "date");
+        //newListing.addBookedDate("id", "date");
         newListing.addImage("https://www.skistar.com/sv/boka-online/accommodation/Image/Get?imageId=129260&ImageSize=7&keepRatio=false");
 
         collection(Listing.class).save(newListing);

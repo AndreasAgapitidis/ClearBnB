@@ -32,8 +32,34 @@ export default {
   },
 
   computed: {
+    // filter listings based on user inputted dates
     filterOnDate() {
-      this.$store.dispatch("fetchCitiesByDate", this.range);
+      if (!this.range.start || !this.range.end) {
+        return;
+      } else {
+        // set hours/minutes/seconds/milliseconds to 0 on UNIX date-time
+        this.range.start.setHours(0, 0, 0, 0);
+        this.range.end.setHours(0, 0, 0, 0);
+
+        this.$store.state.listings.filter((listing) => {
+          let conflict = false;
+          for (let i = 0; i < listing.unavailableDates.length; i++) {
+            // compare to UNIX time stored in Java (which is the UNIX time divided by 1000)
+            if (
+              listing.unavailableDates[i] >=
+                this.range.start.getTime() / 1000 ||
+              listing.unavailableDates[i] <= this.range.end.getTime() / 1000
+            ) {
+              conflict = true;
+              break;
+            }
+          }
+
+          if (!conflict) {
+            return listing;
+          }
+        });
+      }
     },
   },
 };

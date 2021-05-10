@@ -39,16 +39,19 @@ public class Main {
     new CityFunctions(app);
     new ListingFunctions(app);
 
-    app.get("/rest/datelistings/:id",(req,res) -> {
-      System.out.println(req.body());
-      System.out.println(req.params("id"));
+    /*Listing temp = new Listing();
+    ArrayList<Long> list = new ArrayList<>();
+    list.add((long) 1619820000);
+    list.add((long) 1619906400);
+    temp.setUnavailableDates(list);
+    temp.setCity("Malmö");
+    collection("Listing").save(temp);
 
-      ArrayList<Listing> listings = collection("Listing").findById(req.params("id"));
-
-      /*for (int i = 0; i < listings.length; i++) {
-        for (int j = 0; j < listing.)
-      }*/
-    });
+    temp = new Listing();
+    ArrayList<Long> list2 = new ArrayList<>();
+    temp.setUnavailableDates(list2);
+    temp.setCity("Madrid");
+    collection("Listing").save(temp);*/
 
     // start server
     app.listen(4000);
