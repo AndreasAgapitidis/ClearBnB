@@ -1,6 +1,10 @@
 <template>
+  <!-- <div class="calendar">
+    <InputCityAndPickDate />
+    <BookingCalendar />
+  </div> -->
   <InputCityAndPickDate />
-  <!-- <BookingCalendar /> -->
+  <BookingCalendar />
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
@@ -21,14 +25,14 @@ export default {
     BookingCalendar,
     ListOfListings,
   },
-
-  computed: {
-    listings() {
-      return this.$store.state.listings;
-    },
-  },
 };
 </script>
 
 <style scoped>
+.calendar {
+  width: 200px;
+  margin: auto;
+  position: relative;
+  top: 10em;
+}
 </style>

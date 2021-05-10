@@ -3,7 +3,11 @@
     
     <div class="InputContainer">
       <h2>City</h2>
-    <input v-model="userInput" type="text" placeholder="Search city:" />
+      <input v-model="userInput" type="text" placeholder="Search city:" />
+      <h2>Check-in/out</h2>
+      <Calendar />
+    </div>
+
     <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
@@ -12,12 +16,7 @@
         @click="clearTheSearchBox(city)"
       />
     </div>
-    <h2>Check-in/out</h2>
-    <Calendar />
     </div>
-    
-    
-  </div>
 </template>
 
 <script>
@@ -37,7 +36,7 @@ export default {
   },
 
   computed: {
-    //User input and search for it from a fetched city list
+    //Search for what the user inputed, from a fetched city list
     cities() {
       if (this.userInput) {
         return this.$store.state.cities.filter((city) => {
@@ -55,7 +54,7 @@ export default {
   },
   components: {
     CityItem,
-    Calendar
+    Calendar,
   },
   methods: {
     clearTheSearchBox(city) {
@@ -95,12 +94,13 @@ export default {
   align-items: flex-end;
   justify-content: center;
   margin: 0 auto;
-  background-image: linear-gradient( rgb(255 255 255 / 0%), rgb(255 255 255) ) ,url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-h2{
+h2 {
   color: white;
    text-shadow: 2px 2px 2px black;
 }
@@ -141,8 +141,5 @@ input {
 
 input:focus {
   outline: none;
-}
-
-.cityTitle {
 }
 </style>

@@ -29,11 +29,13 @@ public class ListingFunctions {
 
         // create listing from frontend, but this can wait
         app.post("/rest/listings",(req,res) -> {
+            System.out.println("POST: ");
             Listing listing = req.body(Listing.class);
             // getting an id
             collection("Listing").save(listing);
             // update
             res.json(listing);
+            System.out.println(listing);
         });
 
         app.get("/rest/listings/city/:id",(req,res) -> {
@@ -47,15 +49,15 @@ public class ListingFunctions {
         Listing newListing = new Listing();
 
         newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
-        newListing.setApartment(true);
-        newListing.setHouse(false);
+        newListing.setIsApartment("Apartment");
+        newListing.setIsHouse("House");
         newListing.setCity("Madrid");
         newListing.setAddress("Central 31, 241 46");
         newListing.setDescription("A lovely apartment");
         newListing.setArea(10);
-        newListing.setBeds(3);
-        newListing.setPrice(650);
-        newListing.setRating(9.5);
+        newListing.setBeds(2);
+        newListing.setPrice(3424);
+        newListing.setRating(10);
 
         ArrayList<Long> list = new ArrayList<>();
         list.add((long) 1619906400);
