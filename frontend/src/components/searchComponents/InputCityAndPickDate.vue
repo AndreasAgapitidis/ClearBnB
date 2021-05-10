@@ -55,7 +55,6 @@ export default {
       this.userInput = "";
       /* this.$emit("this.userSearchedFor"); */
       this.filterIntoUsersChoice(this.userSearchedFor);
-      console.log(this.$parent.filteredListings)
     },
 
     filterIntoUsersChoice(userSearchedFor) {
