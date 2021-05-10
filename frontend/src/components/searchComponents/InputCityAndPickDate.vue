@@ -55,7 +55,7 @@ export default {
       this.userInput = "";
       /* this.$emit("this.userSearchedFor"); */
       this.filterIntoUsersChoice(this.userSearchedFor);
-      console.log(this.$parent.filteredListings)
+      console.log(this.$parent.filteredListings);
     },
 
     filterIntoUsersChoice(userSearchedFor) {
@@ -86,10 +86,6 @@ export default {
   border: 1px solid black;
 }
 .inputCityAndDateContainer {
-  width: 200px;
-  margin: auto;
-  position: relative;
-  top: 10em;
 }
 
 .searchResults {

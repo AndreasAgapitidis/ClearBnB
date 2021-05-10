@@ -1,6 +1,8 @@
 <template>
-  <InputCityAndPickDate />
-  <BookingCalendar />
+  <div class="calendar">
+    <InputCityAndPickDate />
+    <BookingCalendar />
+  </div>
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
@@ -31,4 +33,10 @@ export default {
 </script>
 
 <style scoped>
+.calendar {
+  width: 200px;
+  margin: auto;
+  position: relative;
+  top: 10em;
+}
 </style>
