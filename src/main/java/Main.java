@@ -39,19 +39,7 @@ public class Main {
     new CityFunctions(app);
     new ListingFunctions(app);
 
-    /*Listing temp = new Listing();
-    ArrayList<Long> list = new ArrayList<>();
-    list.add((long) 1619820000);
-    list.add((long) 1619906400);
-    temp.setUnavailableDates(list);
-    temp.setCity("Malmö");
-    collection("Listing").save(temp);
-
-    temp = new Listing();
-    ArrayList<Long> list2 = new ArrayList<>();
-    temp.setUnavailableDates(list2);
-    temp.setCity("Madrid");
-    collection("Listing").save(temp);*/
+    //ListingFunctions.addNewListing();
 
     // start server
     app.listen(4000);

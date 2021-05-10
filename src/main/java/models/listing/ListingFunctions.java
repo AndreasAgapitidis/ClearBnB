@@ -1,8 +1,11 @@
 package models.listing;
 
 import express.Express;
+import java.util.ArrayList;
+import models.city.City;
 
 import static nosqlite.Database.collection;
+import static nosqlite.utilities.Filter.*;
 
 public class ListingFunctions {
 
@@ -32,6 +35,11 @@ public class ListingFunctions {
             // update
             res.json(listing);
         });
+
+        app.get("/rest/listings/city/:id",(req,res) -> {
+            City city = collection("City").findById(req.params("id"));
+            res.json(collection("Listing").find(eq("city", city.getName())));
+        });
     }
 
     //Temporarily function, used for adding dummy data
@@ -42,15 +50,19 @@ public class ListingFunctions {
         newListing.setApartment(true);
         newListing.setHouse(false);
         newListing.setCity("Madrid");
-        newListing.setAddress("Esplana 31, 241 46");
+        newListing.setAddress("Central 31, 241 46");
         newListing.setDescription("A lovely apartment");
         newListing.setArea(10);
         newListing.setBeds(3);
         newListing.setPrice(650);
         newListing.setRating(9.5);
 
-        //newListing.addBookedDate("id", "date");
-        newListing.addImage("https://www.skistar.com/sv/boka-online/accommodation/Image/Get?imageId=129260&ImageSize=7&keepRatio=false");
+        ArrayList<Long> list = new ArrayList<>();
+        list.add((long) 1619906400);
+        list.add((long) 1619992800);
+        list.add((long) 1620079200);
+        newListing.setUnavailableDates(list);
+        newListing.addImage("https://www.folkuniversitetet.se/contentassets/2b5398e3897f41eb9906a1fbb6063fc7/spanska-madrid.jpg?preset=article600");
 
         collection(Listing.class).save(newListing);
 
