@@ -72,25 +72,28 @@ export default {
 <style scoped>
 .wrapper {
   font-weight: 200;
+  width: 220px;
   margin-top: 20px;
   justify-content: center;
   margin: 0 auto;
-  height: 2em;
+  height: 3em;
   display: flex;
   border: none;
-  padding: 10px;
+  overflow: hidden;
   border-radius: 0 20px 0 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 #InputStart {
-  width: 80px;
+  width: 100%;
+  height: 100%;
   border: none;
   outline: none;
   text-align: left;
 }
 #InputEnd {
-  width: 80px;
+  width: 100%;
+  height: 100%;
   border: none;
   outline: none;
   text-align: right;
