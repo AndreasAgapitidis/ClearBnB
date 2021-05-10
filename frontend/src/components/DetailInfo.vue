@@ -6,7 +6,7 @@
     </div>
 
     <div class="Details">
-      <p>Price: {{ detailprop.price }} / night</p>
+      <p>Price: {{ detailprop.price }} SEK / night</p>
       <p>Rating: {{ detailprop.rating }}</p>
       <p>City: {{ detailprop.city }}</p>
       <p>Beds: {{ detailprop.beds }}</p>

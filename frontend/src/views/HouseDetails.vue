@@ -1,7 +1,7 @@
 <template>
   <PictureCarousel v-bind:carouselprop="listing1" />
   <DetailInfo v-bind:detailprop="listing1" />
-  <BookingSelectables />
+  <BookingSelectables v-bind:detailprop="listing1" />
   <Cheapest />
   <StudentText />
   <!-- <button v-on:click="lista">aa</button> -->
