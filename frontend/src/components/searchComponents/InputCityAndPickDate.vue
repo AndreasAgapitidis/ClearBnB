@@ -4,17 +4,16 @@
     <div class="InputContainer">
       <h2>City</h2>
       <input v-model="userInput" type="text" placeholder="Search city:" />
-      <h2>Check-in/out</h2>
-      <Calendar />
-    </div>
-
-    <div class="searchResults" v-if="userInput">
+      <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
         v-bind:key="city.id"
         v-bind:city="city"
         @click="clearTheSearchBox(city)"
       />
+    </div>
+      <h2>Check-in/out</h2>
+      <Calendar />
     </div>
     </div>
 </template>
