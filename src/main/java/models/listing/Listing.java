@@ -17,10 +17,10 @@ public class Listing {
     private String city;
     private String address;
     private String description;
-    private String area;
-    private String beds;
-    private String price;
-    private String rating;
+    private int area;
+    private int beds;
+    private int price;
+    private int rating;
     private ArrayList<Long> unavailableDates = new ArrayList<>();
     private ArrayList <String> images = new ArrayList<>();
 
@@ -87,35 +87,35 @@ public class Listing {
         this.description = description;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 
-    public String getBeds() {
+    public int getBeds() {
         return beds;
     }
 
-    public void setBeds(String beds) {
+    public void setBeds(int beds) {
         this.beds = beds;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

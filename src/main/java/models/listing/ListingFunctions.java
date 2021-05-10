@@ -54,10 +54,10 @@ public class ListingFunctions {
         newListing.setCity("Madrid");
         newListing.setAddress("Central 31, 241 46");
         newListing.setDescription("A lovely apartment");
-        newListing.setArea("");
-        newListing.setBeds("");
-        newListing.setPrice("");
-        newListing.setRating("");
+        newListing.setArea(10);
+        newListing.setBeds(2);
+        newListing.setPrice(3424);
+        newListing.setRating(10);
 
         ArrayList<Long> list = new ArrayList<>();
         list.add((long) 1619906400);
