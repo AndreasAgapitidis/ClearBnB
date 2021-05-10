@@ -9,14 +9,12 @@
         v-bind:city="city"
         @click="clearTheSearchBox(city)"
       />
-      <BookingCalendar />
     </div>
   </div>
 </template>
 
 <script>
 import CityItem from "./CityItem.vue";
-import BookingCalendar from "./BookingCalendar.vue";
 
 export default {
   mounted() {
@@ -50,7 +48,6 @@ export default {
   },
   components: {
     CityItem,
-    BookingCalendar,
   },
   methods: {
     clearTheSearchBox(city) {
@@ -58,6 +55,7 @@ export default {
       this.userInput = "";
       /* this.$emit("this.userSearchedFor"); */
       this.filterIntoUsersChoice(this.userSearchedFor);
+      console.log(this.$parent.filteredListings)
     },
 
     filterIntoUsersChoice(userSearchedFor) {

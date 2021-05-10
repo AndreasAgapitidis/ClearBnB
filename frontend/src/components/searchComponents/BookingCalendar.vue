@@ -41,7 +41,7 @@ export default {
         this.range.start.setHours(0, 0, 0, 0);
         this.range.end.setHours(0, 0, 0, 0);
 
-        this.$store.state.listings.filter((listing) => {
+        this.$parent.filteredListings.filter((listing) => {
           let conflict = false;
           for (let i = 0; i < listing.unavailableDates.length; i++) {
             // compare to UNIX time stored in Java (which is the UNIX time divided by 1000)
