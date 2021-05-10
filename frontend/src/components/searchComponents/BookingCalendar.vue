@@ -75,7 +75,7 @@ export default {
           updatedListings = this.filterHelper(listings);
         }
 
-        this.$parent.filteredListings = updatedListings;
+        this.$parent.$parent.filteredListings = updatedListings;
       }
     },
   },
