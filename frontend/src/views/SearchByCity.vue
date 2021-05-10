@@ -4,7 +4,7 @@
     <BookingCalendar />
   </div> -->
   <InputCityAndPickDate />
-  <BookingCalendar />
+  <!-- <BookingCalendar /> -->
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
