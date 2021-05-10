@@ -54,6 +54,7 @@ public class Main {
 
     new CityFunctions(app);
     new ListingFunctions(app);
+    new Booking(app);
 
 
 

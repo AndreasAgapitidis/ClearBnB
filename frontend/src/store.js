@@ -7,6 +7,8 @@ export default createStore({
 
     listings: {},
 
+    reservations: [],
+
     user: null
   },
 
@@ -24,6 +26,10 @@ export default createStore({
 
     setUser(state, user) {
       state.user = user
+    },
+
+    createReservation(state, reservation) {
+      state.reservations.push(reservation)
     }
   },
 
@@ -88,6 +94,17 @@ export default createStore({
       let listings = await res.json();
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
+    },
+
+    async postReservation(store, reservation) {
+      let res = await fetch('/rest/reservations', {
+        method: 'POST',
+        body: JSON.stringify(reservation)
+      })
+
+      let reservationFromServer = await res.json();
+
+      store.commit('createReservation', reservationFromServer)
     }
   }
 });

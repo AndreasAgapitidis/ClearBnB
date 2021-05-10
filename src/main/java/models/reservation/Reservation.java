@@ -11,6 +11,8 @@ public class Reservation {
     private String userId;
     private String listingId;
     private String startDate;
+    private String adult;
+    private String children;
     private String endDate;
     private int price;
 
@@ -64,7 +66,25 @@ public class Reservation {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public String getAdult() {
+        return adult;
+    }
+
+    public void setAdult(String adult) {
+        this.adult = adult;
+    }
+
+    public String getChildren() {
+        return children;
+    }
+
+    public void setChildren(String children) {
+        this.children = children;
+    }
+
     //</editor-fold>
+
 
     @Override
     public String toString() {
@@ -73,6 +93,8 @@ public class Reservation {
                 ", userId='" + userId + '\'' +
                 ", listingId='" + listingId + '\'' +
                 ", startDate='" + startDate + '\'' +
+                ", adult='" + adult + '\'' +
+                ", children='" + children + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", price=" + price +
                 '}';

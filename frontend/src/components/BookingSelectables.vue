@@ -14,29 +14,25 @@
     <div class="priceCalculator">
       <p>
         Adult:
-        {{ selectedAdults.id }}
+        {{ adult.id }}
       </p>
       <p>
         Children:
-        {{ selectedChildren.id }}
+        {{ children.id }}
       </p>
       <p>Your stay: 0 days</p>
-      <p v-if="detailprop">Total: {{ detailprop.price }} SEK</p>
+      <p v-if="detailprop">Total: {{ (price = detailprop.price) }} SEK</p>
     </div>
-    <div class="custom-number">
+
+    <form class="custom-number" @submit.prevent="addReservation">
       <!-- <p>Please select the amount of customers:</p> -->
       <label for="adultCustomer"
-        ><h4 class="checkInCustomer">Please select the amount of adults:</h4>
+        ><h4 class="adult">Please select the amount of adults:</h4>
       </label>
-      <select
-        name="adultCustomer"
-        id="adultCustomer"
-        v-model="selectedAdults"
-        required
-      >
+      <select name="adultCustomer" id="adultCustomer" v-model="adult" required>
         <option disabled value="">Adult</option>
         <option
-          v-for="adult in adults"
+          v-for="adult in adultMenu"
           :key="adult.id"
           v-bind:value="{ id: adult.id, text: adult.name }"
         >
@@ -47,57 +43,70 @@
       <label for="childrenCustomer"
         ><h4 class="children">Please select the amount of children:</h4>
       </label>
-      <select
-        name="childrenCustomer"
-        id="childrenCustomer"
-        v-model="selectedChildren"
-      >
+      <select name="childrenCustomer" id="childrenCustomer" v-model="children">
         <option disabled value="">Children</option>
         <option
-          v-for="child in children"
+          v-for="child in childrenMenu"
           :key="child.id"
           v-bind:value="{ id: child.id, text: child.name }"
         >
           {{ child.name }}
         </option>
       </select>
-    </div>
-  </div>
-  <div class="buttons">
-    <button class="book-now">Book now!</button>
-    <button class="cancel">Cancel</button>
+      <div class="buttons">
+        <button class="book-now">Book now!</button>
+        <button class="cancel" type="reset">Cancel</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
   props: ["detailprop"],
+
   data() {
     return {
-      selectedAdults: {
-        id: "0",
-      },
-
-      selectedChildren: {
-        id: "0",
-      },
+      adult: { id: "" },
+      children: { id: "" },
+      price: "",
       date: "",
-      children: [
+
+      childrenMenu: [
         { id: 0, name: "0" },
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
       ],
-      adults: [
+      adultMenu: [
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
       ],
+
       range: {
         start: new Date(2020, 0, 1),
         end: new Date(2020, 0, 5),
       },
     };
+  },
+
+  methods: {
+    addReservation() {
+      if (!this.$store.state.user) {
+        alert("You need to log in in order to book!");
+        return;
+      }
+
+      let reservation = {
+        adult: this.adult.id,
+        children: this.children.id,
+        price: this.price,
+        userId: this.$store.state.user.id,
+      };
+      this.$store.dispatch("postReservation", reservation);
+      alert("Booking has been submitted");
+    },
   },
 };
 </script>
@@ -142,6 +151,10 @@ button {
   border-radius: 20px;
   border-style: none;
   color: white;
+}
+
+button:hover {
+  border: none;
 }
 
 .book-now {
