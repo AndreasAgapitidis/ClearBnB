@@ -2,6 +2,7 @@
   <div class="calendar">
     <v-date-picker
       class="date-picker"
+      is-expanded
       v-model="date"
       :disabled-dates="[new Date(2021, 9, 10), new Date(2021, 10, 10)]"
       color="blue"
@@ -10,6 +11,18 @@
   </div>
 
   <div class="info-display">
+    <div class="priceCalculator">
+      <p>
+        Adult:
+        {{ selectedAdults.id }}
+      </p>
+      <p>
+        Children:
+        {{ selectedChildren.id }}
+      </p>
+      <p>Your stay: 0 days</p>
+      <p v-if="detailprop">Total: {{ detailprop.price }} SEK</p>
+    </div>
     <div class="custom-number">
       <!-- <p>Please select the amount of customers:</p> -->
       <label for="adultCustomer"
@@ -49,18 +62,10 @@
         </option>
       </select>
     </div>
-
-    <div class="priceCalculator">
-      <h1>
-        Adult:
-        {{ selectedAdults.id }}
-      </h1>
-      <h1>
-        Children:
-        {{ selectedChildren.id }}
-      </h1>
-      <h1 v-if="detailprop">price: {{ detailprop.price }} SEK</h1>
-    </div>
+  </div>
+  <div class="buttons">
+    <button class="book-now">Book now!</button>
+    <button class="cancel">Cancel</button>
   </div>
 </template>
 
@@ -70,11 +75,11 @@ export default {
   data() {
     return {
       selectedAdults: {
-        id: String,
+        id: "0",
       },
 
       selectedChildren: {
-        id: String,
+        id: "0",
       },
       date: "",
       children: [
@@ -97,8 +102,53 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.calendar {
+  margin-top: 50px;
+  width: 90vw;
+  margin-inline: auto;
+}
+
+.info-display {
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+  justify-content: center;
+  width: 90vw;
+  margin-inline: auto;
+}
+
+.priceCalculator {
+  align-self: center;
+  text-decoration: underline;
+  -webkit-text-stroke: thin;
+}
+
 select {
   width: 100px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.buttons {
+  margin: 50px 0px;
+  display: flex;
+  place-content: space-evenly;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  border-style: none;
+  color: white;
+}
+
+.book-now {
+  background-color: limegreen;
+}
+
+.cancel {
+  background-color: red;
 }
 </style>

@@ -13,7 +13,6 @@ import DetailInfo from "../components/DetailInfo.vue";
 import BookingSelectables from "../components/BookingSelectables.vue";
 import Cheapest from "../components/Cheapest.vue";
 import StudentText from "../components/StudentText.vue";
-import Slider from "../components/PictureCarousel.vue";
 
 export default {
   data() {
@@ -28,7 +27,6 @@ export default {
     BookingSelectables,
     Cheapest,
     StudentText,
-    Slider,
   },
 
   async created() {
