@@ -41,6 +41,8 @@ export default {
         this.range.start.setHours(0, 0, 0, 0);
         this.range.end.setHours(0, 0, 0, 0);
 
+        let updatedListings = [];
+
         this.$parent.filteredListings.filter((listing) => {
           let conflict = false;
           for (let i = 0; i < listing.unavailableDates.length; i++) {
@@ -56,9 +58,11 @@ export default {
           }
 
           if (!conflict) {
-            return listing;
+            updatedListings.push(listing)
           }
         });
+
+        this.$parent.filteredListings = updatedListings;
       }
     },
   },
