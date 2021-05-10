@@ -21,15 +21,11 @@ public class Listing {
     private int beds;
     private int price;
     private double rating;
-    private HashMap<String, String> unavailableDates = new HashMap<>();
+    private ArrayList<Long> unavailableDates = new ArrayList<>();
     private ArrayList <String> images = new ArrayList<>();
 
     //Default constructor, think this is needed with the use of Java Express. //Mac
     public Listing() {
-    }
-
-    public void addBookedDate(String reservationID, String date){
-        this.unavailableDates.put(reservationID, date);
     }
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
@@ -122,11 +118,11 @@ public class Listing {
         this.rating = rating;
     }
 
-    public HashMap<String, String> getUnavailableDates() {
+    public ArrayList<Long> getUnavailableDates() {
         return unavailableDates;
     }
 
-    public void setUnavailableDates(HashMap<String, String> unavailableDates) {
+    public void setUnavailableDates(ArrayList<Long> unavailableDates) {
         this.unavailableDates = unavailableDates;
     }
 

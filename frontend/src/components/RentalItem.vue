@@ -22,6 +22,8 @@ export default {
   height: 180px;
   border-radius: 0 75px 0 75px;
   overflow: hidden;
+  position: relative;
+  top: 10em;
 }
 
 .rentalCard:hover {
