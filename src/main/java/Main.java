@@ -2,6 +2,7 @@ import express.Express;
 import models.city.City;
 import models.listing.Listing;
 import models.users.UserAccount;
+import models.users.UserFunctions;
 import utilities.HashPassword;
 import models.city.CityFunctions;
 import models.listing.Listing;
@@ -50,11 +51,15 @@ public class Main {
 
     // init Auth
     new Auth(app);
-    
 
     new CityFunctions(app);
     new ListingFunctions(app);
+    new UserFunctions(app);
     new Booking(app);
+
+    app.post("/rest/test",(req,res) -> {
+      System.out.println(req.body());
+    });
 
     //ListingFunctions.addNewListing();
 
