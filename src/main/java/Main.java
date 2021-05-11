@@ -85,15 +85,15 @@ public class Main {
     Listing newListing = new Listing();
 
     newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
-    newListing.setApartment(true);
-    newListing.setHouse(false);
+    newListing.setIsApartment("true");
+    newListing.setIsHouse("false");
     newListing.setCity("Kyoto");
     newListing.setAddress(" aaaaaaaaa");
     newListing.setDescription("A traditional japanese ryokan");
     newListing.setArea(30);
     newListing.setBeds(2);
     newListing.setPrice(850);
-    newListing.setRating(9.5);
+    newListing.setRating(9);
 
     Date date = new Date();
 

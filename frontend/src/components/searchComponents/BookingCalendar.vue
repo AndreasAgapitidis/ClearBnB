@@ -79,7 +79,6 @@ export default {
         if (!this.$route.params.id) {
           updatedListings = this.filterHelper(this.$store.state.listings);
         } else {
-          console.log(this.$route.params.id);
           let res = await fetch("/rest/listings/city/" + this.$route.params.id);
           let listings = await res.json();
           updatedListings = this.filterHelper(listings);
