@@ -2,6 +2,7 @@
   <div class="userCard">
     <img :src="user.profilePicture" alt="" />
     <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+    <h1 class="userID">userId: {{ user.id }}</h1>
   </div>
 </template>
 
@@ -26,13 +27,16 @@ export default {
   margin: 10px;
   border-radius: 0 40px 0 40px;
   display: grid;
-  grid-template-columns: 5vw 50px 50vw;
+  grid-template-columns: 5vw 50px 25vw 50vw;
   align-content: center;
   justify-items: center;
 }
 h1 {
   font-size: 20px;
   text-align: left;
+}
+.userID {
+  grid-column-start: 4;
 }
 
 img {

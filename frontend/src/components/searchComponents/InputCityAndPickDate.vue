@@ -1,21 +1,26 @@
 <template>
   <div class="inputCityAndDateContainer">
     <div class="InputContainer">
-      <h2>City</h2>
-      <input
-        v-model="userInput"
-        type="text"
-        placeholder="Search city:"
-        @keyup.enter="goToCityPage"
-        @click="showAutoFill = true"
-      />
-      <div class="searchResults" v-if="showAutoFill && userInput">
-        <CityItem
-          v-for="city of cities"
-          v-bind:key="city.id"
-          v-bind:city="city"
-          @click="autofill(city)"
+      <div
+        class="autofill"
+        @mouseenter="toggleShowAutoFill"
+        @mouseleave="toggleShowAutoFill"
+      >
+        <h2>City</h2>
+        <input
+          v-model="userInput"
+          type="text"
+          placeholder="Search city:"
+          @keyup.enter="goToCityPage"
         />
+        <div class="searchResults" v-if="showAutoFill && userInput">
+          <CityItem
+            v-for="city of cities"
+            v-bind:key="city.id"
+            v-bind:city="city"
+            @click="autofill(city)"
+          />
+        </div>
       </div>
       <h2>Check-in/out</h2>
       <Calendar />
@@ -36,7 +41,7 @@ export default {
       userInput: this.$store.state.usersCity,
       userSearchedFor: this.$store.state.usersCity,
       newListing: [],
-      showAutoFill: true,
+      showAutoFill: false,
     };
   },
 
@@ -78,17 +83,24 @@ export default {
 
     autofill(city) {
       this.userSearchedFor = city.name;
+      this.$store.commit("setUsersCity", this.userSearchedFor);
       this.userInput = city.name;
       this.filterIntoUsersChoice(this.userSearchedFor);
-      this.showAutoFill = !this.showAutoFill;
+      this.showAutoFill = false;
     },
 
     goToCityPage() {
       let comparing = this.$route.path;
+
+      this.$store.commit("setUsersCity", this.userSearchedFor);
+      this.$router.push("/SearchByCity/" + this.userSearchedFor);
+
       if (!comparing.includes("SearchByCity")) {
-        this.$store.commit("setUsersCity", this.userSearchedFor);
-        this.$router.push("/SearchByCity/" + this.userSearchedFor);
       }
+    },
+
+    toggleShowAutoFill() {
+      this.showAutoFill = !this.showAutoFill;
     },
 
     /* clearTheSearchBox(city) {
@@ -107,8 +119,8 @@ export default {
 }
 
 .inputCityAndDateContainer {
-  width: 100vw; 
-  top: 4em; 
+  width: 100vw;
+  top: 4em;
   position: relative;
   height: 35em;
   display: flex;
@@ -128,7 +140,7 @@ h2 {
 }
 
 .InputContainer {
-  height: 300px;
+  height: 200px;
   width: auto;
   display: flex;
   flex-direction: column;
@@ -139,20 +151,17 @@ h2 {
 
 .searchResults {
   position: absolute;
-  margin-top: 5px;
-  background: rgba(252, 252, 252, 0.7);
+  background: rgba(252, 252, 252, 1);
   max-height: 300px;
   z-index: 10;
   width: 220px;
   border-radius: 0 0 20px 20px;
   font-size: 10px;
-  top: 26em;
 }
 
 input {
   width: 220px;
   height: 4em;
-
   font-weight: 200;
   justify-content: center;
   border: none;

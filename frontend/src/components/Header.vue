@@ -8,6 +8,7 @@
               src="../assets/Logo ClearBnB/Company Logo/Logo.png"
               alt=""
               srcset=""
+              @click=""
             />
           </a>
         </li>
@@ -38,6 +39,9 @@ export default {
     },
     logout() {
       this.$store.dispatch("logout");
+    },
+    goToStartPage() {
+      this.$router.push("/");
     },
   },
 };

@@ -53,11 +53,7 @@ export default {
     },
 
     goToSearchedByCityPage() {
-      let comparing = this.$route.path;
-
-      if (!comparing.includes("SearchByCity")) {
-        this.$router.push("/SearchByCity/" + this.$store.state.usersCity);
-      }
+      this.$router.push("/SearchByCity/" + this.$store.state.usersCity);
     },
   },
 
@@ -79,7 +75,9 @@ export default {
         if (!this.$route.params.id) {
           updatedListings = this.filterHelper(this.$store.state.listings);
         } else {
-          let res = await fetch("/rest/listings/city/" + this.$route.params.id);
+          let res = await fetch(
+            "/rest/listings/city/" + this.$store.state.usersCity
+          );
           let listings = await res.json();
           updatedListings = this.filterHelper(listings);
         }

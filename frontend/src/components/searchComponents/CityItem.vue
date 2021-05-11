@@ -19,6 +19,11 @@ export default {
   margin-left: 10px;
 }
 
+h3 {
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
 .card:hover {
   cursor: pointer;
   transform: scale(1.03);
