@@ -7,7 +7,12 @@ export default createStore({
 
     listings: {},
 
-    user: null
+    user: null,
+
+    dateRange: {
+      start: '',
+      end: ''
+    },
   },
 
   // this.$store.commit('mutationName')
@@ -24,7 +29,12 @@ export default createStore({
 
     setUser(state, user) {
       state.user = user
-    }
+    },
+
+    setBookingDates(state, range) {
+      state.dateRange = range
+      console.log(state.dateRange)
+    },
   },
 
   // this.$store.dispatch('actionName')
@@ -91,5 +101,9 @@ export default createStore({
       store.commit('setListings', listings)
     },
 
+    // set the date range to be referenced when selecting a booking
+    setBookingDates(store, range) {
+      store.commit('setBookingDates', range)
+    },
   }
 })
