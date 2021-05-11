@@ -6,7 +6,7 @@
         v-model="userInput"
         type="text"
         placeholder="Search city:"
-        @keyup.enter="gotToCityPage"
+        @keyup.enter="goToCityPage"
         @click="showAutoFill = true"
       />
       <div class="searchResults" v-if="showAutoFill && userInput">
@@ -33,8 +33,8 @@ export default {
 
   data() {
     return {
-      userInput: "",
-      userSearchedFor: "",
+      userInput: this.$store.state.usersCity,
+      userSearchedFor: this.$store.state.usersCity,
       newListing: [],
       showAutoFill: true,
     };
@@ -83,8 +83,12 @@ export default {
       this.showAutoFill = !this.showAutoFill;
     },
 
-    gotToCityPage() {
-      this.$router.push("/SearchByCity/" + this.userInput);
+    goToCityPage() {
+      let comparing = this.$route.path;
+      if (!comparing.includes("SearchByCity")) {
+        this.$store.commit("setUsersCity", this.userSearchedFor);
+        this.$router.push("/SearchByCity/" + this.userSearchedFor);
+      }
     },
 
     /* clearTheSearchBox(city) {
