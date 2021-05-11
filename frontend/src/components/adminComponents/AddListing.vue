@@ -62,10 +62,15 @@
     </button>
     <h1>{{ isApartment }}{{ isHouse }}</h1>
   </form>
+  <button @click="autoFill()">auto fill</button>
 </template>
 
 <script>
 export default {
+  created() {
+    this.$store.dispatch("fetchCities");
+  },
+
   data() {
     return {
       owner: "",
@@ -111,6 +116,69 @@ export default {
       this.images.push(this.imageURL);
       this.pictureCount++;
       this.imageURL = "";
+    },
+
+    autoFill() {
+      this.owner = this.randomGenerator();
+      this.address = this.randomGenerator() + " street";
+      this.isHouse = "House";
+      this.city = this.$store.state.cities[
+        Math.floor(Math.random() * this.$store.state.cities.length)
+      ].name;
+      this.area = Math.floor(Math.random() * 50);
+      this.beds = Math.floor(Math.random() * 10);
+      this.price = Math.floor(Math.random() * 10000);
+      this.description = this.randomGenerator();
+      this.randomImg();
+    },
+
+    randomGenerator() {
+      let wovels = ["a", "e", "i", "o", "u", "y", "å", "ä"];
+      let consonants = [
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "h",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "v",
+        "w",
+        "x",
+      ];
+
+      let randomizedName = "";
+
+      for (let i = 0; i < 1; i++) {
+        let x = Math.floor(Math.random() * 8);
+        let y = Math.floor(Math.random() * 19);
+        console.log(x, " : ", y);
+
+        randomizedName += consonants[Math.floor(Math.random() * 19)];
+        randomizedName += wovels[x];
+        randomizedName += consonants[y];
+        randomizedName += consonants[y];
+        randomizedName += wovels[x];
+        randomizedName += wovels[x];
+        randomizedName += consonants[y];
+        randomizedName += consonants[Math.floor(Math.random() * 19)];
+      }
+
+      return randomizedName;
+    },
+    randomImg() {
+      for (let i = 0; i < 10; i++) {
+        this.images.push("https://source.unsplash.com/collection/travel/");
+      }
     },
   },
 };
