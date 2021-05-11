@@ -8,7 +8,6 @@
         placeholder="Search city:"
         @keyup.enter="gotToCityPage"
         @click="showAutoFill = true"
-        @keypress.tab="showAutoFill = false"
       />
       <div class="searchResults" v-if="showAutoFill && userInput">
         <CityItem
@@ -16,6 +15,7 @@
           v-bind:key="city.id"
           v-bind:city="city"
           @click="autofill(city)"
+          @onfocus="showAutoFill = false"
         />
       </div>
       <h2>Check-in/out</h2>
