@@ -8,6 +8,7 @@
         placeholder="Search city:"
         @keyup.enter="gotToCityPage"
         @click="showAutoFill = true"
+        @keypress.tab="showAutoFill = false"
       />
       <div class="searchResults" v-if="showAutoFill && userInput">
         <CityItem
