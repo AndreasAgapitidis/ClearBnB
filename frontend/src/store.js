@@ -5,11 +5,19 @@ export default createStore({
 
     cities: [],
 
+    usersCity: null,
+
     listings: {},
+
+    user: null,
+
+    dateRange: {
+      start: '',
+      end: ''
+    },
 
     reservations: [],
 
-    user: null
   },
 
   // this.$store.commit('mutationName')
@@ -28,9 +36,17 @@ export default createStore({
       state.user = user
     },
 
+    setBookingDates(state, range) {
+      state.dateRange = range
+    },
     createReservation(state, reservation) {
       state.reservations.push(reservation)
+    },
+
+    setUsersCity(state, city) {
+      state.usersCity = city
     }
+
   },
 
   // this.$store.dispatch('actionName')
@@ -96,6 +112,11 @@ export default createStore({
       store.commit('setListings', listings)
     },
 
+    // set the date range to be referenced when selecting a booking
+    setBookingDates(store, range) {
+      store.commit('setBookingDates', range)
+    },
+    
     async postReservation(store, reservation) {
       let res = await fetch('/rest/reservations', {
         method: 'POST',
