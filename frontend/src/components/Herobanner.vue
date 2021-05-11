@@ -1,8 +1,7 @@
 <template>
   <div class="wrapper">
-
     <div class="searchContainer">
-    <label for="cities"><h4 class="checkInCity">City</h4></label>
+      <!-- <label for="cities"><h4 class="checkInCity">City</h4></label>
     <select name="cities" id="cities">
       <option value="malmö">Malmö</option>
       <option value="göteborg">Göteborg</option>
@@ -16,31 +15,36 @@
       name="checkInOut"
       min="2021-01-01"
       max="2022-12-31"
-    />
+    /> -->
 
-    <div class="popDestination">
-      <h3>Popular destinations</h3>
-      <h4>Malmö | Stockholm | Göteborg</h4>
+      <InputCityAndPickDate />
+
+      <div class="popDestination">
+        <h3>Popular destinations</h3>
+        <h4>Malmö | Stockholm | Göteborg</h4>
       </div>
     </div>
-   
   </div>
 </template>
 
 <script>
-export default {};
+import InputCityAndPickDate from "../components/searchComponents/InputCityAndPickDate.vue";
+export default {
+  components: {
+    InputCityAndPickDate,
+  },
+};
 </script>
 
 <style scoped>
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 #cities {
   width: 250px;
   height: 50px;
   outline: none;
   border: none;
-border-radius: 0 20px 0px 20px;
+  border-radius: 0 20px 0px 20px;
 }
 
 #start {
@@ -54,7 +58,8 @@ border-radius: 0 20px 0px 20px;
 }
 
 .wrapper {
-  background-image: linear-gradient( rgb(255 255 255 / 0%), rgb(255 255 255) ) ,url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
@@ -63,17 +68,16 @@ border-radius: 0 20px 0px 20px;
   flex-direction: column;
   justify-content: flex-end;
   height: 35em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.searchContainer{
+.searchContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 25em;
   align-items: flex-end;
   margin-right: 25px;
-
 }
 
 .popDestination {
@@ -82,14 +86,14 @@ border-radius: 0 20px 0px 20px;
   justify-content: space-around;
   width: 20em;
   height: 7em;
- 
+
   background: rgba(0, 0, 0, 0.6);
   color: #fafafa;
   border-radius: 17px;
 }
 
 .popDestination > h3,
-h4 { 
+h4 {
   font-weight: 200;
   text-align: right;
   margin: 0px;
