@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <div class="searchContainer">
+  <!-- <div class="wrapper">
+    <div class="searchContainer"> -->
       <!-- <label for="cities"><h4 class="checkInCity">City</h4></label>
     <select name="cities" id="cities">
       <option value="malmö">Malmö</option>
@@ -23,8 +23,8 @@
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Göteborg</h4>
       </div> -->
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
 </template>
 
 <script>
