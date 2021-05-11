@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar">
+  <div class="SearchByCity-Bg">
     <InputCityAndPickDate />
     
   </div>
@@ -29,10 +29,10 @@ export default {
 </script>
 
 <style scoped>
-.calendar {
+.SearchByCity-Bg {
   width: 100vw;
   margin: auto;
   position: relative;
-  
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)), url('../assets/Banner-Pictures/Malmö-Header.jpg');
 }
 </style>

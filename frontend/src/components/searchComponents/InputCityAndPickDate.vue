@@ -107,8 +107,8 @@ export default {
 }
 
 .inputCityAndDateContainer {
-  /* width: 100vw; */
-  /* top: 4em; */
+  width: 100vw; 
+  top: 4em; 
   position: relative;
   height: 35em;
   display: flex;
