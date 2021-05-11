@@ -39,6 +39,8 @@ export default {
     let res = await fetch("/rest/listings/" + this.$route.params.id);
     this.listing1 = await res.json();
 
+    window.scrollTo(0, 0);
+
     // console.log(this.$store.state.listings);
     // only 1 empty listing?
     // for (let listing of this.$store.state.listings) {
