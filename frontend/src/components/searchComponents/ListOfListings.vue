@@ -4,6 +4,7 @@
     v-for="listing of listings"
     v-bind:key="listing.id"
     v-bind:listing="listing"
+    v-on:click="navToBooking(listing)"
   />
   </div>
   
@@ -17,6 +18,12 @@ export default {
 
   components: {
     RentalItem,
+  },
+
+  methods: {
+    navToBooking(listing) {
+      this.$router.replace("/house_details/" + listing.id);
+    },
   },
 };
 </script>

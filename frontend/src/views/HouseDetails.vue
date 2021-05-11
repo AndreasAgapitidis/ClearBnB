@@ -1,9 +1,10 @@
 <template>
-  <PictureCarousel />
-  <DetailInfo />
-  <BookingSelectables />
+  <PictureCarousel v-bind:carouselprop="listing1" />
+  <DetailInfo v-bind:detailprop="listing1" />
+  <BookingSelectables v-bind:detailprop="listing1" />
   <Cheapest />
   <StudentText />
+  <!-- <button v-on:click="lista">aa</button> -->
 </template>
 
 <script>
@@ -14,9 +15,10 @@ import Cheapest from "../components/Cheapest.vue";
 import StudentText from "../components/StudentText.vue";
 
 export default {
-  async created() {
-    // this.$store.dispatch("getListingInfo");
-    console.log("attached");
+  data() {
+    return {
+      listing1: null,
+    };
   },
 
   components: {
@@ -26,6 +28,45 @@ export default {
     Cheapest,
     StudentText,
   },
+
+  async created() {
+    // maybe try to fetch listing with id
+    // await this.$store.dispatch("fetchListings");
+    // for (let listing of this.$store.state.listings) {
+    //   if (listing.id == this.$route.params.id) {
+    //     this.listing1 = listing;
+
+    let res = await fetch("/rest/listings/" + this.$route.params.id);
+    this.listing1 = await res.json();
+
+    window.scrollTo(0, 0);
+
+    // console.log(this.$store.state.listings);
+    // only 1 empty listing?
+    // for (let listing of this.$store.state.listings) {
+    //   if (listing.id == this.$route.params.id) {
+    //     this.listing = listing;
+    //   }
+    // }
+  },
+
+  // mounted() {
+  //   for (let listing of this.$store.state.listings) {
+  //     if (listing.id == this.$route.params.id) {
+  //       this.listing1 = listing;
+  //       console.log(listing);
+  //       console.log(listing1);
+
+  //       //   await this.$store.dispatch("fetchListings");
+  //       //   for (let listing of this.$store.state.listings) {
+  //       //     if (listing.id == this.$route.params.id) {
+  //       //       this.listing = listing;
+  //       //       console.log(listing);
+  //       //     }
+  //       //    }
+  //     }
+  //   }
+  // },
 };
 </script>
 
