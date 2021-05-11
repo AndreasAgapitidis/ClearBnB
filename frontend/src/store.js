@@ -37,6 +37,7 @@ export default createStore({
     setBookingDates(state, range) {
       state.dateRange = range
     },
+
     createReservation(state, reservation) {
       state.reservations.push(reservation)
     }
@@ -109,7 +110,7 @@ export default createStore({
     setBookingDates(store, range) {
       store.commit('setBookingDates', range)
     },
-    
+
     async postReservation(store, reservation) {
       let res = await fetch('/rest/reservations', {
         method: 'POST',
@@ -119,6 +120,13 @@ export default createStore({
       let reservationFromServer = await res.json();
 
       store.commit('createReservation', reservationFromServer)
+    },
+
+    async putListing(store, listing) {
+      await fetch('/rest/listings', {
+        method: 'PUT',
+        body: JSON.stringify(listing)
+      })
     }
   }
 });

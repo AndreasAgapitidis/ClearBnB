@@ -61,7 +61,9 @@
       </select>
       <div class="buttons">
         <button class="book-now">Book now!</button>
-        <button class="cancel" type="reset">Cancel</button>
+        <button class="cancel" type="reset" v-on:click="clearFields">
+          Cancel
+        </button>
       </div>
     </form>
   </div>
@@ -118,6 +120,10 @@ export default {
   },
 
   methods: {
+    clearFields() {
+      (this.adult.id = 1), (this.child.id = 0);
+    },
+
     addReservation() {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
@@ -143,7 +149,23 @@ export default {
         listingId: this.detailprop.id,
       };
 
+      // divding with 1000 to get Unix format we are using in backend listing.unavailableDates
+      let dateUnix = this.range.start.getTime() / 1000;
+
+      for (let i = 0; i < this.differenceInDays; i++) {
+        this.detailprop.unavailableDates.push(dateUnix);
+
+        // 86400 is a day in Unix format
+        dateUnix += 86400;
+      }
+
       this.$store.dispatch("postReservation", reservation);
+      this.$store.dispatch("putListing", this.detailprop);
+
+      // vm.$forceUpdate(); // force refresh page
+
+      window.location.reload();
+
       alert("Booking has been submitted");
     },
   },

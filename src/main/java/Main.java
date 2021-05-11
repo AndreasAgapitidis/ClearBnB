@@ -78,35 +78,4 @@ public class Main {
     collection(City.class).save(city);
 
   }
-
-
-  //Temporarily function, used for adding dummy data
-  public static void addNewListing(){
-    Listing newListing = new Listing();
-
-    newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
-    newListing.setApartment(true);
-    newListing.setHouse(false);
-    newListing.setCity("Kyoto");
-    newListing.setAddress(" aaaaaaaaa");
-    newListing.setDescription("A traditional japanese ryokan");
-    newListing.setArea(30);
-    newListing.setBeds(2);
-    newListing.setPrice(850);
-    newListing.setRating(9.5);
-
-    Date date = new Date();
-
-    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/330px-Tamatsukuri_onsen_yado02s3648.jpg");
-    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg/330px-Breakfast_at_Tamahan_Ryokan%2C_Kyoto.jpg");
-    newListing.addImage("https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tamatsukuri_onsen_yado02s3648.jpg/1920px-Tamatsukuri_onsen_yado02s3648.jpg");
-    newListing.addImage("https://www.nicolelabarge.com/wp-content/uploads/2020/01/DOZEN-RYOKAN-1024x683.jpg");
-    newListing.addImage("https://sugoii-japan.com/wp-content/uploads/2020/02/Japanese-Traditional-Inn-3-Kinnotake-Tonosawa-Adult-Only-1-1280x720.jpg");
-    newListing.addImage("https://travelcollecting.com/wp-content/uploads/2019/03/Ryokan-hostess-in-kimono.jpg");
-
-    collection(Listing.class).save(newListing);
-
-
-  }
-
 }
