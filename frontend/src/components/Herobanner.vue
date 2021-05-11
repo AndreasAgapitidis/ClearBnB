@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="wrapper">
+  <!-- 
     <div class="searchContainer"> -->
       <!-- <label for="cities"><h4 class="checkInCity">City</h4></label>
     <select name="cities" id="cities">
@@ -17,14 +17,18 @@
       max="2022-12-31"
     /> -->
 
-      <InputCityAndPickDate />
+   
+    
+<div class="Banner-Bg">
 
-      <!-- <div class="popDestination">
+      <InputCityAndPickDate />
+</div> 
+      <div class="popDestination">
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Göteborg</h4>
-      </div> -->
+      </div>
     <!-- </div>
-  </div> -->
+  -->
 </template>
 
 <script>
@@ -57,13 +61,11 @@ export default {
   font-weight: 200;
 }
 
-.wrapper {
-  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
-    url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
+.Banner-Bg {
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)), url('../assets/Banner-Pictures/Stockholm.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  top: 4em;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
@@ -88,6 +90,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  justify-self: end;
   width: 20em;
   height: 7em;
   margin-right: 15px;
