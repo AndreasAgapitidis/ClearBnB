@@ -90,10 +90,16 @@ export default {
       ],
 
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: this.$store.state.dateRange.start,
+        end: this.$store.state.dateRange.end,
       },
     };
+  },
+
+  created() {
+    if (!this.range.start || !this.range.end) {
+      (this.range.start = new Date()), (this.range.end = new Date());
+    }
   },
 
   methods: {
@@ -118,6 +124,7 @@ export default {
         endDate: this.range.end,
         listingId: this.detailprop.id,
       };
+
       this.$store.dispatch("postReservation", reservation);
       alert("Booking has been submitted");
     },
