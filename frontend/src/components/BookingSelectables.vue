@@ -4,7 +4,7 @@
       <v-date-picker
         class="date-picker"
         is-expanded
-        v-model="date"
+        v-model="range"
         :disabled-dates="[new Date(2021, 9, 10), new Date(2021, 10, 10)]"
         color="blue"
         is-range
