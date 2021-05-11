@@ -5,6 +5,8 @@ export default createStore({
 
     cities: [],
 
+    usersCity: null,
+
     listings: {},
 
     reservations: [],
@@ -30,7 +32,12 @@ export default createStore({
 
     createReservation(state, reservation) {
       state.reservations.push(reservation)
+    },
+
+    setUsersCity(state, city) {
+      state.usersCity = city
     }
+
   },
 
   // this.$store.dispatch('actionName')

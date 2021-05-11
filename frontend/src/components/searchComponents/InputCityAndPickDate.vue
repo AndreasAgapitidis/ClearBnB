@@ -15,7 +15,6 @@
           v-bind:key="city.id"
           v-bind:city="city"
           @click="autofill(city)"
-          @onfocus="showAutoFill = false"
         />
       </div>
       <h2>Check-in/out</h2>
@@ -64,6 +63,8 @@ export default {
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
+      this.$store.commit("setUsersCity", userSearchedFor);
+
       this.newListing = [];
 
       this.$store.state.listings.filter((listing) => {
