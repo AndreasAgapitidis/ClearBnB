@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="goToCityPage">
+  <div class="card">
     <h3>{{ city.name }}</h3>
   </div>
 </template>
@@ -8,11 +8,7 @@
 export default {
   props: ["city"],
 
-  methods: {
-    goToCityPage() {
-      this.$router.push("/SearchByCity/" + this.city.id);
-    },
-  },
+  methods: {},
 };
 </script>
 
