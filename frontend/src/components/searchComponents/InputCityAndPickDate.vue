@@ -12,7 +12,7 @@
         v-for="city of cities"
         v-bind:key="city.id"
         v-bind:city="city"
-        @click="clearTheSearchBox(city)"
+        @click="autofill(city)"
       />
     </div>
   </div>
@@ -56,13 +56,6 @@ export default {
     Calendar,
   },
   methods: {
-    clearTheSearchBox(city) {
-      this.userSearchedFor = city.name;
-      this.userInput = "";
-      /* this.$emit("this.userSearchedFor"); */
-      this.filterIntoUsersChoice(this.userSearchedFor);
-    },
-
     filterIntoUsersChoice(userSearchedFor) {
       this.newListing = [];
 
@@ -74,6 +67,19 @@ export default {
 
       this.$parent.filteredListings = this.newListing;
     },
+
+    autofill(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = city.name;
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    },
+
+    /* clearTheSearchBox(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = "";
+      this.$emit("this.userSearchedFor"); 
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    }, */
   },
 };
 </script>
