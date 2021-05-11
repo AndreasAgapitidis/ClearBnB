@@ -1,8 +1,13 @@
 <template>
-
-  <div class="rentalCard">
-    <!-- <p>{{ listing.city }}</p> --> 
-    <img :src="listing.images[0]" alt="" />
+  
+  <div class="rentalCard" v-bind:style="{ backgroundImage: 'linear-gradient(to right, rgb(255 255 255 / 0%), rgb(255 255 255 / 90%), rgb(255 255 255 / 100%) ) ,url(' + listing.images[0] + ')' }">
+    <div class="text-container">
+    <h4>{{ listing.address }}</h4>
+    <p> {{listing.description}}</p>
+    <p> Price: {{ listing.price }}sek / night</p>
+    <p>Size: {{ listing.area }}m2</p>
+    
+    </div>
   </div>
   
 </template>
@@ -18,21 +23,48 @@ export default {
 </script>
 
 <style scoped>
+.text-container{
+  color: rgb(43, 43, 43);
+  margin-right: 2em;
+}
+
+.text-container p{
+  font-size: 13px;
+  margin: 3px;
+  text-align: end;
+  font-style: italic;
+}
+
+.text-conatiner > p:nth-child(1){
+  color: white;
+}
 
 
 .rentalCard {
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 1em auto;
   width: 80%;
-  height: 100px;
-  border-radius: 0 75px 0 75px;
+  height: 150px;
+  border-radius: 0 47px 0 47px;
   overflow: hidden;
   position: relative;
   top: 5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-right: 1px solid rgb(75, 75, 75);
+  border-bottom: 1px solid rgb(75, 75, 75);
+  
 }
 
 .rentalCard:hover {
   transform: scale(1.02);
   cursor: pointer;
+}
+
+.rentalCard:last-child{
+  margin-bottom: 1em;
 }
 
 img {
