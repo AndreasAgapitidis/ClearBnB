@@ -19,10 +19,10 @@
 
       <InputCityAndPickDate />
 
-      <div class="popDestination">
+      <!-- <div class="popDestination">
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Göteborg</h4>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -62,22 +62,26 @@ export default {
     url("../assets/Banner-Pictures/5.2.1Stockholm.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  top: 4em;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 35em;
   font-family: "Roboto", sans-serif;
 }
 
 .searchContainer {
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 25em;
   align-items: flex-end;
-  margin-right: 25px;
+  
 }
 
 .popDestination {
@@ -86,7 +90,7 @@ export default {
   justify-content: space-around;
   width: 20em;
   height: 7em;
-
+  margin-right: 15px;
   background: rgba(0, 0, 0, 0.6);
   color: #fafafa;
   border-radius: 17px;
