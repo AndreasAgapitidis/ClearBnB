@@ -63,6 +63,9 @@ export default {
         this.range.start.setHours(0, 0, 0, 0);
         this.range.end.setHours(0, 0, 0, 0);
 
+        // set dates in store to be access by booking page
+        this.$store.dispatch("setBookingDates", this.range);
+
         let updatedListings = [];
 
         if (!this.$route.params.id) {
@@ -115,10 +118,10 @@ export default {
   outline: none;
 }
 
-#InputStart,
+/*#InputStart,
 #InputEnd:hover {
-  pointer: none;
-}
+  cursor: none;
+}*/
 
 .inputCityAndDateContainer > div {
   margin-top: 15px;

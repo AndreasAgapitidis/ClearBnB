@@ -1,21 +1,26 @@
 <template>
   <div class="inputCityAndDateContainer">
-    
     <div class="InputContainer">
       <h2>City</h2>
-      <input v-model="userInput" type="text" placeholder="Search city:" />
-      <div class="searchResults" v-if="userInput">
-      <CityItem
-        v-for="city of cities"
-        v-bind:key="city.id"
-        v-bind:city="city"
-        @click="autofill(city)"
+      <input
+        v-model="userInput"
+        type="text"
+        placeholder="Search city:"
+        @keyup.enter="gotToCityPage"
+        @click="showAutoFill = true"
       />
-    </div>
+      <div class="searchResults" v-if="showAutoFill && userInput">
+        <CityItem
+          v-for="city of cities"
+          v-bind:key="city.id"
+          v-bind:city="city"
+          @click="autofill(city)"
+        />
+      </div>
       <h2>Check-in/out</h2>
       <Calendar />
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +36,7 @@ export default {
       userInput: "",
       userSearchedFor: "",
       newListing: [],
+      showAutoFill: true,
     };
   },
 
@@ -57,6 +63,8 @@ export default {
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
+      this.$store.commit("setUsersCity", userSearchedFor);
+
       this.newListing = [];
 
       this.$store.state.listings.filter((listing) => {
@@ -72,6 +80,11 @@ export default {
       this.userSearchedFor = city.name;
       this.userInput = city.name;
       this.filterIntoUsersChoice(this.userSearchedFor);
+      this.showAutoFill = !this.showAutoFill;
+    },
+
+    gotToCityPage() {
+      this.$router.push("/SearchByCity/" + this.userInput);
     },
 
     /* clearTheSearchBox(city) {
@@ -90,8 +103,8 @@ export default {
 }
 
 .inputCityAndDateContainer {
-  width: 100vw;
-  top: 4em;
+  width: 100vw; 
+  top: 4em; 
   position: relative;
   height: 35em;
   display: flex;
@@ -99,26 +112,25 @@ export default {
   align-items: flex-end;
   justify-content: center;
   margin: 0 auto;
-  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+  /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 h2 {
   color: white;
-   text-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px 2px black;
 }
 
-.InputContainer{
-height: 300px;
-width: auto;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-margin-right: 2em;
-margin-bottom: 2em;
-
+.InputContainer {
+  height: 300px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2em;
+  margin-bottom: 2em;
 }
 
 .searchResults {
@@ -131,13 +143,12 @@ margin-bottom: 2em;
   border-radius: 0 0 20px 20px;
   font-size: 10px;
   top: 26em;
-
 }
 
 input {
   width: 220px;
   height: 4em;
- 
+
   font-weight: 200;
   justify-content: center;
   border: none;

@@ -1,11 +1,13 @@
 <template>
   <div class="calendar">
     <form class="calendar-form">
+      <!-- v-if will run this method/computed once before -->
       <v-date-picker
+        v-if="renderTime"
         class="date-picker"
         is-expanded
         v-model="range"
-        :disabled-dates="[new Date(2021, 9, 10), new Date(2021, 10, 10)]"
+        :disabled-dates="disabledDates"
         color="blue"
         is-range
       />
@@ -69,6 +71,7 @@
 export default {
   props: ["detailprop"],
 
+  // Everytime a data changes, the relevant computed will run
   data() {
     return {
       adult: { id: "1" },
@@ -76,6 +79,7 @@ export default {
       price: this.price,
       date: "",
       days: null,
+      disabledDates: [],
 
       childrenMenu: [
         { id: 0, name: "0" },
@@ -90,10 +94,27 @@ export default {
       ],
 
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: this.$store.state.dateRange.start,
+        end: this.$store.state.dateRange.end,
       },
     };
+  },
+
+  created() {
+    // console.log(this.detailprop.price);
+
+    if (!this.range.start || !this.range.end) {
+      (this.range.start = new Date()), (this.range.end = new Date());
+    }
+
+    // for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
+    //   this.disabledDates.push(
+    //     new Date(this.detailprop.unavailableDates[i] * 1000)
+    //     // using UnixTimestamp from java which was divided by 1000 to fit as an int
+    //     // ** changing on sprint 2
+    //   );
+    //   console.log(new Date(this.detailprop.unavailableDates[i] * 1000));
+    // }
   },
 
   methods: {
@@ -109,6 +130,9 @@ export default {
         return;
       }
 
+      this.range.start.setHours(0, 0, 0, 0);
+      this.range.end.setHours(0, 0, 0, 0);
+
       let reservation = {
         adult: this.adult.id,
         children: this.child.id,
@@ -118,6 +142,7 @@ export default {
         endDate: this.range.end,
         listingId: this.detailprop.id,
       };
+
       this.$store.dispatch("postReservation", reservation);
       alert("Booking has been submitted");
     },
@@ -139,6 +164,25 @@ export default {
         (this.range.end.getTime() - this.range.start.getTime()) /
           (1000 * 3600 * 24)
       );
+    },
+
+    renderTime() {
+      // Adding if to avoid sync problem
+      // props didn't fetch info before being looped, thus returning an error
+      // with the if(!this.detailprop), it will stop renderTime from running
+      // but once props got info, the value changed, thus computed will run again
+
+      if (!this.detailprop) {
+        return;
+      }
+      for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
+        this.disabledDates.push(
+          new Date(this.detailprop.unavailableDates[i] * 1000)
+          // using UnixTimestamp from java which was divided by 1000 to fit as an int
+          // ** changing on sprint 2
+        );
+      }
+      return true;
     },
   },
 };
