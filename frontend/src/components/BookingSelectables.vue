@@ -1,13 +1,15 @@
 <template>
   <div class="calendar">
-    <v-date-picker
-      class="date-picker"
-      is-expanded
-      v-model="date"
-      :disabled-dates="[new Date(2021, 9, 10), new Date(2021, 10, 10)]"
-      color="blue"
-      is-range
-    />
+    <form class="calendar-form">
+      <v-date-picker
+        class="date-picker"
+        is-expanded
+        v-model="date"
+        :disabled-dates="[new Date(2021, 9, 10), new Date(2021, 10, 10)]"
+        color="blue"
+        is-range
+      />
+    </form>
   </div>
 
   <div class="info-display">
@@ -21,7 +23,7 @@
         {{ children.id }}
       </p>
       <p>Your stay: 0 days</p>
-      <p v-if="detailprop">Total: {{ (price = detailprop.price) }} SEK</p>
+      <p v-if="detailprop">Total: {{ priceWithProfit }} SEK</p>
     </div>
 
     <form class="custom-number" @submit.prevent="addReservation">
@@ -54,7 +56,9 @@
         </option>
       </select>
       <div class="buttons">
-        <button class="book-now">Book now!</button>
+        <button class="book-now" value="Click" onclick="submitForms()">
+          Book now!
+        </button>
         <button class="cancel" type="reset">Cancel</button>
       </div>
     </form>
@@ -69,7 +73,7 @@ export default {
     return {
       adult: { id: "" },
       children: { id: "" },
-      price: "",
+      price: this.price,
       date: "",
 
       childrenMenu: [
@@ -101,11 +105,25 @@ export default {
       let reservation = {
         adult: this.adult.id,
         children: this.children.id,
-        price: this.price,
+        price: this.priceWithProfit,
         userId: this.$store.state.user.id,
+        startDate: this.range.start,
+        endDate: this.range.end,
+        listingId: this.detailprop.id,
       };
       this.$store.dispatch("postReservation", reservation);
       alert("Booking has been submitted");
+    },
+
+    submitForms() {
+      document.getElementsByClassName("calendar-form").submit();
+      document.getElementsByClassName("custom-number").submit();
+    },
+  },
+
+  computed: {
+    priceWithProfit() {
+      return Math.round(this.detailprop.price * 1.15);
     },
   },
 };
@@ -137,6 +155,7 @@ select {
   width: 100px;
   height: 30px;
   border-radius: 20px;
+  background-color: white;
 }
 
 .buttons {
