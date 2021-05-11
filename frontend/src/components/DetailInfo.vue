@@ -6,7 +6,7 @@
     </div>
 
     <div class="Details">
-      <p>Price: {{ detailprop.price }} SEK / night</p>
+      <p>Price: {{ priceWithProfit }} SEK / night</p>
       <p>Rating: {{ detailprop.rating }}</p>
       <p>City: {{ detailprop.city }}</p>
       <p>Beds: {{ detailprop.beds }}</p>
@@ -21,6 +21,12 @@
 <script>
 export default {
   props: ["detailprop"],
+
+  computed: {
+    priceWithProfit() {
+      return Math.round(this.detailprop.price * 1.15);
+    },
+  },
 };
 </script>
 
