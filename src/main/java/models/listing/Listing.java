@@ -12,15 +12,15 @@ public class Listing {
     @Id
     private String id;
     private String owner;
-    private boolean isApartment = false;
-    private boolean isHouse = false;
+    private String isApartment;
+    private String isHouse;
     private String city;
     private String address;
     private String description;
     private int area;
     private int beds;
     private int price;
-    private double rating;
+    private int rating;
     private ArrayList<Long> unavailableDates = new ArrayList<>();
     private ArrayList <String> images = new ArrayList<>();
 
@@ -30,14 +30,6 @@ public class Listing {
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getOwner() {
         return owner;
     }
@@ -46,20 +38,28 @@ public class Listing {
         this.owner = owner;
     }
 
-    public boolean isApartment() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIsApartment() {
         return isApartment;
     }
 
-    public void setApartment(boolean apartment) {
-        isApartment = apartment;
+    public void setIsApartment(String isApartment) {
+        this.isApartment = isApartment;
     }
 
-    public boolean isHouse() {
+    public String getIsHouse() {
         return isHouse;
     }
 
-    public void setHouse(boolean house) {
-        isHouse = house;
+    public void setIsHouse(String isHouse) {
+        this.isHouse = isHouse;
     }
 
     public String getCity() {
@@ -110,11 +110,11 @@ public class Listing {
         this.price = price;
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
