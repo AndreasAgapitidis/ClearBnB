@@ -30,7 +30,6 @@ public class Listing {
 
     //<editor-fold desc="----------- GETTER & SETTERS ----------">
 
-
     public String getOwner() {
         return owner;
     }

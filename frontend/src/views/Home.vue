@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <Herobanner />
     <NotAMember />
     <AdBanner />
@@ -8,7 +7,6 @@
     <StudentText />
     <LandLordBanner />
     <RandomLocation />
-
   </div>
 </template>
 
@@ -27,9 +25,9 @@ export default {
     NotAMember,
     AdBanner,
     AvailableHouses,
-     StudentText,
+    StudentText,
     LandLordBanner,
-    RandomLocation
+    RandomLocation,
   },
 };
 </script>

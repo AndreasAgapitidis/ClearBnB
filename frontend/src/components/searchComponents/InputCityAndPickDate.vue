@@ -4,17 +4,16 @@
     <div class="InputContainer">
       <h2>City</h2>
       <input v-model="userInput" type="text" placeholder="Search city:" />
-      <h2>Check-in/out</h2>
-      <Calendar />
-    </div>
-
-    <div class="searchResults" v-if="userInput">
+      <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
         v-bind:key="city.id"
         v-bind:city="city"
-        @click="clearTheSearchBox(city)"
+        @click="autofill(city)"
       />
+    </div>
+      <h2>Check-in/out</h2>
+      <Calendar />
     </div>
     </div>
 </template>
@@ -57,13 +56,6 @@ export default {
     Calendar,
   },
   methods: {
-    clearTheSearchBox(city) {
-      this.userSearchedFor = city.name;
-      this.userInput = "";
-      /* this.$emit("this.userSearchedFor"); */
-      this.filterIntoUsersChoice(this.userSearchedFor);
-    },
-
     filterIntoUsersChoice(userSearchedFor) {
       this.newListing = [];
 
@@ -75,6 +67,19 @@ export default {
 
       this.$parent.filteredListings = this.newListing;
     },
+
+    autofill(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = city.name;
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    },
+
+    /* clearTheSearchBox(city) {
+      this.userSearchedFor = city.name;
+      this.userInput = "";
+      this.$emit("this.userSearchedFor"); 
+      this.filterIntoUsersChoice(this.userSearchedFor);
+    }, */
   },
 };
 </script>
@@ -113,10 +118,11 @@ flex-direction: column;
 justify-content: space-around;
 margin-right: 2em;
 margin-bottom: 2em;
+
 }
 
 .searchResults {
-
+  position: absolute;
   margin-top: 5px;
   background: rgba(252, 252, 252, 0.7);
   max-height: 300px;
@@ -124,12 +130,14 @@ margin-bottom: 2em;
   width: 220px;
   border-radius: 0 0 20px 20px;
   font-size: 10px;
+  top: 26em;
 
 }
 
 input {
   width: 220px;
   height: 4em;
+ 
   font-weight: 200;
   justify-content: center;
   border: none;
