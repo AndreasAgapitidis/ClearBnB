@@ -4,10 +4,6 @@
     <div class="InputContainer">
       <h2>City</h2>
     <input v-model="userInput" type="text" placeholder="Search city:" />
-    <h2>Check-in/out</h2>
-    <Calendar />
-    </div>
-    
     <div class="searchResults" v-if="userInput">
       <CityItem
         v-for="city of cities"
@@ -16,6 +12,11 @@
         @click="clearTheSearchBox(city)"
       />
     </div>
+    <h2>Check-in/out</h2>
+    <Calendar />
+    </div>
+    
+    
   </div>
 </template>
 
@@ -84,16 +85,8 @@ export default {
   box-sizing: border-box;
 }
 
-/* .HeroBanner2 {
-  height: 200px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  
-} */
-
 .inputCityAndDateContainer {
-  width: 100%;
+  width: 100vw;
   top: 4em;
   position: relative;
   height: 35em;
@@ -109,6 +102,7 @@ export default {
 
 h2{
   color: white;
+   text-shadow: 2px 2px 2px black;
 }
 
 .InputContainer{
@@ -117,18 +111,20 @@ width: auto;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
-margin-right: 1em;
+margin-right: 2em;
 margin-bottom: 2em;
 }
 
 .searchResults {
-  background: rgb(252, 252, 252);
-  border: solid 1px gray;
+
+  margin-top: 5px;
+  background: rgba(252, 252, 252, 0.7);
   max-height: 300px;
   z-index: 10;
-  position: absolute;
-  top: 86px;
-  width: 100%;
+  width: 220px;
+  border-radius: 0 0 20px 20px;
+  font-size: 10px;
+
 }
 
 input {
