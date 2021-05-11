@@ -31,12 +31,22 @@
       v-model="description"
       placeholder="Listing description"
     ></textarea>
-    <input class="txtInput" type="text" placeholder="Area" v-model="area" />
-    <input class="txtInput" type="text" placeholder="Beds" v-model="beds" />
     <input
       class="txtInput"
       type="text"
-      placeholder="Price per night"
+      placeholder="Area (Integer)"
+      v-model="area"
+    />
+    <input
+      class="txtInput"
+      type="text"
+      placeholder="Beds (Integer)"
+      v-model="beds"
+    />
+    <input
+      class="txtInput"
+      type="text"
+      placeholder="Price per night (Integer)"
       v-model="price"
     />
     <input
@@ -100,6 +110,7 @@ export default {
     addImage() {
       this.images.push(this.imageURL);
       this.pictureCount++;
+      this.imageURL = "";
     },
   },
 };
