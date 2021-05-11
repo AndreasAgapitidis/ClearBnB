@@ -112,7 +112,7 @@ export default {
       let reservation = {
         adult: this.adult.id,
         children: this.child.id,
-        price: this.priceWithProfit,
+        price: this.priceWithProfit * this.differenceInDays,
         userId: this.$store.state.user.id,
         startDate: this.range.start,
         endDate: this.range.end,
