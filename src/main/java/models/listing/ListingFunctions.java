@@ -42,6 +42,11 @@ public class ListingFunctions {
             City city = collection("City").findById(req.params("id"));
             res.json(collection("Listing").find(eq("city", city.getName())));
         });
+
+        app.put("/rest/listings",(req,res) ->{
+            Listing listing = req.body(Listing.class);
+            collection("Listing").save(listing);
+        });
     }
 
     //Temporarily function, used for adding dummy data
