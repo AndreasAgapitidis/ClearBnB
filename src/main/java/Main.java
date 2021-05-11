@@ -57,6 +57,10 @@ public class Main {
     new UserFunctions(app);
     new Booking(app);
 
+    app.post("/rest/test",(req,res) -> {
+      System.out.println(req.body());
+    });
+
     //ListingFunctions.addNewListing();
 
     // start server
