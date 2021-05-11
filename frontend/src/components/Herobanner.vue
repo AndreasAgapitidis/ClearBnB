@@ -23,10 +23,10 @@
 
       <InputCityAndPickDate />
 </div> 
-      <div class="popDestination">
+      <!-- <div class="popDestination">
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Göteborg</h4>
-      </div>
+      </div> -->
     <!-- </div>
   -->
 </template>
