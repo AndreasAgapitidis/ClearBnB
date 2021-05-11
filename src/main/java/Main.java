@@ -40,6 +40,10 @@ public class Main {
     new ListingFunctions(app);
     new UserFunctions(app);
 
+    app.post("/rest/test",(req,res) -> {
+      System.out.println(req.body());
+    });
+
     //ListingFunctions.addNewListing();
 
     // start server

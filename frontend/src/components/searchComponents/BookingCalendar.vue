@@ -37,12 +37,10 @@ export default {
       for (let i = 0; i < array.length; i++) {
         let conflict = false;
         for (let j = 0; j < array[i].unavailableDates.length; j++) {
-          // compare to UNIX time stored in Java (which is the UNIX time divided by 1000)
-          if (
-            array[i].unavailableDates[j] >= this.range.start.getTime() / 1000 &&
-            array[i].unavailableDates[j] <=
-              this.range.end.getTime() / 1000 - 86400
-          ) {
+          // convert Java String to date and then compare to inputted dates
+          // we subtract 86400000 (one day) since the last date is a check-out day
+          let date = new Date(array[i].unavailableDates[j] * 1000);
+          if (date >= this.range.start && date <= this.range.end - 86400000) {
             conflict = true;
             break;
           }
@@ -61,7 +59,7 @@ export default {
       if (!this.range.start || !this.range.end) {
         return;
       } else {
-        // set hours/minutes/seconds/milliseconds to 0 on UNIX date-time
+        // set hours/minutes/seconds/milliseconds to 0
         this.range.start.setHours(0, 0, 0, 0);
         this.range.end.setHours(0, 0, 0, 0);
 
