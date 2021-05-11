@@ -20,10 +20,12 @@
       </p>
       <p>
         Children:
-        {{ children.id }}
+        {{ child.id }}
       </p>
-      <p>Your stay: 0 days</p>
-      <p v-if="detailprop">Total: {{ priceWithProfit }} SEK</p>
+      <p>Your stay: {{ differenceInDays }} days</p>
+      <p v-if="detailprop">
+        Total: {{ priceWithProfit * differenceInDays }} SEK
+      </p>
     </div>
 
     <form class="custom-number" @submit.prevent="addReservation">
@@ -32,7 +34,7 @@
         ><h4 class="adult">Please select the amount of adults:</h4>
       </label>
       <select name="adultCustomer" id="adultCustomer" v-model="adult" required>
-        <option disabled value="">Adult</option>
+        <option disabled value="0">Adult</option>
         <option
           v-for="adult in adultMenu"
           :key="adult.id"
@@ -45,8 +47,8 @@
       <label for="childrenCustomer"
         ><h4 class="children">Please select the amount of children:</h4>
       </label>
-      <select name="childrenCustomer" id="childrenCustomer" v-model="children">
-        <option disabled value="">Children</option>
+      <select name="childrenCustomer" id="childrenCustomer" v-model="child">
+        <option disabled value="0">Children</option>
         <option
           v-for="child in childrenMenu"
           :key="child.id"
@@ -56,9 +58,7 @@
         </option>
       </select>
       <div class="buttons">
-        <button class="book-now" value="Click" onclick="submitForms()">
-          Book now!
-        </button>
+        <button class="book-now">Book now!</button>
         <button class="cancel" type="reset">Cancel</button>
       </div>
     </form>
@@ -71,10 +71,11 @@ export default {
 
   data() {
     return {
-      adult: { id: "" },
-      children: { id: "" },
+      adult: { id: "1" },
+      child: { id: "0" },
       price: this.price,
       date: "",
+      days: null,
 
       childrenMenu: [
         { id: 0, name: "0" },
@@ -89,8 +90,8 @@ export default {
       ],
 
       range: {
-        start: new Date(2020, 0, 1),
-        end: new Date(2020, 0, 5),
+        start: new Date(),
+        end: new Date(),
       },
     };
   },
@@ -100,11 +101,17 @@ export default {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
         return;
+      } else if (!this.adult.id) {
+        alert("Please choose how many adults");
+        return;
+      } else if (this.differenceInDays == 0) {
+        alert("You need to select dates!");
+        return;
       }
 
       let reservation = {
         adult: this.adult.id,
-        children: this.children.id,
+        children: this.child.id,
         price: this.priceWithProfit,
         userId: this.$store.state.user.id,
         startDate: this.range.start,
@@ -114,16 +121,24 @@ export default {
       this.$store.dispatch("postReservation", reservation);
       alert("Booking has been submitted");
     },
-
-    submitForms() {
-      document.getElementsByClassName("calendar-form").submit();
-      document.getElementsByClassName("custom-number").submit();
-    },
   },
+
+  //   submitForms() {
+  //     document.getElementsByClassName("calendar-form").submit();
+  //     document.getElementsByClassName("custom-number").submit();
+  //   },
+  // },
 
   computed: {
     priceWithProfit() {
       return Math.round(this.detailprop.price * 1.15);
+    },
+
+    differenceInDays() {
+      return Math.round(
+        (this.range.end.getTime() - this.range.start.getTime()) /
+          (1000 * 3600 * 24)
+      );
     },
   },
 };
