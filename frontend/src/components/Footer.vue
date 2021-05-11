@@ -92,16 +92,24 @@ footer{
 
 .top > .Maps h3, p{
   margin: 0;
+ 
 }
 
-.top > p {
+.top > .Maps p {
   margin-top: 10px;
+  font-size: 13px;
 }
 
 
 .top > 
 .Contact h3, p{
   margin: 0;
+}
+
+.top > 
+.Contact p{
+  margin-top: 10px;
+  font-size: 13px;
 }
 
 .Maps{
@@ -157,7 +165,8 @@ width: 100%;
 }
 
 .right-bottom > p{
-  font-weight: 500;
+  font-weight: 100;
+  font-size: 12px;
   font-style: italic;
   margin-bottom: 15px;
   
