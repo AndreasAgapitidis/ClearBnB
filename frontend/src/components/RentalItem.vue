@@ -1,8 +1,10 @@
 <template>
+
   <div class="rentalCard">
-    <!-- <h1>{{ listing.city }}</h1> -->
+    <!-- <p>{{ listing.city }}</p> --> 
     <img :src="listing.images[0]" alt="" />
   </div>
+  
 </template>
 
 <script>
@@ -16,14 +18,16 @@ export default {
 </script>
 
 <style scoped>
+
+
 .rentalCard {
-  margin: 35px auto;
+  margin: 1em auto;
   width: 80%;
-  height: 180px;
+  height: 100px;
   border-radius: 0 75px 0 75px;
   overflow: hidden;
   position: relative;
-  top: 10em;
+  top: 5em;
 }
 
 .rentalCard:hover {
@@ -32,6 +36,7 @@ export default {
 }
 
 img {
+  
   width: 100%;
   height: 180px;
   object-fit: cover;

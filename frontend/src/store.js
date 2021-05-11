@@ -13,6 +13,9 @@ export default createStore({
       start: '',
       end: ''
     },
+
+    reservations: [],
+
   },
 
   // this.$store.commit('mutationName')
@@ -35,6 +38,9 @@ export default createStore({
       state.dateRange = range
       console.log(state.dateRange)
     },
+    createReservation(state, reservation) {
+      state.reservations.push(reservation)
+    }
   },
 
   // this.$store.dispatch('actionName')
@@ -96,7 +102,6 @@ export default createStore({
 
       let res = await fetch('/rest/listings');
       let listings = await res.json();
-
       // setListing runs setListing in mutations
       store.commit('setListings', listings)
     },
@@ -105,5 +110,16 @@ export default createStore({
     setBookingDates(store, range) {
       store.commit('setBookingDates', range)
     },
+    async postReservation(store, reservation) {
+      let res = await fetch('/rest/reservations', {
+        method: 'POST',
+        body: JSON.stringify(reservation)
+      })
+
+      let reservationFromServer = await res.json();
+
+      store.commit('createReservation', reservationFromServer)
+    }
   }
-})
+});
+
