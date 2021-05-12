@@ -1,20 +1,14 @@
 import express.Express;
-import models.city.City;
 import models.listing.Listing;
-import models.users.UserAccount;
 import models.users.UserFunctions;
-import utilities.HashPassword;
 import models.city.CityFunctions;
-import models.listing.Listing;
 
 import java.nio.file.Paths;
 import java.util.*;
 
 import static nosqlite.Database.collection;
-import models.listing.Listing;
 import static nosqlite.utilities.Filter.*;
 
-import models.listing.Listing;
 import models.listing.ListingFunctions;
 /*
     C - Create  POST
