@@ -35,6 +35,11 @@ export default {
   font-style: italic;
 }
 
+.text-container h4{
+  text-align: end;
+  
+}
+
 .text-conatiner > p:nth-child(1){
   color: white;
 }
