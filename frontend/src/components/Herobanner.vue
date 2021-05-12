@@ -23,10 +23,10 @@
 
       <InputCityAndPickDate />
 </div> 
-      <!-- <div class="popDestination">
+      <div class="popDestination">
         <h3>Popular destinations</h3>
-        <h4>Malmö | Stockholm | Göteborg</h4>
-      </div> -->
+        <h4>Malmö | Stockholm | Madrid</h4>
+      </div>
     <!-- </div>
   -->
 </template>
@@ -90,10 +90,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  justify-self: end;
+  align-items: center;
   width: 20em;
   height: 7em;
-  margin-right: 15px;
+  margin: 0 auto;
   background: rgba(0, 0, 0, 0.6);
   color: #fafafa;
   border-radius: 17px;
