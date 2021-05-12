@@ -21,7 +21,6 @@ public class UserFunctions {
     public void initFunctions(){
 
         app.get("/rest/getAllUsers", (request, response) -> {
-            System.out.println("Hej");
             response.json(collection("UserAccount").find());
         });
 

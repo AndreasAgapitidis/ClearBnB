@@ -24,18 +24,16 @@ public class ListingFunctions {
 
         app.get("/rest/listings/:id",(req,res) -> {
             res.json(collection("Listing").findById(req.params("id")));
-            System.out.println(":id");
         });
 
         // create listing from frontend, but this can wait
         app.post("/rest/listings",(req,res) -> {
-            System.out.println("POST: ");
             Listing listing = req.body(Listing.class);
             // getting an id
             collection("Listing").save(listing);
             // update
             res.json(listing);
-            System.out.println(listing);
+
         });
 
         app.get("/rest/listings/city/:id",(req,res) -> {
