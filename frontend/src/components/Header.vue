@@ -41,6 +41,11 @@ export default {
       this.$store.dispatch("logout");
     },
     goToHomePage() {
+      let range = {
+        start: "",
+        end: "",
+      };
+      this.$store.dispatch("setBookingDates", range);
       this.$router.push("/");
     },
   },
