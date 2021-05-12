@@ -23,12 +23,10 @@ public class CityFunctions {
     public void initFunctions(){
      app.get("/rest/SearchByCity",(req,res) -> {
          res.json(collection("City").find());
-         System.out.println("searched");
         });
      app.get("/rest/listingsFromChosenCity/:id", (request, response) -> {
          List<Listing> filteredListings = collection("Listing").find();
          response.json(filteredListings);
-         System.out.println("getAll");
      });
     }
 
