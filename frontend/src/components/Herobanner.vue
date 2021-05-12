@@ -25,7 +25,7 @@
 </div> 
       <div class="popDestination">
         <h3>Popular destinations</h3>
-        <h4>Malmö | Stockholm | Göteborg</h4>
+        <h4>Malmö | Stockholm | Madrid</h4>
       </div>
     <!-- </div>
   -->
