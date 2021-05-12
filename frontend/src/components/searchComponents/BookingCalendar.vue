@@ -25,8 +25,8 @@ export default {
   data() {
     return {
       range: {
-        start: null,
-        end: null,
+        start: this.$store.state.dateRange.start,
+        end: this.$store.state.dateRange.end,
       },
     };
   },
@@ -51,6 +51,10 @@ export default {
       }
       return newArray;
     },
+
+    goToSearchedByCityPage() {
+      this.$router.push("/SearchByCity/" + this.$store.state.usersCity);
+    },
   },
 
   computed: {
@@ -71,12 +75,15 @@ export default {
         if (!this.$route.params.id) {
           updatedListings = this.filterHelper(this.$store.state.listings);
         } else {
-          let res = await fetch("/rest/listings/city/" + this.$route.params.id);
+          let res = await fetch(
+            "/rest/listings/city/" + this.$store.state.usersCity
+          );
           let listings = await res.json();
           updatedListings = this.filterHelper(listings);
         }
 
         this.$parent.$parent.filteredListings = updatedListings;
+        this.goToSearchedByCityPage();
       }
     },
   },

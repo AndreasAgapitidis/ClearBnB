@@ -39,8 +39,8 @@ public class ListingFunctions {
         });
 
         app.get("/rest/listings/city/:id",(req,res) -> {
-            City city = collection("City").findById(req.params("id"));
-            res.json(collection("Listing").find(eq("city", city.getName())));
+            System.out.println(req.params("id"));
+            res.json(collection("Listing").find(eq("city", req.params("id"))));
         });
 
         app.put("/rest/listings",(req,res) ->{
