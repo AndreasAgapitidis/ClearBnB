@@ -67,9 +67,6 @@ public class Main {
     app.listen(4000);
   }
 
-
-
-
   //Temporarily function, used for adding dummy data
   public static void addNewListing(){
     Listing newListing = new Listing();
