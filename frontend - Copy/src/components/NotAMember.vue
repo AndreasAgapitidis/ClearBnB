@@ -3,31 +3,12 @@
     <div class="userSignUp">
       <label for="userSignUp">Not a <span>member?</span></label>
     </div>
-    <button class="registerBtn" @click="openSignup">Register here</button>
+    <button class="registerBtn">Register here</button>
   </div>
 </template>
 
 <script>
-
-export default {
-  async beforeCreate() {
-    await this.$store.dispatch("whoAmI");
-  },
-
-  data() {
-    return {};
-  },
-
-  methods: {
-    openSignup() {
-      document.getElementById("signup-overlay").style.display = "flex";
-    },
-    logout() {
-      this.$store.dispatch("logout");
-    },
-  },
-}
-
+export default {};
 </script>
 
 <style>

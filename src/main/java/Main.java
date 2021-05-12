@@ -67,16 +67,6 @@ public class Main {
     app.listen(4000);
   }
 
-
-  //Temporarily function, used for adding dummy data
-  public static void addNewCity(String name, String urlImage){
-
-    City city = new City();
-    city.setName(name);
-    city.addImage(urlImage);
-
-    collection(City.class).save(city);
-
   }
 
 

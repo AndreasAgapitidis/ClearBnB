@@ -8,7 +8,6 @@
               src="../assets/Logo ClearBnB/Company Logo/Logo.png"
               alt=""
               srcset=""
-              @click="goToHomePage"
             />
           </a>
         </li>
@@ -39,9 +38,6 @@ export default {
     },
     logout() {
       this.$store.dispatch("logout");
-    },
-    goToHomePage() {
-      this.$router.push("/");
     },
   },
 };
@@ -90,19 +86,6 @@ li:nth-child(2) > a {
   text-decoration: none;
   color: #fafafa;
   text-transform: uppercase;
-}
-header {
-  background-image: url("../assets/Footer-Header/Header-final.png");
-  height: 10em;
-  text-align: center;
-  color: #fafafa;
-  display: flex;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
 }
 
 img {
