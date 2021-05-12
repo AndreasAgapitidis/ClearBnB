@@ -55,7 +55,7 @@
       placeholder="Add image (URL)"
       v-model="imageURL"
     />
-    <p>added pictures: {{ pictureCount }}</p>
+    <p>added pictures: {{ images.length }}</p>
     <button @click.prevent="addImage">Add image</button>
     <button @click.prevent="sendListingToBackEnd" type="submit">
       ADD LISTING
@@ -83,7 +83,6 @@ export default {
       price: "",
       description: "",
       images: [],
-      pictureCount: 0,
       imageURL: "",
     };
   },
@@ -109,12 +108,9 @@ export default {
         method: "POST",
         body: JSON.stringify(listing),
       });
-
-      this.pictureCount = 0;
     },
     addImage() {
       this.images.push(this.imageURL);
-      this.pictureCount++;
       this.imageURL = "";
     },
 
