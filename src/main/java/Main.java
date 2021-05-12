@@ -67,7 +67,7 @@ public class Main {
     app.listen(4000);
   }
 
-  }
+
 
 
   //Temporarily function, used for adding dummy data
