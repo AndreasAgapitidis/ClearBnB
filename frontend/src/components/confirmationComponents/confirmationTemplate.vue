@@ -1,5 +1,5 @@
 <template>
-  <div class="container"></div>
+  <div class="background"></div>
 </template>
 
 <script>
@@ -7,8 +7,10 @@ export default {};
 </script>
 
 <style>
-.container {
-  width: 600px;
-  height: 600px;
+.background {
+  background: rgba(rgb(0, 0, 0), rgb(0, rgb(0, 0, 0)), rgb(0, 0, 0), 0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
 }
 </style>
