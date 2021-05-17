@@ -24,6 +24,9 @@
       </div>
       <h2>Check-in/out</h2>
       <Calendar />
+
+      <div><h2>Amenities</h2></div>
+      <Amenities />
     </div>
   </div>
 </template>
@@ -31,6 +34,8 @@
 <script>
 import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
+import Amenities from "./Amenities.vue";
+
 export default {
   mounted() {
     this.$store.dispatch("fetchCities");
@@ -65,6 +70,7 @@ export default {
   components: {
     CityItem,
     Calendar,
+    Amenities,
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
