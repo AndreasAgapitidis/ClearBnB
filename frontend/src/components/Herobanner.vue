@@ -104,7 +104,7 @@ h4 {
   font-weight: 200;
   text-align: right;
   margin: 0px;
-  margin-right: 15px;
+ 
 }
 
 .checkInDate,
