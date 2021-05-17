@@ -7,6 +7,7 @@
         class="date-picker"
         is-expanded
         v-model="range"
+        :min-date="new Date()"
         :disabled-dates="disabledDates"
         color="blue"
         is-range
