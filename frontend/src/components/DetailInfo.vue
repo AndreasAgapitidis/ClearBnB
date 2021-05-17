@@ -13,37 +13,19 @@
       <p>Area: {{ detailprop.area }} ㎡</p>
       <p v-if="detailprop.house == true">Building Type: House</p>
       <p v-else-if="detailprop.apartment == true">Building Type: Apartment</p>
-      <p v-if="user">Owner: {{ user.email }}</p>
+      <p v-if="owner">Owner: {{ owner.email }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["detailprop"],
-
-  /*  mounted() { VARFÖÖÖÖÖÖÖÖÖR FUNKAR INTE DENNNAAAAAAAAAAAAAA!?!?!?!?!? DEN FUNKAR I RAD 37!?!?!??!
-    this.getOwner();
-  }, */
-
-  data() {
-    return {
-      user: null,
-    };
-  },
+  props: ["detailprop", "owner"],
 
   computed: {
     priceWithProfit() {
-      this.getOwner();
+      /* this.getOwner(); */
       return Math.round(this.detailprop.price * 1.15);
-    },
-  },
-
-  methods: {
-    async getOwner() {
-      console.log();
-      let res = await fetch("/rest/findUserByID/" + this.detailprop.owner);
-      this.user = await res.json();
     },
   },
 };
