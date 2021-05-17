@@ -120,7 +120,8 @@ export default {
 
     autoFill() {
       this.owner = this.randomGenerator();
-      this.address = this.randomGenerator() + " street";
+      this.address =
+        this.randomGenerator() + " gatan" + Math.floor(Math.random() * 50);
       this.isHouse = "House";
       this.city = this.$store.state.cities[
         Math.floor(Math.random() * this.$store.state.cities.length)
@@ -161,16 +162,11 @@ export default {
       for (let i = 0; i < 1; i++) {
         let x = Math.floor(Math.random() * 8);
         let y = Math.floor(Math.random() * 19);
-        console.log(x, " : ", y);
 
         randomizedName += consonants[Math.floor(Math.random() * 19)];
         randomizedName += wovels[x];
         randomizedName += consonants[y];
-        randomizedName += consonants[y];
         randomizedName += wovels[x];
-        randomizedName += wovels[x];
-        randomizedName += consonants[y];
-        randomizedName += consonants[Math.floor(Math.random() * 19)];
       }
 
       return randomizedName;
