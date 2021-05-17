@@ -21,8 +21,10 @@ export default {
         Math.floor(Math.random() * this.$store.state.cities.length)
       ].name;
 
+      this.$store.dispatch("setUsersCity", randomCity);
+
       this.$router.push("/searchbycity/" + randomCity);
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     },
   },
 };
