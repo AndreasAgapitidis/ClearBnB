@@ -36,7 +36,7 @@ public class UserFunctions {
         app.get("/rest/findUserByID/:id", (request, response) -> {
             String id = request.params("id");
             response.json(collection("UserAccount").findById(id));
-            System.out.println("success! found:" + collection("UserAccount").findById(id));
+            System.out.println("found:" + collection("UserAccount").findById(id));
         });
 
     }
