@@ -22,6 +22,7 @@ export default {
     };
   },
 
+  //This is a special solution from Theodor. // Mac
   async beforeRouteEnter(to, from, next) {
     next((vm) => {
       vm.getListingAndOwner();
