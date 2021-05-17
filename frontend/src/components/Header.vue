@@ -13,10 +13,33 @@
           </a>
         </li>
         <li v-if="!$store.state.user">
-          <a class="login-logout" @click="openLogin">Login</a>
+          <a class="login-menu-item" @click="openLogin">Login</a>
         </li>
         <li v-else>
-          <a class="login-logout" @click="logout">Logout</a>
+          <div class="profile-dropdown">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+            <div class="profile-dropdown-content">
+              <div class="profile-menu-item">
+                <a @click="profile">Profile</a>
+              </div>
+              <div class="profile-menu-last-item">
+                <a @click="logout">Logout</a>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </nav>
@@ -47,6 +70,9 @@ export default {
       };
       this.$store.dispatch("setBookingDates", range);
       this.$router.push("/");
+    },
+    profile() {
+      this.$router.push("/profile");
     },
   },
 };
@@ -115,8 +141,37 @@ img {
   width: 5em;
 }
 
-.login-logout {
+.login-menu-item {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
+}
+
+.profile-menu-item {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
+}
+
+.profile-menu-last-item {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.profile-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fafafa;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  border-radius: 0 20px 0 20px;
+  font-size: 1.1em;
+  z-index: 1;
+  color: black;
+  right: 20px;
+}
+
+.profile-dropdown:hover .profile-dropdown-content {
+  display: block;
 }
 </style>
