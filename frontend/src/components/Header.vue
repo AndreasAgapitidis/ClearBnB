@@ -32,12 +32,19 @@
               />
             </svg>
             <div class="profile-dropdown-content">
-              <div class="profile-menu-item">
-                <a @click="profile">Profile</a>
+              <div></div>
+              <div class="profile-menu">
+                <div class="profile-menu-item">
+                  <a @click="profile">Profile</a>
+                </div>
+                <div class="profile-menu-item">
+                  <a @click="addListing">Add Listing</a>
+                </div>
+                <div class="profile-menu-last-item">
+                  <a @click="logout">Logout</a>
+                </div>
               </div>
-              <div class="profile-menu-last-item">
-                <a @click="logout">Logout</a>
-              </div>
+              <div></div>
             </div>
           </div>
         </li>
@@ -70,6 +77,9 @@ export default {
       };
       this.$store.dispatch("setBookingDates", range);
       this.$router.push("/");
+    },
+    addListing() {
+      this.$router.push("/addlisting");
     },
     profile() {
       this.$router.push("/profile");
@@ -146,6 +156,10 @@ img {
   font-family: "Roboto", sans-serif;
 }
 
+.profile-menu {
+  text-align: start;
+}
+
 .profile-menu-item {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
@@ -161,7 +175,7 @@ img {
   display: none;
   position: absolute;
   background-color: #fafafa;
-  min-width: 100px;
+  min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   border-radius: 0 20px 0 20px;
@@ -169,9 +183,10 @@ img {
   z-index: 1;
   color: black;
   right: 20px;
+  grid-template-columns: auto auto auto;
 }
 
 .profile-dropdown:hover .profile-dropdown-content {
-  display: block;
+  display: grid;
 }
 </style>
