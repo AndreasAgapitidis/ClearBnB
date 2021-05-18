@@ -4,28 +4,44 @@
       <p>Available apt./houses</p>
     </div>
 
-    <div v-if="listings[0]" class="HouseCard1">
+    <div
+      v-if="listings[0]"
+      @click="bookingDetails(listings[0].id)"
+      class="HouseCard1"
+    >
       <img :src="listings[0].images[0]" />
       <div class="priceText text">
         <h4>{{ listings[0].price }}sek</h4>
       </div>
     </div>
 
-    <div v-if="listings[1]" class="HouseCard2">
+    <div
+      v-if="listings[1]"
+      @click="bookingDetails(listings[1].id)"
+      class="HouseCard2"
+    >
       <img :src="listings[1].images[0]" />
       <div class="priceText text">
         <h4>{{ listings[1].price }}sek</h4>
       </div>
     </div>
 
-    <div v-if="listings[2]" class="HouseCard3">
+    <div
+      v-if="listings[2]"
+      @click="bookingDetails(listings[2].id)"
+      class="HouseCard3"
+    >
       <img :src="listings[2].images[0]" />
       <div class="priceText text">
         <h4>{{ listings[2].price }}sek</h4>
       </div>
     </div>
 
-    <div v-if="listings[3]" class="HouseCard4">
+    <div
+      v-if="listings[3]"
+      @click="bookingDetails(listings[3].id)"
+      class="HouseCard4"
+    >
       <img :src="listings[3].images[0]" />
       <div class="priceText text">
         <h4>{{ listings[3].price }}sek</h4>
@@ -41,6 +57,7 @@ export default {
     await this.$store.dispatch("fetchListings");
 
     let randomNumberArray = [];
+    let current = new Date();
     while (randomNumberArray.length < 4) {
       let r = Math.floor(Math.random() * this.$store.state.listings.length) + 1;
       if (randomNumberArray.indexOf(r) === -1) {
@@ -57,6 +74,12 @@ export default {
       listings: [],
     };
   },
+
+  methods: {
+    bookingDetails(id) {
+      this.$router.push("/house_details/" + id);
+    },
+  },
 };
 </script>
 
@@ -66,8 +89,8 @@ export default {
 .component4 {
   font-family: "Roboto", sans-serif;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 10% 0.5fr 0.5fr;
+  grid-template-columns: auto auto;
+  grid-template-rows: 10% 1fr 1fr;
   grid-template-areas:
     "title title"
     "H1 H2"
@@ -76,6 +99,7 @@ export default {
   margin-bottom: 15%;
   margin-top: 15%;
   place-content: center;
+  cursor: pointer;
 }
 
 .availableHouses {
@@ -90,30 +114,28 @@ export default {
   grid-area: H1;
   border: 1px solid black;
   border-radius: 20px;
-  min-width: 140px;
-  max-width: 200px;
-  /*width: 150px;*/
+  width: 150px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard2 {
   grid-area: H2;
   border: 1px solid black;
   border-radius: 20px;
-  /*width: 150px;*/
+  width: 150px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard3 {
   grid-area: H3;
   border: 1px solid black;
   border-radius: 20px;
-  /*width: 150px;*/
+  width: 150px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard4 {
   grid-area: H4;
   border: 1px solid black;
   border-radius: 20px;
-  /*width: 150px;*/
+  width: 150px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
