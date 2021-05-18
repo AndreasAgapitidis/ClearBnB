@@ -44,7 +44,7 @@ export default {
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  
+  min-height: 100vh;
   
 }
 .nameContainer{

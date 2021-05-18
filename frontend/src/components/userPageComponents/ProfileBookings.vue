@@ -2,25 +2,29 @@
   <div class="reservations-Container">
     <h4>Reservations</h4>
     <div class="divider"></div>
-
+    <ProfileBookingList />
   </div>
 </template>
 
 <script>
+
+import ProfileBookingList from '../userPageComponents/ProfileBookingList.vue'
+
 export default {
+  
   components: {
-
-
+    ProfileBookingList
   }
 }
 </script>
 
 <style scoped>
 .reservations-Container{
-  margin: 1em auto;
+
+  margin: 3em auto;
   width: 100%;
-  height: 400px;
-  border: 1px solid black;
+  height: 30em;
+  overflow: scroll;
 }
 
 .divider {
