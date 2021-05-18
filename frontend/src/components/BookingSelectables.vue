@@ -74,13 +74,13 @@
     class="ConfirmationTemplate"
     v-if="loggedInUser && currentCheckInDate"
     :show="showDialog"
-    :title="'Thank you ' + loggedInUser"
+    :header="'Thank you ' + loggedInUser"
     :confirm="confirm"
-    :description="'Thank you for your booking, the booking is now confirmed'"
-    :bookingId="currentReservationID"
-    :row2="'Check-in :' + currentCheckInDate"
-    :checkOutDate="currentCheckOutDate"
-    :price="priceWithProfit * differenceInDays"
+    :headerTwo="'Thank you for your booking, the booking is now confirmed'"
+    :headerThree="'Booking number: ' + currentReservationID"
+    :text1="'Check-in: ' + currentCheckInDate"
+    :text2="'Check-out: ' + currentCheckOutDate"
+    :text3="'Price: ' + priceWithProfit * differenceInDays"
   />
 </template>
 

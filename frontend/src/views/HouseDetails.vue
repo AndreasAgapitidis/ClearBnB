@@ -45,15 +45,11 @@ export default {
       console.log(this.listingOwner);
     }, */
     async getListingAndOwner() {
-      console.log("getListing");
       let res = await fetch("/rest/listings/" + this.$route.params.id);
       this.listing1 = await res.json();
-      console.log(this.listing1);
 
-      console.log("getOwner");
       let res2 = await fetch("/rest/findUserByID/" + this.listing1.owner);
       this.listingOwner = await res2.json();
-      console.log(this.listingOwner);
 
       window.scrollTo(0, 0);
     },

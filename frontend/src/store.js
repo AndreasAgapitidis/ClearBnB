@@ -133,7 +133,6 @@ export default createStore({
       let reservationFromServer = await res.json();
 
       store.commit('createLatestReservation', reservationFromServer)
-      console.log(this.state.latestReservation)
       store.commit('createReservation', reservationFromServer)
     },
 

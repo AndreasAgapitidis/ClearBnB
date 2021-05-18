@@ -1,20 +1,22 @@
 <template>
   <!-- <div class="background"></div> -->
   <div v-show="show" class="overlay">
-    <div class="dialog">
-      <div class="dialog__content">
-        <h2 class="dialog__title">{{ title }}</h2>
-        <p class="dialog__description">{{ description }}</p>
-        <p>{{ bookingId }}</p>
-        <p>{{ row2 }}</p>
-        <p>{{ checkOutDate }}</p>
-        <p>Price: {{ price }} Sek</p>
+    <div class="confirmationContainer">
+      <div class="content">
+        <h2 class="header">{{ header }}</h2>
+        <p class="headerTwo">{{ headerTwo }}</p>
+        <p class="headerThree">{{ headerThree }}</p>
+        <p v-if="text1">{{ text1 }}</p>
+        <p v-if="text2">{{ text2 }}</p>
+        <p v-if="text3">{{ text3 }}</p>
+        <p v-if="text4">{{ text4 }}</p>
+        <p v-if="text5">{{ text5 }}</p>
+        <p v-if="text6">{{ text6 }}</p>
+        <p v-if="text7">{{ text7 }}</p>
+        <p v-if="text8">{{ text8 }}</p>
       </div>
-
-      <hr />
-
-      <div class="dialog__footer">
-        <button @click="confirm" class="dialog__confirm">Confirm</button>
+      <div class="confirmationFooter">
+        <button @click="confirm" class="confirm">Confirm</button>
       </div>
     </div>
   </div>
@@ -23,14 +25,19 @@
 <script>
 export default {
   props: [
-    "show",
-    "title",
-    "description",
-    "confirm",
-    "bookingId",
-    "row2",
-    "checkOutDate",
-    "price",
+    "show", //This is needed for this container to be shown (boolean).
+    "header",
+    "headerTwo",
+    "headerThree",
+    "text1",
+    "text2",
+    "text3",
+    "text4",
+    "text5",
+    "text6",
+    "text7",
+    "text8",
+    "confirm", // This is a function
   ],
 };
 </script>
