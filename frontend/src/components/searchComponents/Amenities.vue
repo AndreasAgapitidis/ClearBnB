@@ -2,7 +2,7 @@
   <div>
     <input
       type="checkbox"
-      id="WiFi"
+      id="Wi-Fi"
       @click="filterAmenity('Wi-Fi')"
       value="Wi-Fi"
     />
@@ -45,15 +45,12 @@
 export default {
   methods: {
     filterAmenity(value) {
-      let arr = [];
-
-      for (let i = 0; i < filteredListings.length; i++) {
-        if (filteredListings.amenities.contains.value("Wi-Fi")) {
-          return this.filteredListings;
-        }
-      }
-
-      this.$parent.$parent.filteredListings = arr;
+      this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
+        (listing) =>
+          listing.city === this.$route.params.id &&
+          listing.amenities.includes(value)
+      );
+      console.log(value);
     },
   },
 };
