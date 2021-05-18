@@ -43,6 +43,7 @@ export default {
   methods: {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
+      window.location.reload();
     },
   },
 };
