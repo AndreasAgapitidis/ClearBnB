@@ -4,39 +4,32 @@
       <p>Available apt./houses</p>
     </div>
 
-    <div class="HouseCard1">
-      <img
-        class="HouseWithPool1"
-        src="../assets/Houses/HouseWithPool1.jpg"
-        alt="HouseWithPool"
-      />
-
+    <div v-if="listings[0]" class="HouseCard1">
+      <img :src="listings[0].images[0]" />
       <div class="textHouseWithPool1 text">
-        <h4 v-if="listings[0]">{{ listings[0].price }}sek</h4>
+        <h4>{{ listings[0].price }}sek</h4>
       </div>
     </div>
 
-    <div class="HouseCard2">
-      <img
-        class="HouseWithPool2"
-        src="../assets/Houses/HouseWithPool2.jpg"
-        alt="HouseWithPool2"
-        width="260"
-        height="250"
-      />
-
-      <div class="textHouseWithPool2 text"><h4>12.000sek</h4></div>
+    <div v-if="listings[1]" class="HouseCard2">
+      <img :src="listings[1].images[0]" />
+      <div class="textHouseWithPool2 text">
+        <h4>{{ listings[1].price }}sek</h4>
+      </div>
     </div>
 
-    <div class="HouseCard3">
-      <img class="House1" src="../assets/Houses/House1.jpg" alt="House1" />
-
-      <div class="textHouse1 text"><h4>3500sek</h4></div>
+    <div v-if="listings[2]" class="HouseCard3">
+      <img :src="listings[2].images[0]" />
+      <div class="textHouse1 text">
+        <h4>{{ listings[2].price }}sek</h4>
+      </div>
     </div>
 
-    <div class="HouseCard4">
-      <img class="House2" src="../assets/Houses/House2.jpg" alt="House2" />
-      <div class="textHouse2 text"><h4>5000sek</h4></div>
+    <div v-if="listings[3]" class="HouseCard4">
+      <img :src="listings[3].images[0]" />
+      <div class="textHouse2 text">
+        <h4>{{ listings[3].price }}sek</h4>
+      </div>
     </div>
   </div>
 </template>
