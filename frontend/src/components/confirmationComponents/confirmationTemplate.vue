@@ -42,9 +42,7 @@ export default {
 
   methods: {
     closeConfirmationBox() {
-      console.log("before: ", this.$parent.showConfirmationBox);
       this.$parent.showConfirmationBox = false;
-      console.log("After: ", this.$parent.showConfirmationBox);
     },
   },
 };
