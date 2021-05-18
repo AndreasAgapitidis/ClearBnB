@@ -4,7 +4,6 @@
   <BookingSelectables v-bind:detailprop="listing1" />
   <Cheapest />
   <StudentText />
-  <ConfirmationTemplate class="ConfirmationTemplate" />
   <!-- <button v-on:click="lista">aa</button> -->
 </template>
 
@@ -14,7 +13,6 @@ import DetailInfo from "../components/DetailInfo.vue";
 import BookingSelectables from "../components/BookingSelectables.vue";
 import Cheapest from "../components/Cheapest.vue";
 import StudentText from "../components/StudentText.vue";
-import ConfirmationTemplate from "../components/confirmationComponents/confirmationTemplate.vue";
 
 export default {
   data() {
@@ -37,7 +35,6 @@ export default {
     BookingSelectables,
     Cheapest,
     StudentText,
-    ConfirmationTemplate,
   },
 
   methods: {

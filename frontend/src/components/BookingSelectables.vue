@@ -4,12 +4,14 @@
       <!-- v-if will run this method/computed once before -->
       <v-date-picker
         v-if="renderTime"
+        :masks="masks"
         class="date-picker"
         is-expanded
-        v-model="range"
+        mode="date"
         :min-date="new Date()"
         :disabled-dates="disabledDates"
         color="blue"
+        v-model="range"
         is-range
       />
     </form>
@@ -68,10 +70,28 @@
       </div>
     </form>
   </div>
+  <ConfirmationTemplate
+    class="ConfirmationTemplate"
+    v-if="loggedInUser && currentCheckInDate"
+    :show="showDialog"
+    :title="'Thank you ' + loggedInUser"
+    :confirm="confirm"
+    :description="'Thank you for your booking, the booking is now confirmed'"
+    :bookingId="currentReservationID"
+    :row2="'Check-in :' + currentCheckInDate"
+    :checkOutDate="currentCheckOutDate"
+    :price="priceWithProfit * differenceInDays"
+  />
 </template>
 
 <script>
+import ConfirmationTemplate from "../components/confirmationComponents/confirmationTemplate.vue";
+
 export default {
+  components: {
+    ConfirmationTemplate,
+  },
+
   props: ["detailprop"],
 
   // Everytime a data changes, the relevant computed will run
@@ -83,6 +103,11 @@ export default {
       date: "",
       days: null,
       disabledDates: [],
+      showDialog: false,
+      currentReservationID: null,
+      loggedInUser: null,
+      currentCheckInDate: null,
+      currentCheckOutDate: null,
 
       childrenMenu: [
         { id: 0, name: "0" },
@@ -100,32 +125,34 @@ export default {
         start: this.$store.state.dateRange.start,
         end: this.$store.state.dateRange.end,
       },
+      masks: {
+        input: "YYYY-MM-DD",
+      },
     };
   },
 
   created() {
-    // console.log(this.detailprop.price);
-
     if (!this.range.start || !this.range.end) {
       (this.range.start = new Date()), (this.range.end = new Date());
     }
-
-    // for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
-    //   this.disabledDates.push(
-    //     new Date(this.detailprop.unavailableDates[i] * 1000)
-    //     // using UnixTimestamp from java which was divided by 1000 to fit as an int
-    //     // ** changing on sprint 2
-    //   );
-    //   console.log(new Date(this.detailprop.unavailableDates[i] * 1000));
-    // }
   },
 
   methods: {
+    async checkReservationId() {
+      let res = await fetch();
+    },
+
+    confirm() {
+      console.log("confirm");
+      this.showDialog = false;
+      window.location.reload();
+    },
+
     clearFields() {
       (this.adult.id = 1), (this.child.id = 0);
     },
 
-    addReservation() {
+    async addReservation() {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
         return;
@@ -137,8 +164,9 @@ export default {
         return;
       }
 
-      this.range.start.setHours(0, 0, 0, 0);
-      this.range.end.setHours(0, 0, 0, 0);
+      // alert(this.range.start);
+      // // this.range.start.setHours(0, 0, 0, 0);
+      // this.range.end.setHours(0, 0, 0, 0);
 
       let reservation = {
         adult: this.adult.id,
@@ -160,14 +188,21 @@ export default {
         dateUnix += 86400;
       }
 
-      this.$store.dispatch("postReservation", reservation);
+      await this.$store.dispatch("postReservation", reservation);
+
       this.$store.dispatch("putListing", this.detailprop);
 
-      // vm.$forceUpdate(); // force refresh page
-
-      window.location.reload();
-
-      alert("Booking has been submitted");
+      this.currentReservationID = this.$store.state.latestReservation.id;
+      this.loggedInUser = this.$store.state.user.firstName;
+      this.currentCheckInDate = this.$store.state.latestReservation.startDate.substring(
+        0,
+        10
+      );
+      this.currentCheckOutDate = this.$store.state.latestReservation.endDate.substring(
+        0,
+        10
+      );
+      this.showDialog = true;
     },
   },
 
