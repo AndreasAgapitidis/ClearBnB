@@ -4,7 +4,7 @@
   <BookingSelectables v-bind:detailprop="listing1" />
   <Cheapest />
   <StudentText />
-  <ConfirmationTemplate />
+  <ConfirmationTemplate class="ConfirmationTemplate" />
   <!-- <button v-on:click="lista">aa</button> -->
 </template>
 
@@ -98,4 +98,7 @@ export default {
 </script>
 
 <style>
+.ConfirmationTemplate {
+  background: brown;
+}
 </style>
