@@ -1,14 +1,16 @@
 <template>
- <div class="profileBanner"></div>
  
+  <div class="profileBanner"></div>
  <div class="profileBody">
+  
     <div class="nameContainer">
       <ProfilePic />
       <ProfileName />
     </div>
     <div class="infoContainer">
-
+      <ProfileInfo />
     </div>
+    <ProfileBookings />
  </div>
  
 </template>
@@ -16,47 +18,53 @@
 <script>
 import ProfilePic from '../components/userPageComponents/ProfilePic.vue'
 import ProfileName from '../components/userPageComponents/ProfileName.vue'
+import ProfileInfo from '../components/userPageComponents/ProfileInfo.vue'
+import ProfileBookings from '../components/userPageComponents/ProfileBookings.vue'
 
 export default {
   components: {
     ProfilePic,
-    ProfileName
+    ProfileName,
+    ProfileInfo,
+    ProfileBookings
   }
 }
 </script>
     
 
-<style>
+<style scoped>
 .profileBanner{
-  position: absolute;
   height: 300px;
-  width: 100vw;
-  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1178015487.jpg?crop=1.00xw:0.752xh;0,0.197xh&resize=1200:*');
-  background-size: cover;
-  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-image: linear-gradient(90deg ,#b92b27, #1565C0);;
+  border-radius: 50%;
 }
 .profileBody{
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  height: 100vh;
-  border: 1px solid black;
+  
+  
 }
 .nameContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  top: 15em;
+  top: -5em;
   height: auto;
   width: 100%;
   
 }
 
 .infoContainer{
- 
-  position: relative;
   height: 150px;
-  width: 100px;
-  border: 1px solid black;
+  width: 100%;
 }
+
+
 
 
 </style>

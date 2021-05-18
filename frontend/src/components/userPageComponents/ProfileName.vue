@@ -16,8 +16,8 @@ export default {
 
 <style scoped>
   .ProfileName{
-    height: 100px;
-    width: 100%;
+     width: 100%;
+   
   }
   h2, h4{
     margin: 0;
@@ -25,11 +25,12 @@ export default {
 
   h2{
     margin-top: 10px;
+    letter-spacing: -2px;
   }
 
   h4{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-style: italic;
+    font-size: 15px;
   }
 </style>
