@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="background"></div> -->
-  <div v-show="show" class="overlay">
+  <div class="overlay">
     <div class="confirmationContainer">
       <div class="content">
         <h2 class="header">{{ header }}</h2>
@@ -16,7 +16,9 @@
         <p v-if="text8">{{ text8 }}</p>
       </div>
       <div class="confirmationFooter">
-        <button @click="confirm" class="confirm">Confirm</button>
+        <button @click="closeConfirmationBox" class="confirm">
+          Nice! Close this confirmation.
+        </button>
       </div>
     </div>
   </div>
@@ -25,7 +27,6 @@
 <script>
 export default {
   props: [
-    "show", //This is needed for this container to be shown (boolean).
     "header",
     "headerTwo",
     "headerThree",
@@ -37,8 +38,15 @@ export default {
     "text6",
     "text7",
     "text8",
-    "confirm", // This is a function
   ],
+
+  methods: {
+    closeConfirmationBox() {
+      console.log("before: ", this.$parent.showConfirmationBox);
+      this.$parent.showConfirmationBox = false;
+      console.log("After: ", this.$parent.showConfirmationBox);
+    },
+  },
 };
 </script>
 

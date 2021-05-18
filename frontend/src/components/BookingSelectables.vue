@@ -72,10 +72,8 @@
   </div>
   <ConfirmationTemplate
     class="ConfirmationTemplate"
-    v-if="loggedInUser && currentCheckInDate"
-    :show="showDialog"
+    v-if="loggedInUser && showConfirmationBox"
     :header="'Thank you ' + loggedInUser"
-    :confirm="confirm"
     :headerTwo="'Thank you for your booking, the booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
     :text1="'Check-in: ' + currentCheckInDate"
@@ -103,7 +101,7 @@ export default {
       date: "",
       days: null,
       disabledDates: [],
-      showDialog: false,
+      showConfirmationBox: false,
       currentReservationID: null,
       loggedInUser: null,
       currentCheckInDate: null,
@@ -138,13 +136,9 @@ export default {
   },
 
   methods: {
-    async checkReservationId() {
-      let res = await fetch();
-    },
-
     confirm() {
       console.log("confirm");
-      this.showDialog = false;
+      this.showConfirmationBox = false;
       window.location.reload();
     },
 
@@ -202,7 +196,9 @@ export default {
         0,
         10
       );
-      this.showDialog = true;
+
+      this.showConfirmationBox = true;
+      console.log(this.showConfirmationBox);
     },
   },
 
