@@ -61,6 +61,14 @@ export default {
 </script>
 
 <style scoped>
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .background {
   background-color: rgba(rgb(0, 0, 0), rgb(0, rgb(0, 0, 0)), rgb(0, 0, 0), 0.5);
   width: 100vw;
@@ -78,11 +86,6 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 4;
-}
-
-header,
-footer {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .fade-enter-active,

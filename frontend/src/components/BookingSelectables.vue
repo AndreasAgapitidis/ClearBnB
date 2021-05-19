@@ -243,6 +243,10 @@ export default {
 </script>
 
 <style scoped>
+.ConfirmationTemplate {
+  background: none;
+}
+
 .calendar {
   margin-top: 50px;
   width: 90vw;
