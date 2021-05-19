@@ -13,20 +13,18 @@
           <h2 class="header">{{ header }}</h2>
           <p class="headerTwo">{{ headerTwo }}</p>
           <p class="headerThree">{{ headerThree }}</p>
-          <p v-if="text1">{{ text1 }}</p>
-          <p v-if="text2">{{ text2 }}</p>
-          <p v-if="text3">{{ text3 }}</p>
-          <p v-if="text4">{{ text4 }}</p>
-          <p v-if="text5">{{ text5 }}</p>
-          <p v-if="text6">{{ text6 }}</p>
-          <p v-if="text7">{{ text7 }}</p>
-          <p v-if="text8">{{ text8 }}</p>
+          <p class="text1" v-if="text1">{{ text1 }}</p>
+          <p class="text2" v-if="text2">{{ text2 }}</p>
+          <p class="text3" v-if="text3">{{ text3 }}</p>
+          <p class="text4" v-if="text4">{{ text4 }}</p>
+          <p class="text5" v-if="text5">{{ text5 }}</p>
+          <p class="text6" v-if="text6">{{ text6 }}</p>
+          <p class="text7" v-if="text7">{{ text7 }}</p>
+          <p class="text8" v-if="text8">{{ text8 }}</p>
+          <p class="text9" v-if="text9">{{ text9 }}</p>
+          <button @click="closeConfirmationBox" class="confirm"></button>
         </div>
-        <div class="confirmationFooter">
-          <button @click="closeConfirmationBox" class="confirm">
-            Nice! Close this confirmation.
-          </button>
-        </div>
+        <div class="darkerBackGround"></div>
       </div>
     </transition>
   </div>
@@ -52,6 +50,7 @@ export default {
     "text6",
     "text7",
     "text8",
+    "text9",
     "img",
   ],
 
@@ -59,7 +58,7 @@ export default {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
       this.divSwitch = false;
-      // window.location.reload();
+      window.location.reload();
     },
 
     backgroundStyles(image) {
@@ -82,17 +81,106 @@ export default {
 
 .content {
   color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  grid-template-areas:
+    "h1 h1 h1 h1"
+    "h2 h2 h2 h2"
+    "h3 h3 h3 h3"
+    "h3 h3 h3 h3"
+    "text1 text1 . ."
+    "text2 text2 checkIn checkIn"
+    "text3 text3 checkOut checkOut"
+    "text4 text4 line line"
+    "text5 text5 price price"
+    "btn btn btn btn"
+    "btn btn btn btn";
+  height: 100%;
 }
+
+.header {
+  grid-area: h1;
+}
+
+.headerTwo {
+  grid-area: h2;
+}
+
+.headerThree {
+  grid-area: h3;
+  align-self: center;
+}
+
+.text1 {
+  grid-area: text1;
+}
+
+.text2 {
+  grid-area: text2;
+}
+
+.text3 {
+  grid-area: text3;
+}
+
+.text4 {
+  grid-area: text4;
+}
+
+.text5 {
+  grid-area: text5;
+}
+
+.text6 {
+  grid-area: checkIn;
+}
+
+.text7 {
+  grid-area: checkOut;
+}
+
+.text8 {
+  grid-area: line;
+}
+
+.text9 {
+  grid-area: price;
+}
+
+.confirm {
+  grid-area: btn;
+  align-self: center;
+  background-image: url("https://cdn.discordapp.com/attachments/826036003193880596/844533424253435914/ok_1.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  place-self: center;
+}
+
+.darkerBackGround {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 16px;
+}
+
 .darken {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 998;
+  z-index: 98;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 4;
 }
 
 .fade-enter-active,
@@ -110,12 +198,12 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 999;
+  z-index: 99;
   width: 100%;
   height: 100%;
   max-width: 70vw;
   max-height: 70vh;
-  background-color: white;
+  background-color: black;
   border-radius: 16px;
 }
 

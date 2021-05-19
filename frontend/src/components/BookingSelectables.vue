@@ -73,12 +73,18 @@
   <ConfirmationTemplate
     class="ConfirmationTemplate"
     v-if="loggedInUser && showConfirmationBox && detailprop"
-    :header="'Thank you ' + loggedInUser"
+    :header="'Thank you ' + loggedInUser.firstName"
     :headerTwo="'Thank you for your booking, the booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
-    :text1="'Check-in: ' + currentCheckInDate"
-    :text2="'Check-out: ' + currentCheckOutDate"
-    :text3="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
+    :text1="'Name: ' + loggedInUser.firstName"
+    :text2="'Lastname: ' + loggedInUser.LastName"
+    :text3="'City: ' + detailprop.city"
+    :text4="'Adress: ' + detailprop.address"
+    :text5="'Owner: ' + owner.firstName + owner.lastName"
+    :text6="'Check-in: ' + currentCheckInDate"
+    :text7="'Check-out: ' + currentCheckOutDate"
+    :text8="' ______________________________ '"
+    :text9="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
     :img="detailprop.images[0]"
   />
 </template>
@@ -91,7 +97,7 @@ export default {
     ConfirmationTemplate,
   },
 
-  props: ["detailprop"],
+  props: ["detailprop", "owner"],
 
   // Everytime a data changes, the relevant computed will run
   data() {
@@ -188,7 +194,7 @@ export default {
       this.$store.dispatch("putListing", this.detailprop);
 
       this.currentReservationID = this.$store.state.latestReservation.id;
-      this.loggedInUser = this.$store.state.user.firstName;
+      this.loggedInUser = this.$store.state.user;
       this.currentCheckInDate = this.$store.state.latestReservation.startDate.substring(
         0,
         10
