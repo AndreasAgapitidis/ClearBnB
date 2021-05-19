@@ -60,7 +60,9 @@
           placeholder="Add image (URL)"
           v-model="imageURL"
         />
-        <button class="addImg" @click.prevent="addImage">Add image</button>
+        <button class="addImg" @click.prevent="addImage" :disabled="isDisabled">
+          Add image
+        </button>
         <button class="removeImg" @click.prevent="removeImages">
           Remove all images
         </button>
@@ -105,6 +107,12 @@ export default {
       images: [],
       imageURL: "",
     };
+  },
+
+  computed: {
+    isDisabled: function () {
+      return this.images.length > 5 ? true : false;
+    },
   },
 
   methods: {
@@ -215,15 +223,23 @@ button {
   width: 50%;
 }
 
+.addImg:disabled .addImg[disabled] {
+  width: 300px;
+}
+
 .images {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
+  padding: 10px 10px 15px 15px;
+  place-content: center;
 }
 
 .addedImages {
   height: 100%;
   overflow: hidden;
+  margin: 2px;
+  max-height: 50px;
 }
 
 #v-model-checkbox {
