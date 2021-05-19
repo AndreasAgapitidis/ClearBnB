@@ -60,7 +60,13 @@
           placeholder="Add image (URL)"
           v-model="imageURL"
         />
-        <button class="addImg" @click.prevent="addImage">Add image</button>
+        <button
+          class="addImg"
+          @click.prevent="addImage"
+          v-if="images.length < 5"
+        >
+          Add image
+        </button>
         <button class="removeImg" @click.prevent="removeImages">
           Remove all images
         </button>
@@ -195,6 +201,8 @@ button {
 }
 .removeImg {
   margin-top: 5px;
+  background-color: rgb(121, 49, 49);
+  color: white;
 }
 
 .txtInput:focus {
