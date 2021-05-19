@@ -106,8 +106,8 @@ export default {
   z-index: 999;
   width: 100%;
   height: 100%;
-  max-width: 50vw;
-  max-height: 50vh;
+  max-width: 70vw;
+  max-height: 70vh;
   background-color: white;
   border-radius: 16px;
 }
