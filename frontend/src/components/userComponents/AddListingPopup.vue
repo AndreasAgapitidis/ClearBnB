@@ -67,7 +67,11 @@
         >
           Add image
         </button>
-        <button class="removeImg" @click.prevent="removeImages">
+        <button
+          class="removeImg"
+          @click.prevent="removeImages"
+          v-if="images.length > 0"
+        >
           Remove all images
         </button>
         <!-- <p>Added pictures: {{ images.length }}</p> -->
@@ -217,10 +221,13 @@ button {
   display: block;
 }
 
-.addImg,
-.addListing {
+.addImg {
   margin: auto;
   width: 50%;
+  margin-bottom: 10px;
+}
+.addListing {
+  bottom: 0;
 }
 
 .addImg:disabled .addImg[disabled] {
