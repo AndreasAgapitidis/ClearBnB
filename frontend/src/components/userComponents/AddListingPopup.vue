@@ -60,9 +60,24 @@
           placeholder="Add image (URL)"
           v-model="imageURL"
         />
-        <button @click.prevent="addImage">Add image</button>
-        <p>Added pictures: {{ images.length }}</p>
-        <button @click.prevent="sendListingToBackEnd" type="submit">
+        <button class="addImg" @click.prevent="addImage">Add image</button>
+        <button class="removeImg" @click.prevent="removeImages">
+          Remove all images
+        </button>
+        <!-- <p>Added pictures: {{ images.length }}</p> -->
+        <div class="images">
+          <img
+            :src="image"
+            class="addedImages"
+            v-for="image of images"
+            v-bind:key="image"
+          />
+        </div>
+        <button
+          class="addListing"
+          @click.prevent="sendListingToBackEnd"
+          type="submit"
+        >
           ADD LISTING
         </button>
       </form>
@@ -115,74 +130,14 @@ export default {
       this.pictureCount = 0;
     },
     addImage() {
-      this.images.push(this.imageURL);
-      this.imageURL = "";
-    },
-
-    autoFill() {
-      this.images = []; //Reset the pictures
-      this.owner = this.randomUser();
-      this.address =
-        this.randomGenerator() + " Gatan " + Math.floor(Math.random() * 50);
-      this.isHouse = "House";
-      this.city = this.$store.state.cities[
-        Math.floor(Math.random() * this.$store.state.cities.length)
-      ].name;
-      this.area = Math.floor(Math.random() * 50) + 1;
-      this.beds = Math.floor(Math.random() * 10) + 1;
-      this.price = Math.floor(Math.random() * 10000) + 1;
-      this.description = "Description text here about the listing";
-      this.randomImg();
-    },
-
-    randomGenerator() {
-      let wovels = ["a", "e", "i", "o", "u", "y", "å", "ä"];
-      let consonants = [
-        "b",
-        "c",
-        "d",
-        "f",
-        "g",
-        "h",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "v",
-        "w",
-        "x",
-      ];
-
-      let randomizedName = "";
-
-      for (let i = 0; i < 1; i++) {
-        randomizedName += consonants[
-          Math.floor(Math.random() * 19)
-        ].toUpperCase();
-        randomizedName += wovels[Math.floor(Math.random() * 8)];
-        randomizedName += consonants[Math.floor(Math.random() * 19)];
-        randomizedName += wovels[Math.floor(Math.random() * 8)];
+      if (this.images.length < 5) {
+        this.images.push(this.imageURL);
+        this.imageURL = "";
+      } else {
       }
-
-      return randomizedName;
     },
-    randomImg() {
-      this.images.push("https://source.unsplash.com/800x600/?Apartment");
-      this.images.push("https://source.unsplash.com/800x600/?House");
-      this.images.push("https://source.unsplash.com/800x600/?Barcelona");
-      this.images.push("https://source.unsplash.com/800x600/?Milano");
-      this.images.push("https://source.unsplash.com/800x600/?London");
-    },
-    async randomUser() {
-      let res = await fetch("/rest/getAllUsers/");
-      let users = await res.json();
-      this.owner = users[Math.floor(Math.random() * users.length)].id;
+    removeImages() {
+      this.images = [];
     },
   },
 };
@@ -195,6 +150,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 .popUpcontainer {
   position: fixed;
@@ -205,8 +161,8 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 70vw;
-  max-height: 70vh;
-  background-color: rgb(70, 112, 76);
+  max-height: 90vh;
+  background-color: rgb(83, 168, 168);
   border-radius: 16px;
 }
 
@@ -225,24 +181,52 @@ form {
   display: inline-block;
   justify-content: center;
   margin-top: 20px;
-}
-.txtInput {
-  display: block;
-  margin-top: 15px;
-}
-button {
-  display: block;
-}
-button {
-  margin: 10px;
-}
-#v-model-checkbox {
-  margin-top: 10px;
+  width: 100%;
 }
 
-.autofill {
-  width: 200px;
-  height: 50px;
+.txtInput,
+button {
+  display: block;
+  margin: 0 auto 15px;
+  width: 50%;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+}
+.removeImg {
+  margin-top: 5px;
+}
+
+.txtInput:focus {
+  outline: none;
+}
+
+#House {
+  margin-bottom: 15px;
+}
+
+button {
+  display: block;
+}
+
+.addImg,
+.addListing {
   margin: auto;
+  width: 50%;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.addedImages {
+  height: 100%;
+  overflow: hidden;
+}
+
+#v-model-checkbox {
+  margin-top: 10px;
 }
 </style>
