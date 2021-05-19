@@ -11,6 +11,7 @@
       <ProfileInfo />
     </div>
     <ProfileBookings />
+    <ProfileHouseApt />
  </div>
  
 </template>
@@ -20,13 +21,15 @@ import ProfilePic from '../components/userPageComponents/ProfilePic.vue'
 import ProfileName from '../components/userPageComponents/ProfileName.vue'
 import ProfileInfo from '../components/userPageComponents/ProfileInfo.vue'
 import ProfileBookings from '../components/userPageComponents/ProfileBookings.vue'
+import ProfileHouseApt from '../components/userPageComponents/ProfileHouseApt.vue'
 
 export default {
   components: {
     ProfilePic,
     ProfileName,
     ProfileInfo,
-    ProfileBookings
+    ProfileBookings,
+    ProfileHouseApt
   }
 }
 </script>

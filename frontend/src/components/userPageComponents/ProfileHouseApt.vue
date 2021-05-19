@@ -1,27 +1,24 @@
 <template>
-  <div class="reservations-Container">
-    <h4>Reservations</h4>
+    <div class="housing-Container">
+    <h4>Houses/Apartments</h4>
     <div class="divider"></div>
-    <ProfileBookingList />
+    <ProfileHouseAptList />
   </div>
 </template>
 
 <script>
-
-import ProfileBookingList from '../userPageComponents/ProfileBookingList.vue'
-
+  import ProfileHouseAptList from '../userPageComponents/ProfileHouseAptList.vue'
 export default {
-  
   components: {
-    ProfileBookingList
+    ProfileHouseAptList
   }
 }
 </script>
 
 <style scoped>
-.reservations-Container{
+.housing-Container{
 
-  margin: 3em auto;
+  margin: 1em auto;
   width: 100%;
   height: 20em;
   overflow: scroll;
@@ -29,7 +26,7 @@ export default {
 }
 
 .divider {
-  width: 40%;
+  width: 50%;
   height: 1px;
   background: #929292;
   margin-left: 10px;
