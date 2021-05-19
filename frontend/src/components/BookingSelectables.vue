@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar">
+  <div class="calendar" z-index="0">
     <form class="calendar-form">
       <!-- v-if will run this method/computed once before -->
       <v-date-picker
@@ -245,6 +245,7 @@ export default {
 <style scoped>
 .ConfirmationTemplate {
   background: none;
+  z-index: 1;
 }
 
 .calendar {
@@ -300,24 +301,4 @@ button:hover {
 .cancel {
   background-color: red;
 }
-
-/* .ConfirmationTemplate {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 98;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-} */
-
-/* Yang: u dont need "leave" here and the one below, if u are using force update*/
-/* .fade-enter-active .fade-leave-active {
-  transition: opacity 3s;
-}
-
-.fade-enter .fade-leave-to {
-  opacity: 0;
-} */
 </style>
