@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="amenityBoxes">
+    <label for="Wi-Fi">Wi-Fi</label>
     <input
       type="checkbox"
       id="Wi-Fi"
@@ -7,8 +8,8 @@
       value="Wi-Fi"
       v-model="chosenAmenities"
     />
-    <label for="Wi-Fi">Wi-Fi</label>
 
+    <label for="Pool">Pool</label>
     <input
       type="checkbox"
       id="Pool"
@@ -16,8 +17,8 @@
       value="Pool"
       v-model="chosenAmenities"
     />
-    <label for="Pool">Pool</label>
 
+    <label for="Balcony">Balcony</label>
     <input
       type="checkbox"
       id="Balcony"
@@ -25,8 +26,8 @@
       value="Balcony"
       v-model="chosenAmenities"
     />
-    <label for="Balcony">Balcony</label>
 
+    <label for="Kitchen">Kitchen</label>
     <input
       type="checkbox"
       id="Kitchen"
@@ -34,7 +35,7 @@
       value="Kitchen"
       v-model="chosenAmenities"
     />
-    <label for="Kitchen">Kitchen</label>
+    <label for="Freezer">Freezer</label>
     <input
       type="checkbox"
       id="Freezer"
@@ -42,8 +43,9 @@
       value="Freezer"
       v-model="chosenAmenities"
     />
-    <label for="Freezer">Freezer</label>
   </div>
+
+  <button @click="reloadPage()" class="reloadBtn">Reset</button>
 </template>
 
 <script>
@@ -64,9 +66,33 @@ export default {
       console.log(value);
       console.log(this.chosenAmenities);
     },
+    reloadPage() {
+      window.location.reload();
+    },
   },
 };
 </script>
 
-<style>
+<style scoped>
+.amenityBoxes {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 2px black;
+  font-family: "Roboto";
+  font-size: bolder;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.reloadBtn {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 2px black;
+  font-family: "Roboto";
+  font-size: bolder;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 </style>
