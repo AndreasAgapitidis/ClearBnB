@@ -82,6 +82,10 @@ export default {
 
 .content {
   color: white;
+  background-color: #00000078;
+  height: 85%;
+  width: 85%;
+  margin: auto;
 }
 .darken {
   position: absolute;
