@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar" z-index="0">
+  <div class="calendar">
     <form class="calendar-form">
       <!-- v-if will run this method/computed once before -->
       <v-date-picker
@@ -72,20 +72,13 @@
   </div>
   <ConfirmationTemplate
     class="ConfirmationTemplate"
-    v-if="loggedInUser && showConfirmationBox && detailprop && owner"
-    :header="'Thank you ' + loggedInUser.firstName"
+    v-if="loggedInUser && showConfirmationBox"
+    :header="'Thank you ' + loggedInUser"
     :headerTwo="'Thank you for your booking, the booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
-    :text1="'Name: ' + loggedInUser.firstName"
-    :text2="'Lastname: ' + loggedInUser.lastName"
-    :text3="'City: ' + detailprop.city"
-    :text4="'Adress: ' + detailprop.address"
-    :text5="'Owner: ' + owner.firstName + ' ' + owner.lastName"
-    :text6="'Check-in: ' + currentCheckInDate"
-    :text7="'Check-out: ' + currentCheckOutDate"
-    :text8="' ______________________________ '"
-    :text9="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
-    :img="detailprop.images[0]"
+    :text1="'Check-in: ' + currentCheckInDate"
+    :text2="'Check-out: ' + currentCheckOutDate"
+    :text3="'Price: ' + priceWithProfit * differenceInDays"
   />
 </template>
 
@@ -97,7 +90,7 @@ export default {
     ConfirmationTemplate,
   },
 
-  props: ["detailprop", "owner"],
+  props: ["detailprop"],
 
   // Everytime a data changes, the relevant computed will run
   data() {
@@ -194,7 +187,7 @@ export default {
       this.$store.dispatch("putListing", this.detailprop);
 
       this.currentReservationID = this.$store.state.latestReservation.id;
-      this.loggedInUser = this.$store.state.user;
+      this.loggedInUser = this.$store.state.user.firstName;
       this.currentCheckInDate = this.$store.state.latestReservation.startDate.substring(
         0,
         10
@@ -250,11 +243,6 @@ export default {
 </script>
 
 <style scoped>
-.ConfirmationTemplate {
-  background: none;
-  z-index: 1;
-}
-
 .calendar {
   margin-top: 50px;
   width: 90vw;
