@@ -3,7 +3,7 @@
     <div class="darken"></div>
     <div class="popUpcontainer">
       <form>
-        <h1>Owner Name</h1>
+        <h1>Add new listing</h1>
         <input class="txtInput" type="text" placeholder="City" v-model="city" />
         <input
           class="txtInput"
@@ -60,7 +60,11 @@
           placeholder="Add image (URL)"
           v-model="imageURL"
         />
-        <button class="addImg" @click.prevent="addImage" :disabled="isDisabled">
+        <button
+          class="addImg"
+          @click.prevent="addImage"
+          v-if="images.length < 5"
+        >
           Add image
         </button>
         <button class="removeImg" @click.prevent="removeImages">
@@ -107,12 +111,6 @@ export default {
       images: [],
       imageURL: "",
     };
-  },
-
-  computed: {
-    isDisabled: function () {
-      return this.images.length > 5 ? true : false;
-    },
   },
 
   methods: {
@@ -203,6 +201,8 @@ button {
 }
 .removeImg {
   margin-top: 5px;
+  background-color: rgb(121, 49, 49);
+  color: white;
 }
 
 .txtInput:focus {
