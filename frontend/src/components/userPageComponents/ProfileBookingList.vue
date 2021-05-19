@@ -3,7 +3,7 @@
     <div class="reservationCards">
 
       <img src="https://images.trvl-media.com/hotels/21000000/20210000/20209100/20209060/de854d89.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium">
-      <h5 class="streetName">Västra Hamnsgatan 6B</h5>
+      <h5 v-if="reservations" class="streetName">Västra Hamnsgatan 6B</h5>
       <p class="guests">2 adults, 2 children</p>
       <p class="checkInText">28 April 2021 <span>&#8592;</span> <br>  10 May 2021 <span>&#8594;</span></p>
       <h5 class="price">500 SEK<br> <span>per Night</span></h5>
@@ -14,8 +14,37 @@
 </template>
 
 <script>
+
+
 export default {
 
+  computed: {
+    reservations: async function() {
+      if (!this.$store.state.user) {
+        return [];
+      }
+
+      let response = await fetch('/rest/userlistings/' + this.$store.state.user.id);
+      let reservations = await response.json();
+
+      // loop through and add a "listing" property to each reservation in "reservations" array
+
+      for (let i = 0; i < reservations.length; i++) {
+        let res = await fetch('/rest/reservation/' + reservations[i].listingId);
+        reservations[i].listingInfo = await res.json();
+      }
+
+      // reservations.forEach((reservation) => {
+      //   let res = await fetch('/rest/reservation/' + reservation.listingId);
+      //   reservation.listingInfo = await res.json();
+      //   console.log(reservation.listingInfo)
+      // });
+
+      console.log(reservations)
+     
+      return reservations;
+    }
+  }
 }
 </script>
 

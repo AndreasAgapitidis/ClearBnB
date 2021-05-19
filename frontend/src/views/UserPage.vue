@@ -12,6 +12,7 @@
     </div>
     <ProfileBookings />
     <ProfileHouseApt />
+    
  </div>
  
 </template>
