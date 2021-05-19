@@ -1,31 +1,41 @@
 <template>
-  <!-- <div class="background"></div> -->
   <div class="overlay">
-    <div class="confirmationContainer">
-      <div class="content">
-        <h2 class="header">{{ header }}</h2>
-        <p class="headerTwo">{{ headerTwo }}</p>
-        <p class="headerThree">{{ headerThree }}</p>
-        <p v-if="text1">{{ text1 }}</p>
-        <p v-if="text2">{{ text2 }}</p>
-        <p v-if="text3">{{ text3 }}</p>
-        <p v-if="text4">{{ text4 }}</p>
-        <p v-if="text5">{{ text5 }}</p>
-        <p v-if="text6">{{ text6 }}</p>
-        <p v-if="text7">{{ text7 }}</p>
-        <p v-if="text8">{{ text8 }}</p>
+    <transition name="fade" appear>
+      <div class="darken" v-if="divSwitch"></div>
+    </transition>
+    <transition name="slide" appear>
+      <div class="confirmationContainer" v-if="divSwitch">
+        <div class="content">
+          <h2 class="header">{{ header }}</h2>
+          <p class="headerTwo">{{ headerTwo }}</p>
+          <p class="headerThree">{{ headerThree }}</p>
+          <p v-if="text1">{{ text1 }}</p>
+          <p v-if="text2">{{ text2 }}</p>
+          <p v-if="text3">{{ text3 }}</p>
+          <p v-if="text4">{{ text4 }}</p>
+          <p v-if="text5">{{ text5 }}</p>
+          <p v-if="text6">{{ text6 }}</p>
+          <p v-if="text7">{{ text7 }}</p>
+          <p v-if="text8">{{ text8 }}</p>
+        </div>
+        <div class="confirmationFooter">
+          <button @click="closeConfirmationBox" class="confirm">
+            Nice! Close this confirmation.
+          </button>
+        </div>
       </div>
-      <div class="confirmationFooter">
-        <button @click="closeConfirmationBox" class="confirm">
-          Nice! Close this confirmation.
-        </button>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      divSwitch: true,
+    };
+  },
+
   props: [
     "header",
     "headerTwo",
@@ -43,17 +53,67 @@ export default {
   methods: {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
-      window.location.reload();
+      this.divSwitch = false;
+      // window.location.reload();
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .background {
   background-color: rgba(rgb(0, 0, 0), rgb(0, rgb(0, 0, 0)), rgb(0, 0, 0), 0.5);
   width: 100vw;
   height: 100vh;
   z-index: 10;
+}
+
+.darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 4;
+}
+
+header,
+footer {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.confirmationContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
 }
 </style>

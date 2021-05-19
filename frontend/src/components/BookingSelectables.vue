@@ -78,7 +78,7 @@
     :headerThree="'Booking number: ' + currentReservationID"
     :text1="'Check-in: ' + currentCheckInDate"
     :text2="'Check-out: ' + currentCheckOutDate"
-    :text3="'Price: ' + priceWithProfit * differenceInDays"
+    :text3="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
   />
 </template>
 
@@ -296,4 +296,24 @@ button:hover {
 .cancel {
   background-color: red;
 }
+
+/* .ConfirmationTemplate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+} */
+
+/* Yang: u dont need "leave" here and the one below, if u are using force update*/
+/* .fade-enter-active .fade-leave-active {
+  transition: opacity 3s;
+}
+
+.fade-enter .fade-leave-to {
+  opacity: 0;
+} */
 </style>
