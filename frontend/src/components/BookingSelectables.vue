@@ -77,7 +77,7 @@
     :headerTwo="'Thank you for your booking, the booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
     :text1="'Name: ' + loggedInUser.firstName"
-    :text2="'Lastname: ' + loggedInUser.LastName"
+    :text2="'Lastname: ' + loggedInUser.lastName"
     :text3="'City: ' + detailprop.city"
     :text4="'Adress: ' + detailprop.address"
     :text5="'Owner: ' + owner.firstName + owner.lastName"
