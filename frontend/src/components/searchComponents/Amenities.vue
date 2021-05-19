@@ -3,39 +3,44 @@
     <input
       type="checkbox"
       id="Wi-Fi"
-      @click="filterAmenity('Wi-Fi')"
+      @change="filterAmenities('Wi-Fi')"
       value="Wi-Fi"
+      v-model="chosenAmenities"
     />
     <label for="Wi-Fi">Wi-Fi</label>
 
     <input
       type="checkbox"
       id="Pool"
-      @click="filterAmenity('Pool')"
+      @change="filterAmenities('Pool')"
       value="Pool"
+      v-model="chosenAmenities"
     />
     <label for="Pool">Pool</label>
 
     <input
       type="checkbox"
       id="Balcony"
-      @click="filterAmenity('Balcony')"
+      @change="filterAmenities('Balcony')"
       value="Balcony"
+      v-model="chosenAmenities"
     />
     <label for="Balcony">Balcony</label>
 
     <input
       type="checkbox"
       id="Kitchen"
-      @click="filterAmenity('Kitchen')"
+      @change="filterAmenities('Kitchen')"
       value="Kitchen"
+      v-model="chosenAmenities"
     />
     <label for="Kitchen">Kitchen</label>
     <input
       type="checkbox"
       id="Freezer"
-      @click="filterAmenity('Freezer')"
+      @change="filterAmenities('Freezer')"
       value="Freezer"
+      v-model="chosenAmenities"
     />
     <label for="Freezer">Freezer</label>
   </div>
@@ -43,14 +48,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      chosenAmenities: [],
+    };
+  },
+
   methods: {
-    filterAmenity(value) {
+    filterAmenities(value) {
       this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
           listing.city === this.$route.params.id &&
           listing.amenities.includes(value)
       );
       console.log(value);
+      console.log(this.chosenAmenities);
     },
   },
 };
