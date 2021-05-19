@@ -4,7 +4,11 @@
       <div class="darken" v-if="divSwitch"></div>
     </transition>
     <transition name="slide" appear>
-      <div class="confirmationContainer" v-if="divSwitch">
+      <div
+        class="confirmationContainer"
+        v-if="divSwitch && img"
+        :style="backgroundStyles(img)"
+      >
         <div class="content">
           <h2 class="header">{{ header }}</h2>
           <p class="headerTwo">{{ headerTwo }}</p>
@@ -48,6 +52,7 @@ export default {
     "text6",
     "text7",
     "text8",
+    "img",
   ],
 
   methods: {
@@ -55,6 +60,12 @@ export default {
       this.$parent.showConfirmationBox = false;
       this.divSwitch = false;
       // window.location.reload();
+    },
+
+    backgroundStyles(image) {
+      return {
+        "background-image": `url(${image})`,
+      };
     },
   },
 };
@@ -69,13 +80,9 @@ export default {
   right: 0;
 }
 
-.background {
-  background-color: rgba(rgb(0, 0, 0), rgb(0, rgb(0, 0, 0)), rgb(0, 0, 0), 0.5);
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
+.content {
+  color: white;
 }
-
 .darken {
   position: absolute;
   top: 0;

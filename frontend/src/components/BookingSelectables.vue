@@ -72,13 +72,14 @@
   </div>
   <ConfirmationTemplate
     class="ConfirmationTemplate"
-    v-if="loggedInUser && showConfirmationBox"
+    v-if="loggedInUser && showConfirmationBox && detailprop"
     :header="'Thank you ' + loggedInUser"
     :headerTwo="'Thank you for your booking, the booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
     :text1="'Check-in: ' + currentCheckInDate"
     :text2="'Check-out: ' + currentCheckOutDate"
     :text3="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
+    :img="detailprop.images[0]"
   />
 </template>
 
