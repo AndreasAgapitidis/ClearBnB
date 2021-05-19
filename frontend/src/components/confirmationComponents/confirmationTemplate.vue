@@ -105,7 +105,9 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 999;
   width: 100%;
+  height: 100%;
   max-width: 50vw;
+  max-height: 50vh;
   background-color: white;
   border-radius: 16px;
 }
