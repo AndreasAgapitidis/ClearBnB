@@ -3,7 +3,7 @@
     <div class="darken"></div>
     <div class="popUpcontainer">
       <form>
-        <h1>Owner Name</h1>
+        <h1>Add new listing</h1>
         <input class="txtInput" type="text" placeholder="City" v-model="city" />
         <input
           class="txtInput"
