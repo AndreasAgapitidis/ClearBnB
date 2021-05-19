@@ -1,12 +1,22 @@
 <template>
-  <div class="card-Container">
-    <div class="reservationCards">
+  <div v-if="reservations" class="card-Container">
+    <div
+      v-for="reservation in reservationList"
+      v-bind:key="reservation.id"
+      v-bind:reserv="reservation"
+     class="reservationCards">
 
-      <img src="https://images.trvl-media.com/hotels/21000000/20210000/20209100/20209060/de854d89.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium">
-      <h5 v-if="reservations" class="streetName">Västra Hamnsgatan 6B</h5>
-      <p class="guests">2 adults, 2 children</p>
-      <p class="checkInText">28 April 2021 <span>&#8592;</span> <br>  10 May 2021 <span>&#8594;</span></p>
-      <h5 class="price">500 SEK<br> <span>per Night</span></h5>
+      <img v-bind:src="'reservation.listingInfo.images[0]'">
+
+      <h5 class="streetName">{{reservation.listingInfo.address}}</h5>
+
+      <p class="guests">{{reservation.adult}} Adults {{reservation.children}} children</p>
+
+      <p class="checkInText">
+        <span>&#8592;</span>
+         <br> 
+         <span>&#8594;</span></p>
+      <h5 class="price"><br> {{reservation.price }}SEK<span><br>Total</span></h5>
       <a class="cancel"><span>&#10539;</span></a>
     </div>
     </div>
@@ -17,6 +27,12 @@
 
 
 export default {
+
+  data() {
+    return {
+      reservationList : []
+    }
+  },
 
   computed: {
     reservations: async function() {
@@ -34,14 +50,8 @@ export default {
         reservations[i].listingInfo = await res.json();
       }
 
-      // reservations.forEach((reservation) => {
-      //   let res = await fetch('/rest/reservation/' + reservation.listingId);
-      //   reservation.listingInfo = await res.json();
-      //   console.log(reservation.listingInfo)
-      // });
-
-      console.log(reservations)
-     
+      this.reservationList = reservations
+      
       return reservations;
     }
   }
@@ -57,6 +67,7 @@ export default {
 }
 
 .reservationCards{
+  margin: 1em 0;
   width: 100%;
   height: 100px;
   display: grid;
