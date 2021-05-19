@@ -57,7 +57,7 @@
         <input
           class="txtInput"
           type="text"
-          placeholder="Add image (URL)"
+          placeholder="Add image URL (up to 5 images)"
           v-model="imageURL"
         />
         <button
@@ -230,23 +230,15 @@ button {
   bottom: 0;
 }
 
-.addImg:disabled .addImg[disabled] {
-  width: 300px;
-}
-
 .images {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  padding: 10px 10px 15px 15px;
-  place-content: center;
+  width: 100%;
 }
 
 .addedImages {
   height: 100%;
   overflow: hidden;
-  margin: 2px;
-  max-height: 50px;
 }
 
 #v-model-checkbox {
