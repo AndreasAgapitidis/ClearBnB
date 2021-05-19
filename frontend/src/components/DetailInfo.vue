@@ -13,17 +13,18 @@
       <p>Area: {{ detailprop.area }} ㎡</p>
       <p v-if="detailprop.house == true">Building Type: House</p>
       <p v-else-if="detailprop.apartment == true">Building Type: Apartment</p>
-      <p>Owner: {{ detailprop.owner }}</p>
+      <p v-if="owner">Owner: {{ owner.email }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["detailprop"],
+  props: ["detailprop", "owner"],
 
   computed: {
     priceWithProfit() {
+      /* this.getOwner(); */
       return Math.round(this.detailprop.price * 1.15);
     },
   },

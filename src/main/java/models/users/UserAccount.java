@@ -14,10 +14,21 @@ public class UserAccount {
     private String lastName;
     private String phoneNumber;
     private String profilePicture;
+    private String isAdmin;
 
     public UserAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
 
     //<editor-fold desc="----------- GETTER & SETTERS -----------">
+
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
     public String getId() {
         return id;
     }
@@ -76,15 +87,18 @@ public class UserAccount {
 
     //</editor-fold>
 
+
     @Override
     public String toString() {
         return "UserAccount{" +
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profilePicture='" + profilePicture + '\'' +
+                ", isAdmin='" + isAdmin + '\'' +
                 '}';
     }
 }

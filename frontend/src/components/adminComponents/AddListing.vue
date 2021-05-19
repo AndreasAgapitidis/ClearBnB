@@ -1,4 +1,5 @@
 <template>
+  <button @click="autoFill()" class="autofill">auto fill</button>
   <form>
     <input
       class="txtInput"
@@ -55,14 +56,13 @@
       placeholder="Add image (URL)"
       v-model="imageURL"
     />
-    <p>added pictures: {{ pictureCount }}</p>
+    <p>added pictures: {{ images.length }}</p>
     <button @click.prevent="addImage">Add image</button>
     <button @click.prevent="sendListingToBackEnd" type="submit">
       ADD LISTING
     </button>
     <h1>{{ isApartment }}{{ isHouse }}</h1>
   </form>
-  <button @click="autoFill()">auto fill</button>
 </template>
 
 <script>
@@ -83,7 +83,6 @@ export default {
       price: "",
       description: "",
       images: [],
-      pictureCount: 0,
       imageURL: "",
     };
   },
@@ -103,8 +102,6 @@ export default {
         images: this.images,
       };
 
-      console.log(listing);
-
       let res = await fetch("/rest/listings", {
         method: "POST",
         body: JSON.stringify(listing),
@@ -114,21 +111,22 @@ export default {
     },
     addImage() {
       this.images.push(this.imageURL);
-      this.pictureCount++;
       this.imageURL = "";
     },
 
     autoFill() {
-      this.owner = this.randomGenerator();
-      this.address = this.randomGenerator() + " street";
+      this.images = []; //Reset the pictures
+      this.owner = this.randomUser();
+      this.address =
+        this.randomGenerator() + " Gatan " + Math.floor(Math.random() * 50);
       this.isHouse = "House";
       this.city = this.$store.state.cities[
         Math.floor(Math.random() * this.$store.state.cities.length)
       ].name;
-      this.area = Math.floor(Math.random() * 50);
-      this.beds = Math.floor(Math.random() * 10);
-      this.price = Math.floor(Math.random() * 10000);
-      this.description = this.randomGenerator();
+      this.area = Math.floor(Math.random() * 50) + 1;
+      this.beds = Math.floor(Math.random() * 10) + 1;
+      this.price = Math.floor(Math.random() * 10000) + 1;
+      this.description = "Description text here about the listing";
       this.randomImg();
     },
 
@@ -159,26 +157,27 @@ export default {
       let randomizedName = "";
 
       for (let i = 0; i < 1; i++) {
-        let x = Math.floor(Math.random() * 8);
-        let y = Math.floor(Math.random() * 19);
-        console.log(x, " : ", y);
-
+        randomizedName += consonants[
+          Math.floor(Math.random() * 19)
+        ].toUpperCase();
+        randomizedName += wovels[Math.floor(Math.random() * 8)];
         randomizedName += consonants[Math.floor(Math.random() * 19)];
-        randomizedName += wovels[x];
-        randomizedName += consonants[y];
-        randomizedName += consonants[y];
-        randomizedName += wovels[x];
-        randomizedName += wovels[x];
-        randomizedName += consonants[y];
-        randomizedName += consonants[Math.floor(Math.random() * 19)];
+        randomizedName += wovels[Math.floor(Math.random() * 8)];
       }
 
       return randomizedName;
     },
     randomImg() {
-      for (let i = 0; i < 10; i++) {
-        this.images.push("https://source.unsplash.com/collection/travel/");
-      }
+      this.images.push("https://source.unsplash.com/800x600/?Apartment");
+      this.images.push("https://source.unsplash.com/800x600/?House");
+      this.images.push("https://source.unsplash.com/800x600/?Barcelona");
+      this.images.push("https://source.unsplash.com/800x600/?Milano");
+      this.images.push("https://source.unsplash.com/800x600/?London");
+    },
+    async randomUser() {
+      let res = await fetch("/rest/getAllUsers/");
+      let users = await res.json();
+      this.owner = users[Math.floor(Math.random() * users.length)].id;
     },
   },
 };
@@ -202,5 +201,11 @@ button {
 }
 #v-model-checkbox {
   margin-top: 10px;
+}
+
+.autofill {
+  width: 200px;
+  height: 50px;
+  margin: auto;
 }
 </style>
