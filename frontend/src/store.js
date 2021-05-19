@@ -141,6 +141,10 @@ export default createStore({
         method: 'PUT',
         body: JSON.stringify(listing)
       })
+    },
+
+    setUsersCity(store, city) {
+      store.commit('setUsersCity', city)
     }
   }
 });

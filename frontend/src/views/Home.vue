@@ -2,7 +2,7 @@
   <div>
     <Herobanner />
     <NotAMember />
-    <AdBanner />
+    <DisplayBanner />
     <AvailableHouses />
     <StudentText />
     <LandLordBanner />
@@ -13,7 +13,7 @@
 <script>
 import Herobanner from "../components/Herobanner.vue";
 import NotAMember from "../components/NotAMember.vue";
-import AdBanner from "../components/AdBanner.vue";
+import DisplayBanner from "../components/DisplayBanner.vue";
 import AvailableHouses from "../components/AvailableHouses.vue";
 import StudentText from "../components/StudentText.vue";
 import LandLordBanner from "../components/LandLordBanner.vue";
@@ -23,7 +23,7 @@ export default {
   components: {
     Herobanner,
     NotAMember,
-    AdBanner,
+    DisplayBanner,
     AvailableHouses,
     StudentText,
     LandLordBanner,

@@ -32,8 +32,13 @@
 import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
 export default {
-  mounted() {
+  async mounted() {
     this.$store.dispatch("fetchCities");
+
+    if (this.$route.params.id) {
+      await this.$store.dispatch("fetchListings");
+      this.filterIntoUsersChoice(this.$route.params.id);
+    }
   },
 
   data() {
