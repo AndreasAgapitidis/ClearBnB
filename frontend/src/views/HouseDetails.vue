@@ -1,6 +1,6 @@
 <template>
   <PictureCarousel v-bind:carouselprop="listing1" />
-  <DetailInfo v-bind:detailprop="listing1" />
+  <DetailInfo v-bind:detailprop="listing1" v-bind:owner="listingOwner" />
   <BookingSelectables v-bind:detailprop="listing1" />
   <Cheapest />
   <StudentText />
@@ -18,7 +18,15 @@ export default {
   data() {
     return {
       listing1: null,
+      listingOwner: null,
     };
+  },
+
+  //This is a special solution from Theodor. // Mac
+  async beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.getListingAndOwner();
+    });
   },
 
   components: {
@@ -29,18 +37,30 @@ export default {
     StudentText,
   },
 
+  methods: {
+    /* async getOwner() {
+      console.log("getOwner");
+      let res = await fetch("/rest/findUserByID/" + this.listing1.owner);
+      this.listingOwner = await res.json();
+      console.log(this.listingOwner);
+    }, */
+    async getListingAndOwner() {
+      let res = await fetch("/rest/listings/" + this.$route.params.id);
+      this.listing1 = await res.json();
+
+      let res2 = await fetch("/rest/findUserByID/" + this.listing1.owner);
+      this.listingOwner = await res2.json();
+
+      window.scrollTo(0, 0);
+    },
+  },
+
   async created() {
     // maybe try to fetch listing with id
     // await this.$store.dispatch("fetchListings");
     // for (let listing of this.$store.state.listings) {
     //   if (listing.id == this.$route.params.id) {
     //     this.listing1 = listing;
-
-    let res = await fetch("/rest/listings/" + this.$route.params.id);
-    this.listing1 = await res.json();
-
-    window.scrollTo(0, 0);
-
     // console.log(this.$store.state.listings);
     // only 1 empty listing?
     // for (let listing of this.$store.state.listings) {
@@ -71,4 +91,7 @@ export default {
 </script>
 
 <style>
+.ConfirmationTemplate {
+  background: brown;
+}
 </style>

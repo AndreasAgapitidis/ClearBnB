@@ -1,5 +1,10 @@
 <template>
-  <v-date-picker v-model="range" is-range @change="filterOnDate">
+  <v-date-picker
+    v-model="range"
+    is-range
+    :min-date="new Date()"
+    @change="filterOnDate"
+  >
     <template v-slot="{ inputValue, inputEvents }">
       <div class="wrapper">
         <input

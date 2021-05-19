@@ -18,6 +18,8 @@ export default createStore({
 
     reservations: [],
 
+    latestReservation: null
+
   },
 
   // this.$store.commit('mutationName')
@@ -46,6 +48,10 @@ export default createStore({
 
     setUsersCity(state, city) {
       state.usersCity = city
+    },
+
+    createLatestReservation(state, reservation) {
+      state.latestReservation = reservation
     }
 
   },
@@ -126,6 +132,7 @@ export default createStore({
 
       let reservationFromServer = await res.json();
 
+      store.commit('createLatestReservation', reservationFromServer)
       store.commit('createReservation', reservationFromServer)
     },
 
@@ -134,6 +141,10 @@ export default createStore({
         method: 'PUT',
         body: JSON.stringify(listing)
       })
+    },
+
+    setUsersCity(store, city) {
+      store.commit('setUsersCity', city)
     }
   }
 });

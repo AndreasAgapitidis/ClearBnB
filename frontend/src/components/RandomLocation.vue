@@ -6,12 +6,28 @@
       >
     </div>
 
-    <button class="rndLocationBtn">Get random location</button>
+    <button class="rndLocationBtn" @click="randomCity">
+      Get random location
+    </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    randomCity() {
+      this.$store.dispatch("fetchCities");
+      let randomCity = this.$store.state.cities[
+        Math.floor(Math.random() * this.$store.state.cities.length)
+      ].name;
+
+      this.$store.dispatch("setUsersCity", randomCity);
+
+      this.$router.push("/searchbycity/" + randomCity);
+      window.scrollTo(0, 0);
+    },
+  },
+};
 </script>
 
 <style>
@@ -37,7 +53,7 @@ export default {};
   color: black;
   font-weight: bold;
   font-size: 16px;
-  cursor: grab;
+  cursor: pointer;
   margin-top: 10%;
   margin-bottom: 5%;
 }
