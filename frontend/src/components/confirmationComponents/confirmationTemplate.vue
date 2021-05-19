@@ -90,10 +90,10 @@ export default {
     "h3 h3 h3 h3"
     "h3 h3 h3 h3"
     "text1 text1 . ."
-    "text2 text2 checkIn checkIn"
-    "text3 text3 checkOut checkOut"
-    "text4 text4 line line"
-    "text5 text5 price price"
+    "text2 text2 text6 text6"
+    "text3 text3 text7 text7"
+    "text4 text4 text8 text8"
+    "text5 text5 text9 text9"
     "btn btn btn btn"
     "btn btn btn btn";
   height: 100%;
@@ -133,19 +133,19 @@ export default {
 }
 
 .text6 {
-  grid-area: checkIn;
+  grid-area: text6;
 }
 
 .text7 {
-  grid-area: checkOut;
+  grid-area: text7;
 }
 
 .text8 {
-  grid-area: line;
+  grid-area: text8;
 }
 
 .text9 {
-  grid-area: price;
+  grid-area: text9;
 }
 
 .confirm {
