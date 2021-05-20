@@ -1,11 +1,16 @@
 <template>
-  <div class="card-Container">
-    <div class="reservationCards">
+  <div v-if="ownedHousing" class="card-Container">
+    <div
+    v-for="houses in ownedList"
+    v-bind:key="houses.id"
+    v-bind:reserv="houses"
+     class="reservationCards">
 
-        <img src="https://images.trvl-media.com/hotels/21000000/20210000/20209100/20209060/de854d89.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium">
-        <h5 class="streetName">Abdullagatan 72A</h5>
-        <p class="guests">2 adults, 2 children</p>
-        <h5 class="price">500 SEK<br> <span>per Night</span></h5>
+        <img :src="houses.images[0]">
+        <h5 class="streetName">{{houses.address}}</h5>
+        <p class="beds">{{houses.beds}} Beds</p>
+        <p class="area">{{houses.area}} m2</p>
+        <h5 class="price">{{houses.price}}SEK<br> <span>per Night</span></h5>
         <button class="cancel">&#9998;</button>
 
       </div>
@@ -16,9 +21,28 @@
 <script>
 export default {
 
-  data(){
-    return {
+     data(){
+      return {
       ownedList: []
+      }
+  },
+
+   computed: {
+    ownedHousing: async function() {
+      if (!this.$store.state.user) {
+        return [];
+      }
+      await this.$store.dispatch("fetchListings")
+    
+      let userId = this.$store.state.user.id;
+      let houseListings = this.$store.state.listings;
+      
+      for (let i = 0; i < houseListings.length; i++){
+        if(houseListings[i].owner === userId){
+          this.ownedList.push(houseListings[i])
+        }
+      }
+      return this.ownedList;
     }
   }
 
@@ -36,13 +60,14 @@ export default {
 .reservationCards{
   width: 100%;
   height: 100px;
+  margin: 1em auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
   "img sn sn . p"
   "img g g . ."
-  "img . . . ca"
+  "img a . . ca"
   ;
 }
 
@@ -61,10 +86,17 @@ export default {
  
 }
 
-.guests{
+.beds{
+  align-self: flex-end;
   text-align: left;
 margin: 0 0 0 10px;
   grid-area: g;
+}
+
+.area{
+  text-align: left;
+margin: 0 0 0 10px;
+  grid-area: a;
 }
 
 .checkInText{

@@ -86,8 +86,7 @@ export default {
 
 h4 {
   text-align: left;
-  margin-left: 10px;
-  margin-bottom: 3px;
+ 
 }
 
 .owned {
