@@ -2,6 +2,7 @@ import express.Express;
 import models.listing.Listing;
 import models.users.UserFunctions;
 import models.city.CityFunctions;
+import models.users.AdminFunctions;
 
 import java.nio.file.Paths;
 import java.util.*;
@@ -50,6 +51,7 @@ public class Main {
     new ListingFunctions(app);
     new UserFunctions(app);
     new Booking(app);
+    new AdminFunctions(app);
 
     app.post("/rest/test",(req,res) -> {
       System.out.println(req.body());
