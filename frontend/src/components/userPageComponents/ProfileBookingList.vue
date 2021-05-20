@@ -6,7 +6,7 @@
       v-bind:reserv="reservation"
      class="reservationCards">
 
-      <img v-bind:src="'reservation.listingInfo.images[0]'">
+      <img :src="reservation.listingInfo.images[0]">
 
       <h5 class="streetName">{{reservation.listingInfo.address}}</h5>
 

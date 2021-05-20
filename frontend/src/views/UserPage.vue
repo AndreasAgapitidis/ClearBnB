@@ -10,7 +10,13 @@
     <div class="infoContainer">
       <ProfileInfo />
     </div>
+    <div class="reserv"><h4>Reservations</h4></div>
+    <div class="divider"></div>
     <ProfileBookings />
+    <div class="owned"><h4>Owned</h4>
+    <p>Add new listing <button>+</button></p>
+    </div>
+     <div class="divider"></div>
     <ProfileHouseApt />
     
  </div>
@@ -64,11 +70,42 @@ export default {
 }
 
 .infoContainer{
-  height: 150px;
   width: 100%;
 }
 
+.divider {
+  width: 40%;
+  height: 1px;
+  background: #929292;
+  margin-left: 10px;
+}
 
+h4{
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
 
+.owned{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.owned > p {
+  margin: 0;
+}
+
+button{
+  width: 50px;
+  height: 20px;
+  background: rgb(16, 160, 16);
+  border-radius: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+  color: #FAFAFA;
+  font-size: 15px;
+  font-weight: bold;
+}
 
 </style>

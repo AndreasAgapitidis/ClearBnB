@@ -1,7 +1,5 @@
 <template>
     <div class="housing-Container">
-    <h4>Houses/Apartments</h4>
-    <div class="divider"></div>
     <ProfileHouseAptList />
   </div>
 </template>

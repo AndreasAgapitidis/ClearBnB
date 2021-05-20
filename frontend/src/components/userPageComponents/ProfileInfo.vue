@@ -4,10 +4,10 @@
      <div class="about">
       <p>About me</p>
       <div class="divider"></div>
-      <p>Hi! <br>
-        My name is Hello Helloson and i live in Stockholm, Sweden.
-        When i'm not working, you'll find me fishing for trophy-fishes in the Bahamas!
-        I own a few apartments in Stockholm that are newly renovated and ready to be booked by you!</p></div>
+      <p>Lorem! <br>
+      Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+      numquam blanditiis harum quisquam eius sed odit.</p></div>
 
         
     <div class="verified">
@@ -50,10 +50,9 @@ export default {
 }
 
 .about{
-  width: 13em;
+  width: 20em;
   padding: 10px;
-  overflow: scroll;
-  overflow-x: hidden;
+
 }
 
 p{

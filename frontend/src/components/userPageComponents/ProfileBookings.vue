@@ -1,7 +1,5 @@
 <template>
   <div class="reservations-Container">
-    <h4>Reservations</h4>
-    <div class="divider"></div>
     <ProfileBookingList />
   </div>
 </template>
@@ -21,23 +19,13 @@ export default {
 <style scoped>
 .reservations-Container{
 
-  margin: 3em auto;
+  margin: 0em auto 3em auto;
   width: 100%;
   height: 20em;
   overflow: scroll;
   overflow-x: hidden;
 }
 
-.divider {
-  width: 40%;
-  height: 1px;
-  background: #929292;
-  margin-left: 10px;
-}
 
-h4{
-  text-align: left;
-  margin-left: 10px;
-  margin-bottom: 3px;
-}
+
 </style>
