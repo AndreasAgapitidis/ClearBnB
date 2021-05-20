@@ -9,6 +9,8 @@ export default createStore({
 
     listings: {},
 
+    currentListing: [],
+
     user: null,
 
     dateRange: {
