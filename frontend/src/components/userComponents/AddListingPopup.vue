@@ -97,9 +97,28 @@
       </form>
     </div>
   </div>
+  <ConfirmationTemplate
+    class="ConfirmationTemplate"
+    v-if="loggedInUser && showConfirmationBox"
+    :header="'Thank You for your new listing!'"
+    :headerTwo="''"
+    :headerThree="''"
+    :text1="''"
+    :text2="''"
+    :text3="''"
+    :text4="''"
+    :text5="''"
+    :text6="''"
+    :text7="''"
+    :text8="''"
+    :text9="''"
+    :img="''"
+  />
 </template>
 
 <script>
+import ConfirmationTemplate from "../confirmationComponents/confirmationTemplate.vue";
+
 export default {
   created() {
     this.$store.dispatch("fetchCities");
@@ -119,6 +138,7 @@ export default {
       images: [],
       imageURL: "",
       showPopUp: true,
+      showConfirmationBox: false,
     };
   },
 
@@ -141,6 +161,7 @@ export default {
         method: "POST",
         body: JSON.stringify(listing),
       });
+      this.showConfirmationBox = true;
     },
     addImage() {
       if (this.images.length < 5) {
@@ -154,6 +175,10 @@ export default {
     },
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;
+    },
+
+    components: {
+      ConfirmationTemplate,
     },
   },
 };
