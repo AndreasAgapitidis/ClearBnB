@@ -154,6 +154,7 @@ export default {
     },
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;
+      document.body.classList.remove("modal-open");
     },
   },
 };
