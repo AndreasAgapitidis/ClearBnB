@@ -97,6 +97,7 @@ export default {
     "btn btn btn btn"
     "btn btn btn btn";
   height: 100%;
+  overflow: hidden;
 }
 
 .header {
