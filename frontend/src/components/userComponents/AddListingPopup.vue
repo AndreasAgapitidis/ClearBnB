@@ -1,7 +1,7 @@
 <template>
-  <div class="overlay">
+  <div class="overlay" v-if="!showConfirmationBox">
     <div class="darken" @click="toggleShowAddListingPopUp"></div>
-    <div class="popUpcontainer">
+    <div class="popUpcontainer" v-if="!showConfirmationBox">
       <div id="mdiv" @click="toggleShowAddListingPopUp">
         <div class="mdiv">
           <div class="md"></div>
@@ -99,9 +99,9 @@
   </div>
   <ConfirmationTemplate
     class="ConfirmationTemplate"
-    v-if="loggedInUser && showConfirmationBox"
+    v-if="owner && showConfirmationBox && addedListing"
     :header="'Thank You for your new listing!'"
-    :headerTwo="''"
+    :headerTwo="'Listing ID: ' + addedListing.id"
     :headerThree="''"
     :text1="''"
     :text2="''"
@@ -112,12 +112,12 @@
     :text7="''"
     :text8="''"
     :text9="''"
-    :img="''"
+    :img="addedListing.images[0]"
   />
 </template>
 
 <script>
-import ConfirmationTemplate from "../confirmationComponents/confirmationTemplate.vue";
+import ConfirmationTemplate from "../confirmationComponents/ConfirmationTemplate.vue";
 
 export default {
   created() {
@@ -126,7 +126,7 @@ export default {
 
   data() {
     return {
-      owner: this.$store.state.user,
+      owner: this.$store.state.user.id,
       address: "",
       isApartment: "",
       isHouse: "",
@@ -139,7 +139,12 @@ export default {
       imageURL: "",
       showPopUp: true,
       showConfirmationBox: false,
+      addedListing: null,
     };
+  },
+
+  components: {
+    ConfirmationTemplate,
   },
 
   methods: {
@@ -161,13 +166,16 @@ export default {
         method: "POST",
         body: JSON.stringify(listing),
       });
+      this.addedListing = await res.json();
       this.showConfirmationBox = true;
+      console.log(this.addedListing);
+      console.log(this.showConfirmationBox);
+      console.log(this.owner);
     },
     addImage() {
       if (this.images.length < 5) {
         this.images.push(this.imageURL);
         this.imageURL = "";
-      } else {
       }
     },
     removeImages() {
@@ -176,10 +184,6 @@ export default {
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;
       document.body.classList.remove("modal-open");
-    },
-
-    components: {
-      ConfirmationTemplate,
     },
   },
 };
@@ -207,6 +211,11 @@ export default {
   max-height: 90vh;
   background-color: rgb(83, 168, 168);
   border-radius: 16px;
+}
+
+.ConfirmationTemplate {
+  background: none;
+  z-index: 1;
 }
 
 .closePopup {
@@ -265,6 +274,10 @@ button {
   margin: auto;
   width: 50%;
   margin-bottom: 10px;
+}
+
+img {
+  max-height: 50px;
 }
 .addListing {
   bottom: 0;

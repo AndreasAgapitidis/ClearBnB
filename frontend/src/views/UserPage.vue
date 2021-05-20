@@ -13,7 +13,7 @@
     <ProfileBookings />
     <div class="owned">
       <h4>Owned</h4>
-      <p>Add new listing <button @click="openModal()">+</button></p>
+      <p>Add new listing <button @click="openModal">+</button></p>
     </div>
     <div class="divider"></div>
     <ProfileHouseApt />
