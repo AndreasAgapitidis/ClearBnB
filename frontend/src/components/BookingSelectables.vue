@@ -143,11 +143,16 @@ export default {
   },
 
   methods: {
-    confirm() {
-      console.log("confirm");
-      this.showConfirmationBox = false;
-      window.location.reload();
+    openModal() {
+      this.showConfirmationBox = true;
+      document.body.classList.add("modal-open");
     },
+
+    // Yang: because our method when clicking confirm will force refresh, we don't need to remove the class from body
+    // closeModal() {
+    //   this.showConfirmationBox = false;
+    //   document.body.classList.remove("modal-open");
+    // },
 
     clearFields() {
       (this.adult.id = 1), (this.child.id = 0);
@@ -204,7 +209,7 @@ export default {
         10
       );
 
-      this.showConfirmationBox = true;
+      this.openModal();
       console.log(this.showConfirmationBox);
     },
   },
@@ -250,6 +255,9 @@ export default {
 </script>
 
 <style scoped>
+/* body.modal-open {
+  overflow: hidden;
+} */
 .ConfirmationTemplate {
   background: none;
   z-index: 1;

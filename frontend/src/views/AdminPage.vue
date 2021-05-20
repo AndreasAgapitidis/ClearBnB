@@ -53,6 +53,7 @@ export default {
           break;
         case "Test pop up":
           this.testPopUp = true;
+          document.body.classList.add("modal-open");
           break;
       }
     },

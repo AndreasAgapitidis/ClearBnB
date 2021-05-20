@@ -97,4 +97,9 @@ export default {
 .ConfirmationTemplate {
   background: brown;
 }
+
+body.modal-open {
+  height: 100vh;
+  overflow: hidden;
+}
 </style>
