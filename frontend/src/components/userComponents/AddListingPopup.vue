@@ -1,6 +1,6 @@
 <template>
   <div class="overlay">
-    <div class="darken"></div>
+    <div class="darken" @click="toggleShowAddListingPopUp"></div>
     <div class="popUpcontainer">
       <form>
         <h1>Add new listing</h1>
@@ -74,7 +74,6 @@
         >
           Remove all images
         </button>
-        <!-- <p>Added pictures: {{ images.length }}</p> -->
         <div class="images">
           <img
             :src="image"
@@ -114,6 +113,7 @@ export default {
       description: "",
       images: [],
       imageURL: "",
+      showPopUp: true,
     };
   },
 
@@ -148,6 +148,9 @@ export default {
     },
     removeImages() {
       this.images = [];
+    },
+    toggleShowAddListingPopUp() {
+      this.$parent.testPopUp = !this.$parent.testPopUp;
     },
   },
 };
