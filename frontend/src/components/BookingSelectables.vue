@@ -148,7 +148,7 @@ export default {
       document.body.classList.add("modal-open");
     },
 
-    // Yang: because our method when clicking confirm will force refresh, we don't need to remove the class from body
+    // Yang: because our method when clicking confirm will force refresh, we don't need to remove class.
     // closeModal() {
     //   this.showConfirmationBox = false;
     //   document.body.classList.remove("modal-open");
