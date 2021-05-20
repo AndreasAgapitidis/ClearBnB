@@ -33,6 +33,7 @@ public class ListingFunctions {
             collection("Listing").save(listing);
             // update
             res.json(listing);
+            System.out.println("addedListing!");
 
         });
 

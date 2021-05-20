@@ -1,8 +1,6 @@
 <template>
- 
   <div class="profileBanner"></div>
- <div class="profileBody">
-  
+  <div class="profileBody">
     <div class="nameContainer">
       <ProfilePic />
       <ProfileName />
@@ -13,51 +11,58 @@
     <div class="reserv"><h4>Reservations</h4></div>
     <div class="divider"></div>
     <ProfileBookings />
-    <div class="owned"><h4>Owned</h4>
-    <p>Add <button>+</button></p>
+    <div class="owned">
+      <h4>Owned</h4>
+      <p>Add new listing <button @click="showPopUp = true">+</button></p>
     </div>
-     <div class="divider"></div>
+    <div class="divider"></div>
     <ProfileHouseApt />
-    
- </div>
- 
+    <AddListingPopup v-if="showPopUp" />
+  </div>
 </template>
 
 <script>
-import ProfilePic from '../components/userPageComponents/ProfilePic.vue'
-import ProfileName from '../components/userPageComponents/ProfileName.vue'
-import ProfileInfo from '../components/userPageComponents/ProfileInfo.vue'
-import ProfileBookings from '../components/userPageComponents/ProfileBookings.vue'
-import ProfileHouseApt from '../components/userPageComponents/ProfileHouseApt.vue'
+import ProfilePic from "../components/userPageComponents/ProfilePic.vue";
+import ProfileName from "../components/userPageComponents/ProfileName.vue";
+import ProfileInfo from "../components/userPageComponents/ProfileInfo.vue";
+import ProfileBookings from "../components/userPageComponents/ProfileBookings.vue";
+import ProfileHouseApt from "../components/userPageComponents/ProfileHouseApt.vue";
+import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
 
 export default {
+  data() {
+    return {
+      showPopUp: false,
+    };
+  },
+
   components: {
     ProfilePic,
     ProfileName,
     ProfileInfo,
     ProfileBookings,
-    ProfileHouseApt
-  }
-}
+    ProfileHouseApt,
+    AddListingPopup,
+  },
+};
 </script>
     
 
 <style scoped>
-.profileBanner{
+.profileBanner {
   height: 300px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-image: linear-gradient(90deg ,#b92b27, #1565C0);;
+  background-image: linear-gradient(90deg, #b92b27, #1565c0);
   border-radius: 50%;
 }
-.profileBody{
+.profileBody {
   display: flex;
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
   min-height: 100vh;
-  
 }
-.nameContainer{
+.nameContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,10 +71,9 @@ export default {
   top: -5em;
   height: auto;
   width: 100%;
-  
 }
 
-.infoContainer{
+.infoContainer {
   width: 100%;
 }
 
@@ -80,13 +84,13 @@ export default {
   margin-left: 10px;
 }
 
-h4{
+h4 {
   text-align: left;
   margin-left: 10px;
   margin-bottom: 3px;
 }
 
-.owned{
+.owned {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,16 +100,15 @@ h4{
   margin: 0;
 }
 
-button{
+button {
   width: 50px;
   height: 20px;
   background: rgb(16, 160, 16);
   border-radius: 50px;
   border: 1px solid black;
   cursor: pointer;
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 15px;
   font-weight: bold;
 }
-
 </style>
