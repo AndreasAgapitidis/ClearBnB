@@ -107,7 +107,7 @@ export default {
 
   data() {
     return {
-      owner: "",
+      owner: this.$store.state.user,
       address: "",
       isApartment: "",
       isHouse: "",
@@ -125,7 +125,7 @@ export default {
   methods: {
     async sendListingToBackEnd() {
       let listing = {
-        owner: this.owner,
+        owner: this.$store.state.user.id,
         address: this.address,
         isApartment: this.isApartment,
         isHouse: true,
@@ -141,8 +141,6 @@ export default {
         method: "POST",
         body: JSON.stringify(listing),
       });
-
-      this.pictureCount = 0;
     },
     addImage() {
       if (this.images.length < 5) {
