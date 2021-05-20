@@ -2,6 +2,11 @@
   <div class="overlay">
     <div class="darken" @click="toggleShowAddListingPopUp"></div>
     <div class="popUpcontainer">
+      <div id="mdiv" @click="toggleShowAddListingPopUp">
+        <div class="mdiv">
+          <div class="md"></div>
+        </div>
+      </div>
       <form>
         <h1>Add new listing</h1>
         <input class="txtInput" type="text" placeholder="City" v-model="city" />
@@ -102,7 +107,7 @@ export default {
 
   data() {
     return {
-      owner: "",
+      owner: this.$store.state.user,
       address: "",
       isApartment: "",
       isHouse: "",
@@ -120,7 +125,7 @@ export default {
   methods: {
     async sendListingToBackEnd() {
       let listing = {
-        owner: this.owner,
+        owner: this.$store.state.user.id,
         address: this.address,
         isApartment: this.isApartment,
         isHouse: true,
@@ -136,8 +141,6 @@ export default {
         method: "POST",
         body: JSON.stringify(listing),
       });
-
-      this.pictureCount = 0;
     },
     addImage() {
       if (this.images.length < 5) {
@@ -150,7 +153,7 @@ export default {
       this.images = [];
     },
     toggleShowAddListingPopUp() {
-      this.$parent.testPopUp = !this.$parent.testPopUp;
+      this.$parent.showPopUp = !this.$parent.showPopUp;
     },
   },
 };
@@ -165,6 +168,7 @@ export default {
   right: 0;
   z-index: 2;
 }
+
 .popUpcontainer {
   position: fixed;
   top: 50%;
@@ -177,6 +181,13 @@ export default {
   max-height: 90vh;
   background-color: rgb(83, 168, 168);
   border-radius: 16px;
+}
+
+.closePopup {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50px;
 }
 
 .darken {
@@ -246,5 +257,32 @@ button {
 
 #v-model-checkbox {
   margin-top: 10px;
+}
+
+/*----------- closeBTN ----------- */
+#mdiv {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  border: 1px solid black;
+  display: flex;
+  float: right;
+}
+
+.mdiv {
+  height: 25px;
+  width: 2px;
+  margin-left: 12px;
+  background-color: black;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.md {
+  height: 25px;
+  width: 2px;
+  background-color: black;
+  transform: rotate(90deg);
+  z-index: 2;
 }
 </style>
