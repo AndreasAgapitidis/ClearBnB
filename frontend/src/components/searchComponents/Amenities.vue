@@ -79,7 +79,7 @@ export default {
   text-shadow: 1px 1px 2px black;
   font-family: "Roboto";
   font-size: bolder;
-  background-color: rgb(255, 255, 255);
+  background: transparent;
   border: 1px solid black;
   border-radius: 20px 20px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -90,7 +90,7 @@ export default {
   text-shadow: 1px 1px 2px black;
   font-family: "Roboto";
   font-size: bolder;
-  background-color: rgb(255, 255, 255);
+  background: transparent;
   border: 1px solid black;
   border-radius: 20px 20px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
