@@ -5,13 +5,13 @@
       <button @click="whatToRender">All users</button>
       <button @click="whatToRender">Search user</button>
       <button @click="whatToRender">Add listing</button>
-      <button @click="whatToRender">Test pop up</button>
+      <button @click="whatToRender">Show pop up</button>
     </div>
 
     <GetAllUsers v-if="printAllUsers" />
     <SearchUser v-if="searchOneUser" />
     <AddListing v-if="addListing" />
-    <AddListingPopup v-if="testPopUp" />
+    <AddListingPopup v-if="showPopUp" />
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       printAllUsers: false,
       searchOneUser: false,
       addListing: false,
-      testPopUp: false,
+      showPopUp: false,
     };
   },
 
@@ -51,8 +51,8 @@ export default {
         case "Add listing":
           this.addListing = true;
           break;
-        case "Test pop up":
-          this.testPopUp = true;
+        case "Show pop up":
+          this.showPopUp = true;
           break;
       }
     },
@@ -60,7 +60,7 @@ export default {
       this.printAllUsers = false;
       this.searchOneUser = false;
       this.addListing = false;
-      this.testPopUp = false;
+      this.showPopUp = false;
     },
   },
 };
