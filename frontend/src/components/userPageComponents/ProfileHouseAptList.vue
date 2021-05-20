@@ -6,7 +6,7 @@
         <h5 class="streetName">Abdullagatan 72A</h5>
         <p class="guests">2 adults, 2 children</p>
         <h5 class="price">500 SEK<br> <span>per Night</span></h5>
-        <a class="cancel"><span>&#10539;</span></a>
+        <button class="cancel">&#9998;</button>
 
       </div>
     </div>
@@ -15,6 +15,12 @@
 
 <script>
 export default {
+
+  data(){
+    return {
+      ownedList: []
+    }
+  }
 
 }
 </script>
@@ -82,14 +88,14 @@ margin: 0 0 0 10px;
 }
 
 .cancel{
-  font-size: 25px;
-  color: red;
+  font-size: 20px;
+  color: rgb(75, 75, 75);
   grid-area: ca;
 }
 
- a {
-    border: 1px solid black;
-    border-radius: 50%;
+ button {
+    border: none;
+    background: transparent;
     width: 30px;
     justify-self: flex-end;
 }

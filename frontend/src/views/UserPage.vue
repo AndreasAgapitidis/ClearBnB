@@ -14,7 +14,7 @@
     <div class="divider"></div>
     <ProfileBookings />
     <div class="owned"><h4>Owned</h4>
-    <p>Add new listing <button>+</button></p>
+    <p>Add <button>+</button></p>
     </div>
      <div class="divider"></div>
     <ProfileHouseApt />
