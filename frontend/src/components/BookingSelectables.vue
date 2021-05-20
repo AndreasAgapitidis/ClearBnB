@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import ConfirmationTemplate from "../components/confirmationComponents/confirmationTemplate.vue";
+import ConfirmationTemplate from "./confirmationComponents/ConfirmationTemplate.vue";
 
 export default {
   components: {
