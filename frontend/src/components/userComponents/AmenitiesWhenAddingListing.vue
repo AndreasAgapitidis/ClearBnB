@@ -19,7 +19,15 @@ export default {
   data() {
     return {
       chosenAmenities: [],
-      amenities: ["Wi-Fi", "Pool", "Balcony", "Kitchen", "Freezer", "Family"],
+      amenities: [
+        "Wi-Fi",
+        "Pool",
+        "Balcony",
+        "Kitchen",
+        "Handikap",
+        "Family",
+        "100 meter till bitch",
+      ],
     };
   },
 
@@ -32,6 +40,8 @@ export default {
           (item) => item !== amenity
         );
       }
+
+      this.$parent.amenities = this.chosenAmenities;
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {

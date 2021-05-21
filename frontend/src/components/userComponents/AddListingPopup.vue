@@ -138,6 +138,7 @@ export default {
       price: "",
       description: "",
       images: [],
+      amenities: [],
       imageURL: "",
       showPopUp: true,
       showConfirmationBox: false,
@@ -163,7 +164,10 @@ export default {
         price: this.price,
         description: this.description,
         images: this.images,
+        amenities: this.amenities,
       };
+
+      console.log(this.amenities);
 
       let res = await fetch("/rest/listings", {
         method: "POST",
