@@ -19,7 +19,14 @@ export default {
   data() {
     return {
       chosenAmenities: [],
-      amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
+      amenities: [
+        "Wi-Fi",
+        "Pool",
+        "Balcony",
+        "Disability",
+        "Family friendly",
+        "100 meter to strip club",
+      ],
     };
   },
 
@@ -32,10 +39,14 @@ export default {
           (item) => item !== amenity
         );
       }
-
-      this.$parent.chosenAmenities = this.chosenAmenities;
-      this.$parent.filterAmenities();
-      console.log(this.$parent.chosenAmenities);
+      if (this.$route.params.id == "/Userpage") {
+        this.$parent.$parent.chosenAmenities = this.chosenAmenities;
+        this.$parent.filterAmenities();
+      } else {
+        this.$parent.chosenAmenities = this.chosenAmenities;
+        this.$parent.filterAmenities();
+        console.log(this.$parent.chosenAmenities);
+      }
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
