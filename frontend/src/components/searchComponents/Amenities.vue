@@ -27,25 +27,23 @@
       v-model="chosenAmenities"
     />
 
-    <label for="Kitchen">Kitchen</label>
+    <label for="Family">Family</label>
     <input
       type="checkbox"
-      id="Kitchen"
-      @change="filterAmenities('Kitchen')"
-      value="Kitchen"
+      id="Family"
+      @change="filterAmenities('Family')"
+      value="Family"
       v-model="chosenAmenities"
     />
-    <label for="Freezer">Freezer</label>
+    <label for="Handicap-accessible">Handicap-accessible</label>
     <input
       type="checkbox"
-      id="Freezer"
-      @change="filterAmenities('Freezer')"
-      value="Freezer"
+      id="Handicap-accessible"
+      @change="filterAmenities('Handicap-accessible')"
+      value="Handicap-accessible"
       v-model="chosenAmenities"
     />
   </div>
-
-  <button @click="reloadPage()" class="reloadBtn">Reset</button>
 </template>
 
 <script>
@@ -61,13 +59,28 @@ export default {
       this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
           listing.city === this.$route.params.id &&
-          listing.amenities.includes(value)
+          this.filterDate(listing) &&
+          this.chosenAmenities.every((element) =>
+            listing.amenities.includes(element)
+          )
       );
+
       console.log(value);
       console.log(this.chosenAmenities);
     },
-    reloadPage() {
-      window.location.reload();
+
+    filterDate(listing) {
+      for (let i = 0; i < listing.unavailableDates.length; i++) {
+        let date = new Date(listing.unavailableDates[i] * 1000);
+        if (
+          date >= this.$store.state.dateRange.start &&
+          date <= this.$store.state.dateRange.end - 86400000
+        ) {
+          return false;
+        }
+      }
+
+      return true;
     },
   },
 };
