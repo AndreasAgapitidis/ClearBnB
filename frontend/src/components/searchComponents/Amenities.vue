@@ -70,10 +70,12 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgb(19, 236, 92);
+  color: rgb(51, 51, 51);
 }
 
 .amenityCard:hover {
   background-color: rgb(148, 243, 180);
   cursor: pointer;
+  transform: scale(1.015);
 }
 </style>
