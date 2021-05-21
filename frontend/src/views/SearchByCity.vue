@@ -1,16 +1,13 @@
 <template>
-
   <div class="SearchByCity-Bg">
     <InputCityAndPickDate />
 
-     <div><h2>Amenities</h2></div>
-      <Amenities />
-    
+    <div><h2>Amenities</h2></div>
+    <Amenities />
   </div>
   <!-- <InputCityAndPickDate /> -->
   <!-- <BookingCalendar /> -->
   <ListOfListings v-bind:listings="filteredListings" />
- 
 </template>
 
 <script>
@@ -40,7 +37,8 @@ export default {
   width: 100vw;
   margin: auto;
   position: relative;
-  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)), url('../assets/Banner-Pictures/Malmö-Header.jpg');
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("../assets/Banner-Pictures/Malmö-Header.jpg");
 }
 
 h2 {

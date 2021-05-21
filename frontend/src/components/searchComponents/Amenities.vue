@@ -1,52 +1,10 @@
 <template>
-  <div class="amenityBoxes">
-    <label for="Wi-Fi">Wi-Fi</label>
-    <input
-      type="checkbox"
-      id="Wi-Fi"
-      @change="filterAmenities('Wi-Fi')"
-      value="Wi-Fi"
-      v-model="chosenAmenities"
-    />
-
-    <label for="Pool">Pool</label>
-    <input
-      type="checkbox"
-      id="Pool"
-      @change="filterAmenities('Pool')"
-      value="Pool"
-      v-model="chosenAmenities"
-    />
-
-    <label for="Balcony">Balcony</label>
-    <input
-      type="checkbox"
-      id="Balcony"
-      @change="filterAmenities('Balcony')"
-      value="Balcony"
-      v-model="chosenAmenities"
-    />
-
-    <label for="Family">Family</label>
-    <input
-      type="checkbox"
-      id="Family"
-      @change="filterAmenities('Family')"
-      value="Family"
-      v-model="chosenAmenities"
-    />
-    <label for="Handicap-accessible">Handicap-accessible</label>
-    <input
-      type="checkbox"
-      id="Handicap-accessible"
-      @change="filterAmenities('Handicap-accessible')"
-      value="Handicap-accessible"
-      v-model="chosenAmenities"
-    />
-  </div>
+  <AmenitiesWhenAddingListing @click="filterAmenities" />
 </template>
 
 <script>
+import AmenitiesWhenAddingListing from "../userComponents/AmenitiesWhenAddingListing.vue";
+
 export default {
   data() {
     return {
@@ -54,23 +12,27 @@ export default {
     };
   },
 
+  components: {
+    AmenitiesWhenAddingListing,
+  },
+
   methods: {
-    filterAmenities(value) {
-      this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
+    filterAmenities() {
+      this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
+      this.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
           listing.city === this.$route.params.id &&
           this.filterDate(listing) &&
-          this.chosenAmenities.every((element) =>
-            listing.amenities.includes(element)
-          )
+          this.chosenAmenities.every((element) => {
+            console.log("element: ", element);
+            return listing.amenities.includes(element);
+          })
       );
-
-      console.log(value);
-      console.log(this.chosenAmenities);
+      console.log("Listing: ", this.$parent.filteredListings);
     },
 
     filterDate(listing) {
-     for (let i = 0; i < listing.unavailableDates.length; i++) {
+      for (let i = 0; i < listing.unavailableDates.length; i++) {
         let date = new Date(listing.unavailableDates[i] * 1000);
         if (
           date >= this.$store.state.dateRange.start &&
@@ -97,7 +59,4 @@ export default {
   border-radius: 20px 20px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-
-
-
 </style>

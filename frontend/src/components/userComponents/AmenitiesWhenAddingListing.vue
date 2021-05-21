@@ -19,15 +19,7 @@ export default {
   data() {
     return {
       chosenAmenities: [],
-      amenities: [
-        "Wi-Fi",
-        "Pool",
-        "Balcony",
-        "Kitchen",
-        "Handikap",
-        "Family",
-        "100 meter till bitch",
-      ],
+      amenities: ["Wi-Fi", "Pool", "Balcony", "Handicap", "Family friendly"],
     };
   },
 
@@ -41,7 +33,9 @@ export default {
         );
       }
 
-      this.$parent.amenities = this.chosenAmenities;
+      this.$parent.chosenAmenities = this.chosenAmenities;
+      this.$parent.filterAmenities();
+      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {

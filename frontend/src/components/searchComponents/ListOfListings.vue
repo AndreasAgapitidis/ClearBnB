@@ -7,18 +7,16 @@
       v-on:click="navToBooking(listing)"
     />
   </div>
- </template>
+</template>
 
 <script>
 import RentalItem from "../RentalItem.vue";
-
 
 export default {
   props: ["listings"],
 
   components: {
     RentalItem,
-   
   },
 
   methods: {

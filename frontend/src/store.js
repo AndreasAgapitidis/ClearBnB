@@ -20,7 +20,9 @@ export default createStore({
 
     reservations: [],
 
-    latestReservation: null
+    latestReservation: null,
+
+    chosenAmenities: [],
 
   },
 
@@ -54,6 +56,10 @@ export default createStore({
 
     createLatestReservation(state, reservation) {
       state.latestReservation = reservation
+    },
+
+    setChosenAmenities(state, chosenAmenities) {
+      state.chosenAmenities = chosenAmenities
     }
 
   },
@@ -147,7 +153,12 @@ export default createStore({
 
     setUsersCity(store, city) {
       store.commit('setUsersCity', city)
+    },
+
+    setChosenAmenities(store, chosenAmenities) {
+      store.commit('setChosenAmenities', chosenAmenities)
     }
+
   }
 });
 
