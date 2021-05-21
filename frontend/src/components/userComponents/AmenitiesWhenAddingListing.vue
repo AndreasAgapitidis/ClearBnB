@@ -24,9 +24,8 @@ export default {
         "Pool",
         "Balcony",
         "Kitchen",
-        "Handikap",
-        "Family",
-        "100 meter till bitch",
+        "Disability",
+        "Family friendly",
       ],
     };
   },

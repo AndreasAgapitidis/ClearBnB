@@ -82,14 +82,14 @@ export default {
     },
     isFamily() {
       let check = false;
-      if (this.detailprop.amenities.includes("Family")) {
+      if (this.detailprop.amenities.includes("Family friendly")) {
         check = true;
       }
       return check;
     },
     isHandicap() {
       let check = false;
-      if (this.detailprop.amenities.includes("Handicap-accessible")) {
+      if (this.detailprop.amenities.includes("Disability")) {
         check = true;
       }
       return check;
