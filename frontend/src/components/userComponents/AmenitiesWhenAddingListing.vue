@@ -66,25 +66,32 @@ p {
   padding: 10px;
   display: grid;
   gap: 2px;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  grid-auto-rows: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 45px;
   max-width: 50%;
   margin: auto;
 }
 
-.amenityCard {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-}
+.amenityCard,
 .isClicked {
   width: 100%;
   height: 100%;
-  background-color: rgb(19, 236, 92);
-  color: rgb(51, 51, 51);
+  background-color: #262626;
+  border-radius: 0 22px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+}
+.isClicked {
+  background-color: rgb(185, 240, 222);
+  color: rgb(36, 36, 36);
+  box-shadow: none;
 }
 .amenityCard:hover {
-  background-color: rgb(148, 243, 180);
+  background-color: rgb(185, 240, 222);
+  color: rgb(36, 36, 36);
   cursor: pointer;
   transform: scale(1.015);
 }

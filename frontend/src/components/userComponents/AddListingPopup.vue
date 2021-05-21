@@ -208,10 +208,12 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 99;
   width: 100%;
-  height: 100%;
+
   max-width: 70vw;
-  max-height: 90vh;
-  background-image: linear-gradient(90deg, #b92b27, #1565c0);
+  min-height: 80vh;
+  background-image: url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 16px;
 }
 
