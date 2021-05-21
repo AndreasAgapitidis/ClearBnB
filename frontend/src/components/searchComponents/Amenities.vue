@@ -24,11 +24,9 @@ export default {
           listing.city === this.$route.params.id &&
           this.filterDate(listing) &&
           this.chosenAmenities.every((element) => {
-            console.log("element: ", element);
             return listing.amenities.includes(element);
           })
       );
-      console.log("Listing: ", this.$parent.filteredListings);
     },
 
     filterDate(listing) {
