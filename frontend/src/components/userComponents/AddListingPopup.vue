@@ -209,7 +209,7 @@ export default {
   height: 100%;
   max-width: 70vw;
   max-height: 90vh;
-  background-color: rgb(83, 168, 168);
+  background-image: linear-gradient(90deg, #b92b27, #1565c0);
   border-radius: 16px;
 }
 
