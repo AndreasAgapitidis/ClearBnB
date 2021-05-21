@@ -28,13 +28,13 @@
     </div>
     </div>
   
+
+
 </template>
 
 <script>
 
-
 export default {
-
   data() {
     return {
       reservationList : []
@@ -47,7 +47,7 @@ export default {
        if(confirm("Are you sure you want to delete this reservation?")){
       let targetId = event.id;
       this.$store.dispatch('deleteReservation', targetId)
-    
+        
        }
     }
    
