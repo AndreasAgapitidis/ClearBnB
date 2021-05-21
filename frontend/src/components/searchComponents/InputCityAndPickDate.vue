@@ -24,7 +24,7 @@
       </div>
       <h2>Check-in/out</h2>
       <Calendar />
- 
+
       <div><h2>Amenities</h2></div>
       <Amenities />
     </div>
@@ -76,7 +76,6 @@ export default {
     CityItem,
     Calendar,
     Amenities,
-
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
@@ -103,7 +102,6 @@ export default {
 
     goToCityPage() {
       let comparing = this.$route.path;
-
       this.$store.commit("setUsersCity", this.userSearchedFor);
       this.$router.push("/SearchByCity/" + this.userSearchedFor);
 
