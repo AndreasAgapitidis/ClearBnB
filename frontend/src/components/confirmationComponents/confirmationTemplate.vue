@@ -8,24 +8,23 @@
         class="confirmationContainer"
         v-if="divSwitch && img"
         :style="backgroundStyles(img)"
-      >
-        <div class="content">
-          <h2 class="header">{{ header }}</h2>
-          <p class="headerTwo">{{ headerTwo }}</p>
-          <p class="headerThree">{{ headerThree }}</p>
-          <p class="text1" v-if="text1">{{ text1 }}</p>
-          <p class="text2" v-if="text2">{{ text2 }}</p>
-          <p class="text3" v-if="text3">{{ text3 }}</p>
-          <p class="text4" v-if="text4">{{ text4 }}</p>
-          <p class="text5" v-if="text5">{{ text5 }}</p>
-          <p class="text6" v-if="text6">{{ text6 }}</p>
-          <p class="text7" v-if="text7">{{ text7 }}</p>
-          <p class="text8" v-if="text8">{{ text8 }}</p>
-          <p class="text9" v-if="text9">{{ text9 }}</p>
-          <button @click="closeConfirmationBox" class="confirm"></button>
-        </div>
-        <div class="darkerBackGround"></div>
+      ></div>
+      <div class="content">
+        <h2 class="header">{{ header }}</h2>
+        <p class="headerTwo">{{ headerTwo }}</p>
+        <p class="headerThree">{{ headerThree }}</p>
+        <p class="text1" v-if="text1">{{ text1 }}</p>
+        <p class="text2" v-if="text2">{{ text2 }}</p>
+        <p class="text3" v-if="text3">{{ text3 }}</p>
+        <p class="text4" v-if="text4">{{ text4 }}</p>
+        <p class="text5" v-if="text5">{{ text5 }}</p>
+        <p class="text6" v-if="text6">{{ text6 }}</p>
+        <p class="text7" v-if="text7">{{ text7 }}</p>
+        <p class="text8" v-if="text8">{{ text8 }}</p>
+        <p class="text9" v-if="text9">{{ text9 }}</p>
+        <button @click="closeConfirmationBox" class="confirm"></button>
       </div>
+      <div class="darkerBackGround"></div>
     </transition>
   </div>
 </template>

@@ -70,7 +70,7 @@
       </div>
     </form>
   </div>
-  <ConfirmationTemplate
+  <Confirmation
     class="ConfirmationTemplate"
     v-if="loggedInUser && showConfirmationBox && detailprop && owner"
     :header="'Thank you ' + loggedInUser.firstName"
@@ -90,11 +90,11 @@
 </template>
 
 <script>
-import ConfirmationTemplate from "./confirmationComponents/ConfirmationTemplate.vue";
+import Confirmation from "./confirmationComponents/ConfirmationTemplate.vue";
 
 export default {
   components: {
-    ConfirmationTemplate,
+    Confirmation,
   },
 
   props: ["detailprop", "owner"],
@@ -219,6 +219,7 @@ export default {
         return;
       } else if ((await this.checkDuplicatedBooking()) === true) {
         alert("Ops, one of the days have been booked by others just a sec ago");
+        window.location.reload();
         return;
       }
 
@@ -241,7 +242,7 @@ export default {
       };
 
       // divding with 1000 to get Unix format we are using in backend listing.unavailableDates
-      let dateUnix = this.range.start.getTime() / 1000;
+      let dateUnix = this.range.start / 1000;
       // console.log("date " + dateUnix);
 
       for (let i = 0; i < this.differenceInDays; i++) {
