@@ -1,5 +1,6 @@
 import express.Express;
 import models.listing.Listing;
+import models.reservation.Reservation;
 import models.users.UserFunctions;
 import models.city.CityFunctions;
 import models.users.AdminFunctions;
@@ -56,6 +57,17 @@ public class Main {
     app.post("/rest/test",(req,res) -> {
       System.out.println(req.body());
     });
+
+    app.get("/rest/userlistings/:id", (req, res) -> {
+      String id = req.params("id");
+      res.json(collection("Reservation").find(eq("userId", id)));
+    });
+
+    app.get("/rest/reservation/:id", (req, res) -> {
+      String id = req.params("id");
+      res.json(collection("Listing").findById(id));
+    });
+
 
     //ListingFunctions.addNewListing();
 

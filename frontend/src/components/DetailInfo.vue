@@ -37,6 +37,7 @@ export default {
   flex-direction: row;
   margin-top: 50px;
   justify-content: space-evenly;
+  padding: 0px 10px 0px;
 }
 
 .Description h1 {

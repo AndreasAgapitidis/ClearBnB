@@ -5,11 +5,13 @@
       <button @click="whatToRender">All users</button>
       <button @click="whatToRender">Search user</button>
       <button @click="whatToRender">Add listing</button>
+      <button @click="whatToRender">Show pop up</button>
     </div>
 
     <GetAllUsers v-if="printAllUsers" />
     <SearchUser v-if="searchOneUser" />
     <AddListing v-if="addListing" />
+    <AddListingPopup v-if="showPopUp" />
     <AdminSummary />
   </div>
 </template>
@@ -18,6 +20,7 @@
 import GetAllUsers from "../components/adminComponents/GetAllUsers.vue";
 import SearchUser from "../components/userComponents/SearchUser.vue";
 import AddListing from "../components/adminComponents/AddListing.vue";
+import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
 import AdminSummary from "../components/adminComponents/AdminSummary.vue";
 
 export default {
@@ -26,12 +29,14 @@ export default {
       printAllUsers: false,
       searchOneUser: false,
       addListing: false,
+      showPopUp: false,
     };
   },
 
   components: {
     GetAllUsers,
     SearchUser,
+    AddListingPopup,
     AddListing,
     AdminSummary,
   },
@@ -49,12 +54,17 @@ export default {
         case "Add listing":
           this.addListing = true;
           break;
+        case "Show pop up":
+          this.showPopUp = true;
+          document.body.classList.add("modal-open");
+          break;
       }
     },
     putAllToFalse() {
       this.printAllUsers = false;
       this.searchOneUser = false;
       this.addListing = false;
+      this.showPopUp = false;
     },
   },
 };

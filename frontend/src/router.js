@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import SearchByCity from './views/SearchByCity.vue'
 import HouseDetails from './views/HouseDetails.vue'
 import AdminPage from './views/AdminPage.vue'
+import UserPage from './views/UserPage.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -34,6 +35,10 @@ export default createRouter({
     {
       path: '/rest/getAllUsers',
       component: AdminPage,
+    },
+    {
+      path: '/Userpage',
+      component: UserPage,
     }
   ]
 })
