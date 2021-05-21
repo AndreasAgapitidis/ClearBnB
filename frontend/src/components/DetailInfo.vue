@@ -28,7 +28,7 @@
           Disability
         </li>
         <li v-if="isExtra() == true">
-          <img src="../assets/Amenities/disabled.png" width="24" height="24" />
+          <img src="../assets/Amenities/more.png" width="24" height="24" />
           Extra
         </li>
       </ul>
@@ -98,18 +98,17 @@ export default {
       }
       return check;
     },
+
     isExtra() {
       let check = false;
-      let chosenAmenities = this.$store.state.chosenAmenities;
-      for (let i = 0; i < chosenAmenities.length; i++) {
+      for (let i = 0; i < this.detailprop.amenities.length; i++) {
         if (
-          chosenAmenities[i] !== "Wi-Fi" ||
-          chosenAmenities[i] !== "Pool" ||
-          chosenAmenities[i] !== "Balcony" ||
-          chosenAmenities[i] !== "Family friendly" ||
-          chosenAmenities[i] !== "Disability"
+          this.detailprop.amenities[i] !== "Wi-Fi" ||
+          this.detailprop.amenities[i] !== "Pool" ||
+          this.detailprop.amenities[i] !== "Balcony" ||
+          this.detailprop.amenities[i] !== "Family friendly" ||
+          this.detailprop.amenities[i] !== "Disability"
         ) {
-          console.log("123");
           check = true;
         }
       }
@@ -146,8 +145,8 @@ li {
     "des des des des"
     "am det det det"
     "am det det det";
-  margin-top: 50px;
-  justify-items: center;
+  margin-top: 30px;
+  padding: 20px;
 }
 
 .Description {
@@ -173,6 +172,6 @@ li {
 }
 
 .details {
-  align-self: center;
+  margin-top: 17px;
 }
 </style>
