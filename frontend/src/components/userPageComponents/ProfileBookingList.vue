@@ -40,7 +40,8 @@ export default {
   },
 
   computed: {
-    reservations: async function() {
+    reservations: 
+    async function() {
       if (!this.$store.state.user) {
         return [];
       }
