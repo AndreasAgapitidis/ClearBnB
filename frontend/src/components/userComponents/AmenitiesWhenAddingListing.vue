@@ -35,7 +35,6 @@ export default {
 
       this.$parent.chosenAmenities = this.chosenAmenities;
       this.$parent.filterAmenities();
-      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
