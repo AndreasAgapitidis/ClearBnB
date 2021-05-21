@@ -70,7 +70,7 @@ export default {
     },
 
     filterDate(listing) {
-      for (let i = 0; i < listing.unavailableDates.length; i++) {
+     for (let i = 0; i < listing.unavailableDates.length; i++) {
         let date = new Date(listing.unavailableDates[i] * 1000);
         if (
           date >= this.$store.state.dateRange.start &&
@@ -88,8 +88,8 @@ export default {
 
 <style scoped>
 .amenityBoxes {
-  color: rgb(0, 0, 0);
-  text-shadow: 1px 1px 2px black;
+  color: rgb(65, 64, 64);
+  text-shadow: 1px 1px 2px grey;
   font-family: "Roboto";
   font-size: bolder;
   background: transparent;
@@ -98,14 +98,6 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.reloadBtn {
-  color: rgb(0, 0, 0);
-  text-shadow: 1px 1px 2px black;
-  font-family: "Roboto";
-  font-size: bolder;
-  background: transparent;
-  border: 1px solid black;
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
+
+
 </style>
