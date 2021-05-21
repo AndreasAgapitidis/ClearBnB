@@ -52,6 +52,11 @@ export default createStore({
 
     createLatestReservation(state, reservation) {
       state.latestReservation = reservation
+    },
+
+    deleteReservationById(state, id) {
+      state.reservations = state.reservations.filter(reservation => reservation.id != id);
+
     }
 
   },
@@ -134,6 +139,16 @@ export default createStore({
 
       store.commit('createLatestReservation', reservationFromServer)
       store.commit('createReservation', reservationFromServer)
+    },
+
+    async deleteReservation(store, id) {
+      let res = await fetch(`/rest/reservation/${id}` , {
+        method: 'DELETE',
+        
+      })
+      let deletedReservation = await res.json();
+      console.log(deletedReservation);
+      store.commit('deleteReservationById', id)
     },
 
     async putListing(store, listing) {

@@ -21,7 +21,9 @@
 
       <h5 class="price"><br> {{ reservation.price }}SEK<span><br>Total</span></h5>
 
-      <button class="cancel">&#10008;</button>
+      <button 
+      v-on:click="select(reservation)"
+      class="cancel">&#10008;</button>
 
     </div>
     </div>
@@ -37,6 +39,20 @@ export default {
     return {
       reservationList : []
     }
+  },
+
+  methods:{
+
+    select: function(event) {
+       if(confirm("Are you sure you want to delete this reservation?")){
+      let targetId = event.id;
+      this.$store.dispatch('deleteReservation', targetId)
+    
+       }
+    }
+   
+    
+
   },
 
   computed: {
