@@ -19,7 +19,14 @@ export default {
   data() {
     return {
       chosenAmenities: [],
-      amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
+      amenities: [
+        "Wi-Fi",
+        "Pool",
+        "Balcony",
+        "Disability",
+        "Family friendly",
+        "100 meter to strip club",
+      ],
     };
   },
 
