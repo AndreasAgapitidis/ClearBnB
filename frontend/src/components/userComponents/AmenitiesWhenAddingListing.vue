@@ -23,9 +23,9 @@ export default {
         "Wi-Fi",
         "Pool",
         "Balcony",
-        "Kitchen",
         "Disability",
         "Family friendly",
+        "100 meter to strip club",
       ],
     };
   },
@@ -40,7 +40,14 @@ export default {
         );
       }
 
-      this.$parent.amenities = this.chosenAmenities;
+      this.$parent.chosenAmenities = this.chosenAmenities;
+      try {
+        this.$parent.filterAmenities();
+      } catch (error) {
+        console.log("hej");
+      }
+
+      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {

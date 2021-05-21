@@ -3,7 +3,7 @@
     <Herobanner />
     <NotAMember />
     <DisplayBanner />
-    <AvailableHouses />
+    <!--  <AvailableHouses /> -->
     <StudentText />
     <LandLordBanner />
     <RandomLocation />

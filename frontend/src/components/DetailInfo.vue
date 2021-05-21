@@ -27,6 +27,10 @@
           <img src="../assets/Amenities/disabled.png" width="24" height="24" />
           Disability
         </li>
+        <li v-if="isExtra() == true">
+          <img src="../assets/Amenities/disabled.png" width="24" height="24" />
+          Extra
+        </li>
       </ul>
     </div>
 
@@ -91,6 +95,22 @@ export default {
       let check = false;
       if (this.detailprop.amenities.includes("Disability")) {
         check = true;
+      }
+      return check;
+    },
+    isExtra() {
+      let check = false;
+      let chosenAmenities = this.$store.state.chosenAmenities;
+      for (let i = 0; i < chosenAmenities.length; i++) {
+        if (
+          !chosenAmenities[i] == "Wi-Fi" ||
+          !chosenAmenities[i] == "Pool" ||
+          !chosenAmenities[i] == "Balcony" ||
+          !chosenAmenities[i] == "Family friendly" ||
+          !chosenAmenities[i] == "Disability"
+        ) {
+          check = true;
+        }
       }
       return check;
     },
