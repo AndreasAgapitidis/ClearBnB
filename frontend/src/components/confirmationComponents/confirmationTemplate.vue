@@ -3,12 +3,12 @@
     <transition name="fade" appear>
       <div class="darken" v-if="divSwitch"></div>
     </transition>
-    <transition name="slide" appear>
-      <div
-        class="confirmationContainer"
-        v-if="divSwitch && img"
-        :style="backgroundStyles(img)"
-      ></div>
+    <div
+      class="confirmationContainer"
+      v-if="divSwitch && img"
+      :style="backgroundStyles(img)"
+    >
+      <div class="darkerBackGround"></div>
       <div class="content">
         <h2 class="header">{{ header }}</h2>
         <p class="headerTwo">{{ headerTwo }}</p>
@@ -24,10 +24,11 @@
         <p class="text9" v-if="text9">{{ text9 }}</p>
         <button @click="closeConfirmationBox" class="confirm"></button>
       </div>
-      <div class="darkerBackGround"></div>
-    </transition>
+    </div>
   </div>
 </template>
+
+
 
 <script>
 export default {
@@ -81,8 +82,8 @@ export default {
 .content {
   color: white;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(11, minmax(0, 1fr));
   grid-template-areas:
     "h1 h1 h1 h1"
     "h2 h2 h2 h2"
@@ -97,6 +98,7 @@ export default {
     "btn btn btn btn";
   height: 100%;
   overflow: hidden;
+  margin: 10px;
 }
 
 .header {
@@ -165,7 +167,7 @@ export default {
   bottom: 0;
   right: 0;
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.9;
   width: 100%;
   height: 100%;
   z-index: -1;

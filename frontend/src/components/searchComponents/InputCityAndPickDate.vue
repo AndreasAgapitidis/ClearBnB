@@ -24,6 +24,8 @@
       </div>
       <h2>Check-in/out</h2>
       <Calendar />
+
+      
     </div>
   </div>
 </template>
@@ -31,6 +33,8 @@
 <script>
 import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
+
+
 export default {
   async mounted() {
     this.$store.dispatch("fetchCities");
@@ -70,6 +74,7 @@ export default {
   components: {
     CityItem,
     Calendar,
+    
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
@@ -96,7 +101,6 @@ export default {
 
     goToCityPage() {
       let comparing = this.$route.path;
-
       this.$store.commit("setUsersCity", this.userSearchedFor);
       this.$router.push("/SearchByCity/" + this.userSearchedFor);
 
