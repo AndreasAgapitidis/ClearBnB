@@ -103,12 +103,13 @@ export default {
       let chosenAmenities = this.$store.state.chosenAmenities;
       for (let i = 0; i < chosenAmenities.length; i++) {
         if (
-          !chosenAmenities[i] == "Wi-Fi" ||
-          !chosenAmenities[i] == "Pool" ||
-          !chosenAmenities[i] == "Balcony" ||
-          !chosenAmenities[i] == "Family friendly" ||
-          !chosenAmenities[i] == "Disability"
+          chosenAmenities[i] !== "Wi-Fi" ||
+          chosenAmenities[i] !== "Pool" ||
+          chosenAmenities[i] !== "Balcony" ||
+          chosenAmenities[i] !== "Family friendly" ||
+          chosenAmenities[i] !== "Disability"
         ) {
+          console.log("123");
           check = true;
         }
       }
