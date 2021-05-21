@@ -36,9 +36,7 @@ export default {
       this.$parent.chosenAmenities = this.chosenAmenities;
       try {
         this.$parent.filterAmenities();
-      } catch (error) {
-        console.log("hej");
-      }
+      } catch (error) {}
 
       console.log(this.$parent.chosenAmenities);
     },
