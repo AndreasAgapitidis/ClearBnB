@@ -34,7 +34,12 @@ export default {
       }
 
       this.$parent.chosenAmenities = this.chosenAmenities;
-      this.$parent.filterAmenities();
+      try {
+        this.$parent.filterAmenities();
+      } catch (error) {
+        console.log("hej");
+      }
+
       console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
