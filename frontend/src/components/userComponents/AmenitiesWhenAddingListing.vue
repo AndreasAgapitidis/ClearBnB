@@ -20,7 +20,6 @@ export default {
     return {
       chosenAmenities: [],
       amenities: ["Wi-Fi", "Pool", "Balcony", "Kitchen", "Freezer", "Family"],
-      isClicked: false,
     };
   },
 
@@ -33,8 +32,6 @@ export default {
           (item) => item !== amenity
         );
       }
-      this.toggleClass();
-      console.log(this.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
@@ -72,7 +69,6 @@ p {
   background-color: rgb(19, 236, 92);
   color: rgb(51, 51, 51);
 }
-
 .amenityCard:hover {
   background-color: rgb(148, 243, 180);
   cursor: pointer;

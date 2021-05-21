@@ -36,7 +36,7 @@
           <label class="checkbox" for="House">House</label>
           <br />
         </div>
-        <Amenities />
+        <AmenitiesWhenAddingListing />
         <textarea
           class="txtInput"
           v-model="description"
@@ -119,7 +119,7 @@
 
 <script>
 import ConfirmationTemplate from "../confirmationComponents/ConfirmationTemplate.vue";
-import Amenities from "../searchComponents/Amenities.vue";
+import AmenitiesWhenAddingListing from "./AmenitiesWhenAddingListing.vue";
 
 export default {
   created() {
@@ -147,7 +147,7 @@ export default {
 
   components: {
     ConfirmationTemplate,
-    Amenities,
+    AmenitiesWhenAddingListing,
   },
 
   methods: {
