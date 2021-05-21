@@ -42,4 +42,9 @@ export default {
   position: relative;
   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)), url('../assets/Banner-Pictures/Malmö-Header.jpg');
 }
+
+h2 {
+  color: rgb(65, 64, 64);
+  text-shadow: 2px 2px 2px white;
+}
 </style>

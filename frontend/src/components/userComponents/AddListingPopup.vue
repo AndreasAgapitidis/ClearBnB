@@ -36,6 +36,7 @@
           <label class="checkbox" for="House">House</label>
           <br />
         </div>
+        <AmenitiesWhenAddingListing />
         <textarea
           class="txtInput"
           v-model="description"
@@ -118,6 +119,7 @@
 
 <script>
 import ConfirmationTemplate from "../confirmationComponents/ConfirmationTemplate.vue";
+import AmenitiesWhenAddingListing from "./AmenitiesWhenAddingListing.vue";
 
 export default {
   created() {
@@ -136,6 +138,7 @@ export default {
       price: "",
       description: "",
       images: [],
+      amenities: [],
       imageURL: "",
       showPopUp: true,
       showConfirmationBox: false,
@@ -145,6 +148,7 @@ export default {
 
   components: {
     ConfirmationTemplate,
+    AmenitiesWhenAddingListing,
   },
 
   methods: {
@@ -160,7 +164,10 @@ export default {
         price: this.price,
         description: this.description,
         images: this.images,
+        amenities: this.amenities,
       };
+
+      console.log(this.amenities);
 
       let res = await fetch("/rest/listings", {
         method: "POST",
@@ -168,9 +175,6 @@ export default {
       });
       this.addedListing = await res.json();
       this.showConfirmationBox = true;
-      console.log(this.addedListing);
-      console.log(this.showConfirmationBox);
-      console.log(this.owner);
     },
     addImage() {
       if (this.images.length < 5) {
