@@ -39,14 +39,15 @@ export default {
           (item) => item !== amenity
         );
       }
-      if (this.$route.params.id == "/Userpage") {
-        this.$parent.$parent.chosenAmenities = this.chosenAmenities;
+
+      this.$parent.chosenAmenities = this.chosenAmenities;
+      try {
         this.$parent.filterAmenities();
-      } else {
-        this.$parent.chosenAmenities = this.chosenAmenities;
-        this.$parent.filterAmenities();
-        console.log(this.$parent.chosenAmenities);
+      } catch (error) {
+        console.log("hej");
       }
+
+      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
