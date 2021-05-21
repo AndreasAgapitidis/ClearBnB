@@ -13,11 +13,16 @@
       <p class="guests">{{reservation.adult}} Adults {{reservation.children}} children</p>
 
       <p class="checkInText">
+        {{reservation.startDate.substring(10,0)}}
         <span>&#8592;</span>
-         <br> 
+         <br>
+         {{reservation.endDate.substring(10,0)}}
          <span>&#8594;</span></p>
-      <h5 class="price"><br> {{reservation.price }}SEK<span><br>Total</span></h5>
-      <a class="cancel"><span>&#10539;</span></a>
+
+      <h5 class="price"><br> {{ reservation.price }}SEK<span><br>Total</span></h5>
+
+      <button class="cancel">&#10008;</button>
+
     </div>
     </div>
   
@@ -39,7 +44,6 @@ export default {
       if (!this.$store.state.user) {
         return [];
       }
-
       let response = await fetch('/rest/userlistings/' + this.$store.state.user.id);
       let reservations = await response.json();
 
@@ -49,9 +53,7 @@ export default {
         let res = await fetch('/rest/reservation/' + reservations[i].listingId);
         reservations[i].listingInfo = await res.json();
       }
-
       this.reservationList = reservations
-      
       return reservations;
     }
   }
@@ -122,16 +124,14 @@ margin: 0 0 0 10px;
 }
 
 .cancel{
-  font-size: 25px;
   color: red;
   grid-area: ca;
 }
 
- a {
-    border: 1px solid black;
-    border-radius: 50%;
-    width: 30px;
-    justify-self: flex-end;
+ button {
+  border: none;
+  justify-self: flex-end;
+  background: transparent;
 }
 
 p{
