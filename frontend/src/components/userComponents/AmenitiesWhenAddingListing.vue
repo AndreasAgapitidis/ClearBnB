@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       chosenAmenities: [],
-      amenities: ["Wi-Fi", "Pool", "Balcony", "Handicap", "Family friendly"],
+      amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
     };
   },
 
