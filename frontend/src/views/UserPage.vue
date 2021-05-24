@@ -54,7 +54,10 @@ export default {
     AddListingPopup,
   },
   computed: {
-    isUser: function() {
+    isUser: async function() {
+      if (!this.$store.state.user) {
+        await this.$store.dispatch("whoAmI");
+      }
       if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'false')) {
         this.$router.push('/')
         return false

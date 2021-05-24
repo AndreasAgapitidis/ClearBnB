@@ -1,13 +1,13 @@
 <template>
   <div class="summary-container">
-    <div class="reservations-container">
-      <h1>Reservations</h1>
+    <div class="profit-container">
+      <h1>Profit</h1>
       <h3>This month</h3>
-      <p>{{ reservationsThisMonth }}</p>
+      <p>{{ profitThisMonth }}</p>
       <h3>This year</h3>
-      <p>{{ reservationsThisYear }}</p>
+      <p>{{ profitThisYear }}</p>
       <h3>All time</h3>
-      <p>{{ reservationsAllTime }}</p>
+      <p>{{ profitAllTime }}</p>
     </div>
     <div class="revenue-container">
       <h1>Revenue</h1>
@@ -18,14 +18,14 @@
       <h3>All time</h3>
       <p>{{ revenueAllTime }}</p>
     </div>
-    <div class="profit-container">
-      <h1>Profit</h1>
+    <div class="reservations-container">
+      <h1>Reservations</h1>
       <h3>This month</h3>
-      <p>{{ profitThisMonth }}</p>
+      <p>{{ reservationsThisMonth }}</p>
       <h3>This year</h3>
-      <p>{{ profitThisYear }}</p>
+      <p>{{ reservationsThisYear }}</p>
       <h3>All time</h3>
-      <p>{{ profitAllTime }}</p>
+      <p>{{ reservationsAllTime }}</p>
     </div>
     <div class="listings-container">
       <h1>Listings</h1>
@@ -99,7 +99,7 @@ export default {
   column-gap: 1em;
   padding: 0 1em 0 1em;
   margin: auto;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .reservations-container {
