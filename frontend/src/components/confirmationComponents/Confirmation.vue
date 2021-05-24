@@ -1,14 +1,16 @@
 <template>
   <div class="overlay">
-    <transition name="fade" appear>
-      <div class="darken" v-if="divSwitch"></div>
+    <transition name="fade">
+      <div class="darken"></div>
     </transition>
-    <transition name="slide" appear>
+
+    <transition name="slide">
       <div
         class="confirmationContainer"
-        v-if="divSwitch && img"
+        v-if="img"
         :style="backgroundStyles(img)"
       >
+        <div class="darkerBackGround"></div>
         <div class="content">
           <h2 class="header">{{ header }}</h2>
           <p class="headerTwo">{{ headerTwo }}</p>
@@ -24,7 +26,6 @@
           <p class="text9" v-if="text9">{{ text9 }}</p>
           <button @click="closeConfirmationBox" class="confirm"></button>
         </div>
-        <div class="darkerBackGround"></div>
       </div>
     </transition>
   </div>
@@ -59,8 +60,7 @@ export default {
   methods: {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
-      this.divSwitch = false;
-      window.location.reload();
+      // window.location.reload();
     },
 
     backgroundStyles(image) {
@@ -84,8 +84,8 @@ export default {
 .content {
   color: white;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(11, minmax(0, 1fr));
   grid-template-areas:
     "h1 h1 h1 h1"
     "h2 h2 h2 h2"
@@ -99,6 +99,8 @@ export default {
     "btn btn btn btn"
     "btn btn btn btn";
   height: 100%;
+  overflow: hidden;
+  margin: 10px;
 }
 
 .header {
@@ -166,8 +168,7 @@ export default {
   left: 0px;
   bottom: 0;
   right: 0;
-  background-color: #000;
-  opacity: 0.5;
+  opacity: 0.9;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -182,17 +183,31 @@ export default {
   bottom: 0;
   z-index: 98;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+.fade-enter-from {
+  opacity: 0;
 }
 
-.fade-enter,
+.fade-enter-to {
+  opacity: 0.5;
+}
+
+.fade-enter-active {
+  transition: all 2s ease;
+}
+
+.fade-leave-from {
+  opacity: 0.5;
+}
+
 .fade-leave-to {
   opacity: 0;
+}
+
+.fade-leave-active {
+  transition: all 2s ease;
 }
 
 .confirmationContainer {

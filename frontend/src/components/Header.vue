@@ -82,7 +82,7 @@ export default {
       this.$router.push("/addlisting");
     },
     profile() {
-      this.$router.push("/profile");
+      this.$router.push("/Userpage");
     },
   },
 };

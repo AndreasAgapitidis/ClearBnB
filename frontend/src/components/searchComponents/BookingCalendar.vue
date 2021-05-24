@@ -37,24 +37,18 @@ export default {
   },
 
   methods: {
-    filterHelper(array) {
-      let newArray = [];
-      for (let i = 0; i < array.length; i++) {
-        let conflict = false;
-        for (let j = 0; j < array[i].unavailableDates.length; j++) {
-          // convert Java String to date and then compare to inputted dates
-          // we subtract 86400000 (one day) since the last date is a check-out day
-          let date = new Date(array[i].unavailableDates[j] * 1000);
-          if (date >= this.range.start && date <= this.range.end - 86400000) {
-            conflict = true;
-            break;
-          }
-        }
-        if (!conflict) {
-          newArray.push(array[i]);
+    filterDate(listing) {
+      for (let i = 0; i < listing.unavailableDates.length; i++) {
+        let date = new Date(listing.unavailableDates[i] * 1000);
+        if (
+          date >= this.$store.state.dateRange.start &&
+          date <= this.$store.state.dateRange.end - 86400000
+        ) {
+          return false;
         }
       }
-      return newArray;
+
+      return true;
     },
 
     goToSearchedByCityPage() {
@@ -75,19 +69,15 @@ export default {
         // set dates in store to be access by booking page
         this.$store.dispatch("setBookingDates", this.range);
 
-        let updatedListings = [];
+        this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
+          (listing) =>
+            listing.city === this.$route.params.id &&
+            this.filterDate(listing) &&
+            this.$store.state.chosenAmenities.every((element) => {
+              return listing.amenities.includes(element);
+            })
+        );
 
-        if (!this.$route.params.id) {
-          updatedListings = this.filterHelper(this.$store.state.listings);
-        } else {
-          let res = await fetch(
-            "/rest/listings/city/" + this.$store.state.usersCity
-          );
-          let listings = await res.json();
-          updatedListings = this.filterHelper(listings);
-        }
-
-        this.$parent.$parent.filteredListings = updatedListings;
         this.goToSearchedByCityPage();
       }
     },

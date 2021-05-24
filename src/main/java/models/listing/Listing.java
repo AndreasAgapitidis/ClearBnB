@@ -23,6 +23,7 @@ public class Listing {
     private int rating;
     private ArrayList<Long> unavailableDates = new ArrayList<>();
     private ArrayList <String> images = new ArrayList<>();
+    private ArrayList <String> amenities = new ArrayList<>();
 
     //Default constructor, think this is needed with the use of Java Express. //Mac
     public Listing() {
@@ -138,6 +139,14 @@ public class Listing {
         this.images.add(imageURL);
     }
 
+    public ArrayList<String> getAmenities() {
+        return amenities;
+    }
+
+    public void setAmenities(ArrayList<String> amenities) {
+        this.amenities = amenities;
+    }
+
     //</editor-fold>
 
     @Override
@@ -156,6 +165,7 @@ public class Listing {
                 ", rating=" + rating +
                 ", unavailableDates=" + unavailableDates +
                 ", images=" + images +
+                ", amenities=" + amenities +
                 '}';
     }
 }
