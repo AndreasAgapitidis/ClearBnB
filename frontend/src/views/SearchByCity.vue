@@ -35,9 +35,7 @@ export default {
 </script>
 
 <style scoped>
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 576px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 576px) {
   * {
     box-sizing: border-box;
   }
@@ -54,16 +52,13 @@ and (max-device-width: 576px) {
   h2 {
     color: white;
     text-shadow: 2px 2px 2px black;
-    background-color:palegreen;
- margin-right:4%;
-  
- 
+    background-color: palegreen;
+    margin-right: 4%;
   }
 }
 
-@media only screen 
-and (min-device-width: 576px) 
-and (max-device-width: 992px) {* {
+@media only screen and (min-device-width: 576px) and (max-device-width: 992px) {
+  * {
     box-sizing: border-box;
   }
   .SearchByCity-Bg {
@@ -74,21 +69,18 @@ and (max-device-width: 992px) {* {
       url("../assets/Banner-Pictures/Malmö-Header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    
   }
 
   h2 {
     color: white;
     text-shadow: 2px 2px 2px black;
     background-color: orangered;
-    margin-right:1%;
+    margin-right: 1%;
   }
-  }
+}
 
-  @media only screen 
-  and (min-device-width:992px) {
-    
-    * {
+@media only screen and (min-device-width: 992px) {
+  * {
     box-sizing: border-box;
   }
   .SearchByCity-Bg {
@@ -99,14 +91,13 @@ and (max-device-width: 992px) {* {
       url("../assets/Banner-Pictures/Malmö-Header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-      
   }
 
   h2 {
     color: white;
     text-shadow: 2px 2px 2px black;
-     background-color:orchid;
-     margin-left:1%;
+    background-color: orchid;
+    margin-left: 1%;
   }
-  }
+}
 </style>
