@@ -160,6 +160,7 @@ export default {
   width: 50px;
   height: 50px;
   place-self: center;
+  border-radius: 100px;
 }
 
 .darkerBackGround {
@@ -173,6 +174,7 @@ export default {
   height: 100%;
   z-index: -1;
   border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .darken {
@@ -183,7 +185,7 @@ export default {
   bottom: 0;
   z-index: 98;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .fade-enter-from {
@@ -222,6 +224,8 @@ export default {
   max-height: 70vh;
   background-color: black;
   border-radius: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .slide-enter-active,
