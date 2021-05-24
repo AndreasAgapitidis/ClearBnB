@@ -118,7 +118,7 @@
 </template>
 
 <script>
-import ConfirmationTemplate from "../confirmationComponents/ConfirmationTemplate.vue";
+import ConfirmationTemplate from "../confirmationComponents/Confirmation.vue";
 import AmenitiesWhenAddingListing from "./AmenitiesWhenAddingListing.vue";
 
 export default {

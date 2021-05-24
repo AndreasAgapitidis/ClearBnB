@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import Confirmation from "./confirmationComponents/ConfirmationTemplate.vue";
+import Confirmation from "./confirmationComponents/Confirmation.vue";
 
 export default {
   components: {
@@ -212,6 +212,7 @@ export default {
     async addReservation() {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
+        window.scrollTo(0, 0);
         return;
       } else if (!this.adult.id) {
         alert("Please choose how many adults");
