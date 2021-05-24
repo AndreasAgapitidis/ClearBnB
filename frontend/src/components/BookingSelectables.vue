@@ -18,19 +18,21 @@
   </div>
 
   <div class="info-display">
-    <div class="priceCalculator">
-      <p>
-        Adult:
-        {{ adult.id }}
-      </p>
-      <p>
-        Children:
-        {{ child.id }}
-      </p>
-      <p>Your stay: {{ differenceInDays }} days</p>
-      <p v-if="detailprop">
-        Total: {{ priceWithProfit * differenceInDays }} SEK
-      </p>
+    <div class="prieContrainer">
+      <div class="priceCalculator">
+        <p>
+          Adult:
+          {{ adult.id }}
+        </p>
+        <p>
+          Children:
+          {{ child.id }}
+        </p>
+        <p>Your stay: {{ differenceInDays }} days</p>
+        <p v-if="detailprop">
+          Total: {{ priceWithProfit * differenceInDays }} SEK
+        </p>
+      </div>
     </div>
 
     <form class="custom-number" @submit.prevent="addReservation">
@@ -90,7 +92,7 @@
 </template>
 
 <script>
-import Confirmation from "./confirmationComponents/ConfirmationTemplate.vue";
+import Confirmation from "./confirmationComponents/Confirmation.vue";
 
 export default {
   components: {
@@ -210,6 +212,7 @@ export default {
     async addReservation() {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
+        window.scrollTo(0, 0);
         return;
       } else if (!this.adult.id) {
         alert("Please choose how many adults");
@@ -338,8 +341,12 @@ export default {
 }
 
 .info-display {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "det sel sel"
+    "det sel sel";
   margin-top: 25px;
   justify-content: center;
   width: 90vw;
@@ -350,6 +357,17 @@ export default {
   align-self: center;
   text-decoration: underline;
   -webkit-text-stroke: thin;
+}
+
+.prieContrainer {
+  grid-area: det;
+  border: solid;
+  align-self: center;
+  border-radius: 15px;
+}
+
+.custom-number {
+  grid-area: sel;
 }
 
 select {
