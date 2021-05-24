@@ -33,13 +33,10 @@ import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
 
 export default {
-  async mounted() {
-    this.$store.dispatch("fetchCities");
-
-    if (this.$route.params.id) {
-      await this.$store.dispatch("fetchListings");
-      this.filterIntoUsersChoice(this.$route.params.id);
-    }
+  async created() {
+    await this.$store.dispatch("fetchCities");
+    await this.$store.dispatch("fetchListings");
+    this.filterIntoUsersChoice(this.$route.params.id);
   },
 
   data() {
@@ -78,7 +75,7 @@ export default {
 
       this.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
-          listing.city === this.$route.params.id &&
+          (listing.city === this.$route.params.id || !this.$route.params.id) &&
           this.filterDate(listing) &&
           this.$store.state.chosenAmenities.every((element) => {
             return listing.amenities.includes(element);

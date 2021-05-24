@@ -99,10 +99,11 @@ export default {
     },
     goToHomePage() {
       let range = {
-        start: "",
-        end: "",
+        start: '',
+        end: '',
       };
       this.$store.dispatch("setBookingDates", range);
+      this.$store.dispatch("setUsersCity", '');
       this.$router.push("/");
     },
     profile() {

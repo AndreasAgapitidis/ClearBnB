@@ -21,7 +21,7 @@ export default {
       this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
       this.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
-          listing.city === this.$route.params.id &&
+          (listing.city === this.$route.params.id || !this.$route.params.id) &&
           this.filterDate(listing) &&
           this.chosenAmenities.every((element) => {
             return listing.amenities.includes(element);
