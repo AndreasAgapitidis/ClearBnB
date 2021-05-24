@@ -281,7 +281,6 @@ export default {
       );
 
       this.openModal();
-      console.log(this.showConfirmationBox);
     },
   },
 

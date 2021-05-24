@@ -2,19 +2,27 @@
   <div class="overlay" v-if="!showConfirmationBox">
     <div class="darken" @click="toggleShowAddListingPopUp"></div>
     <div class="popUpcontainer" v-if="!showConfirmationBox">
+      <div class="darkerImg"></div>
       <div id="mdiv" @click="toggleShowAddListingPopUp">
         <div class="mdiv">
           <div class="md"></div>
         </div>
       </div>
-      <form>
+      <form class="form" @submit.prevent="sendListingToBackEnd">
         <h1>Add new listing</h1>
-        <input class="txtInput" type="text" placeholder="City" v-model="city" />
+        <input
+          class="txtInput"
+          type="text"
+          placeholder="City"
+          v-model="city"
+          required
+        />
         <input
           class="txtInput"
           type="text"
           placeholder="Address"
           v-model="address"
+          required
         />
         <div id="v-model-checkbox">
           <input
@@ -41,24 +49,31 @@
           class="txtInput"
           v-model="description"
           placeholder="Listing description"
+          required
         ></textarea>
         <input
           class="txtInput"
-          type="text"
+          type="number"
+          min="1"
           placeholder="Area (Integer)"
           v-model="area"
+          required
         />
         <input
           class="txtInput"
-          type="text"
+          type="number"
+          min="1"
           placeholder="Beds (Integer)"
           v-model="beds"
+          required
         />
         <input
           class="txtInput"
-          type="text"
+          type="number"
+          min="1"
           placeholder="Price per night (Integer)"
           v-model="price"
+          required
         />
         <input
           class="txtInput"
@@ -88,13 +103,7 @@
             v-bind:key="image"
           />
         </div>
-        <button
-          class="addListing"
-          @click.prevent="sendListingToBackEnd"
-          type="submit"
-        >
-          ADD LISTING
-        </button>
+        <button class="addListing">ADD LISTING</button>
       </form>
     </div>
   </div>
@@ -192,6 +201,13 @@ export default {
 </script>
 
 <style scoped>
+label.checkbox {
+  color: white;
+}
+
+.form h1 {
+  color: white;
+}
 .overlay {
   position: fixed;
   top: 0;
@@ -199,6 +215,20 @@ export default {
   left: 0;
   right: 0;
   z-index: 2;
+}
+
+.darkerImg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0;
+  right: 0;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .popUpcontainer {

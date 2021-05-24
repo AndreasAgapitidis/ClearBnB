@@ -61,6 +61,8 @@ export default {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
       // window.location.reload();
+      document.body.classList.remove("modal-open");
+      this.$parent.$parent.showPopUp = false;
     },
 
     backgroundStyles(image) {
