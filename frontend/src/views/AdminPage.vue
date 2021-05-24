@@ -1,18 +1,19 @@
 <template>
-  <div class="adminContainer">
+  <div v-if="isAdmin" class="adminContainer">
     <h1>Admin Page</h1>
     <div class="buttonsContainer">
+      <button @click="whatToRender">Summary</button>
       <button @click="whatToRender">All users</button>
       <button @click="whatToRender">Search user</button>
       <button @click="whatToRender">Add listing</button>
       <button @click="whatToRender">Show pop up</button>
     </div>
 
+    <AdminSummary v-if="summary" />
     <GetAllUsers v-if="printAllUsers" />
     <SearchUser v-if="searchOneUser" />
     <AddListing v-if="addListing" />
     <AddListingPopup v-if="showPopUp" />
-    <AdminSummary />
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import AdminSummary from "../components/adminComponents/AdminSummary.vue";
 export default {
   data() {
     return {
+      summary: true,
       printAllUsers: false,
       searchOneUser: false,
       addListing: false,
@@ -45,6 +47,9 @@ export default {
       this.putAllToFalse();
 
       switch (event.target.innerText) {
+        case "Summary":
+          this.summary = true;
+          break;
         case "All users":
           this.printAllUsers = true;
           break;
@@ -61,11 +66,24 @@ export default {
       }
     },
     putAllToFalse() {
+      this.summary = false;
       this.printAllUsers = false;
       this.searchOneUser = false;
       this.addListing = false;
       this.showPopUp = false;
     },
+  },
+  computed: {
+    isAdmin: async function() {
+      if (!this.$store.state.user) {
+        await this.$store.dispatch("whoAmI");
+      }
+      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'true')) {
+        this.$router.push('/')
+        return false
+      }
+      return true
+    }
   },
 };
 </script>
