@@ -5,6 +5,13 @@
       <p>{{ detailprop.description }}</p>
     </div>
 
+    <div class="randomCat">
+      <img
+        src="https://media.tenor.com/images/4223cf9120369eea473fcf3565c4e676/tenor.gif"
+        alt=""
+      />
+    </div>
+
     <div class="Amenity">
       <ul>
         <li v-if="isWifi() == true">
@@ -149,8 +156,25 @@ li {
   padding: 20px;
 }
 
+.randomCat {
+  grid-area: des;
+  z-index: -2;
+  position: sticky;
+  text-align-last: right;
+  margin-right: 40px;
+  margin-bottom: -16px;
+  align-self: self-end;
+}
+
+.randomCat img {
+  max-height: 60px;
+  max-width: 60px;
+  transform: rotate(-13deg);
+}
+
 .Description {
   grid-area: des;
+  margin-bottom: 30px;
 }
 
 .Amenity {

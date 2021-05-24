@@ -111,8 +111,8 @@ export default {
 }
 
 .images img {
-  height: 125px;
-  width: 100px;
+  height: 65px;
+  width: 50px;
   border-radius: 10px;
 }
 
@@ -143,33 +143,45 @@ h1 {
   transform: translate(-50%, -50%);
   z-index: 99;
   border-radius: 16px;
-  display: flex;
+  display: grid;
   width: 100%;
   /* place-content: center; */
-  place-content: space-evenly;
+  /* place-content: space-evenly; */
+  grid-template-areas:
+    "mo mo mo"
+    "mo mo mo"
+    "mo mo mo"
+    "left . right";
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 
 .imgZoomIn {
-  width: 50vw;
+  width: 80vw;
   height: 70vh;
   object-fit: cover;
   padding: 15px;
   background-color: white;
-  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 1px 3px rgb(34 25 25 / 40%);
   -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-  -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  -webkit-box-shadow: 0 1px 3px rgb(34 25 25 / 40%);
   border-radius: 15px;
+  grid-area: mo;
+  margin-top: 50px;
+  justify-self: center;
 }
 
 .leftArrow {
   place-self: center;
   display: flex;
   flex-direction: row-reverse;
+  grid-area: left;
 }
 
 .rightArrow {
   place-self: center;
   display: flex;
+  grid-area: right;
 }
 
 .leftArrow span {

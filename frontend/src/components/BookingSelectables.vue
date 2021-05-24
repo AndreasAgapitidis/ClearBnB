@@ -64,6 +64,14 @@
           {{ child.name }}
         </option>
       </select>
+      <div class="moreCat">
+        <img
+          src="https://media1.tenor.com/images/551d452e9eb7377fd4d189bf905a61f3/tenor.gif?itemid=5588862"
+          alt=""
+          class="meowmeow"
+        />
+      </div>
+
       <div class="buttons">
         <button class="book-now">Book now!</button>
         <button class="cancel" type="reset" v-on:click="clearFields">
@@ -347,9 +355,22 @@ export default {
 /* body.modal-open {
   overflow: hidden;
 } */
+.moreCat {
+  z-index: -2;
+  position: sticky;
+  margin-right: 75px;
+  margin-bottom: -4px;
+}
+
+.meowmeow {
+  height: 60px;
+  width: 60px;
+}
+
 .ConfirmationTemplate {
   background: none;
   z-index: 1;
+  transition: all 2s ease-out;
 }
 
 .calendar {
@@ -399,6 +420,7 @@ select {
   margin: 50px 0px;
   display: flex;
   place-content: space-evenly;
+  margin: 0px 0px 50px 0px;
 }
 
 button {
@@ -407,12 +429,12 @@ button {
   border-radius: 20px;
   border: none;
   color: white;
-  transition: box-shadow 0.3s;
-  float: left;
+  transition: 0.4s ease-out;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 10px 25px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
 }
 
 .book-now {
