@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      chosenAmenities: [],
+      chosenAmenities: this.$store.state.chosenAmenities,
       amenities: [
         "Wi-Fi",
         "Pool",

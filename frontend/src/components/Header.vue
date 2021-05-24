@@ -99,18 +99,19 @@ export default {
     },
     goToHomePage() {
       let range = {
-        start: '',
-        end: '',
+        start: "",
+        end: "",
       };
       this.$store.dispatch("setBookingDates", range);
-      this.$store.dispatch("setUsersCity", '');
+      this.$store.dispatch("setUsersCity", "");
+      this.$store.dispatch("setChosenAmenities", []);
       this.$router.push("/");
     },
     profile() {
       this.$router.push("/Userpage");
     },
     admin() {
-      this.$router.push("/admin")
+      this.$router.push("/admin");
     },
   },
 };

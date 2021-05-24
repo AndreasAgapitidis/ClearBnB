@@ -8,7 +8,7 @@ import AmenitiesWhenAddingListing from "../userComponents/AmenitiesWhenAddingLis
 export default {
   data() {
     return {
-      chosenAmenities: [],
+      chosenAmenities: this.$store.state.chosenAmenities,
     };
   },
 
