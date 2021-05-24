@@ -121,11 +121,23 @@ export default {
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
+        { id: 4, name: "4" },
+        { id: 5, name: "5" },
+        { id: 6, name: "6" },
+        { id: 7, name: "7" },
+        { id: 8, name: "8" },
+        { id: 9, name: "9" },
       ],
       adultMenu: [
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
+        { id: 4, name: "4" },
+        { id: 5, name: "5" },
+        { id: 6, name: "6" },
+        { id: 7, name: "7" },
+        { id: 8, name: "8" },
+        { id: 9, name: "9" },
       ],
 
       range: {
@@ -223,6 +235,13 @@ export default {
       } else if ((await this.checkDuplicatedBooking()) === true) {
         alert("Ops, one of the days have been booked by others just a sec ago");
         window.location.reload();
+        return;
+      } else if (0 + this.child.id + this.adult.id > this.detailprop.beds) {
+        alert(
+          "The maximum guests of this listing is " +
+            this.detailprop.beds +
+            ", please select an other bigger listing for your stay"
+        );
         return;
       }
 
