@@ -24,8 +24,9 @@ export default {};
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+  margin: 0 auto;
   margin-bottom: 10%;
-  width: 100%;
+  width: 85%;
 }
 
 .LandLordBtn {

@@ -2,10 +2,16 @@
 <div class="Banner-Bg">
       <InputCityAndPickDate />
 </div> 
-      <div class="popDestination">
+
+    <div class="popDestContainer">
+       <div class="popDestination">
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Madrid</h4>
       </div>
+    </div>
+
+    <div class="divider"></div>
+     
     <!-- </div>
   -->
 </template>
@@ -96,10 +102,35 @@ h4 {
   text-shadow: 2px 2px 2px black;
 }
 
+.divider{
+  margin: 4em auto;
+  width: 90%;
+  height: 1px;
+  background: rgb(165, 165, 165);
+}
+
 @media screen and (max-width: 320px){
-  
+  .popDestContainer{
+    align-items: center;
+    justify-content: center;
+  }
   .popDestination{
   width: 16em;
+  }
+}
+
+@media screen and (min-width: 992px){
+
+  .popDestContainer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+  }
+
+  .popDestination{
+    width: 40%;
   }
 }
 </style>

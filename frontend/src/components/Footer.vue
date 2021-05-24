@@ -182,7 +182,7 @@ width: 100%;
     display: none;
   }
   .Maps{
-      text-align: start;
+  text-align: start;
   margin-top: 20px;
   display: flex;
   align-items: flex-start;
@@ -192,9 +192,37 @@ width: 100%;
 
   .Contact{
     justify-content: end;
-    
+
+  }
+
+  .bottom{
+flex-direction: column;
+align-items: center;
+
+}
+
+}
+
+@media screen and (max-width: 992px){
+   .container{
+   height: 27em;
+  }
+
+   .Maps{
+  text-align: start;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  }
+
+  .Contact{
+    justify-content: end;
+
   }
 
 }
+
 
 </style>

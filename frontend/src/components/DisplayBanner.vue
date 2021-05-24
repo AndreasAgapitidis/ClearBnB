@@ -1,16 +1,18 @@
 <template>
   <div class="component3">
     
-    <div class="picture">
-      <button class="bookNowBtn">Book now!</button>
-    </div>
+    <div class="picture"> </div>
 
+    <div class="textWrapper">
+       <button class="bookNowBtn">Book now!</button>
     <div class="shamelessTxt">
       <label for="shamelessTxt">
         Treat yourself and your family.<br>This gem is located close<br>to
         the italian wine-yards in Toscana.<br><br><br><span>ONE-TIME OFFER! <br>900sek per Night!</span></label
       >
     </div>
+    </div>
+     
 
   
   </div>
@@ -25,33 +27,36 @@ export default {};
 
 .component3 {
   background-image:     
-          linear-gradient(
-          rgba(0, 0, 0, 0.3), 
-          rgba(0, 0, 0, 0.3)
-        ),url("../assets/Houses/HouseWithPool1.jpg");
+    linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url("../assets/Houses/HouseWithPool1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
-  justify-content: space-between;
-  height: 300px;
+  justify-content: space-evenly;
+  height: 250px;
+  width: 85%;
+  margin: 0 auto;
   margin-bottom: 10%;
 }
 
-.picture{
+
+/* .picture{
   border-radius: 0px 15px 15px 0px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
   flex: 1;
-  
-}
+  }  */
+
 
 .shamelessTxt {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding-inline: 2px 2px;
   color: rgb(255, 255, 255);
@@ -83,11 +88,62 @@ span {
   color: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 320px){
-  .component3{
+@media only screen and (min-width: 320px){
+  .textWrapper{
     flex-flow:column-reverse;
     align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
   }
 
 }
+
+@media only screen and (min-width: 576px){
+ .textWrapper{
+    flex-flow:row;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 992px){
+  .component3{
+    background: none;
+    width: 85%;
+  }
+
+  .textWrapper{
+    flex-direction: column-reverse;
+    flex: 1;
+  }
+
+  .shamelessTxt{
+    color: black;
+    
+  }
+  span {
+  font-size: 20px;
+  color: rgb(235, 22, 22);
+}
+
+  .picture {
+    width: 100%;
+    height: 100%;
+    background-image:     
+    linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),url("../assets/Houses/HouseWithPool1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+    flex: 1;
+  }
+}
+
+
 </style>
