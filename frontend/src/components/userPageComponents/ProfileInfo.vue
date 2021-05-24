@@ -38,7 +38,7 @@ export default {
 }
 
 .verified{
-  width: 8em;
+  width: 10em;
   height: 80px;
   padding: 10px;
 }

@@ -18,6 +18,7 @@
     <div class="divider"></div>
     <ProfileHouseApt />
     <AddListingPopup v-if="showPopUp" />
+    
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import ProfileInfo from "../components/userPageComponents/ProfileInfo.vue";
 import ProfileBookings from "../components/userPageComponents/ProfileBookings.vue";
 import ProfileHouseApt from "../components/userPageComponents/ProfileHouseApt.vue";
 import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
+
 
 export default {
   data() {
