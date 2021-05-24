@@ -88,13 +88,21 @@ public class Main {
     newListing.setOwner("G3clEb8mGWB0GzrKY5n0Q");
     newListing.setIsApartment("true");
     newListing.setIsHouse("false");
-    newListing.setCity("Kyoto");
+    newListing.setCity("Madrid");
     newListing.setAddress(" aaaaaaaaa");
     newListing.setDescription("A traditional japanese ryokan");
     newListing.setArea(30);
     newListing.setBeds(2);
     newListing.setPrice(850);
     newListing.setRating(9);
+    ArrayList<String> amenity = new ArrayList<>();
+    amenity.add("Wi-Fi");
+    amenity.add("Pool");
+    amenity.add("Balcony");
+    amenity.add("Family");
+    amenity.add("Handicap-accessible");
+
+    newListing.setAmenities(amenity);
 
     Date date = new Date();
 

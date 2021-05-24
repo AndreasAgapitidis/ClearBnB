@@ -18,19 +18,21 @@
   </div>
 
   <div class="info-display">
-    <div class="priceCalculator">
-      <p>
-        Adult:
-        {{ adult.id }}
-      </p>
-      <p>
-        Children:
-        {{ child.id }}
-      </p>
-      <p>Your stay: {{ differenceInDays }} days</p>
-      <p v-if="detailprop">
-        Total: {{ priceWithProfit * differenceInDays }} SEK
-      </p>
+    <div class="prieContrainer">
+      <div class="priceCalculator">
+        <p>
+          Adult:
+          {{ adult.id }}
+        </p>
+        <p>
+          Children:
+          {{ child.id }}
+        </p>
+        <p>Your stay: {{ differenceInDays }} days</p>
+        <p v-if="detailprop">
+          Total: {{ priceWithProfit * differenceInDays }} SEK
+        </p>
+      </div>
     </div>
 
     <form class="custom-number" @submit.prevent="addReservation">
@@ -70,7 +72,7 @@
       </div>
     </form>
   </div>
-  <ConfirmationTemplate
+  <Confirmation
     class="ConfirmationTemplate"
     v-if="loggedInUser && showConfirmationBox && detailprop && owner"
     :header="'Thank you ' + loggedInUser.firstName"
@@ -90,11 +92,11 @@
 </template>
 
 <script>
-import ConfirmationTemplate from "../components/confirmationComponents/confirmationTemplate.vue";
+import Confirmation from "./confirmationComponents/Confirmation.vue";
 
 export default {
   components: {
-    ConfirmationTemplate,
+    Confirmation,
   },
 
   props: ["detailprop", "owner"],
@@ -143,19 +145,74 @@ export default {
   },
 
   methods: {
-    confirm() {
-      console.log("confirm");
-      this.showConfirmationBox = false;
-      window.location.reload();
+    openModal() {
+      this.showConfirmationBox = true;
+      document.body.classList.add("modal-open");
     },
+
+    // Yang: because our method when clicking confirm will force refresh, we don't need to remove class.
+    // closeModal() {
+    //   this.showConfirmationBox = false;
+    //   document.body.classList.remove("modal-open");
+    // },
 
     clearFields() {
       (this.adult.id = 1), (this.child.id = 0);
     },
 
+    async checkDuplicatedBooking() {
+      let res = await fetch("/rest/listings/" + this.detailprop.id);
+      let listing = await res.json();
+      let latestUnavailableDates = listing.unavailableDates;
+      // console.log(this.detailprop.unavailableDates);
+      // console.log(this.disabledDates);
+      // console.log("start " + this.range.start);
+      // console.log(new Date(this.range.start).toISOString());
+      // console.log("disabled " + this.disabledDates[0]);
+      // console.log("unavailable date: " + this.detailprop.unavailableDates[0]);
+      // console.log(new Date(this.range.start).toISOString().substring(0, 10));
+      // console.log(
+      //   new Date(this.disabledDates[0].getTime() + 86400000)
+      //     .toISOString()
+      //     .substring(0, 10)
+      // );
+      // console.log(this.range.start.getTime() / 1000);
+      let duplicate = false;
+      for (let i = 0; i < latestUnavailableDates.length; i++) {
+        // console.log(
+        //   "DISABLED LIST " +
+        //     new Date(this.disabledDates[i].getTime())
+        //       .toISOString()
+        //       .substring(0, 10)
+        // );
+        console.log(
+          "disabledDates: " +
+            new Date(latestUnavailableDates[i] * 1000 + 86400000)
+              .toISOString()
+              .substring(0, 10)
+        );
+
+        console.log(
+          "start: " + new Date(this.range.start).toISOString().substring(0, 10)
+        );
+
+        if (
+          new Date(latestUnavailableDates[i] * 1000)
+            .toISOString()
+            .substring(0, 10) ===
+          new Date(this.range.start).toISOString().substring(0, 10)
+        ) {
+          duplicate = true;
+          break;
+        }
+      }
+      return duplicate;
+    },
+
     async addReservation() {
       if (!this.$store.state.user) {
         alert("You need to log in in order to book!");
+        window.scrollTo(0, 0);
         return;
       } else if (!this.adult.id) {
         alert("Please choose how many adults");
@@ -163,7 +220,15 @@ export default {
       } else if (this.differenceInDays == 0) {
         alert("You need to select dates!");
         return;
+      } else if ((await this.checkDuplicatedBooking()) === true) {
+        alert("Ops, one of the days have been booked by others just a sec ago");
+        window.location.reload();
+        return;
       }
+
+      // console.log(this.detailprop.unavailableDates);
+      // console.log(this.range.start);
+      // console.log(this.range.start.getTime());
 
       // alert(this.range.start);
       // // this.range.start.setHours(0, 0, 0, 0);
@@ -180,7 +245,8 @@ export default {
       };
 
       // divding with 1000 to get Unix format we are using in backend listing.unavailableDates
-      let dateUnix = this.range.start.getTime() / 1000;
+      let dateUnix = this.range.start / 1000;
+      // console.log("date " + dateUnix);
 
       for (let i = 0; i < this.differenceInDays; i++) {
         this.detailprop.unavailableDates.push(dateUnix);
@@ -190,6 +256,16 @@ export default {
       }
 
       await this.$store.dispatch("postReservation", reservation);
+
+      // for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
+      //   if (
+      //     this.detailprop.unavailableDates[i] ==
+      //     this.range.start.getTime() / 1000
+      //   ) {
+      //     let duplicate = true;
+      //     return console.log("from detailprop: " + duplicate);
+      //   }
+      // }
 
       this.$store.dispatch("putListing", this.detailprop);
 
@@ -204,7 +280,7 @@ export default {
         10
       );
 
-      this.showConfirmationBox = true;
+      this.openModal();
       console.log(this.showConfirmationBox);
     },
   },
@@ -250,6 +326,9 @@ export default {
 </script>
 
 <style scoped>
+/* body.modal-open {
+  overflow: hidden;
+} */
 .ConfirmationTemplate {
   background: none;
   z-index: 1;
@@ -262,8 +341,12 @@ export default {
 }
 
 .info-display {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "det sel sel"
+    "det sel sel";
   margin-top: 25px;
   justify-content: center;
   width: 90vw;
@@ -274,6 +357,17 @@ export default {
   align-self: center;
   text-decoration: underline;
   -webkit-text-stroke: thin;
+}
+
+.prieContrainer {
+  grid-area: det;
+  border: solid;
+  align-self: center;
+  border-radius: 15px;
+}
+
+.custom-number {
+  grid-area: sel;
 }
 
 select {

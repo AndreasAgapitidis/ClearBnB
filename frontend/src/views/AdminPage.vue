@@ -13,7 +13,6 @@
     <AddListing v-if="addListing" />
     <AddListingPopup v-if="showPopUp" />
     <AdminSummary />
-
   </div>
 </template>
 
@@ -57,6 +56,7 @@ export default {
           break;
         case "Show pop up":
           this.showPopUp = true;
+          document.body.classList.add("modal-open");
           break;
       }
     },

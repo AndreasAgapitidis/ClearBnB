@@ -46,13 +46,9 @@ export default {
     select: function(event) {
        if(confirm("Are you sure you want to delete this reservation?")){
       let targetId = event.id;
-      this.$store.dispatch('deleteReservation', targetId)
-        
+      this.$store.dispatch('deleteReservation', targetId);
        }
     }
-   
-    
-
   },
 
   computed: {

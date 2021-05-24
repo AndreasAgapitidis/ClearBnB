@@ -13,7 +13,7 @@
     <ProfileBookings />
     <div class="owned">
       <h4>Owned</h4>
-      <p>Add new listing <button @click="showPopUp = true">+</button></p>
+      <p>Add new listing <button @click="openModal">+</button></p>
     </div>
     <div class="divider"></div>
     <ProfileHouseApt />
@@ -36,6 +36,13 @@ export default {
     return {
       showPopUp: false,
     };
+  },
+
+  methods: {
+    openModal() {
+      this.showPopUp = true;
+      document.body.classList.add("modal-open");
+    },
   },
 
   components: {

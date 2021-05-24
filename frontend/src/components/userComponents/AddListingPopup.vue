@@ -1,7 +1,7 @@
 <template>
-  <div class="overlay">
+  <div class="overlay" v-if="!showConfirmationBox">
     <div class="darken" @click="toggleShowAddListingPopUp"></div>
-    <div class="popUpcontainer">
+    <div class="popUpcontainer" v-if="!showConfirmationBox">
       <div id="mdiv" @click="toggleShowAddListingPopUp">
         <div class="mdiv">
           <div class="md"></div>
@@ -36,6 +36,7 @@
           <label class="checkbox" for="House">House</label>
           <br />
         </div>
+        <AmenitiesWhenAddingListing />
         <textarea
           class="txtInput"
           v-model="description"
@@ -97,9 +98,29 @@
       </form>
     </div>
   </div>
+  <ConfirmationTemplate
+    class="ConfirmationTemplate"
+    v-if="owner && showConfirmationBox && addedListing"
+    :header="'Thank You for your new listing!'"
+    :headerTwo="'Listing ID: ' + addedListing.id"
+    :headerThree="''"
+    :text1="''"
+    :text2="''"
+    :text3="''"
+    :text4="''"
+    :text5="''"
+    :text6="''"
+    :text7="''"
+    :text8="''"
+    :text9="''"
+    :img="addedListing.images[0]"
+  />
 </template>
 
 <script>
+import ConfirmationTemplate from "../confirmationComponents/Confirmation.vue";
+import AmenitiesWhenAddingListing from "./AmenitiesWhenAddingListing.vue";
+
 export default {
   created() {
     this.$store.dispatch("fetchCities");
@@ -107,7 +128,7 @@ export default {
 
   data() {
     return {
-      owner: this.$store.state.user,
+      owner: this.$store.state.user.id,
       address: "",
       isApartment: "",
       isHouse: "",
@@ -117,9 +138,17 @@ export default {
       price: "",
       description: "",
       images: [],
+      chosenAmenities: [],
       imageURL: "",
       showPopUp: true,
+      showConfirmationBox: false,
+      addedListing: null,
     };
+  },
+
+  components: {
+    ConfirmationTemplate,
+    AmenitiesWhenAddingListing,
   },
 
   methods: {
@@ -135,18 +164,20 @@ export default {
         price: this.price,
         description: this.description,
         images: this.images,
+        amenities: this.chosenAmenities,
       };
 
       let res = await fetch("/rest/listings", {
         method: "POST",
         body: JSON.stringify(listing),
       });
+      this.addedListing = await res.json();
+      this.showConfirmationBox = true;
     },
     addImage() {
       if (this.images.length < 5) {
         this.images.push(this.imageURL);
         this.imageURL = "";
-      } else {
       }
     },
     removeImages() {
@@ -154,6 +185,7 @@ export default {
     },
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;
+      document.body.classList.remove("modal-open");
     },
   },
 };
@@ -176,11 +208,18 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 99;
   width: 100%;
-  height: 100%;
+
   max-width: 70vw;
-  max-height: 90vh;
-  background-color: rgb(83, 168, 168);
+  min-height: 80vh;
+  background-image: url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 16px;
+}
+
+.ConfirmationTemplate {
+  background: none;
+  z-index: 1;
 }
 
 .closePopup {
@@ -239,6 +278,10 @@ button {
   margin: auto;
   width: 50%;
   margin-bottom: 10px;
+}
+
+img {
+  max-height: 50px;
 }
 .addListing {
   bottom: 0;
