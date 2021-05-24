@@ -100,9 +100,7 @@ export default {
     "H1 H2"
     "H3 H4";
   grid-gap: 1em 1em;
-  margin-bottom: 15%;
-  margin-top: 15%;
-  place-content: center;
+  place-items: center;
   cursor: pointer;
 }
 
@@ -114,33 +112,29 @@ export default {
   text-align: left;
 }
 
-.HouseCard1 {
-  grid-area: H1;
+.HouseCard1,
+.HouseCard2,
+.HouseCard3,
+.HouseCard4{
   border: 1px solid black;
   border-radius: 20px;
   width: 150px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  overflow: hidden;
+}
+
+.HouseCard1 {
+  grid-area: H1;
 }
 .HouseCard2 {
   grid-area: H2;
-  border: 1px solid black;
-  border-radius: 20px;
-  width: 150px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .HouseCard3 {
   grid-area: H3;
-  border: 1px solid black;
-  border-radius: 20px;
-  width: 150px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
 }
 .HouseCard4 {
   grid-area: H4;
-  border: 1px solid black;
-  border-radius: 20px;
-  width: 150px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .priceText {
@@ -155,8 +149,7 @@ export default {
 .component4 > div > img {
   object-fit: cover;
   height: 120px;
-  width: 150px;
-  border-radius: 20px 20px 0 0;
+  width: 100%;
   filter: grayscale(0.5);
   transition: 0.5s;
 }
@@ -167,4 +160,63 @@ export default {
 .component4 > div > div > h4 {
   margin: 0.5em;
 }
+
+@media only screen and (max-width: 320px){
+
+  .component4{
+    gap: 1.5em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "title"
+    "H1"
+    "H2"
+    "H3" 
+    "H4";
+  }
+
+  .HouseCard1,
+  .HouseCard2,
+  .HouseCard3,
+  .HouseCard4{
+  width: 15em ;
+}
+  .availableHouses{
+        text-align: center;
+  }
+}
+
+@media only screen and (max-width: 576px){
+  .component4{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .availableHouses{
+        text-align: center;
+  }
+  .HouseCard1,
+  .HouseCard2,
+  .HouseCard3,
+  .HouseCard4{
+  width: 100% ;
+}
+}
+
+@media only screen and (max-width: 992px){
+   .component4{
+    width: 85%;
+    margin: 10em auto;
+  }
+ .availableHouses{
+        text-align: left;
+  }
+  .HouseCard1,
+  .HouseCard2,
+  .HouseCard3,
+  .HouseCard4{
+  width: 100% ;
+}
+
+}
+
 </style>
