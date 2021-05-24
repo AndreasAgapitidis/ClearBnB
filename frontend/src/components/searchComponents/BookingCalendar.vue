@@ -50,10 +50,6 @@ export default {
 
       return true;
     },
-
-    goToSearchedByCityPage() {
-      this.$router.push("/SearchByCity/" + this.$store.state.usersCity);
-    },
   },
 
   computed: {
@@ -77,8 +73,6 @@ export default {
               return listing.amenities.includes(element);
             })
         );
-
-        this.goToSearchedByCityPage();
       }
     },
   },

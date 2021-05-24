@@ -33,7 +33,7 @@ import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
 
 export default {
-  async mounted() {
+  async created() {
     this.$store.dispatch("fetchCities");
 
     if (this.$route.params.id) {
