@@ -56,6 +56,10 @@ export default {
     // get 4 random listings from the database to display
     await this.$store.dispatch("fetchListings");
 
+    if (this.$store.state.listings.length < 4) {
+      return;
+    }
+
     let randomNumberArray = [];
     let current = new Date();
     while (randomNumberArray.length < 4) {
