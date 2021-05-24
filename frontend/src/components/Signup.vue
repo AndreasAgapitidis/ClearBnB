@@ -36,6 +36,7 @@ export default {
         lastName: this.lastName,
         email: this.email,
         password: this.password,
+        isAdmin: 'false',
       };
 
       await this.$store.dispatch("register", credentials);
