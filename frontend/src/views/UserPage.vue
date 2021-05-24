@@ -1,5 +1,5 @@
 <template>
-  <div class="profileBanner"></div>
+  <div v-if="isUser" class="profileBanner"></div>
   <div class="profileBody">
     <div class="nameContainer">
       <ProfilePic />
@@ -50,6 +50,15 @@ export default {
     ProfileBookings,
     ProfileHouseApt,
     AddListingPopup,
+  },
+  computed: {
+    isUser: function() {
+      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'false')) {
+        this.$router.push('/')
+        return false
+      }
+      return true
+    }
   },
 };
 </script>

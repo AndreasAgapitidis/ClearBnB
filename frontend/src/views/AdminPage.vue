@@ -1,5 +1,5 @@
 <template>
-  <div class="adminContainer">
+  <div v-if="isAdmin" class="adminContainer">
     <h1>Admin Page</h1>
     <div class="buttonsContainer">
       <button @click="whatToRender">All users</button>
@@ -66,6 +66,15 @@ export default {
       this.addListing = false;
       this.showPopUp = false;
     },
+  },
+  computed: {
+    isAdmin: function() {
+      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'true')) {
+        this.$router.push('/')
+        return false
+      }
+      return true
+    }
   },
 };
 </script>
