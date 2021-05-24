@@ -19,14 +19,7 @@ export default {
   data() {
     return {
       chosenAmenities: this.$store.state.chosenAmenities,
-      amenities: [
-        "Wi-Fi",
-        "Pool",
-        "Balcony",
-        "Disability",
-        "Family friendly",
-        "100 meter to strip club",
-      ],
+      amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
     };
   },
 

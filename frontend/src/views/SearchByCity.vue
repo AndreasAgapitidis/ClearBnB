@@ -1,10 +1,9 @@
 <template>
   <div class="SearchByCity-Bg">
     <InputCityAndPickDate />
-
-    <div><h2>Amenities</h2></div>
-    <Amenities />
   </div>
+  <div><h2>Amenities</h2></div>
+  <Amenities />
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
@@ -37,6 +36,8 @@ export default {
   position: relative;
   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("../assets/Banner-Pictures/Malmö-Header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h2 {
