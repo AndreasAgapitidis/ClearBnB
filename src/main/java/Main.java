@@ -26,6 +26,7 @@ public class Main {
     collection(op -> op.useBrowser = true);
 
     collection();
+
 //    addNewListing();
     
     /*app.get("/rest/hello", (req, res) -> {
@@ -66,6 +67,11 @@ public class Main {
     app.get("/rest/reservation/:id", (req, res) -> {
       String id = req.params("id");
       res.json(collection("Listing").findById(id));
+    });
+
+    app.delete("/rest/reservation/:id", (req, res) -> {
+      String id = req.params("id");
+      res.json(collection("Reservation").deleteById(id));
     });
 
 
