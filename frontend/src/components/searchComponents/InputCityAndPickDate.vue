@@ -1,4 +1,5 @@
 <template>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div class="inputCityAndDateContainer">
     <div class="InputContainer">
       <div
@@ -139,6 +140,9 @@ export default {
 </script>
 
 <style scoped>
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 576px) {
 * {
   box-sizing: border-box;
 }
@@ -147,12 +151,13 @@ export default {
   width: 100vw;
   top: 4em;
   position: relative;
-  height: 35em;
+  height: 30em;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin-left: 6%;
+  
   /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
   background-repeat: no-repeat;
@@ -172,6 +177,7 @@ h2 {
   justify-content: space-around;
   margin-right: 2em;
   margin-bottom: 2em;
+  margin-right:15%;
 }
 
 .searchResults {
@@ -198,5 +204,138 @@ input {
 
 input:focus {
   outline: none;
+}
+}
+@media only screen 
+ and (min-device-width: 576px) 
+  and (max-device-width: 992px) {
+* {
+  box-sizing: border-box;
+}
+
+.inputCityAndDateContainer {
+  width: 100vw;
+  top: 4em;
+  position: relative;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8%;
+ 
+  
+  /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+h2 {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+.InputContainer {
+  height: 200px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  margin-right:15%;
+}
+
+.searchResults {
+  position: absolute;
+  background: rgba(252, 252, 252, 1);
+  max-height: 300px;
+  z-index: 10;
+  width: 220px;
+  border-radius: 0 0 20px 20px;
+  font-size: 10px;
+}
+
+input {
+  width: 220px;
+  height: 4em;
+  font-weight: 200;
+  justify-content: center;
+  border: none;
+  padding-left: 1em;
+  border-radius: 0 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+input:focus {
+  outline: none;
+}
+}
+@media only screen and (min-device-width:992px) 
+
+ {
+* {
+  box-sizing: border-box;
+}
+
+.inputCityAndDateContainer {
+  width: 100vw;
+  top: 4em;
+  position: relative;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8%;
+  /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+h2 {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+.InputContainer {
+  height: 200px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  margin-right:15%;
+}
+
+.searchResults {
+  position: absolute;
+  background: rgba(252, 252, 252, 1);
+  max-height: 300px;
+  z-index: 10;
+  width: 220px;
+  border-radius: 0 0 20px 20px;
+  font-size: 10px;
+}
+
+input {
+  width: 220px;
+  height: 4em;
+  font-weight: 200;
+  justify-content: center;
+  border: none;
+  padding-left: 1em;
+  border-radius: 0 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+input:focus {
+  outline: none;
+}
 }
 </style>
