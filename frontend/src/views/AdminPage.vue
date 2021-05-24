@@ -12,6 +12,8 @@
     <SearchUser v-if="searchOneUser" />
     <AddListing v-if="addListing" />
     <AddListingPopup v-if="showPopUp" />
+    <AdminSummary />
+
   </div>
 </template>
 
@@ -20,6 +22,7 @@ import GetAllUsers from "../components/adminComponents/GetAllUsers.vue";
 import SearchUser from "../components/userComponents/SearchUser.vue";
 import AddListing from "../components/adminComponents/AddListing.vue";
 import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
+import AdminSummary from "../components/adminComponents/AdminSummary.vue";
 
 export default {
   data() {
@@ -36,6 +39,7 @@ export default {
     SearchUser,
     AddListingPopup,
     AddListing,
+    AdminSummary,
   },
   methods: {
     whatToRender(event) {
