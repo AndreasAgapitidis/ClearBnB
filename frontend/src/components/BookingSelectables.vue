@@ -386,12 +386,14 @@ button {
   width: 100px;
   height: 30px;
   border-radius: 20px;
-  border-style: none;
+  border: none;
   color: white;
+  transition: box-shadow 0.3s;
+  float: left;
 }
 
 button:hover {
-  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 10px 25px 0 rgba(0, 0, 0, 0.19);
 }
 
 .book-now {

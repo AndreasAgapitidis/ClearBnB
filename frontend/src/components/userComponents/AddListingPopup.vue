@@ -76,10 +76,11 @@
           required
         />
         <input
-          class="txtInput"
+          class="imgInput"
           type="text"
           placeholder="Add image URL (up to 5 images)"
           v-model="imageURL"
+          required
         />
         <button
           class="addImg"
@@ -195,9 +196,11 @@ export default {
         this.images.push(this.imageURL);
         this.imageURL = "";
       }
+      document.getElementsByClassName("imgInput").removeAttribute(required);
     },
     removeImages() {
       this.images = [];
+      document.getElementsByClassName("imgInput").addAttribute(required);
     },
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;
@@ -285,7 +288,8 @@ form {
 }
 
 .txtInput,
-button {
+button,
+.imgInput {
   display: block;
   margin: 0 auto 15px;
   width: 50%;
@@ -327,8 +331,9 @@ img {
 .images {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  min-width: 100%;
   place-content: center;
+  min-height: 50px;
 }
 
 .addedImages {

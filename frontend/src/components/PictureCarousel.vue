@@ -1,5 +1,19 @@
 <template>
+  <div class="darken" v-if="showModal"></div>
   <div class="slideshow" v-if="carouselprop">
+    <div class="imgModal" v-if="showModal">
+      <div class="leftArrow" @click="ModalprevIndex">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img class="imgZoomIn" :src="ModalUrl" alt="" @click="closeModal" />
+      <div class="rightArrow" @click="ModalnextIndex">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
     <h1>{{ carouselprop.address }}</h1>
     <img
       class="sliderCover"
@@ -11,29 +25,15 @@
   <div class="slides" v-if="carouselprop">
     <!-- <button class="btn-left" @click="prevIndex">Prev</button> -->
     <span class="btn-left" @click="prevIndex"></span>
-    <img
-      class="photo1"
-      :src="carouselprop.images[1]"
-      alt="photo of the listing1"
-    />
-
-    <img
-      class="photo2"
-      :src="carouselprop.images[2]"
-      alt="photo of the listing2"
-    />
-
-    <img
-      class="photo3"
-      :src="carouselprop.images[3]"
-      alt="photo of the listing3"
-    />
-
-    <img
-      class="photo4"
-      :src="carouselprop.images[4]"
-      alt="photo of the listing4"
-    />
+    <div class="container">
+      <div
+        class="images"
+        v-for="(image, index) in carouselprop.images"
+        :key="index"
+      >
+        <img :src="image" :key="index" @click="ImgModal(index)" />
+      </div>
+    </div>
     <!-- <button class="btn-right" @click="nextIndex">Next</button> -->
     <span class="btn-right" @click="nextIndex"></span>
   </div>
@@ -59,18 +59,63 @@ export default {
         this.count = 0;
       }
     },
+
+    ModalprevIndex() {
+      if (this.ModalIndex - 1 < 0) {
+        this.ModalIndex = this.carouselprop.images.length - 1;
+        return (this.ModalUrl = this.carouselprop.images[this.ModalIndex]);
+      }
+      this.ModalIndex -= 1;
+      return (this.ModalUrl = this.carouselprop.images[this.ModalIndex]);
+    },
+
+    ModalnextIndex() {
+      if (this.ModalIndex + 1 >= this.carouselprop.images.length) {
+        this.ModalIndex = 0;
+        return (this.ModalUrl = this.carouselprop.images[this.ModalIndex]);
+      }
+      this.ModalIndex += 1;
+      return (this.ModalUrl = this.carouselprop.images[this.ModalIndex]);
+    },
+
+    ImgModal(url) {
+      this.showModal = true;
+      this.ModalIndex = url;
+      this.ModalUrl = this.carouselprop.images[url];
+      document.body.classList.add("modal-open");
+    },
+
+    closeModal() {
+      this.showModal = false;
+      document.body.classList.remove("modal-open");
+    },
   },
 
   data() {
     return {
       count: 0,
       img: [],
+      showModal: false,
+      ModalIndex: null,
+      ModalUrl: "",
     };
   },
 };
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  min-width: 65vw;
+  justify-content: space-between;
+}
+
+.images img {
+  height: 125px;
+  width: 100px;
+  border-radius: 10px;
+}
+
 h1 {
   z-index: 1;
   position: absolute;
@@ -78,6 +123,99 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+.darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.imgModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 16px;
+  display: flex;
+  width: 100%;
+  /* place-content: center; */
+  place-content: space-evenly;
+}
+
+.imgZoomIn {
+  width: 50vw;
+  height: 70vh;
+  object-fit: cover;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  border-radius: 15px;
+}
+
+.leftArrow {
+  place-self: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.rightArrow {
+  place-self: center;
+  display: flex;
+}
+
+.leftArrow span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 5px solid white;
+  border-left: 5px solid white;
+  margin: -5px;
+  transform: rotate(45deg);
+  animation: scroll 2s infinite;
+}
+
+.rightArrow span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+  margin: -5px;
+  transform: rotate(45deg);
+  animation: scroll 2s infinite;
+}
+
+.leftArrow span:nth-child(2),
+.rightArrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.leftArrow span:nth-child(3),
+.rightArrow span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(0px, 0px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(0px, 0px);
+  }
 }
 
 .slideshow {
