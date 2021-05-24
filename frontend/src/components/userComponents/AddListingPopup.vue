@@ -110,18 +110,18 @@
   <ConfirmationTemplate
     class="ConfirmationTemplate"
     v-if="owner && showConfirmationBox && addedListing"
-    :header="'Thank You for your new listing!'"
-    :headerTwo="'Listing ID: ' + addedListing.id"
-    :headerThree="''"
-    :text1="''"
-    :text2="''"
-    :text3="''"
-    :text4="''"
-    :text5="''"
-    :text6="''"
-    :text7="''"
-    :text8="''"
-    :text9="''"
+    :header="'Thank You ' + owner.firstName"
+    :headerTwo="'Thank you for your listing, it has been added'"
+    :headerThree="'Listing ID: ' + addedListing.id"
+    :text1="'City: ' + city"
+    :text2="'Address: ' + address"
+    :text3="'Listing type: ' + typeOfHouse"
+    :text4="'Area : ' + area + '㎡'"
+    :text5="'Beds: ' + beds"
+    :text6="'Owner: '"
+    :text7="'Firstname: ' + owner.firstName"
+    :text8="'Lastname: ' + owner.lastName"
+    :text9="'Price: ' + price + ' sek(exclude administration fee)'"
     :img="addedListing.images[0]"
   />
 </template>
@@ -137,7 +137,7 @@ export default {
 
   data() {
     return {
-      owner: this.$store.state.user.id,
+      owner: this.$store.state.user,
       address: "",
       isApartment: "",
       isHouse: "",
@@ -152,6 +152,7 @@ export default {
       showPopUp: true,
       showConfirmationBox: false,
       addedListing: null,
+      typeOfHouse: "",
     };
   },
 
@@ -175,6 +176,12 @@ export default {
         images: this.images,
         amenities: this.chosenAmenities,
       };
+
+      if (this.isHouse == true) {
+        this.typeOfHouse = "House";
+      } else {
+        this.typeOfHouse = "Apartment";
+      }
 
       let res = await fetch("/rest/listings", {
         method: "POST",
@@ -321,6 +328,7 @@ img {
   display: flex;
   flex-direction: row;
   width: 100%;
+  place-content: center;
 }
 
 .addedImages {

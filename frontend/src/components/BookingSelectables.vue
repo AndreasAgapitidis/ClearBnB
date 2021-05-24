@@ -81,7 +81,7 @@
     :text1="'Name: ' + loggedInUser.firstName"
     :text2="'Lastname: ' + loggedInUser.lastName"
     :text3="'City: ' + detailprop.city"
-    :text4="'Adress: ' + detailprop.address"
+    :text4="'Address: ' + detailprop.address"
     :text5="'Owner: ' + owner.firstName + ' ' + owner.lastName"
     :text6="'Check-in: ' + currentCheckInDate"
     :text7="'Check-out: ' + currentCheckOutDate"
