@@ -7,7 +7,7 @@ export default createStore({
 
     usersCity: '',
 
-    listings: {},
+    listings: [],
 
     currentListing: [],
 

@@ -5,8 +5,6 @@
     <div><h2>Amenities</h2></div>
     <Amenities />
   </div>
-  <!-- <InputCityAndPickDate /> -->
-  <!-- <BookingCalendar /> -->
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
