@@ -73,4 +73,15 @@ export default {
   cursor: pointer;
   box-shadow: 3px 3px 3px black;
 }
+
+@media screen and (max-width: 320px){
+  .component2{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .userSignUp{
+    margin-bottom: 3rem;
+  }
+  
+}
 </style>

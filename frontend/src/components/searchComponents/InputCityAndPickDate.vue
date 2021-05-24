@@ -183,4 +183,16 @@ input {
 input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 320px){
+  
+  .inputCityAndDateContainer{
+    align-items: center;
+  }
+  .InputContainer{
+    margin-right: 0;
+  }
+
+
+}
 </style>

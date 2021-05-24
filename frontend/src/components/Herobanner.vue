@@ -1,26 +1,5 @@
 <template>
-  <!-- 
-    <div class="searchContainer"> -->
-      <!-- <label for="cities"><h4 class="checkInCity">City</h4></label>
-    <select name="cities" id="cities">
-      <option value="malmö">Malmö</option>
-      <option value="göteborg">Göteborg</option>
-      <option value="stockholm">Stockholm</option>
-    </select>
-
-    <label for="checkInOutDate"><h4 class="checkInDate">Check in</h4></label>
-    <input
-      type="date"
-      id="start"
-      name="checkInOut"
-      min="2021-01-01"
-      max="2022-12-31"
-    /> -->
-
-   
-    
 <div class="Banner-Bg">
-
       <InputCityAndPickDate />
 </div> 
       <div class="popDestination">
@@ -115,5 +94,12 @@ h4 {
   margin-bottom: 5px;
   letter-spacing: 3px;
   text-shadow: 2px 2px 2px black;
+}
+
+@media screen and (max-width: 320px){
+  
+  .popDestination{
+  width: 16em;
+  }
 }
 </style>

@@ -5,10 +5,10 @@
       <button class="bookNowBtn">Book now!</button>
     </div>
 
-    <div class="shameLessTxt">
-      <label for="shameLessTxt">
-        Treat yourself and your family.<br />This gem is located close<br />to
-        the italian wine-yards in Toscana.<br /><br /><br />Read more.</label
+    <div class="shamelessTxt">
+      <label for="shamelessTxt">
+        Treat yourself and your family.<br>This gem is located close<br>to
+        the italian wine-yards in Toscana.<br><br><br><span>ONE-TIME OFFER! <br>900sek per Night!</span></label
       >
     </div>
 
@@ -24,42 +24,47 @@ export default {};
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .component3 {
+  background-image:     
+          linear-gradient(
+          rgba(0, 0, 0, 0.3), 
+          rgba(0, 0, 0, 0.3)
+        ),url("../assets/Houses/HouseWithPool1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   flex-direction: row;
   justify-content: space-between;
-  height: 250px;
+  height: 300px;
   margin-bottom: 10%;
 }
 
 .picture{
-  background-image: url("../assets/Houses/HouseWithPool1.jpg");
-  background-size: cover;
   border-radius: 0px 15px 15px 0px;
-  width: 25em;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
   flex: 1;
   
 }
 
-.shameLessTxt {
-  font-size: 15px;
+.shamelessTxt {
+  font-size: 20px;
   font-weight: bold;
   padding-inline: 2px 2px;
-  color: black;
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  flex: 1;
+  
 }
 
 .bookNowBtn {
   font-family: 'Roboto', sans-serif;
+  margin-top:15px;
   margin-bottom: 15px;
   height: 40px;
   width: 10em;
@@ -71,5 +76,18 @@ export default {};
   font-size: 16px;
   cursor: pointer;
   box-shadow: 3px 3px 3px black;
+}
+
+span {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 320px){
+  .component3{
+    flex-flow:column-reverse;
+    align-items: center;
+  }
+
 }
 </style>

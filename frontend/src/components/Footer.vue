@@ -173,4 +173,28 @@ width: 100%;
 }
 
 
+@media screen and (max-width: 320px){
+
+  .container{
+   height: 25em;
+  }
+  .getBack{
+    display: none;
+  }
+  .Maps{
+      text-align: start;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  }
+
+  .Contact{
+    justify-content: end;
+    
+  }
+
+}
+
 </style>

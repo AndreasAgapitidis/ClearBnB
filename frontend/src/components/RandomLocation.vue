@@ -37,6 +37,7 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   margin-bottom: 10%;
+  margin-top: 5rem;
 }
 
 .studentTxt {
