@@ -67,7 +67,7 @@ export default {
 
         this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
           (listing) =>
-            listing.city === this.$route.params.id &&
+            (listing.city === this.$route.params.id || !this.$route.params.id) &&
             this.filterDate(listing) &&
             this.$store.state.chosenAmenities.every((element) => {
               return listing.amenities.includes(element);

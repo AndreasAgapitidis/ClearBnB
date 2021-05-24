@@ -44,8 +44,6 @@ export default {
       try {
         this.$parent.filterAmenities();
       } catch (error) {}
-
-      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
