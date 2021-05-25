@@ -334,14 +334,6 @@ li {
   }
 }
 @media (min-width: 992px) {
-  .Description h1[data-v-83cbd962] {
-    font-size: 35px;
-  }
-
-  .Description p[data-v-83cbd962] {
-    font-size: 20px;
-  }
-
   .DetailsContainer {
     border: none;
   }
@@ -363,10 +355,6 @@ li {
     grid-area: des;
     z-index: 2;
     position: sticky;
-  }
-
-  .details p {
-    font-size: 20px;
   }
 
   li {
