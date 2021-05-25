@@ -36,6 +36,7 @@ export default {
     
       let userId = this.$store.state.user.id;
       let houseListings = this.$store.state.listings;
+      this.ownedList = [];
       
       for (let i = 0; i < houseListings.length; i++){
         if(houseListings[i].owner === userId){
@@ -44,8 +45,27 @@ export default {
       }
       return this.ownedList;
     }
-  }
+  },
 
+  // re-render page if a listing is added by the user
+  watch: {
+    '$store.state.addedListing': async function() {
+      if (!this.$store.state.user) {
+        return [];
+      }
+      await this.$store.dispatch("fetchListings")
+    
+      let userId = this.$store.state.user.id;
+      let houseListings = this.$store.state.listings;
+      this.ownedList = [];
+      
+      for (let i = 0; i < houseListings.length; i++){
+        if(houseListings[i].owner === userId){
+          this.ownedList.push(houseListings[i])
+        }
+      }
+    }
+  },
 }
 </script>
 
