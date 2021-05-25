@@ -216,7 +216,7 @@ input:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (min-width: 320px){
   
   .inputCityAndDateContainer{
     align-items: center;
@@ -226,6 +226,15 @@ input:focus {
   }
 
 
+}
+
+@media only screen and (min-width: 576px){
+    .inputCityAndDateContainer{
+    align-items: center;
+  }
+  .InputContainer{
+    margin-right: 0;
+  }
 }
 
 
