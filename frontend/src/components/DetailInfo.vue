@@ -286,5 +286,78 @@ li {
     justify-content: space-evenly;
     margin: 0;
   }
+
+  @media (min-width: 576px) {
+    .DetailInfoContainer {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(5, minmax(0, 1fr));
+      grid-template-areas:
+        "des des des des des"
+        "des des des des des"
+        "des des des des des"
+        "am am det det det"
+        "am am det det det";
+    }
+
+    ul[data-v-83cbd962] {
+      flex-direction: column;
+    }
+  }
+  @media (min-width: 768px) {
+    ul[data-v-83cbd962] {
+      flex-direction: row;
+    }
+    .DetailInfoContainer {
+      padding: 50px;
+      margin-top: auto;
+    }
+  }
+  @media (min-width: 992px) {
+    .Description h1[data-v-83cbd962] {
+      font-size: 35px;
+    }
+
+    .Description p[data-v-83cbd962] {
+      font-size: 20px;
+    }
+
+    .DetailsContainer {
+      border: none;
+    }
+
+    .DetailInfoContainer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(5, minmax(0, 1fr));
+      grid-template-areas:
+        "des des des des"
+        "des des des des"
+        "des des des des"
+        "am am det det"
+        "am am det det";
+    }
+
+    .randomCat {
+      all: unset;
+      grid-area: des;
+      z-index: 2;
+      position: sticky;
+    }
+
+    .details p {
+      font-size: 20px;
+    }
+
+    li img {
+      width: 4vw;
+      height: 5vh;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  li img {
+    width: 4vw;
+    height: 5vh;
+  }
 }
 </style>

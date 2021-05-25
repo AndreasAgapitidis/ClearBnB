@@ -314,4 +314,67 @@ h1 {
   border-bottom: 10px solid transparent;
   border-left: 10px solid black;
 }
+
+@media (min-width: 320px) {
+}
+
+@media (min-width: 576px) {
+  .images img {
+    height: 100px;
+    width: 80px;
+    border-radius: 10px;
+  }
+
+  .container {
+    display: flex;
+    min-width: 75vw;
+    justify-content: space-between;
+  }
+
+  h1 {
+    top: 220px;
+    left: 100px;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    left: 125px;
+  }
+
+  .images img {
+    height: 125px;
+    width: 105px;
+  }
+
+  .slideshow {
+    margin-top: 55px;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    left: 155px;
+  }
+
+  .images img {
+    height: 165px;
+    width: 135px;
+  }
+
+  .slides {
+    margin-top: 85px;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    left: 175px;
+  }
+  .images img {
+    height: 190px;
+    width: 165px;
+  }
+}
 </style>

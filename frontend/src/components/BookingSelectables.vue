@@ -467,5 +467,59 @@ button:hover {
     width: 90vw;
     margin-inline: auto;
   }
+
+  .moreCat {
+    margin-right: 30vw;
+  }
+}
+@media (min-width: 576px) {
+  .calendar {
+    margin-top: 30px;
+  }
+
+  .info-display {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    grid-template-areas: "det sel";
+    margin-top: 30px;
+  }
+
+  .moreCat {
+    margin-right: 15vw;
+  }
+}
+@media (min-width: 768px) {
+  .calendar {
+    width: 60vw;
+    margin-top: 50px;
+  }
+
+  .info-display {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "det"
+      "sel";
+    width: 60vw;
+    margin-top: 10px;
+  }
+
+  .moreCat {
+    margin-right: 20vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .info-display {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    grid-template-areas: "det sel";
+    width: 60vw;
+    margin-top: 30px;
+  }
+  .moreCat {
+    margin-right: 12vw;
+  }
 }
 </style>
