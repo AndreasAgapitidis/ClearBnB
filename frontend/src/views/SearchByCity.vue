@@ -97,7 +97,14 @@ export default {
     color: white;
     text-shadow: 2px 2px 2px black;
     background-color: orchid;
-    margin-left: 1%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0 auto;
+    margin-right: 20%;
+    margin-bottom: 2%;
   }
 }
 </style>
