@@ -14,7 +14,15 @@
         <div class="content">
           <h2 class="header">{{ header }}</h2>
           <p class="headerTwo">{{ headerTwo }}</p>
-          <p class="headerThree">{{ headerThree }}</p>
+          <div class="profilePicContainer" v-if="profilePic">
+            <img
+              v-if="profilePic"
+              v-bind:src="profilePic"
+              alt=""
+              class="profilePic"
+            />
+          </div>
+          <p class="headerThree" v-if="!profilePic">{{ headerThree }}</p>
           <p class="text1" v-if="text1">{{ text1 }}</p>
           <p class="text2" v-if="text2">{{ text2 }}</p>
           <p class="text3" v-if="text3">{{ text3 }}</p>
@@ -37,7 +45,7 @@
 export default {
   data() {
     return {
-      divSwitch: this.$parent.showConfirmationBox,
+      divSwitch: true,
     };
   },
 
@@ -55,6 +63,7 @@ export default {
     "text8",
     "text9",
     "img",
+    "profilePic",
   ],
 
   methods: {
@@ -63,6 +72,8 @@ export default {
       // window.location.reload();
       document.body.classList.remove("modal-open");
       this.$parent.$parent.showPopUp = false;
+      this.divSwitch = false;
+      this.$parent.showModal = false;
     },
 
     backgroundStyles(image) {
@@ -75,12 +86,18 @@ export default {
 </script>
 
 <style scoped>
+.ConfirmationTemplate {
+  background: none;
+  z-index: 1;
+}
+
 .overlay {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 
 .content {
@@ -152,6 +169,14 @@ export default {
 
 .text9 {
   grid-area: text9;
+}
+
+.profilePicContainer {
+  grid-area: h3;
+}
+
+.profilePic {
+  height: 100%;
 }
 
 .confirm {

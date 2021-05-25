@@ -35,7 +35,11 @@
         v-for="(image, index) in carouselprop.images"
         :key="index"
       >
-        <img :src="image" :key="index" @click="ImgModal(index)" />
+        <img
+          :src="carouselprop.images[index]"
+          :key="index"
+          @click="ImgModal(index)"
+        />
       </div>
     </div>
     <!-- <button class="btn-right" @click="nextIndex">Next</button> -->
@@ -54,7 +58,7 @@ export default {
         this.count = this.carouselprop.images.length - 1;
       }
 
-      console.log(this.count);
+      // document.getElementsByTagName("img").setAttribute(index, (index += 1));
     },
 
     nextIndex() {
@@ -184,6 +188,35 @@ h1 {
   grid-area: mo;
   margin-top: 50px;
   justify-self: center;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(0px, 0px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(0px, 0px);
+  }
+}
+
+.main {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 .leftArrow {
@@ -229,20 +262,6 @@ h1 {
 .leftArrow span:nth-child(3),
 .rightArrow span:nth-child(3) {
   animation-delay: 0.4s;
-}
-
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    transform: rotate(45deg) translate(0px, 0px);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(45deg) translate(0px, 0px);
-  }
 }
 
 .slideshow {
