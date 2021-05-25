@@ -78,20 +78,20 @@
           <input
             class="imgInput"
             type="text"
-            placeholder="Add image URL (up to 5 images)"
+            :placeholder="'Add image URL (' + (5 - images.length + ' left) ')"
+            :style="{ visibility: images.length < 5 ? 'visible' : 'hidden' }"
             v-model="imageURL"
             required
           />
-          <button class="addImg" @click.prevent="addImage" v-if="imageURL">
+
+          <button
+            class="addImg"
+            @click.prevent="addImage"
+            :style="{ visibility: imageURL ? 'visible' : 'hidden' }"
+          >
             Add image
           </button>
-          <button
-            class="removeImg"
-            @click.prevent="removeImages"
-            v-if="images.length > 0"
-          >
-            Remove all images
-          </button>
+
           <div class="images">
             <img
               :src="image"
@@ -100,6 +100,15 @@
               v-bind:key="image"
             />
           </div>
+
+          <button
+            class="removeImg"
+            @click.prevent="removeImages"
+            :style="{ visibility: images.length > 0 ? 'visible' : 'hidden' }"
+          >
+            Remove all images
+          </button>
+
           <button class="addListing">ADD LISTING</button>
         </form>
       </div>
@@ -244,6 +253,7 @@ label.checkbox {
 
   max-width: 75vw;
   max-height: 100vh;
+  min-height: 750px;
   background-image: linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
     url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
   background-repeat: no-repeat;
@@ -281,7 +291,9 @@ form {
   margin-top: 20px;
   width: 100%;
   min-height: 750px;
+
   text-align-last: center;
+  text-align: -webkit-center;
 }
 .txtInput,
 button,
@@ -326,6 +338,14 @@ img {
 }
 .addListing {
   bottom: 0;
+}
+
+.addImages {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  place-content: center;
+  min-height: 50px;
 }
 
 .images {
