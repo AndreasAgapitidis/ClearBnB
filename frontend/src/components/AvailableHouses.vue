@@ -48,6 +48,7 @@
       </div>
     </div>
   </div>
+  <div class="divider"></div>
 </template>
 
 <script>
@@ -161,6 +162,13 @@ export default {
   margin: 0.5em;
 }
 
+.divider{
+    margin: 4em auto;
+  width: 85%;
+  height: 1px;
+  background: rgb(165, 165, 165);
+}
+
 @media only screen and (max-width: 320px){
 
   .component4{
@@ -183,6 +191,7 @@ export default {
 }
   .availableHouses{
         text-align: center;
+        font-size: 18px;
   }
 }
 
@@ -193,6 +202,7 @@ export default {
   }
   .availableHouses{
         text-align: center;
+        font-size: 20px;
   }
   .HouseCard1,
   .HouseCard2,
@@ -209,6 +219,7 @@ export default {
   }
  .availableHouses{
         text-align: left;
+        font-size: 25px;
   }
   .HouseCard1,
   .HouseCard2,
@@ -216,6 +227,38 @@ export default {
   .HouseCard4{
   width: 100% ;
 }
+
+}
+
+@media only screen and (min-width: 993px){
+   .component4{
+    width: 85%;
+    margin: 10em auto;
+    gap: 1.5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 1fr 1fr;
+    grid-template-areas:
+    "title ."
+    "H1 H2"
+    "H3 H4";
+  
+  }
+ .availableHouses{
+        text-align: center;
+         font-size: 25px;
+  }
+  .HouseCard1,
+  .HouseCard2,
+  .HouseCard3,
+  .HouseCard4{
+  width:  25rem;
+}
+}
+
+@media only screen and (min-width: 1200px){
+  .component4{
+    max-width: 1020px;
+  }
 
 }
 

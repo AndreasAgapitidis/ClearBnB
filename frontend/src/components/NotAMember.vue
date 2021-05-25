@@ -180,6 +180,10 @@ export default {
     flex: 1;
   }
 }
-@media screen and (min-width: 992px){}
+@media screen and (min-width: 1200px){
+  .component2{
+    max-width: 1020px;
+  }
+}
 
 </style>

@@ -1,14 +1,15 @@
 <template>
   <div class="component7">
     <div class="studentTxt">
-      <label for="studentTxt"
-        >Not sure where you wanna go?<br />No worries,we got you covered.</label
-      >
+      <p>Not sure where you wanna go?
+        <br>
+        No worries,we got you covered.</p>
+        <button class="rndLocationBtn" @click="randomCity">
+          Get random location
+        </button>
+       
     </div>
-
-    <button class="rndLocationBtn" @click="randomCity">
-      Get random location
-    </button>
+ <div class="picture"></div>
   </div>
 </template>
 
@@ -30,14 +31,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .component7 {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 10%;
-  margin-top: 5rem;
+ margin: 4em auto;
+ width: 85%;
+ height: 300px;
 }
 
 .studentTxt {
@@ -58,4 +60,44 @@ export default {
   margin-top: 10%;
   margin-bottom: 5%;
 }
+
+.picture{
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 320px){
+   
+}
+@media only screen and (max-width: 576px){
+
+}
+@media only screen and (min-width: 992px){
+  .component7{
+    width: 85%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 3em auto;
+  }
+
+  .studentTxt{
+    flex: 1;
+  }
+  .picture{
+    flex:1;
+    display: initial;
+    background-image: url('https://img.flaticon.com/icons/png/512/235/235861.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF');
+    background-size: contain;
+    background-repeat: no-repeat;
+ 
+  }
+
+}
+@media only screen and (min-width: 1200px){
+  .component7{
+    max-width: 1020px;
+  }
+}
+
 </style>

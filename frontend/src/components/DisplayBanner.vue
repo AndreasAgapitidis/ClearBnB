@@ -145,5 +145,11 @@ span {
   }
 }
 
+@media screen and (min-width: 1200px){
+  .component3{
+    max-width: 1020px;
+  }
+}
+
 
 </style>

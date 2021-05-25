@@ -189,7 +189,7 @@ input:focus {
   outline: none;
 }
 
-@media screen and (max-width: 320px){
+@media only screen and (max-width: 320px){
   
   .inputCityAndDateContainer{
     align-items: center;
@@ -202,7 +202,7 @@ input:focus {
 }
 
 
-@media screen and (min-width: 992px){
+@media only screen and (min-width: 992px){
 
   
   .inputCityAndDateContainer{
@@ -223,5 +223,11 @@ input:focus {
   }
 
 
+}
+
+@media only screen and (min-width: 1200px){
+  .InputContainer{
+    max-width: 720px;
+  }
 }
 </style>

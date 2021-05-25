@@ -104,12 +104,12 @@ h4 {
 
 .divider{
   margin: 4em auto;
-  width: 90%;
+  width: 85%;
   height: 1px;
   background: rgb(165, 165, 165);
 }
 
-@media screen and (max-width: 320px){
+@media only screen and (max-width: 320px){
   .popDestContainer{
     align-items: center;
     justify-content: center;
@@ -119,7 +119,7 @@ h4 {
   }
 }
 
-@media screen and (min-width: 992px){
+@media only screen and (min-width: 992px){
 
   .popDestContainer{
     height: auto;
@@ -132,5 +132,14 @@ h4 {
   .popDestination{
     width: 40%;
   }
+}
+
+
+@media only screen and (min-width: 1200px){
+  
+ .popDestination{
+   max-width: 480px;
+ }
+
 }
 </style>
