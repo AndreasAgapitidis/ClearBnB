@@ -1,20 +1,28 @@
 <template>
   <div class="overlay">
-    <transition name="fade">
-      <div class="darken"></div>
+    <transition name="fade" appear>
+      <div class="darken" v-if="divSwitch"></div>
     </transition>
 
-    <transition name="slide">
+    <transition name="fade" appear>
       <div
         class="confirmationContainer"
-        v-if="img"
+        v-if="img && divSwitch"
         :style="backgroundStyles(img)"
       >
         <div class="darkerBackGround"></div>
         <div class="content">
           <h2 class="header">{{ header }}</h2>
           <p class="headerTwo">{{ headerTwo }}</p>
-          <p class="headerThree">{{ headerThree }}</p>
+          <div class="profilePicContainer" v-if="profilePic">
+            <img
+              v-if="profilePic"
+              v-bind:src="profilePic"
+              alt=""
+              class="profilePic"
+            />
+          </div>
+          <p class="headerThree" v-if="!profilePic">{{ headerThree }}</p>
           <p class="text1" v-if="text1">{{ text1 }}</p>
           <p class="text2" v-if="text2">{{ text2 }}</p>
           <p class="text3" v-if="text3">{{ text3 }}</p>
@@ -55,6 +63,7 @@ export default {
     "text8",
     "text9",
     "img",
+    "profilePic",
   ],
 
   methods: {
@@ -62,6 +71,9 @@ export default {
       this.$parent.showConfirmationBox = false;
       // window.location.reload();
       document.body.classList.remove("modal-open");
+      this.$parent.$parent.showPopUp = false;
+      this.divSwitch = false;
+      this.$parent.showModal = false;
     },
 
     backgroundStyles(image) {
@@ -74,12 +86,18 @@ export default {
 </script>
 
 <style scoped>
+.ConfirmationTemplate {
+  background: none;
+  z-index: 1;
+}
+
 .overlay {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 
 .content {
@@ -101,7 +119,7 @@ export default {
     "btn btn btn btn";
   height: 100%;
   overflow: hidden;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .header {
@@ -153,6 +171,14 @@ export default {
   grid-area: text9;
 }
 
+.profilePicContainer {
+  grid-area: h3;
+}
+
+.profilePic {
+  height: 100%;
+}
+
 .confirm {
   grid-area: btn;
   align-self: center;
@@ -176,6 +202,7 @@ export default {
   height: 100%;
   z-index: -1;
   border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .darken {
@@ -186,31 +213,7 @@ export default {
   bottom: 0;
   z-index: 98;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.fade-enter-from {
-  opacity: 0;
-}
-
-.fade-enter-to {
-  opacity: 0.5;
-}
-
-.fade-enter-active {
-  transition: all 2s ease;
-}
-
-.fade-leave-from {
-  opacity: 0.5;
-}
-
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-leave-active {
-  transition: all 2s ease;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .confirmationContainer {
@@ -221,21 +224,21 @@ export default {
   z-index: 99;
   width: 100%;
   height: 100%;
-  max-width: 70vw;
-  max-height: 70vh;
-  background: no-repeat;
-  background-size: cover;
+  max-width: 90vw;
+  max-height: 95vh;
   background-color: black;
   border-radius: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 
-.slide-enter,
-.slide-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
