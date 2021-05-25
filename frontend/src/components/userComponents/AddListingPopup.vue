@@ -300,10 +300,14 @@ button,
 .imgInput {
   display: block;
   margin: 0 auto 15px;
-  width: 50%;
+  width: 40%;
   height: 35px;
   border-radius: 10px;
   border: none;
+}
+
+.amenitiesContainer {
+  width: 40%;
 }
 .removeImg {
   margin-top: 5px;
@@ -390,5 +394,11 @@ img {
   background-color: black;
   transform: rotate(90deg);
   z-index: 2;
+}
+
+@media screen and (min-width: 1200px) {
+  .popUpcontainer {
+    width: 50vw;
+  }
 }
 </style>
