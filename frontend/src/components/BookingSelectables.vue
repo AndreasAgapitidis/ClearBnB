@@ -234,7 +234,7 @@ export default {
         alert("You need to log in in order to book!");
         window.scrollTo(0, 0);
         return;
-      } else if (this.$store.state.user.isAdmin === 'true') {
+      } else if (this.$store.state.user.isAdmin === "true") {
         alert("You cannot make a personal booking when logged in as an admin");
         return;
       } else if (!this.adult.id) {
@@ -446,5 +446,26 @@ button:hover {
 
 .cancel {
   background-color: red;
+}
+
+@media (min-width: 320px) {
+  .calendar {
+    margin-top: 0px;
+  }
+
+  .info-display {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "det det det"
+      "det det det"
+      "sel sel sel"
+      "sel sel sel";
+    margin-top: 0px;
+    justify-content: center;
+    width: 90vw;
+    margin-inline: auto;
+  }
 }
 </style>

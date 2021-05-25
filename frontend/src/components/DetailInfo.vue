@@ -259,4 +259,32 @@ li {
 .details {
   margin-top: 17px;
 }
+
+@media (min-width: 320px) {
+  .DetailInfoContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    grid-template-areas:
+      "des des des des"
+      "des des des des"
+      "des des des des"
+      "det det det det"
+      "det det det det"
+      "am am am am";
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  ul[data-v-83cbd962] {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100%;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+}
 </style>

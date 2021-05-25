@@ -118,7 +118,7 @@ export default {
     "btn btn btn btn"
     "btn btn btn btn";
   height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
   /* margin: 10px; */
 }
 
@@ -240,5 +240,37 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (min-width: 320px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "h1 h1 h1 h1"
+      "h2 h2 h2 h2"
+      "h3 h3 h3 h3"
+      "text1 text1 text1 text1"
+      "text2 text2 text2 text2"
+      "text3 text3 text3 text3"
+      "text4 text4 text4 text4"
+      "text5 text5 text5 text5"
+      "text6 text6 text6 text6"
+      "text7 text7 text7 text7"
+      "text8 text8 text8 text8"
+      "text9 text9 text9 text9"
+      "btn btn btn btn"
+      "btn btn btn btn";
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  /* For mobile phones: */
+}
+
+@media (min-width: 768px) {
 }
 </style>
