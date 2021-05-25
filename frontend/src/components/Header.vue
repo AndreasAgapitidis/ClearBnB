@@ -131,7 +131,7 @@ header {
   font-weight: bold;
   width: 100vw;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 0;
 }
 
@@ -218,4 +218,17 @@ img {
 .profile-dropdown:hover .profile-dropdown-content {
   display: grid;
 }
+
+@media screen and (min-width: 572px){
+  .container{
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .container{
+    max-width: 80%;
+  }
+}
+
 </style>

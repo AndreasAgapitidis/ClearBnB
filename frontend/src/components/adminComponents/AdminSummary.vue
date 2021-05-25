@@ -118,8 +118,13 @@ export default {
   text-align: right;
 }
 
+h1 {
+  font-size: 1.4em;
+}
+
 h3 {
   margin-bottom: 8px;
+  font-size: 1.1em;
 }
 
 p {
@@ -130,6 +135,17 @@ p {
   font-weight: bold;
   margin-top: 4px;
   text-align: center;
+}
+
+@media (min-width: 576px) { 
+  h1 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.17em;
+  }
+  
 }
 
 </style>

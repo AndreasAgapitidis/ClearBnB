@@ -5,17 +5,12 @@
     v-bind:detailprop="listing1"
     v-bind:owner="listingOwner"
   />
-  <Cheapest />
-  <StudentText />
-  <!-- <button v-on:click="lista">aa</button> -->
 </template>
 
 <script>
 import PictureCarousel from "../components/PictureCarousel.vue";
 import DetailInfo from "../components/DetailInfo.vue";
 import BookingSelectables from "../components/BookingSelectables.vue";
-import Cheapest from "../components/Cheapest.vue";
-import StudentText from "../components/StudentText.vue";
 
 export default {
   data() {
@@ -36,8 +31,6 @@ export default {
     PictureCarousel,
     DetailInfo,
     BookingSelectables,
-    Cheapest,
-    StudentText,
   },
 
   methods: {

@@ -1,7 +1,9 @@
 <template>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div class="inputCityAndDateContainer">
+    
     <div class="InputContainer">
+    
       <div
         class="autofill"
         @mouseenter="toggleShowAutoFill"
@@ -23,8 +25,10 @@
           />
         </div>
       </div>
-      <h2>Check-in/out</h2>
+      <div class="CheckInContainer">
+        <h2>Check-in/out</h2>
       <Calendar />
+      </div>
     </div>
   </div>
 </template>
@@ -329,6 +333,48 @@ export default {
 
   input:focus {
     outline: none;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  
+  .inputCityAndDateContainer{
+    align-items: center;
+  }
+  .InputContainer{
+    margin-right: 0;
+  }
+
+
+}
+
+
+@media only screen and (min-width: 992px){
+
+  
+  .inputCityAndDateContainer{
+    align-items: center;
+
+   
+    }
+
+  .InputContainer{
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 60%;
+    height: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    border-radius: 50px;
+  }
+
+
+}
+
+@media only screen and (min-width: 1200px){
+  .InputContainer{
+    max-width: 720px;
   }
 }
 </style>

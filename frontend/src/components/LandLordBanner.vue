@@ -1,9 +1,10 @@
 <template>
   <div class="component6">
     <div class="LookingForCustomers">
-      <label for="LookingForCustomers"><h1>Looking For Customers?</h1></label>
+      <h1>Looking For Customers?</h1>
+      <button class="LandLordBtn">Become a landlord</button>
     </div>
-    <button class="LandLordBtn">Become a landlord</button>
+    
   </div>
 </template>
 
@@ -24,8 +25,8 @@ export default {};
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  margin-bottom: 10%;
-  width: 100%;
+  margin: 5em auto;
+  width: 85%;
 }
 
 .LandLordBtn {
@@ -44,20 +45,35 @@ export default {};
 
 
 .LookingForCustomers {
-  
 
-  font-weight: bold;
-  padding-inline: 2px 2px;
+  color: rgb(240, 240, 240);
+  font-weight: bolder;
   margin: 0;
-  padding: 3px 3px;
+  font-size: 0.7rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
-  
 }
 
-label > h1 {
-  font-size: 2em;
-  color: rgb(240, 240, 240); 
-  font-weight: bolder;
+@media only screen and (max-width: 320px){
+  .LookingForCustomers{
+    font-size: 0.7rem;
+  }
+
+}
+
+@media only screen and (min-width: 992px){
+
+  .component6{
+    align-items: flex-end;
+    max-width: 1020px;
+  }
+  .LookingForCustomers{
+    margin-right: 50px;
+  }
+
 }
 
 </style>
