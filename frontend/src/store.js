@@ -5,9 +5,9 @@ export default createStore({
 
     cities: [],
 
-    usersCity: null,
+    usersCity: '',
 
-    listings: {},
+    listings: [],
 
     currentListing: [],
 

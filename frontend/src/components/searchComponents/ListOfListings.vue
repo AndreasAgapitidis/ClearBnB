@@ -21,7 +21,7 @@ export default {
 
   methods: {
     navToBooking(listing) {
-      this.$router.replace("/house_details/" + listing.id);
+      this.$router.push("/house_details/" + listing.id);
     },
   },
 };

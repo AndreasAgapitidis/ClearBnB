@@ -20,7 +20,7 @@
             v-for="city of cities"
             v-bind:key="city.id"
             v-bind:city="city"
-            @click="autofill(city)"
+            @click="autofill(city), goToCityPage()"
           />
         </div>
       </div>
@@ -28,9 +28,6 @@
         <h2>Check-in/out</h2>
       <Calendar />
       </div>
-      
-
-      
     </div>
   </div>
 </template>
@@ -39,15 +36,11 @@
 import CityItem from "./CityItem.vue";
 import Calendar from "./BookingCalendar.vue";
 
-
 export default {
-  async mounted() {
-    this.$store.dispatch("fetchCities");
-
-    if (this.$route.params.id) {
-      await this.$store.dispatch("fetchListings");
-      this.filterIntoUsersChoice(this.$route.params.id);
-    }
+  async created() {
+    await this.$store.dispatch("fetchCities");
+    await this.$store.dispatch("fetchListings");
+    this.filterIntoUsersChoice(this.$route.params.id);
   },
 
   data() {
@@ -79,21 +72,19 @@ export default {
   components: {
     CityItem,
     Calendar,
-    
   },
   methods: {
     filterIntoUsersChoice(userSearchedFor) {
       this.$store.commit("setUsersCity", userSearchedFor);
 
-      this.newListing = [];
-
-      this.$store.state.listings.filter((listing) => {
-        if (listing.city == userSearchedFor) {
-          this.newListing.push(listing);
-        }
-      });
-
-      this.$parent.filteredListings = this.newListing;
+      this.$parent.filteredListings = this.$store.state.listings.filter(
+        (listing) =>
+          (listing.city === this.$route.params.id || !this.$route.params.id) &&
+          this.filterDate(listing) &&
+          this.$store.state.chosenAmenities.every((element) => {
+            return listing.amenities.includes(element);
+          })
+      );
     },
 
     autofill(city) {
@@ -105,16 +96,40 @@ export default {
     },
 
     goToCityPage() {
-      let comparing = this.$route.path;
-      this.$store.commit("setUsersCity", this.userSearchedFor);
-      this.$router.push("/SearchByCity/" + this.userSearchedFor);
-
-      if (!comparing.includes("SearchByCity")) {
+      if (this.inputIsCity(this.userInput)) {
+        this.$store.commit("setUsersCity", this.userSearchedFor);
+        this.$router.push("/SearchByCity/" + this.userSearchedFor);
       }
+    },
+
+    inputIsCity(input) {
+      for (let i = 0; i < this.$store.state.cities.length; i++) {
+        if (
+          input.toLowerCase() === this.$store.state.cities[i].name.toLowerCase()
+        ) {
+          return true;
+        }
+      }
+
+      return false;
     },
 
     toggleShowAutoFill() {
       this.showAutoFill = !this.showAutoFill;
+    },
+
+    filterDate(listing) {
+      for (let i = 0; i < listing.unavailableDates.length; i++) {
+        let date = new Date(listing.unavailableDates[i] * 1000);
+        if (
+          date >= this.$store.state.dateRange.start &&
+          date <= this.$store.state.dateRange.end - 86400000
+        ) {
+          return false;
+        }
+      }
+
+      return true;
     },
 
     /* clearTheSearchBox(city) {

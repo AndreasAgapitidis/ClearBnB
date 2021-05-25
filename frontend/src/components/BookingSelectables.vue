@@ -64,6 +64,14 @@
           {{ child.name }}
         </option>
       </select>
+      <div class="moreCat">
+        <img
+          src="https://media1.tenor.com/images/551d452e9eb7377fd4d189bf905a61f3/tenor.gif?itemid=5588862"
+          alt=""
+          class="meowmeow"
+        />
+      </div>
+
       <div class="buttons">
         <button class="book-now">Book now!</button>
         <button class="cancel" type="reset" v-on:click="clearFields">
@@ -81,7 +89,7 @@
     :text1="'Name: ' + loggedInUser.firstName"
     :text2="'Lastname: ' + loggedInUser.lastName"
     :text3="'City: ' + detailprop.city"
-    :text4="'Adress: ' + detailprop.address"
+    :text4="'Address: ' + detailprop.address"
     :text5="'Owner: ' + owner.firstName + ' ' + owner.lastName"
     :text6="'Check-in: ' + currentCheckInDate"
     :text7="'Check-out: ' + currentCheckOutDate"
@@ -121,11 +129,23 @@ export default {
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
+        { id: 4, name: "4" },
+        { id: 5, name: "5" },
+        { id: 6, name: "6" },
+        { id: 7, name: "7" },
+        { id: 8, name: "8" },
+        { id: 9, name: "9" },
       ],
       adultMenu: [
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
+        { id: 4, name: "4" },
+        { id: 5, name: "5" },
+        { id: 6, name: "6" },
+        { id: 7, name: "7" },
+        { id: 8, name: "8" },
+        { id: 9, name: "9" },
       ],
 
       range: {
@@ -214,6 +234,9 @@ export default {
         alert("You need to log in in order to book!");
         window.scrollTo(0, 0);
         return;
+      } else if (this.$store.state.user.isAdmin === 'true') {
+        alert("You cannot make a personal booking when logged in as an admin");
+        return;
       } else if (!this.adult.id) {
         alert("Please choose how many adults");
         return;
@@ -223,6 +246,13 @@ export default {
       } else if ((await this.checkDuplicatedBooking()) === true) {
         alert("Ops, one of the days have been booked by others just a sec ago");
         window.location.reload();
+        return;
+      } else if (0 + this.child.id + this.adult.id > this.detailprop.beds) {
+        alert(
+          "The maximum guests of this listing is " +
+            this.detailprop.beds +
+            ", please select an other bigger listing for your stay"
+        );
         return;
       }
 
@@ -281,7 +311,6 @@ export default {
       );
 
       this.openModal();
-      console.log(this.showConfirmationBox);
     },
   },
 
@@ -329,9 +358,22 @@ export default {
 /* body.modal-open {
   overflow: hidden;
 } */
+.moreCat {
+  z-index: -2;
+  position: sticky;
+  margin-right: 75px;
+  margin-bottom: -4px;
+}
+
+.meowmeow {
+  height: 60px;
+  width: 60px;
+}
+
 .ConfirmationTemplate {
   background: none;
   z-index: 1;
+  transition: all 2s ease-out;
 }
 
 .calendar {
@@ -381,18 +423,21 @@ select {
   margin: 50px 0px;
   display: flex;
   place-content: space-evenly;
+  margin: 0px 0px 50px 0px;
 }
 
 button {
   width: 100px;
   height: 30px;
   border-radius: 20px;
-  border-style: none;
+  border: none;
   color: white;
+  transition: 0.4s ease-out;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-  border: none;
+  box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
 }
 
 .book-now {

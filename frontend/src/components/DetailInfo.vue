@@ -5,6 +5,13 @@
       <p>{{ detailprop.description }}</p>
     </div>
 
+    <div class="randomCat">
+      <img
+        src="https://media.tenor.com/images/4223cf9120369eea473fcf3565c4e676/tenor.gif"
+        alt=""
+      />
+    </div>
+
     <div class="Amenity">
       <ul>
         <li v-if="isWifi() == true">
@@ -45,24 +52,81 @@
         <p v-else-if="detailprop.isApartment == 'true'">
           Building Type: Apartment
         </p>
-        <p v-if="owner">Owner: {{ owner.email }}</p>
+        <p v-if="owner" @click="checkInfoAndOpenModal()" class="ownerField">
+          Owner: {{ owner.email }}
+        </p>
       </div>
     </div>
   </div>
+
+  <Confirmation
+    class="ConfirmationTemplate"
+    v-if="showModal && detailprop && owner && ownedListing != 0"
+    :header="'Contact information'"
+    :headerTwo="owner.firstName + ' ' + owner.lastName"
+    :headerThree="''"
+    :text1="''"
+    :text2="'Owned Listings on ClearBnB: ' + ownedListing"
+    :text3="''"
+    :text4="'Email: ' + owner.email"
+    :text5="''"
+    :text6="'Phone: ' + phone"
+    :text7="''"
+    :text8="''"
+    :text9="''"
+    :img="detailprop.images[0]"
+    :profilePic="owner.profilePicture"
+  />
 </template>
 
 <script>
+import Confirmation from "./confirmationComponents/Confirmation.vue";
+
 export default {
   props: ["detailprop", "owner"],
 
+  components: {
+    Confirmation,
+  },
+
+  data() {
+    return {
+      showModal: false,
+      ownedListing: 0,
+      allListings: [],
+      phone: "",
+    };
+  },
+
   computed: {
     priceWithProfit() {
-      /* this.getOwner(); */
       return Math.round(this.detailprop.price * 1.15);
     },
   },
 
   methods: {
+    async checkInfoAndOpenModal() {
+      this.ownedListing = 0;
+      this.allListings = await this.$store.state.listings;
+      this.phone = this.owner.phoneNumber;
+
+      if (this.detailprop.owner) {
+        for (let i = 0; i < this.allListings.length; i++) {
+          if (this.allListings[i].owner == this.detailprop.owner) {
+            this.ownedListing += 1;
+          }
+        }
+        this.showModal = true;
+        document.body.classList.add("modal-open");
+      } else {
+        return;
+      }
+
+      if (!this.owner.phoneNumber) {
+        this.phone = "User did not provide phone number";
+      }
+    },
+
     isWifi() {
       let check = false;
       if (this.detailprop.amenities.includes("Wi-Fi")) {
@@ -119,6 +183,10 @@ export default {
 </script>
 
 <style scoped>
+.ownerField {
+  cursor: pointer;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -149,8 +217,25 @@ li {
   padding: 20px;
 }
 
+.randomCat {
+  grid-area: des;
+  z-index: 2;
+  position: sticky;
+  text-align-last: right;
+  margin-right: 40px;
+  margin-bottom: -16px;
+  align-self: self-end;
+}
+
+.randomCat img {
+  max-height: 60px;
+  max-width: 60px;
+  transform: rotate(-13deg);
+}
+
 .Description {
   grid-area: des;
+  margin-bottom: 30px;
 }
 
 .Amenity {
