@@ -60,11 +60,10 @@ export default {
     display: grid;
     gap: 12px;
     padding: 10px;
-    grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(30px, 1fr));
     grid-auto-rows: 30px;
     max-width: 50%;
     margin: auto;
-    margin-top: 2%;
   }
 
   .amenityCard,
@@ -77,7 +76,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: black;
-    font-size: 15px;
+    font-size: 16px;
     text-shadow: 1px 1px 2px black;
     box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
   }
@@ -103,7 +102,7 @@ export default {
     padding: 10px;
     display: grid;
     gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-auto-rows: 45px;
     max-width: 50%;
     margin: auto;
@@ -119,7 +118,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: black;
-    font-size: 15px;
+    font-size: 16px;
     text-shadow: 1px 1px 2px black;
     box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
   }
@@ -146,8 +145,8 @@ export default {
     padding: 10px;
     display: grid;
     gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    grid-auto-rows: 45px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 55px;
     max-width: 50%;
     margin: auto;
   }
@@ -162,7 +161,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: black;
-    font-size: 15px;
+    font-size: 16px;
     text-shadow: 1px 1px 2px black;
     box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
   }
