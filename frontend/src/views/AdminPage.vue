@@ -98,7 +98,8 @@ h1 {
 .buttonsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 20px 1em 20px 1em;
+  margin: auto;
+  padding: 20px 1em 20px 1em;
   max-width: 600px;
 }
 
