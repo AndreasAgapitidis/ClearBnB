@@ -173,4 +173,90 @@ width: 100%;
 }
 
 
+@media screen and (max-width: 320px){
+
+  .container{
+   height: 25em;
+  }
+  .getBack{
+    display: none;
+  }
+  .Maps{
+  text-align: start;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  }
+
+  .Contact{
+    justify-content: end;
+
+  }
+
+  .bottom{
+flex-direction: column;
+align-items: center;
+
+}
+
+}
+
+@media screen and (max-width: 992px){
+   .container{
+   height: 27em;
+  }
+
+   .Maps{
+  text-align: start;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  }
+
+  .Contact{
+    justify-content: end;
+
+  }
+
+}
+
+@media screen and (min-width: 992px){
+   .container{
+   height: 27em;
+  }
+
+    
+   .Maps{
+  text-align: start;
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  }
+
+  .Contact{
+    justify-content: end;
+
+  }
+
+}
+
+@media only screen and (min-width: 1200px){
+  .top{
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (min-width: 1600px){
+  .container{
+    height: 30vmax;
+  }
+}
+
+
 </style>

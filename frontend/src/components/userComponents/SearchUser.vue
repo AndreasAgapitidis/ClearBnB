@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <input
-      @keyup.enter="fetchUser(this.userInput)"
+      @keyup.enter="fetchUser(userInput)"
       placeholder="Search first name"
       v-model="userInput"
     />
@@ -40,5 +40,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+.container {
+  margin-top: 16px;
+}
+
 </style>

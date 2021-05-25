@@ -1,32 +1,17 @@
 <template>
-  <!-- 
-    <div class="searchContainer"> -->
-      <!-- <label for="cities"><h4 class="checkInCity">City</h4></label>
-    <select name="cities" id="cities">
-      <option value="malmö">Malmö</option>
-      <option value="göteborg">Göteborg</option>
-      <option value="stockholm">Stockholm</option>
-    </select>
-
-    <label for="checkInOutDate"><h4 class="checkInDate">Check in</h4></label>
-    <input
-      type="date"
-      id="start"
-      name="checkInOut"
-      min="2021-01-01"
-      max="2022-12-31"
-    /> -->
-
-   
-    
 <div class="Banner-Bg">
-
       <InputCityAndPickDate />
 </div> 
-      <div class="popDestination">
+
+    <div class="popDestContainer">
+       <div class="popDestination">
         <h3>Popular destinations</h3>
         <h4>Malmö | Stockholm | Madrid</h4>
       </div>
+    </div>
+
+    <div class="divider"></div>
+     
     <!-- </div>
   -->
 </template>
@@ -115,5 +100,46 @@ h4 {
   margin-bottom: 5px;
   letter-spacing: 3px;
   text-shadow: 2px 2px 2px black;
+}
+
+.divider{
+  margin: 4em auto;
+  width: 85%;
+  height: 1px;
+  background: rgb(165, 165, 165);
+}
+
+@media only screen and (max-width: 320px){
+  .popDestContainer{
+    align-items: center;
+    justify-content: center;
+  }
+  .popDestination{
+  width: 16em;
+  }
+}
+
+@media only screen and (min-width: 992px){
+
+  .popDestContainer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+  }
+
+  .popDestination{
+    width: 40%;
+  }
+}
+
+
+@media only screen and (min-width: 1200px){
+  
+ .popDestination{
+   max-width: 480px;
+ }
+
 }
 </style>

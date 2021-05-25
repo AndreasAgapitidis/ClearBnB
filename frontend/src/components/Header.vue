@@ -202,20 +202,56 @@ img {
 
 .profile-dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #fafafa;
   min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
-  border-radius: 0 20px 0 20px;
+  border-radius: 20px 0 20px 0;
   font-size: 1.1em;
   z-index: 1;
   color: black;
-  right: 20px;
+  right: 8em;
   grid-template-columns: auto auto auto;
 }
 
 .profile-dropdown:hover .profile-dropdown-content {
   display: grid;
 }
+
+@media only screen and (min-width: 320px){
+  .profile-dropdown-content{
+    right: 1em;
+  }
+}
+
+@media screen and (min-width: 572px){
+  .container{
+    max-width: 80%;
+  }
+  .profile-dropdown-content{
+    right: 5em;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .container{
+    max-width: 80%;
+  }
+   .profile-dropdown-content{
+    right: 7em;
+  }
+}
+
+@media only screen and (min-width:1200px){
+  .container{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .profile-dropdown-content{
+    right: 9em;
+  }
+
+}
+
 </style>

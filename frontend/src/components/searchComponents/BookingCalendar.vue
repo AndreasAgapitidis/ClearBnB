@@ -63,11 +63,16 @@ export default {
         this.range.end.setHours(0, 0, 0, 0);
 
         // set dates in store to be access by booking page
-        this.$store.dispatch("setBookingDates", this.range);
+        await this.$store.dispatch("setBookingDates", this.range);
+
+        if (this.$route.path === "/") {
+          this.$router.push("/SearchByCity");
+        }
 
         this.$parent.$parent.filteredListings = this.$store.state.listings.filter(
           (listing) =>
-            (listing.city === this.$route.params.id || !this.$route.params.id) &&
+            (listing.city === this.$route.params.id ||
+              !this.$route.params.id) &&
             this.filterDate(listing) &&
             this.$store.state.chosenAmenities.every((element) => {
               return listing.amenities.includes(element);
