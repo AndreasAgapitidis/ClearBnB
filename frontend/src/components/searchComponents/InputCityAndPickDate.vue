@@ -92,9 +92,14 @@ export default {
     },
 
     goToCityPage() {
-      if (this.inputIsCity(this.userInput)) {
-        this.$store.commit("setUsersCity", this.userSearchedFor);
-        this.$router.push("/SearchByCity/" + this.userSearchedFor);
+      if (this.inputIsCity(this.userInput) || this.userInput === "") {
+        this.userInput = this.properCase(this.userInput);
+        this.showAutoFill = false;
+        this.$store.commit("setUsersCity", this.userInput);
+        this.$router.push("/SearchByCity/" + this.userInput);
+      } else {
+        this.userInput = "";
+        this.$parent.filteredListings = [];
       }
     },
 
@@ -108,6 +113,14 @@ export default {
       }
 
       return false;
+    },
+
+    properCase(name) {
+      let proper = name.charAt(0).toUpperCase();
+      for (let i = 1; i < name.length; i++) {
+        proper += name.charAt(i).toLowerCase();
+      }
+      return proper;
     },
 
     toggleShowAutoFill() {
@@ -127,13 +140,12 @@ export default {
 
       return true;
     },
+  },
 
-    /* clearTheSearchBox(city) {
-      this.userSearchedFor = city.name;
-      this.userInput = "";
-      this.$emit("this.userSearchedFor"); 
-      this.filterIntoUsersChoice(this.userSearchedFor);
-    }, */
+  watch: {
+    "$route.params.id": function () {
+      this.filterIntoUsersChoice(this.$route.params.id);
+    },
   },
 };
 </script>
