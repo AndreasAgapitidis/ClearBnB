@@ -44,4 +44,21 @@ export default {
     font-weight: 100;
     font-size: 15px;
   }
+  @media only screen and (max-width: 320px){
+    .ProfileName{
+      text-align: center;
+    }
+  }
+
+  @media only screen and ( min-width: 576px){
+    .ProfileName{
+      text-align: left;
+    }
+  }
+  @media only screen and (min-width: 992px){
+    .ProfileName{
+      text-align: left;
+     
+    }
+  }
 </style>

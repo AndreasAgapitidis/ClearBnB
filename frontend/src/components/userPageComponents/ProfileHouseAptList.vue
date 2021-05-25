@@ -11,7 +11,7 @@
         <p class="beds">{{houses.beds}} Beds</p>
         <p class="area">{{houses.area}} m2</p>
         <h5 class="price">{{houses.price}}SEK<br> <span>per Night</span></h5>
-        <button class="cancel">&#9998;</button>
+        <!-- <button class="cancel">&#9998;</button> -->
 
       </div>
     </div>
@@ -71,7 +71,7 @@ export default {
 
 <style scoped>
 .card-Container{
-  width: 350px;
+  width: 85%;
   height: 100%;
   margin-left: 10px;
   margin-top: 10px;
@@ -80,36 +80,36 @@ export default {
 .reservationCards{
   width: 100%;
   height: 100px;
-  margin: 1em auto;
+  margin: 1em 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
   "img sn sn . p"
   "img g g . ."
-  "img a . . ca"
+  "img a . . ."
   ;
 }
 
 .reservationCards > img {
   grid-area: img;
   height: 100%;
-  width: 120px;
+  width: 100%;
   object-fit: cover;
   border-radius: 17px 0 0 17px;
 }
 
 .streetName{
   text-align: left;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
   grid-area: sn;
  
 }
 
 .beds{
-  align-self: flex-end;
+  align-self: center;
   text-align: left;
-margin: 0 0 0 10px;
+  margin: 0 0 0 10px;
   grid-area: g;
 }
 
@@ -119,12 +119,6 @@ margin: 0 0 0 10px;
   grid-area: a;
 }
 
-.checkInText{
- margin: 0 0 0 10px;
-  text-align: left;
-  grid-area: ch;
-  align-self: flex-end;
-}
 
 .price{
   margin: 0;
@@ -139,11 +133,6 @@ margin: 0 0 0 10px;
   color: black;
 }
 
-.cancel{
-  font-size: 20px;
-  color: rgb(75, 75, 75);
-  grid-area: ca;
-}
 
  button {
     border: none;
@@ -154,6 +143,78 @@ margin: 0 0 0 10px;
 
 p{
   font-size: 12px;
+}
+
+@media only screen and (min-width: 320px){
+
+.reservationCards{
+ margin-bottom: 30px;
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "img img img img"
+  "sn sn p p"
+  "g g . . "
+  "a a . . "
+  ;
+}
+
+.reservationCards > img {
+  height: 100px;
+  border-radius: 17px;
+  } 
+
+  .card-Container{
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 576px){
+.reservationCards{
+  margin-bottom: 35px;
+  height: 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+        "img img sn sn p"
+        "img img g g ."
+        "img img a a .";
+}
+
+  .reservationCards > img {
+  height: 100%;
+  border-radius: 17px 0 0 17px;
+}
+.card-Container{
+    width: 85%;
+    margin: 0 auto;
+  }
+
+
+}
+@media only screen and (min-width: 992px){
+
+.reservationCards{
+  width: 100%;
+  margin: 0 auto 35px auto;
+
+}
+  .card-Container{
+    width: 85%;
+    margin: 0 auto;
+  }
+
+
+}
+@media only screen and (min-width: 1200px){
+
+  .card-Container{
+    width: 85%;
+    margin: 0 auto;
+  }
 }
 
 </style>
