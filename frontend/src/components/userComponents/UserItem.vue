@@ -43,5 +43,7 @@ img {
   display: flex;
   grid-column: 2;
   size: 100%;
+  max-width: 50px;
+  max-height: 50px;
 }
 </style>
