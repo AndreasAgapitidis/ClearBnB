@@ -54,7 +54,7 @@ export default {
     background-repeat: no-repeat;
     margin: 1em auto;
     width: 80%;
-    height: 150px;
+    height: 160px;
     border-radius: 0 47px 0 47px;
     overflow: hidden;
     position: relative;
@@ -64,7 +64,6 @@ export default {
     align-items: center;
     border-right: 1px solid rgb(75, 75, 75);
     border-bottom: 1px solid rgb(75, 75, 75);
-    margin-right: 10%;
   }
 
   .rentalCard:hover {
@@ -109,8 +108,8 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 1em auto;
-    width: 80%;
-    height: 150px;
+    width: 70%;
+    height: 180px;
     border-radius: 0 47px 0 47px;
     overflow: hidden;
     position: relative;
@@ -120,7 +119,6 @@ export default {
     align-items: center;
     border-right: 1px solid rgb(75, 75, 75);
     border-bottom: 1px solid rgb(75, 75, 75);
-    margin-right: 10%;
   }
 
   .rentalCard:hover {
@@ -165,8 +163,8 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 1em auto;
-    width: 80%;
-    height: 150px;
+    width: 60%;
+    height: 200px;
     border-radius: 0 47px 0 47px;
     overflow: hidden;
     position: relative;
@@ -176,7 +174,6 @@ export default {
     align-items: center;
     border-right: 1px solid rgb(75, 75, 75);
     border-bottom: 1px solid rgb(75, 75, 75);
-    margin-right: 11%;
   }
 
   .rentalCard:hover {

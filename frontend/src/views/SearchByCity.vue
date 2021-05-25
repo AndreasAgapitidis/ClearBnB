@@ -53,7 +53,12 @@ export default {
     color: white;
     text-shadow: 2px 2px 2px black;
     background-color: palegreen;
-    margin-right: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 2%;
   }
 }
 
@@ -75,7 +80,12 @@ export default {
     color: white;
     text-shadow: 2px 2px 2px black;
     background-color: orangered;
-    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 2%;
   }
 }
 
@@ -97,13 +107,11 @@ export default {
     color: white;
     text-shadow: 2px 2px 2px black;
     background-color: orchid;
-
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-right: 20%;
     margin-bottom: 2%;
   }
 }

@@ -59,13 +59,12 @@ export default {
     width: 100%;
     height: 200px;
     display: grid;
-    gap: 3px;
+    gap: 8px;
     padding: 10px;
     grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
     grid-auto-rows: 30px;
     max-width: 50%;
     margin: auto;
-    margin-right: 25%;
     margin-top: 2%;
   }
 
@@ -104,7 +103,7 @@ export default {
   .amenitiesContainer {
     padding: 10px;
     display: grid;
-    gap: 2px;
+    gap: 8px;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-auto-rows: 45px;
     max-width: 50%;
@@ -147,7 +146,7 @@ export default {
   .amenitiesContainer {
     padding: 10px;
     display: grid;
-    gap: 2px;
+    gap: 8px;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-auto-rows: 45px;
     max-width: 50%;
