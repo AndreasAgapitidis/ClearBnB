@@ -1,9 +1,7 @@
 <template>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div class="inputCityAndDateContainer">
-    
     <div class="InputContainer">
-    
       <div
         class="autofill"
         @mouseenter="toggleShowAutoFill"
@@ -27,7 +25,7 @@
       </div>
       <div class="CheckInContainer">
         <h2>Check-in/out</h2>
-      <Calendar />
+        <Calendar />
       </div>
     </div>
   </div>
@@ -170,7 +168,6 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 6%;
 
     /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
@@ -189,9 +186,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 2em;
+  
     margin-bottom: 2em;
-    margin-right: 15%;
   }
 
   .searchResults {
@@ -234,7 +230,6 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 8%;
 
     /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
@@ -253,9 +248,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 2em;
     margin-bottom: 2em;
-    margin-right: 15%;
   }
 
   .searchResults {
@@ -316,9 +309,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 2em;
+    
     margin-bottom: 2em;
-    margin-right: 15%;
   }
 
   .searchResults {
@@ -348,44 +340,34 @@ export default {
   }
 }
 
-@media only screen and (max-width: 320px){
-  
-  .inputCityAndDateContainer{
+@media only screen and (max-width: 320px) {
+  .inputCityAndDateContainer {
     align-items: center;
   }
-  .InputContainer{
+  .InputContainer {
     margin-right: 0;
   }
-
-
 }
 
-
-@media only screen and (min-width: 992px){
-
-  
-  .inputCityAndDateContainer{
+@media only screen and (min-width: 992px) {
+  .inputCityAndDateContainer {
     align-items: center;
+  }
 
-   
-    }
-
-  .InputContainer{
+  .InputContainer {
     margin: 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 60%;
     height: 50%;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     border-radius: 50px;
   }
-
-
 }
 
-@media only screen and (min-width: 1200px){
-  .InputContainer{
+@media only screen and (min-width: 1200px) {
+  .InputContainer {
     max-width: 720px;
   }
 }
