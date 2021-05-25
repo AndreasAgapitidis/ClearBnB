@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 .card-Container{
-  width: 350px;
+  width: 85%;
   height: 100%;
   margin-left: 10px;
   margin-top: 10px;
@@ -104,21 +104,21 @@ export default {
 .reservationCards > img {
   grid-area: img;
   height: 100%;
-  width: 120px;
+  width: 100%;
   object-fit: cover;
   border-radius: 17px 0 0 17px;
 }
 
 .streetName{
   text-align: left;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
   grid-area: sn;
  
 }
 
 .guests{
   text-align: left;
-margin: 0 0 0 10px;
+margin: 10px 0 0 10px;
   grid-area: g;
 }
 
@@ -155,6 +155,76 @@ margin: 0 0 0 10px;
 
 p{
   font-size: 12px;
+}
+
+@media only screen and (min-width: 320px){
+
+.reservationCards{
+ margin-bottom: 30px;
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "img img img img"
+  "sn sn . p"
+  "ch ch . ."
+  "g g . ca"
+  ;
+}
+
+.reservationCards > img {
+  height: 100px;
+  border-radius: 17px;
+}
+
+.card-Container{
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 576px){
+.reservationCards{
+  margin-bottom: 35px;
+  height: 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+        "img img sn sn p"
+        "img img g g ."
+        "img img ch ch ca";
+}
+
+  .reservationCards > img {
+  height: 100%;
+  border-radius: 17px 0 0 17px;
+}
+
+ .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
+
+}
+@media only screen and (min-width: 992px){
+  .reservationCards{
+  width: 100%;
+  margin: 0 auto 35px auto;
+}
+   .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
+}
+@media only screen and (min-width: 1200px){
+
+   .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
 }
 
 </style>

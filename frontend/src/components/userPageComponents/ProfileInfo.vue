@@ -2,7 +2,7 @@
   <div class="info-Container">
 
      <div class="about">
-      <p>About me</p>
+      <p class="aboutMe">About me</p>
       <div class="divider"></div>
       <p>Lorem! <br>
       Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -74,4 +74,40 @@ p{
 span{
   color: rgb(22, 150, 5);
 }
+
+@media only screen and (max-width: 320px){
+   .info-Container{
+   flex-direction: column-reverse;
+   justify-content: center;
+    align-items: center;  
+    text-align: center;
+  }
+
+  .about, .verified{
+    width: 85%;
+    
+  }
+
+  .divider{
+    display: none;
+  }
+
+  .verifiedUserText, .aboutMe{
+    font-weight: bold;
+  }
+
+}
+
+@media only screen and (max-width: 576px){
+   .verifiedUserText, .aboutMe{
+    font-weight: bold;
+   }
+}
+
+@media only screen and (max-width: 992px){
+   .verifiedUserText, .aboutMe{
+    font-weight: bold;
+   }
+}
+
 </style>
