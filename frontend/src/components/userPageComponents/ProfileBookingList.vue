@@ -43,17 +43,23 @@ export default {
 
   methods:{
 
-    select: function(event) {
-       if(confirm("Are you sure you want to delete this reservation?")){
-      let targetId = event.id;
-      this.$store.dispatch('deleteReservation', targetId);
-       }
+    select: async function(event) {
+      if(confirm("Are you sure you want to delete this reservation?")){
+        let targetId = event.id;
+        await this.$store.dispatch('deleteReservation', targetId);
+
+        // update displayed reservation array to re-render bookings
+        for(let i = 0; i < this.reservationList.length; i++){ 
+          if (this.reservationList[i].id === targetId) {
+            this.reservationList.splice(i, 1);
+          }
+        }
+      }
     }
   },
 
   computed: {
-    reservations: 
-    async function() {
+    reservations: async function() {
       if (!this.$store.state.user) {
         return [];
       }
