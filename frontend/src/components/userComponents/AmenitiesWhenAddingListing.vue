@@ -56,7 +56,6 @@ export default {
   }
 
   .amenitiesContainer {
-    width: 100%;
     height: 200px;
     display: grid;
     gap: 12px;

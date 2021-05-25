@@ -163,7 +163,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 1em auto;
-    width: 60%;
+    width: 58%;
     height: 200px;
     border-radius: 0 47px 0 47px;
     overflow: hidden;
