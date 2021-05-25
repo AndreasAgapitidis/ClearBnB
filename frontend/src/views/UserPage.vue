@@ -200,7 +200,7 @@ button {
 @media only screen and (min-width: 1200px){
 
   .profileBody{
-    max-width: 950px;
+    max-width: 1090px;
   }
 
 }

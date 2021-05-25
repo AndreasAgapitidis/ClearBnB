@@ -173,6 +173,9 @@ p{
   border-radius: 17px;
 }
 
+.card-Container{
+    margin: 0 auto;
+  }
 }
 @media only screen and (min-width: 576px){
 .reservationCards{
@@ -199,16 +202,14 @@ p{
 
 }
 @media only screen and (min-width: 992px){
+  .reservationCards{
+  width: 100%;
+  margin: 0 auto 35px auto;
+}
    .card-Container{
      width: 85%;
     margin: 0 auto;
   }
-
-
- 
-.reservationCards{
-  width: 85%;
-}
 
 }
 @media only screen and (min-width: 1200px){

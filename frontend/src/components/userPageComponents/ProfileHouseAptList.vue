@@ -146,6 +146,10 @@ p{
   height: 100px;
   border-radius: 17px;
   } 
+
+  .card-Container{
+    margin: 0 auto;
+  }
 }
 
 @media only screen and (min-width: 576px){
