@@ -41,6 +41,8 @@ export default {
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {
         return true;
+      } else {
+        return false;
       }
     },
   },

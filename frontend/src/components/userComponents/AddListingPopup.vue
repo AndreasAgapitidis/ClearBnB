@@ -195,6 +195,8 @@ export default {
         body: JSON.stringify(listing),
       });
       this.addedListing = await res.json();
+      this.chosenAmenities = [];
+      this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
       this.showConfirmationBox = true;
     },
     addImage() {
