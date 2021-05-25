@@ -131,7 +131,7 @@ header {
   font-weight: bold;
   width: 100vw;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 0;
 }
 
