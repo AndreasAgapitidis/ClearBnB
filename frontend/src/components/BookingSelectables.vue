@@ -399,6 +399,8 @@ export default {
   align-self: center;
   text-decoration: underline;
   -webkit-text-stroke: thin;
+  font-size: 1.5em;
+  font-family: "Montserrat";
 }
 
 .prieContrainer {
@@ -410,6 +412,8 @@ export default {
 
 .custom-number {
   grid-area: sel;
+  font-size: 1em;
+  font-family: "Montserrat";
 }
 
 select {
@@ -420,7 +424,6 @@ select {
 }
 
 .buttons {
-  margin: 50px 0px;
   display: flex;
   place-content: space-evenly;
   margin: 0px 0px 50px 0px;
@@ -434,6 +437,7 @@ button {
   color: white;
   transition: 0.4s ease-out;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  font-family: cursive;
 }
 
 button:hover {

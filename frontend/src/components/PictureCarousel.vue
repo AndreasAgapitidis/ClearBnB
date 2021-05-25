@@ -131,6 +131,8 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  font-size: 3em;
+  font-family: serif;
 }
 
 .darken {
@@ -332,17 +334,13 @@ h1 {
   }
 
   h1 {
-    top: 220px;
-    left: 100px;
+    left: 13vw;
+    top: 190px;
     transform: none;
   }
 }
 
 @media (min-width: 768px) {
-  h1 {
-    left: 125px;
-  }
-
   .images img {
     height: 125px;
     width: 105px;
@@ -354,10 +352,6 @@ h1 {
 }
 
 @media (min-width: 992px) {
-  h1 {
-    left: 155px;
-  }
-
   .images img {
     height: 165px;
     width: 135px;
@@ -369,9 +363,6 @@ h1 {
 }
 
 @media (min-width: 1200px) {
-  h1 {
-    left: 175px;
-  }
   .images img {
     height: 190px;
     width: 165px;

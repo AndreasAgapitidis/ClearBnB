@@ -120,6 +120,8 @@ export default {
   height: 100%;
   overflow-y: auto;
   /* margin: 10px; */
+  font-family: cursive;
+  font-size: 1.3em;
 }
 
 .header {
