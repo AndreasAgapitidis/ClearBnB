@@ -1,35 +1,15 @@
 <template>
   <div class="overlay">
-    <transition name="fade">
-      <div class="darken"></div>
+    <transition name="fade" appear>
+      <div class="darken" v-if="divSwitch"></div>
     </transition>
 
-    <transition name="slide">
+    <transition name="fade" appear>
       <div
         class="confirmationContainer"
-        v-if="img"
+        v-if="img && divSwitch"
         :style="backgroundStyles(img)"
       >
-        <div class="darkerBackGround"></div>
-        <div class="content">
-          <h2 class="header">{{ header }}</h2>
-          <p class="headerTwo">{{ headerTwo }}</p>
-          <p class="headerThree">{{ headerThree }}</p>
-          <p class="text1" v-if="text1">{{ text1 }}</p>
-          <p class="text2" v-if="text2">{{ text2 }}</p>
-          <p class="text3" v-if="text3">{{ text3 }}</p>
-          <p class="text4" v-if="text4">{{ text4 }}</p>
-          <p class="text5" v-if="text5">{{ text5 }}</p>
-          <p class="text6" v-if="text6">{{ text6 }}</p>
-          <p class="text7" v-if="text7">{{ text7 }}</p>
-          <p class="text8" v-if="text8">{{ text8 }}</p>
-          <p class="text9" v-if="text9">{{ text9 }}</p>
-          <button @click="closeConfirmationBox" class="confirm"></button>
-        </div>
-      </div>
-
-      <!-- for testing, for those listings without img -->
-      <div class="confirmationContainer" v-else>
         <div class="darkerBackGround"></div>
         <div class="content">
           <h2 class="header">{{ header }}</h2>
@@ -57,7 +37,7 @@
 export default {
   data() {
     return {
-      divSwitch: true,
+      divSwitch: this.$parent.showConfirmationBox,
     };
   },
 
@@ -122,7 +102,7 @@ export default {
     "btn btn btn btn";
   height: 100%;
   overflow: hidden;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .header {
@@ -210,30 +190,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.fade-enter-from {
-  opacity: 0;
-}
-
-.fade-enter-to {
-  opacity: 0.5;
-}
-
-.fade-enter-active {
-  transition: all 2s ease;
-}
-
-.fade-leave-from {
-  opacity: 0.5;
-}
-
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-leave-active {
-  transition: all 2s ease;
-}
-
 .confirmationContainer {
   position: fixed;
   top: 50%;
@@ -242,21 +198,21 @@ export default {
   z-index: 99;
   width: 100%;
   height: 100%;
-  max-width: 70vw;
-  max-height: 70vh;
+  max-width: 90vw;
+  max-height: 95vh;
   background-color: black;
   border-radius: 16px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 
-.slide-enter,
-.slide-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

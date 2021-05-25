@@ -1,19 +1,23 @@
 <template>
-  <div class="darken" v-if="showModal"></div>
+  <transition name="fade" appaer>
+    <div class="darken" v-if="showModal"></div>
+  </transition>
   <div class="slideshow" v-if="carouselprop">
-    <div class="imgModal" v-if="showModal">
-      <div class="leftArrow" @click="ModalprevIndex">
-        <span></span>
-        <span></span>
-        <span></span>
+    <transition name="fade" appear>
+      <div class="imgModal" v-if="showModal">
+        <div class="leftArrow" @click="ModalprevIndex">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <img class="imgZoomIn" :src="ModalUrl" alt="" @click="closeModal" />
+        <div class="rightArrow" @click="ModalnextIndex">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <img class="imgZoomIn" :src="ModalUrl" alt="" @click="closeModal" />
-      <div class="rightArrow" @click="ModalnextIndex">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+    </transition>
     <h1>{{ carouselprop.address }}</h1>
     <img
       class="sliderCover"
@@ -136,6 +140,16 @@ h1 {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .imgModal {
   position: fixed;
   top: 50%;
@@ -145,6 +159,7 @@ h1 {
   border-radius: 16px;
   display: grid;
   width: 100%;
+  max-width: 80vw;
   /* place-content: center; */
   /* place-content: space-evenly; */
   grid-template-areas:

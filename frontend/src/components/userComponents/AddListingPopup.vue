@@ -1,113 +1,115 @@
 <template>
-  <div class="overlay" v-if="!showConfirmationBox">
-    <div class="darken" @click="toggleShowAddListingPopUp"></div>
-    <div class="popUpcontainer" v-if="!showConfirmationBox">
-      <div class="darkerImg"></div>
-      <div id="mdiv" @click="toggleShowAddListingPopUp">
-        <div class="mdiv">
-          <div class="md"></div>
+  <transition name="fade" appear>
+    <div class="overlay" v-if="!showConfirmationBox">
+      <div class="darken" @click="toggleShowAddListingPopUp"></div>
+      <div class="popUpcontainer" v-if="!showConfirmationBox">
+        <div class="darkerImg"></div>
+        <div id="mdiv" @click="toggleShowAddListingPopUp">
+          <div class="mdiv">
+            <div class="md"></div>
+          </div>
         </div>
+        <form class="form" @submit.prevent="sendListingToBackEnd">
+          <h1>Add new listing</h1>
+          <input
+            class="txtInput"
+            type="text"
+            placeholder="City"
+            v-model="city"
+            required
+          />
+          <input
+            class="txtInput"
+            type="text"
+            placeholder="Address"
+            v-model="address"
+            required
+          />
+          <div id="v-model-checkbox">
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="Apartment"
+              v-model="isApartment"
+              @click="isHouse = false"
+            />
+            <label class="checkbox" for="Apartment">Apartment</label>
+            <br />
+            <input
+              class="checkbox"
+              type="checkbox"
+              id="House"
+              v-model="isHouse"
+              @click="isApartment = false"
+            />
+            <label class="checkbox" for="House">House</label>
+            <br />
+          </div>
+          <AmenitiesWhenAddingListing />
+          <textarea
+            class="txtInput"
+            v-model="description"
+            placeholder="Listing description"
+            required
+          ></textarea>
+          <input
+            class="txtInput"
+            type="number"
+            min="1"
+            placeholder="Area (Integer)"
+            v-model="area"
+            required
+          />
+          <input
+            class="txtInput"
+            type="number"
+            min="1"
+            placeholder="Beds (Integer)"
+            v-model="beds"
+            required
+          />
+          <input
+            class="txtInput"
+            type="number"
+            min="1"
+            placeholder="Price per night (Integer)"
+            v-model="price"
+            required
+          />
+          <input
+            class="imgInput"
+            type="text"
+            placeholder="Add image URL (up to 5 images)"
+            v-model="imageURL"
+            required
+          />
+          <button
+            class="addImg"
+            @click.prevent="addImage"
+            v-if="images.length < 5"
+          >
+            Add image
+          </button>
+          <button
+            class="removeImg"
+            @click.prevent="removeImages"
+            v-if="images.length > 0"
+          >
+            Remove all images
+          </button>
+          <div class="images">
+            <img
+              :src="image"
+              class="addedImages"
+              v-for="image of images"
+              v-bind:key="image"
+            />
+          </div>
+          <button class="addListing">ADD LISTING</button>
+        </form>
       </div>
-      <form class="form" @submit.prevent="sendListingToBackEnd">
-        <h1>Add new listing</h1>
-        <input
-          class="txtInput"
-          type="text"
-          placeholder="City"
-          v-model="city"
-          required
-        />
-        <input
-          class="txtInput"
-          type="text"
-          placeholder="Address"
-          v-model="address"
-          required
-        />
-        <div id="v-model-checkbox">
-          <input
-            class="checkbox"
-            type="checkbox"
-            id="Apartment"
-            v-model="isApartment"
-            @click="isHouse = false"
-          />
-          <label class="checkbox" for="Apartment">Apartment</label>
-          <br />
-          <input
-            class="checkbox"
-            type="checkbox"
-            id="House"
-            v-model="isHouse"
-            @click="isApartment = false"
-          />
-          <label class="checkbox" for="House">House</label>
-          <br />
-        </div>
-        <AmenitiesWhenAddingListing />
-        <textarea
-          class="txtInput"
-          v-model="description"
-          placeholder="Listing description"
-          required
-        ></textarea>
-        <input
-          class="txtInput"
-          type="number"
-          min="1"
-          placeholder="Area (Integer)"
-          v-model="area"
-          required
-        />
-        <input
-          class="txtInput"
-          type="number"
-          min="1"
-          placeholder="Beds (Integer)"
-          v-model="beds"
-          required
-        />
-        <input
-          class="txtInput"
-          type="number"
-          min="1"
-          placeholder="Price per night (Integer)"
-          v-model="price"
-          required
-        />
-        <input
-          class="imgInput"
-          type="text"
-          placeholder="Add image URL (up to 5 images)"
-          v-model="imageURL"
-          required
-        />
-        <button
-          class="addImg"
-          @click.prevent="addImage"
-          v-if="images.length < 5"
-        >
-          Add image
-        </button>
-        <button
-          class="removeImg"
-          @click.prevent="removeImages"
-          v-if="images.length > 0"
-        >
-          Remove all images
-        </button>
-        <div class="images">
-          <img
-            :src="image"
-            class="addedImages"
-            v-for="image of images"
-            v-bind:key="image"
-          />
-        </div>
-        <button class="addListing">ADD LISTING</button>
-      </form>
     </div>
-  </div>
+  </transition>
   <ConfirmationTemplate
     class="ConfirmationTemplate"
     v-if="owner && showConfirmationBox && addedListing"
@@ -211,6 +213,16 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 label.checkbox {
   color: white;
 }

@@ -52,7 +52,9 @@
         <p v-else-if="detailprop.isApartment == 'true'">
           Building Type: Apartment
         </p>
-        <p v-if="owner">Owner: {{ owner.email }}</p>
+        <p v-if="owner" onclick="location.href = 'https://sweetparadise.cz/';">
+          Owner: {{ owner.email }}
+        </p>
       </div>
     </div>
   </div>
@@ -64,7 +66,6 @@ export default {
 
   computed: {
     priceWithProfit() {
-      /* this.getOwner(); */
       return Math.round(this.detailprop.price * 1.15);
     },
   },
@@ -158,7 +159,7 @@ li {
 
 .randomCat {
   grid-area: des;
-  z-index: -2;
+  z-index: 2;
   position: sticky;
   text-align-last: right;
   margin-right: 40px;
