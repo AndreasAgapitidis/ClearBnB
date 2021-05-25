@@ -1,5 +1,5 @@
 <template>
-  <div class="profileBanner"></div>
+  <div v-if="isUser" class="profileBanner"></div>
   <div class="profileBody">
     <div class="nameContainer">
       <ProfilePic />
@@ -18,6 +18,7 @@
     <div class="divider"></div>
     <ProfileHouseApt />
     <AddListingPopup v-if="showPopUp" />
+    
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import ProfileInfo from "../components/userPageComponents/ProfileInfo.vue";
 import ProfileBookings from "../components/userPageComponents/ProfileBookings.vue";
 import ProfileHouseApt from "../components/userPageComponents/ProfileHouseApt.vue";
 import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
+
 
 export default {
   data() {
@@ -50,6 +52,18 @@ export default {
     ProfileBookings,
     ProfileHouseApt,
     AddListingPopup,
+  },
+  computed: {
+    isUser: async function() {
+      if (!this.$store.state.user) {
+        await this.$store.dispatch("whoAmI");
+      }
+      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'false')) {
+        this.$router.push('/')
+        return false
+      }
+      return true
+    }
   },
 };
 </script>

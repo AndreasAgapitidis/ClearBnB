@@ -234,6 +234,9 @@ export default {
         alert("You need to log in in order to book!");
         window.scrollTo(0, 0);
         return;
+      } else if (this.$store.state.user.isAdmin === 'true') {
+        alert("You cannot make a personal booking when logged in as an admin");
+        return;
       } else if (!this.adult.id) {
         alert("Please choose how many adults");
         return;

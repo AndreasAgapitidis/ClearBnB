@@ -184,10 +184,11 @@ export default {
   align-self: center;
   background-image: url("https://cdn.discordapp.com/attachments/826036003193880596/844533424253435914/ok_1.png");
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   place-self: center;
-  border-radius: 100px;
+  background-color: #ffffff00;
+  border: none;
 }
 
 .darkerBackGround {

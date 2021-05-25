@@ -8,7 +8,7 @@ import AmenitiesWhenAddingListing from "../userComponents/AmenitiesWhenAddingLis
 export default {
   data() {
     return {
-      chosenAmenities: [],
+      chosenAmenities: this.$store.state.chosenAmenities,
     };
   },
 
@@ -21,7 +21,7 @@ export default {
       this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
       this.$parent.filteredListings = this.$store.state.listings.filter(
         (listing) =>
-          listing.city === this.$route.params.id &&
+          (listing.city === this.$route.params.id || !this.$route.params.id) &&
           this.filterDate(listing) &&
           this.chosenAmenities.every((element) => {
             return listing.amenities.includes(element);
@@ -47,14 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.amenityBoxes {
-  color: rgb(65, 64, 64);
-  text-shadow: 1px 1px 2px grey;
-  font-family: "Roboto";
-  font-size: bolder;
-  background: transparent;
-  border: 1px solid black;
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
+
+
+ 
 </style>

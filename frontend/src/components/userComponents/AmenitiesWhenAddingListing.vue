@@ -18,15 +18,8 @@
 export default {
   data() {
     return {
-      chosenAmenities: [],
-      amenities: [
-        "Wi-Fi",
-        "Pool",
-        "Balcony",
-        "Disability",
-        "Family friendly",
-        "100 meter to strip club",
-      ],
+      chosenAmenities: this.$store.state.chosenAmenities,
+      amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
     };
   },
 
@@ -44,8 +37,6 @@ export default {
       try {
         this.$parent.filterAmenities();
       } catch (error) {}
-
-      console.log(this.$parent.chosenAmenities);
     },
     toggleClass(amenity) {
       if (this.chosenAmenities.includes(amenity)) {

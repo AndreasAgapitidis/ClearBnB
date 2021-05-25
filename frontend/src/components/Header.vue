@@ -15,7 +15,7 @@
         <li v-if="!$store.state.user">
           <a class="login-menu-item" @click="openLogin">Login</a>
         </li>
-        <li v-else>
+        <li v-else-if="$store.state.user.isAdmin === 'false'">
           <div class="profile-dropdown">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +37,35 @@
                 <div class="profile-menu-item">
                   <a @click="profile">Profile</a>
                 </div>
+                <div class="profile-menu-last-item">
+                  <a @click="logout">Logout</a>
+                </div>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </li>
+        <li v-else>
+          <div class="profile-dropdown">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+            <div class="profile-dropdown-content">
+              <div></div>
+              <div class="profile-menu">
                 <div class="profile-menu-item">
-                  <a @click="addListing">Add Listing</a>
+                  <a @click="admin">Admin</a>
                 </div>
                 <div class="profile-menu-last-item">
                   <a @click="logout">Logout</a>
@@ -76,13 +103,15 @@ export default {
         end: "",
       };
       this.$store.dispatch("setBookingDates", range);
+      this.$store.dispatch("setUsersCity", "");
+      this.$store.dispatch("setChosenAmenities", []);
       this.$router.push("/");
-    },
-    addListing() {
-      this.$router.push("/addlisting");
     },
     profile() {
       this.$router.push("/Userpage");
+    },
+    admin() {
+      this.$router.push("/admin");
     },
   },
 };
@@ -102,7 +131,7 @@ header {
   font-weight: bold;
   width: 100vw;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 0;
 }
 

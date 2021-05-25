@@ -36,6 +36,7 @@ export default {
         lastName: this.lastName,
         email: this.email,
         password: this.password,
+        isAdmin: 'false',
       };
 
       await this.$store.dispatch("register", credentials);
@@ -80,7 +81,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.96); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
   font-family: "Roboto", sans-serif;
 }
 
