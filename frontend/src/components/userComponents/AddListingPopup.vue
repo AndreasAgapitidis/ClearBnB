@@ -3,7 +3,6 @@
     <div class="overlay" v-if="!showConfirmationBox">
       <div class="darken" @click="toggleShowAddListingPopUp"></div>
       <div class="popUpcontainer" v-if="!showConfirmationBox">
-        <div class="darkerImg"></div>
         <div id="mdiv" @click="toggleShowAddListingPopUp">
           <div class="mdiv">
             <div class="md"></div>
@@ -239,20 +238,6 @@ label.checkbox {
   z-index: 2;
 }
 
-.darkerImg {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0;
-  right: 0;
-  opacity: 0.9;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 16px;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
 .popUpcontainer {
   position: fixed;
   top: 50%;
@@ -261,12 +246,14 @@ label.checkbox {
   z-index: 99;
   width: 100%;
 
-  max-width: 70vw;
-  min-height: 80vh;
-  background-image: url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
+  max-width: 75vw;
+  max-height: 100vh;
+  background-image: linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
+    url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 16px;
+  overflow-y: auto;
 }
 
 .ConfirmationTemplate {
