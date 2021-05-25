@@ -55,7 +55,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Area (Integer)"
+            placeholder="Area"
             v-model="area"
             required
           />
@@ -63,7 +63,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Beds (Integer)"
+            placeholder="Beds"
             v-model="beds"
             required
           />
@@ -71,7 +71,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Price per night (Integer)"
+            placeholder="Price per night"
             v-model="price"
             required
           />
@@ -82,11 +82,7 @@
             v-model="imageURL"
             required
           />
-          <button
-            class="addImg"
-            @click.prevent="addImage"
-            v-if="images.length < 5"
-          >
+          <button class="addImg" @click.prevent="addImage" v-if="imageURL">
             Add image
           </button>
           <button
@@ -284,15 +280,16 @@ form {
   justify-content: center;
   margin-top: 20px;
   width: 100%;
+  min-height: 750px;
+  text-align-last: center;
 }
-
 .txtInput,
 button,
 .imgInput {
   display: block;
   margin: 0 auto 15px;
   width: 50%;
-  height: 25px;
+  height: 35px;
   border-radius: 10px;
   border: none;
 }
@@ -312,6 +309,10 @@ button,
 
 button {
   display: block;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .addImg {
