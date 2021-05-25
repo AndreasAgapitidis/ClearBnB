@@ -246,5 +246,17 @@ align-items: center;
 
 }
 
+@media only screen and (min-width: 1200px){
+  .top{
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (min-width: 1600px){
+  .container{
+    height: 30vmax;
+  }
+}
+
 
 </style>
