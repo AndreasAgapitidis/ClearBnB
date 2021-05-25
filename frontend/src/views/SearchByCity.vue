@@ -3,11 +3,11 @@
   <div class="SearchByCity-Bg">
     <InputCityAndPickDate />
 
-    <div class="amenitiesOptions">
-      <h2>Amenities</h2>
-      <Amenities />
-    </div>
-  </div>
+ <h2>Amenities</h2>
+        <Amenities /> 
+ </div>
+      
+ 
   <ListOfListings v-bind:listings="filteredListings" />
 </template>
 
@@ -48,6 +48,8 @@ export default {
     background-size: cover;
   }
 
+
+
   h2 {
     color: white;
     text-shadow: 2px 2px 2px black;
@@ -74,6 +76,7 @@ export default {
     background-size: cover;
   }
 
+
   h2 {
     color: white;
     text-shadow: 2px 2px 2px black;
@@ -99,6 +102,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
   }
+ 
 
   h2 {
     color: white;
@@ -110,5 +114,7 @@ export default {
     margin: 0 auto;
     margin-bottom: 2%;
   }
+
+  
 }
 </style>
