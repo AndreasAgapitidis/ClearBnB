@@ -5,6 +5,7 @@
   <BookingSelectables
     v-bind:detailprop="listing1"
     v-bind:owner="listingOwner"
+    v-if="listing1"
   />
 </template>
 

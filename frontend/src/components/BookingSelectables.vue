@@ -23,7 +23,7 @@
       <div class="priceCalculator">
         <p>
           Adult:
-          {{ adult.id }}
+          {{ adult }}
         </p>
         <p>
           Children:
@@ -44,11 +44,11 @@
       <select name="adultCustomer" id="adultCustomer" v-model="adult" required>
         <option disabled value="0">Adult</option>
         <option
-          v-for="adult in adultMenu"
-          :key="adult.id"
-          v-bind:value="{ id: adult.id, text: adult.name }"
+          v-for="adultNumber in beds"
+          :key="adultNumber"
+          :value="adultNumber"
         >
-          {{ adult.name }}
+          {{ adultNumber }}
         </option>
       </select>
 
@@ -113,7 +113,7 @@ export default {
   // Everytime a data changes, the relevant computed will run
   data() {
     return {
-      adult: { id: "1" },
+      adult: null,
       child: { id: "0" },
       price: this.price,
       date: "",
@@ -124,20 +124,10 @@ export default {
       loggedInUser: null,
       currentCheckInDate: null,
       currentCheckOutDate: null,
+      beds: [],
 
       childrenMenu: [
         { id: 0, name: "0" },
-        { id: 1, name: "1" },
-        { id: 2, name: "2" },
-        { id: 3, name: "3" },
-        { id: 4, name: "4" },
-        { id: 5, name: "5" },
-        { id: 6, name: "6" },
-        { id: 7, name: "7" },
-        { id: 8, name: "8" },
-        { id: 9, name: "9" },
-      ],
-      adultMenu: [
         { id: 1, name: "1" },
         { id: 2, name: "2" },
         { id: 3, name: "3" },
@@ -163,6 +153,11 @@ export default {
     if (!this.range.start || !this.range.end) {
       (this.range.start = new Date()), (this.range.end = new Date());
     }
+
+    for (let i = 1; i < this.detailprop.beds + 1; i++) {
+      this.beds.push(i);
+    }
+    console.log(this.beds);
   },
 
   methods: {
@@ -178,7 +173,7 @@ export default {
     // },
 
     clearFields() {
-      (this.adult.id = 1), (this.child.id = 0);
+      (this.adult = 1), (this.child.id = 0);
     },
 
     async checkDuplicatedBooking() {
