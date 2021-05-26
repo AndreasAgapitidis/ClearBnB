@@ -152,7 +152,7 @@ export default {
     gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-auto-rows: 55px;
-    max-width: 40%;
+    max-width: 720px;
     margin: auto;
   }
 
