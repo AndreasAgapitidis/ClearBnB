@@ -1,4 +1,5 @@
 <template>
+  <!-- admin -->
   <div class="summary-container">
     <div class="profit-container">
       <h1>Profit</h1>
@@ -39,39 +40,46 @@
 export default {
   async created() {
     // current date information is needed for some fetch queries below
-    let currentDate = new Date()
-    let currentMonth = currentDate.getMonth() + 1
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth() + 1;
     if (currentMonth < 10) {
-      currentMonth = "0" + currentMonth
+      currentMonth = "0" + currentMonth;
     }
 
     // run the various fetches for this page
-    let res = await fetch('/api/totalCurrentListings/')
-    this.totalCurrentListings =  await res.json()
+    let res = await fetch("/api/totalCurrentListings/");
+    this.totalCurrentListings = await res.json();
 
-    res = await fetch('/api/reservationsAlltime/')
-    this.reservationsAllTime = await res.json()
+    res = await fetch("/api/reservationsAlltime/");
+    this.reservationsAllTime = await res.json();
 
-    res = await fetch('/api/reservationsThisYear/' + currentDate.getFullYear())
-    this.reservationsThisYear = await res.json()
+    res = await fetch("/api/reservationsThisYear/" + currentDate.getFullYear());
+    this.reservationsThisYear = await res.json();
 
-    res = await fetch('/api/reservationsThisMonth/' + currentDate.getFullYear() + '/' + currentMonth)
-    this.reservationsThisMonth = await res.json()
+    res = await fetch(
+      "/api/reservationsThisMonth/" +
+        currentDate.getFullYear() +
+        "/" +
+        currentMonth
+    );
+    this.reservationsThisMonth = await res.json();
 
-    res = await fetch('/api/cashflowAlltime/')
-    this.revenueAllTime = await res.json()
+    res = await fetch("/api/cashflowAlltime/");
+    this.revenueAllTime = await res.json();
 
-    res = await fetch('/api/cashflowThisYear/' + currentDate.getFullYear())
-    this.revenueThisYear = await res.json()
+    res = await fetch("/api/cashflowThisYear/" + currentDate.getFullYear());
+    this.revenueThisYear = await res.json();
 
-    res = await fetch('/api/cashflowThisMonth/' + currentDate.getFullYear() + '/' + currentMonth)
-    this.revenueThisMonth = await res.json()
+    res = await fetch(
+      "/api/cashflowThisMonth/" + currentDate.getFullYear() + "/" + currentMonth
+    );
+    this.revenueThisMonth = await res.json();
 
-    this.profitAllTime = Math.round(this.revenueAllTime * .15)
+    this.profitAllTime = Math.round(this.revenueAllTime * 0.15);
 
-    this.profitThisYear = Math.round(this.revenueThisYear * .15)
+    this.profitThisYear = Math.round(this.revenueThisYear * 0.15);
 
-    this.profitThisMonth = Math.round(this.revenueThisMonth * .15)
+    this.profitThisMonth = Math.round(this.revenueThisMonth * 0.15);
   },
 
   data() {
@@ -86,9 +94,9 @@ export default {
       profitAllTime: null,
       profitThisYear: null,
       profitThisMonth: null,
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -137,7 +145,7 @@ p {
   text-align: center;
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   h1 {
     font-size: 2em;
   }
@@ -145,7 +153,5 @@ p {
   h3 {
     font-size: 1.17em;
   }
-  
 }
-
 </style>

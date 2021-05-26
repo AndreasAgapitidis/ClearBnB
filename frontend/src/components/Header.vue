@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <header>
     <nav class="container">
       <ul>
@@ -219,16 +220,37 @@ img {
   display: grid;
 }
 
-@media screen and (min-width: 572px){
-  .container{
-    max-width: 80%;
+@media only screen and (min-width: 320px) {
+  .profile-dropdown-content {
+    right: 1em;
   }
 }
 
-@media screen and (min-width: 992px){
-  .container{
+@media screen and (min-width: 572px) {
+  .container {
     max-width: 80%;
+  }
+  .profile-dropdown-content {
+    right: 5em;
   }
 }
 
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 80%;
+  }
+  .profile-dropdown-content {
+    right: 7em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .profile-dropdown-content {
+    right: 9em;
+  }
+}
 </style>

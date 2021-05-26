@@ -228,8 +228,10 @@ export default {
     height: 30em;
     display: flex;
     flex-direction: column;
+    /* @media only screen and (min-width: 320px) {
+  .inputCityAndDateContainer {
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 
     /*   background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
     url("https://www.sgbc.se/app/uploads/2020/05/V%C3%A4stra-Hamnen-Malm%C3%B6-Foto-Ossian-K-Olsson-1200x0-c-default.jpg");
@@ -275,6 +277,17 @@ export default {
 
   input:focus {
     outline: none;
+    /* .InputContainer {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .inputCityAndDateContainer {
+    align-items: center;
+  }
+  .InputContainer {
+    margin-right: 0; */
   }
 }
 @media only screen and (min-device-width: 992px) {
@@ -352,6 +365,11 @@ export default {
   .inputCityAndDateContainer {
     align-items: center;
   }
+
+  /* @media only screen and (min-width: 992px) {
+  .inputCityAndDateContainer {
+    align-items: center;
+  } */
 
   .InputContainer {
     margin: 0;

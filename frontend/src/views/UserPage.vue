@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div v-if="isUser" class="profileBanner"></div>
   <div class="profileBody">
     <div class="nameContainer">
@@ -18,8 +19,8 @@
     <div class="divider"></div>
     <ProfileHouseApt />
     <AddListingPopup v-if="showPopUp" />
-    
   </div>
+  <!-- page -->
 </template>
 
 <script>
@@ -29,7 +30,6 @@ import ProfileInfo from "../components/userPageComponents/ProfileInfo.vue";
 import ProfileBookings from "../components/userPageComponents/ProfileBookings.vue";
 import ProfileHouseApt from "../components/userPageComponents/ProfileHouseApt.vue";
 import AddListingPopup from "../components/userComponents/AddListingPopup.vue";
-
 
 export default {
   data() {
@@ -54,16 +54,19 @@ export default {
     AddListingPopup,
   },
   computed: {
-    isUser: async function() {
+    isUser: async function () {
       if (!this.$store.state.user) {
         await this.$store.dispatch("whoAmI");
       }
-      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'false')) {
-        this.$router.push('/')
-        return false
+      if (
+        !this.$store.state.user ||
+        !(this.$store.state.user.isAdmin === "false")
+      ) {
+        this.$router.push("/");
+        return false;
       }
-      return true
-    }
+      return true;
+    },
   },
 };
 </script>
@@ -94,6 +97,10 @@ export default {
   width: 100%;
 }
 
+.amenitiesContainer[data-v-49573000] {
+  max-width: 60%;
+}
+
 .infoContainer {
   width: 100%;
 }
@@ -107,7 +114,6 @@ export default {
 
 h4 {
   text-align: left;
- 
 }
 
 .owned {
@@ -130,5 +136,74 @@ button {
   color: #fafafa;
   font-size: 15px;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 320px) {
+  .divider {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .reserv,
+  .owned {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .profileBanner {
+    border-radius: 0px;
+  }
+  .nameContainer {
+    width: 85%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .reserv,
+  .owned {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .divider {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .infoContainer {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .profileBanner {
+    border-radius: 0px;
+  }
+
+  .nameContainer {
+    width: 85%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .divider {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .reserv,
+  .owned {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .infoContainer {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .profileBody {
+    max-width: 1090px;
+  }
 }
 </style>

@@ -70,6 +70,42 @@ export default {
     transform: scale(1.02);
     cursor: pointer;
   }
+  /* .text-container {
+  color: rgb(43, 43, 43);
+  margin-right: 2em;
+}
+
+.text-container p {
+  font-size: 13px;
+  margin: 3px;
+  text-align: end;
+  font-style: italic;
+}
+
+.text-container h4 {
+  text-align: end;
+}
+
+.text-conatiner > p:nth-child(1) {
+  color: white;
+}
+
+.rentalCard {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 1em auto;
+  width: 80%;
+  height: 150px;
+  border-radius: 0 47px 0 47px;
+  overflow: hidden;
+  position: relative;
+  top: 5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-right: 1px solid rgb(75, 75, 75);
+  border-bottom: 1px solid rgb(75, 75, 75);
+} */
 
   .rentalCard:last-child {
     margin-bottom: 1em;

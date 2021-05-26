@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div v-if="isAdmin" class="adminContainer">
     <h1>Admin Page</h1>
     <div class="buttonsContainer">
@@ -8,11 +9,15 @@
       </div>
       <div>
         <button v-if="!printAllUsers" @click="whatToRender">All users</button>
-        <button v-else class="isClicked" @click="whatToRender">All users</button>
+        <button v-else class="isClicked" @click="whatToRender">
+          All users
+        </button>
       </div>
       <div>
         <button v-if="!searchOneUser" @click="whatToRender">Search user</button>
-        <button v-else class="isClicked" @click="whatToRender">Search user</button>
+        <button v-else class="isClicked" @click="whatToRender">
+          Search user
+        </button>
       </div>
     </div>
 
@@ -70,16 +75,19 @@ export default {
     },
   },
   computed: {
-    isAdmin: async function() {
+    isAdmin: async function () {
       if (!this.$store.state.user) {
         await this.$store.dispatch("whoAmI");
       }
-      if (!this.$store.state.user || !(this.$store.state.user.isAdmin === 'true')) {
-        this.$router.push('/')
-        return false
+      if (
+        !this.$store.state.user ||
+        !(this.$store.state.user.isAdmin === "true")
+      ) {
+        this.$router.push("/");
+        return false;
       }
-      return true
-    }
+      return true;
+    },
   },
 };
 </script>
@@ -103,7 +111,8 @@ h1 {
   max-width: 600px;
 }
 
-button, .isClicked {
+button,
+.isClicked {
   width: 100%;
   height: 100%;
   background-color: #262626;

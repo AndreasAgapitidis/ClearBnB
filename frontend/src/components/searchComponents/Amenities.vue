@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <AmenitiesWhenAddingListing @click="filterAmenities" />
 </template>
 

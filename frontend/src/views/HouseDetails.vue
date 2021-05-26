@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <PictureCarousel v-bind:carouselprop="listing1" />
   <DetailInfo v-bind:detailprop="listing1" v-bind:owner="listingOwner" />
   <BookingSelectables

@@ -1,12 +1,11 @@
 <template>
+  <!-- a -->
   <div class="card">
     <h3>{{ city.name }}</h3>
   </div>
-  
 </template>
 
 <script>
-
 export default {
   props: ["city"],
 

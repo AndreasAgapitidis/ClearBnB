@@ -1,4 +1,5 @@
 <template>
+  <!-- confirmation -->
   <div class="overlay">
     <transition name="fade" appear>
       <div class="darken" v-if="divSwitch"></div>

@@ -1,18 +1,19 @@
 <template>
-<div class="Banner-Bg">
-      <InputCityAndPickDate />
-</div> 
+  <!-- a -->
+  <div class="Banner-Bg">
+    <InputCityAndPickDate />
+  </div>
 
-    <div class="popDestContainer">
-       <div class="popDestination">
-        <h3>Popular destinations</h3>
-        <h4>Malmö | Stockholm | Madrid</h4>
-      </div>
+  <div class="popDestContainer">
+    <div class="popDestination">
+      <h3>Popular destinations</h3>
+      <h4>Malmö | Stockholm | Madrid</h4>
     </div>
+  </div>
 
-    <div class="divider"></div>
-     
-    <!-- </div>
+  <div class="divider"></div>
+
+  <!-- </div>
   -->
 </template>
 
@@ -47,7 +48,8 @@ export default {
 }
 
 .Banner-Bg {
-  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)), url('../assets/Banner-Pictures/Stockholm.jpeg');
+  background-image: linear-gradient(rgb(255 255 255 / 0%), rgb(255 255 255)),
+    url("../assets/Banner-Pictures/Stockholm.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -68,7 +70,6 @@ export default {
   justify-content: space-around;
   height: 25em;
   align-items: flex-end;
-  
 }
 
 .popDestination {
@@ -89,7 +90,6 @@ h4 {
   font-weight: 200;
   text-align: right;
   margin: 0px;
- 
 }
 
 .checkInDate,
@@ -102,26 +102,25 @@ h4 {
   text-shadow: 2px 2px 2px black;
 }
 
-.divider{
+.divider {
   margin: 4em auto;
   width: 85%;
   height: 1px;
   background: rgb(165, 165, 165);
 }
 
-@media only screen and (max-width: 320px){
-  .popDestContainer{
+@media only screen and (max-width: 320px) {
+  .popDestContainer {
     align-items: center;
     justify-content: center;
   }
-  .popDestination{
-  width: 16em;
+  .popDestination {
+    width: 16em;
   }
 }
 
-@media only screen and (min-width: 992px){
-
-  .popDestContainer{
+@media only screen and (min-width: 992px) {
+  .popDestContainer {
     height: auto;
     width: 100%;
     display: flex;
@@ -129,17 +128,14 @@ h4 {
     align-items: flex-end;
   }
 
-  .popDestination{
+  .popDestination {
     width: 40%;
   }
 }
 
-
-@media only screen and (min-width: 1200px){
-  
- .popDestination{
-   max-width: 480px;
- }
-
+@media only screen and (min-width: 1200px) {
+  .popDestination {
+    max-width: 480px;
+  }
 }
 </style>
