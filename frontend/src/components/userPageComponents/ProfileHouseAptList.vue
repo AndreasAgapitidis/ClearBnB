@@ -81,7 +81,7 @@ export default {
 .reservationCards {
   width: 100%;
   height: 100px;
-  margin: 1em 0;
+  margin: 1em auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -101,7 +101,7 @@ export default {
 
 .streetName {
   text-align: left;
-  margin: 10px 0 0 10px;
+  margin: 0 0 0 10px;
   grid-area: sn;
 }
 

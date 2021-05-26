@@ -203,16 +203,16 @@ img {
 
 .profile-dropdown-content {
   display: none;
-  position: fixed;
+  position: absolute;
   background-color: #fafafa;
   min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
-  border-radius: 20px 0 20px 0;
+  border-radius: 0 20px 0 20px;
   font-size: 1.1em;
   z-index: 1;
   color: black;
-  right: 8em;
+  right: 20px;
   grid-template-columns: auto auto auto;
 }
 

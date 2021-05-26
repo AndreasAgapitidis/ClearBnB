@@ -82,7 +82,7 @@ export default {
 .profileBody {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -95,6 +95,10 @@ export default {
   top: -5em;
   height: auto;
   width: 100%;
+}
+
+.amenitiesContainer[data-v-49573000] {
+  max-width: 60%;
 }
 
 .infoContainer {

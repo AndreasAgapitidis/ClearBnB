@@ -2,7 +2,7 @@
   <!-- a -->
   <div class="container">
     <input
-      @keyup.enter="fetchUser(userInput)"
+      @keyup.enter="fetchUser(this.userInput)"
       placeholder="Search first name"
       v-model="userInput"
     />

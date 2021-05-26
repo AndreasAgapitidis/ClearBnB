@@ -43,6 +43,11 @@ li {
 }
 
 img {
+  display: flex;
+  grid-column: 2;
+  size: 100%;
+  max-width: 50px;
+  max-height: 50px;
   display: none;
   margin: 0 20px 0 40px;
   width: 50px;
