@@ -13,7 +13,7 @@ public class UserAccount {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String profilePicture;
+    private String profilePicture = "https://www.pricerunner.se/product/320x320/3000228603/MTK-Fawkes-Anonymous-Guy-Face-Mask-Vit-Brun.jpg";
     private String isAdmin;
 
     public UserAccount(){} //Default constructor, think this is needed with the use of Java Express. //Mac
