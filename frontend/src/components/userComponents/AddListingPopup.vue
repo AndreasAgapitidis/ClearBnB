@@ -349,6 +349,14 @@ img {
 }
 .addListing {
   bottom: 0;
+  width: 40%;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  background: limegreen;
+  transition: 0.4s ease-out;
+  cursor: pointer;
 }
 
 .addImages {

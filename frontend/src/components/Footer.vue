@@ -79,7 +79,7 @@ footer {
   background-image: url("../assets/Footer-Header/Footer-Final.png");
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
+  
   margin: 0px;
   color: #fafafa;
   display: flex;
@@ -131,7 +131,8 @@ p {
 
 .getBack {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  margin-top: 20px;
 }
 
 .divider {
@@ -244,7 +245,7 @@ p {
 
 @media only screen and (min-width: 1600px) {
   .container {
-    height: 30vmax;
+    height: 28vmax;
   }
 }
 </style>

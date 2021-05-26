@@ -24,8 +24,6 @@
     <AdminSummary v-if="summary" />
     <GetAllUsers v-if="printAllUsers" />
     <SearchUser v-if="searchOneUser" />
-    <AddListing v-if="addListing" />
-    <AddListingPopup v-if="showPopUp" />
   </div>
 </template>
 
@@ -40,8 +38,6 @@ export default {
       summary: true,
       printAllUsers: false,
       searchOneUser: false,
-      addListing: false,
-      showPopUp: false,
     };
   },
 
@@ -70,8 +66,6 @@ export default {
       this.summary = false;
       this.printAllUsers = false;
       this.searchOneUser = false;
-      this.addListing = false;
-      this.showPopUp = false;
     },
   },
   computed: {
