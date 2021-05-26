@@ -4,12 +4,12 @@
     <div class="picture"></div>
 
     <div class="textWrapper">
-      <button class="bookNowBtn">Book now!</button>
+      <button class="bookNowBtn">Claim discount</button>
       <div class="shamelessTxt">
         <label for="shamelessTxt">
           Treat yourself and your family.<br />This gem is located close<br />to
           the italian wine-yards in Toscana.<br /><br /><br /><span
-            >ONE-TIME OFFER! <br />900sek per Night!</span
+            >ONE-TIME OFFER!</span
           ></label
         >
       </div>

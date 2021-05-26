@@ -119,6 +119,12 @@ h4 {
   }
 }
 
+@media only screen and (max-width: 576px){
+  .popDestination {
+    width: 16em;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .popDestContainer {
     height: auto;
