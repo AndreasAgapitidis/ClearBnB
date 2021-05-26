@@ -183,6 +183,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
 .ownerField {
   cursor: pointer;
 }
@@ -202,6 +204,7 @@ li {
   flex-direction: column;
   place-items: center;
   padding: 5px 0 5px 0;
+  font-family: cursive;
 }
 
 .DetailInfoContainer {
@@ -249,14 +252,130 @@ li {
 }
 
 .Description h1 {
-  font-size: 25px;
+  font-size: 3em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .Description p {
-  font-size: 15px;
+  font-size: 1.5em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .details {
   margin-top: 17px;
+}
+
+.details p {
+  font-size: 1.5em;
+  font-family: cursive;
+}
+
+@media (min-width: 320px) {
+  .DetailInfoContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    grid-template-areas:
+      "des des des des"
+      "des des des des"
+      "des des des des"
+      "det det det det"
+      "det det det det"
+      "am am am am";
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  ul[data-v-83cbd962] {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100%;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+
+  li {
+    max-width: 4vw;
+    max-height: 5vh;
+  }
+}
+
+@media (min-width: 576px) {
+  .DetailInfoContainer {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    grid-template-areas:
+      "des des des des des"
+      "des des des des des"
+      "des des des des des"
+      "am am det det det"
+      "am am det det det";
+  }
+
+  ul[data-v-83cbd962] {
+    flex-direction: column;
+  }
+
+  li {
+    max-width: 4vw;
+    max-height: 5vh;
+  }
+}
+@media (min-width: 768px) {
+  ul[data-v-83cbd962] {
+    flex-direction: row;
+  }
+  .DetailInfoContainer {
+    padding: 50px;
+    margin-top: auto;
+  }
+}
+@media (min-width: 992px) {
+  .DetailsContainer {
+    border: none;
+  }
+
+  .DetailInfoContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    grid-template-areas:
+      "des des des des"
+      "des des des des"
+      "des des des des"
+      "am am det det"
+      "am am det det";
+  }
+
+  .randomCat {
+    all: unset;
+    grid-area: des;
+    z-index: 2;
+    position: sticky;
+  }
+
+  li {
+    max-width: 4vw;
+    max-height: 5vh;
+  }
+
+  li img {
+    width: 4vw;
+    height: 5vh;
+  }
+}
+@media (min-width: 1200px) {
+  li img {
+    width: 4vw;
+    height: 5vh;
+  }
+
+  li {
+    max-width: 4vw;
+    max-height: 5vh;
+  }
 }
 </style>

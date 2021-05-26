@@ -118,8 +118,10 @@ export default {
     "btn btn btn btn"
     "btn btn btn btn";
   height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
   /* margin: 10px; */
+  font-family: cursive;
+  font-size: 1.3em;
 }
 
 .header {
@@ -240,5 +242,77 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (min-width: 320px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "h1 h1 h1 h1"
+      "h2 h2 h2 h2"
+      "h3 h3 h3 h3"
+      "text1 text1 text1 text1"
+      "text2 text2 text2 text2"
+      "text3 text3 text3 text3"
+      "text4 text4 text4 text4"
+      "text5 text5 text5 text5"
+      "text6 text6 text6 text6"
+      "text7 text7 text7 text7"
+      "text8 text8 text8 text8"
+      "text9 text9 text9 text9"
+      "btn btn btn btn"
+      "btn btn btn btn";
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  /* For mobile phones: */
+  .confirmationContainer {
+    width: 60vw;
+    height: 85vh;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .profilePic {
+    height: 135%;
+  }
+
+  .content h2 {
+    font-size: 2.5em;
+  }
+
+  .content p {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    grid-template-areas:
+      "h1 h1 h1 h1"
+      "h2 h2 h2 h2"
+      "h3 h3 h3 h3"
+      "h3 h3 h3 h3"
+      "text1 text1 . ."
+      "text2 text2 text6 text6"
+      "text3 text3 text7 text7"
+      "text4 text4 text8 text8"
+      "text5 text5 text9 text9"
+      "btn btn btn btn"
+      "btn btn btn btn";
+    height: 100%;
+    overflow-y: auto;
+  }
 }
 </style>
