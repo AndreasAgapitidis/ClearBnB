@@ -27,7 +27,7 @@
         </p>
         <p>
           Children:
-          {{ child.id }}
+          {{ child }}
         </p>
         <p>Your stay: {{ differenceInDays }} days</p>
         <p v-if="detailprop">
@@ -41,7 +41,13 @@
       <label for="adultCustomer"
         ><h4 class="adult">Please select the amount of adults:</h4>
       </label>
-      <select name="adultCustomer" id="adultCustomer" v-model="adult" required>
+      <select
+        name="adultCustomer"
+        id="adultCustomer"
+        v-model="adult"
+        @change="renderKidsSelect()"
+        required
+      >
         <option disabled value="0">Adult</option>
         <option
           v-for="adultNumber in beds"
@@ -55,14 +61,20 @@
       <label for="childrenCustomer"
         ><h4 class="children">Please select the amount of children:</h4>
       </label>
-      <select name="childrenCustomer" id="childrenCustomer" v-model="child">
-        <option disabled value="0">Children</option>
+      <select
+        name="childrenCustomer"
+        id="childrenCustomer"
+        class="childSelect"
+        v-model="child"
+        disabled
+      >
+        <option disabled>Children</option>
         <option
-          v-for="child in childrenMenu"
-          :key="child.id"
-          v-bind:value="{ id: child.id, text: child.name }"
+          v-for="childNumber in kidsArray"
+          :key="childNumber"
+          v-bind:value="childNumber"
         >
-          {{ child.name }}
+          {{ childNumber }}
         </option>
       </select>
       <div class="moreCat">
@@ -87,13 +99,13 @@
     :header="'Thank you ' + loggedInUser.firstName"
     :headerTwo="'The booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
-    :text1="'Name: ' + loggedInUser.firstName"
-    :text2="'Lastname: ' + loggedInUser.lastName"
+    :text1="'Total guests: ' + totalGuests + ' person'"
+    :text2="'Name: ' + loggedInUser.firstName"
     :text3="'City: ' + detailprop.city"
     :text4="'Address: ' + detailprop.address"
     :text5="'Owner: ' + owner.firstName + ' ' + owner.lastName"
-    :text6="'Check-in: ' + currentCheckInDate"
-    :text7="'Check-out: ' + currentCheckOutDate"
+    :text6="'Check-in: ' + range.start.toString().substring(15, 0)"
+    :text7="'Check-out: ' + range.end.toString().substring(15, 0)"
     :text8="' ______________________________ '"
     :text9="'Price: ' + priceWithProfit * differenceInDays + ' sek'"
     :img="detailprop.images[0]"
@@ -114,7 +126,7 @@ export default {
   data() {
     return {
       adult: null,
-      child: { id: "0" },
+      child: 0,
       price: this.price,
       date: "",
       days: null,
@@ -125,19 +137,8 @@ export default {
       currentCheckInDate: null,
       currentCheckOutDate: null,
       beds: [],
-
-      childrenMenu: [
-        { id: 0, name: "0" },
-        { id: 1, name: "1" },
-        { id: 2, name: "2" },
-        { id: 3, name: "3" },
-        { id: 4, name: "4" },
-        { id: 5, name: "5" },
-        { id: 6, name: "6" },
-        { id: 7, name: "7" },
-        { id: 8, name: "8" },
-        { id: 9, name: "9" },
-      ],
+      kidsArray: [],
+      totalGuests: null,
 
       range: {
         start: this.$store.state.dateRange.start,
@@ -157,13 +158,29 @@ export default {
     for (let i = 1; i < this.detailprop.beds + 1; i++) {
       this.beds.push(i);
     }
-    console.log(this.beds);
   },
 
   methods: {
     openModal() {
       this.showConfirmationBox = true;
       document.body.classList.add("modal-open");
+    },
+
+    renderKidsSelect() {
+      document
+        .getElementsByClassName("childSelect")[0]
+        .removeAttribute("disabled");
+
+      // this.child = null;
+
+      if (this.adult + this.child > this.detailprop.beds) {
+        this.child = this.detailprop.beds - this.adult;
+      }
+      this.kidsArray = [];
+
+      for (let i = 0; i < this.detailprop.beds - this.adult + 1; i++) {
+        this.kidsArray.push(i);
+      }
     },
 
     // Yang: because our method when clicking confirm will force refresh, we don't need to remove class.
@@ -173,7 +190,8 @@ export default {
     // },
 
     clearFields() {
-      (this.adult = 1), (this.child.id = 0);
+      (this.adult = 1), (this.child = 0);
+      document.getElementsByClassName("childSelect")[0].disabled = true;
     },
 
     async checkDuplicatedBooking() {
@@ -222,7 +240,7 @@ export default {
       } else if (this.$store.state.user.isAdmin === "true") {
         alert("You cannot make a personal booking when logged in as an admin");
         return;
-      } else if (!this.adult.id) {
+      } else if (!this.adult) {
         alert("Please choose how many adults");
         return;
       } else if (this.differenceInDays == 0) {
@@ -232,30 +250,24 @@ export default {
         alert("Ops, one of the days have been booked by others just a sec ago");
         window.location.reload();
         return;
-      } else if (0 + this.child.id + this.adult.id > this.detailprop.beds) {
-        alert(
-          "The maximum guests of this listing is " +
-            this.detailprop.beds +
-            ", please select an other bigger listing for your stay"
-        );
-        return;
       }
+      this.totalGuests = this.adult + this.child;
 
       // console.log(this.detailprop.unavailableDates);
       // console.log(this.range.start);
       // console.log(this.range.start.getTime());
 
       // alert(this.range.start);
-      // // this.range.start.setHours(0, 0, 0, 0);
-      // this.range.end.setHours(0, 0, 0, 0);
+      console.log(this.range.start.toString());
+      this.range.end.toString();
 
       let reservation = {
-        adult: this.adult.id,
-        children: this.child.id,
+        adult: this.adult,
+        children: this.child,
         price: this.priceWithProfit * this.differenceInDays,
         userId: this.$store.state.user.id,
-        startDate: this.range.start,
-        endDate: this.range.end,
+        startDate: this.range.start.toString(),
+        endDate: this.range.end.toString(),
         listingId: this.detailprop.id,
       };
 
