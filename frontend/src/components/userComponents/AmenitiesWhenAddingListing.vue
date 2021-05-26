@@ -69,6 +69,7 @@ export default {
     grid-auto-rows: 30px;
     max-width: 50%;
     margin: auto;
+    margin-top: 5%;
   }
 
   .amenityCard,
@@ -81,7 +82,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: black;
-    font-size: 16px;
+    font-size: 13px;
     text-shadow: 1px 1px 2px black;
     box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
   }
@@ -111,6 +112,7 @@ export default {
     grid-auto-rows: 45px;
     max-width: 50%;
     margin: auto;
+    margin-top: 5%;
   }
 
   .amenityCard,
@@ -123,7 +125,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: black;
-    font-size: 16px;
+    font-size: 13px;
     text-shadow: 1px 1px 2px black;
     box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
   }
@@ -154,6 +156,7 @@ export default {
     grid-auto-rows: 55px;
     max-width: 720px;
     margin: auto;
+    margin-top: 5%;
   }
 
   .amenityCard,

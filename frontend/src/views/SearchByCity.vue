@@ -54,7 +54,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
   }
 }
 
@@ -80,7 +80,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
   }
 }
 
@@ -106,7 +106,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
   }
 }
 </style>
