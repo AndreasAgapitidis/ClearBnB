@@ -79,7 +79,7 @@ export default {
 .profileBody {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -131,4 +131,87 @@ button {
   font-size: 15px;
   font-weight: bold;
 }
+
+@media only screen and (min-width: 320px){
+  .divider{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .reserv,
+  .owned{
+    width: 85%;
+    margin: 0 auto;
+    }
+
+    .owned > p {
+      font-size: 0.8rem;
+    }
+ 
+}
+@media only screen and (min-width: 576px){
+   .profileBanner{
+    border-radius: 0px;
+  }
+  .nameContainer{
+     width: 85%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .reserv,
+  .owned{
+    width: 85%;
+    margin: 0 auto;
+    }
+
+    .divider{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .infoContainer{
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  
+    .owned > p {
+      font-size: 1rem;
+    }
+
+}
+@media only screen and (min-width: 992px){
+  .profileBanner{
+    border-radius: 0px;
+  }
+
+  .nameContainer{
+    width: 85%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .divider{
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .reserv,
+  .owned{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .infoContainer{
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+
+  .profileBody{
+    max-width: 1090px;
+  }
+
+}
+
 </style>

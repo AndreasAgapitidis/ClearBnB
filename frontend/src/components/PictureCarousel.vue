@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <transition name="fade" appaer>
     <div class="darken" v-if="showModal"></div>
   </transition>
@@ -121,6 +122,7 @@ export default {
 .images img {
   height: 65px;
   width: 50px;
+  cursor: pointer;
   border-radius: 10px;
 }
 
@@ -191,6 +193,7 @@ h1 {
   margin-top: 50px;
   justify-self: center;
   animation: 0.5s ease-out 0s 1 slideInFromLeft;
+  cursor: pointer;
 }
 
 @keyframes slideInFromLeft {
@@ -226,12 +229,14 @@ h1 {
   display: flex;
   flex-direction: row-reverse;
   grid-area: left;
+  cursor: pointer;
 }
 
 .rightArrow {
   place-self: center;
   display: flex;
   grid-area: right;
+  cursor: pointer;
 }
 
 .leftArrow span {
@@ -308,6 +313,7 @@ h1 {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid black;
+  cursor: pointer;
 }
 
 .btn-right {
@@ -315,6 +321,7 @@ h1 {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 10px solid black;
+  cursor: pointer;
 }
 
 @media (min-width: 320px) {

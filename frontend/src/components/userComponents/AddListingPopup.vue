@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <transition name="fade" appear>
     <div class="overlay" v-if="!showConfirmationBox">
       <div class="darken" @click="toggleShowAddListingPopUp"></div>
@@ -222,6 +223,9 @@ export default {
 </script>
 
 <style scoped>
+.amenitiesContainer {
+  width: 60%;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -239,6 +243,7 @@ label.checkbox {
 .form h1 {
   color: white;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -311,9 +316,6 @@ button,
   border: none;
 }
 
-.amenitiesContainer {
-  width: 40%;
-}
 .removeImg {
   margin-top: 5px;
   background-color: rgb(121, 49, 49);
