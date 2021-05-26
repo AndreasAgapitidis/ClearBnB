@@ -1,83 +1,83 @@
 <template>
   <div v-if="ownedHousing" class="card-Container">
     <div
-    v-for="houses in ownedList"
-    v-bind:key="houses.id"
-    v-bind:reserv="houses"
-     class="reservationCards">
-
-        <img :src="houses.images[0]">
-        <h5 class="streetName">{{houses.address}}</h5>
-        <p class="beds">{{houses.beds}} Beds</p>
-        <p class="area">{{houses.area}} m2</p>
-        <h5 class="price">{{houses.price}}SEK<br> <span>per Night</span></h5>
-        <!-- <button class="cancel">&#9998;</button> -->
-
-      </div>
+      v-for="houses in ownedList"
+      v-bind:key="houses.id"
+      v-bind:reserv="houses"
+      class="reservationCards"
+    >
+      <img :src="houses.images[0]" />
+      <h5 class="streetName">{{ houses.address }}</h5>
+      <p class="beds">{{ houses.beds }} Beds</p>
+      <p class="area">{{ houses.area }} m2</p>
+      <h5 class="price">
+        {{ houses.price }}SEK<br />
+        <span>per Night</span>
+      </h5>
+      <!-- <button class="cancel">&#9998;</button> -->
     </div>
-  
+  </div>
 </template>
 
 <script>
 export default {
-
-     data(){
-      return {
-      ownedList: []
-      }
+  data() {
+    return {
+      ownedList: [],
+    };
   },
 
-   computed: {
-    ownedHousing: async function() {
+  computed: {
+    ownedHousing: async function () {
       if (!this.$store.state.user) {
         return [];
       }
-      await this.$store.dispatch("fetchListings")
-    
+      await this.$store.dispatch("fetchListings");
+
       let userId = this.$store.state.user.id;
       let houseListings = this.$store.state.listings;
       this.ownedList = [];
-      
-      for (let i = 0; i < houseListings.length; i++){
-        if(houseListings[i].owner === userId){
-          this.ownedList.push(houseListings[i])
+
+      for (let i = 0; i < houseListings.length; i++) {
+        if (houseListings[i].owner === userId) {
+          this.ownedList.push(houseListings[i]);
         }
       }
       return this.ownedList;
-    }
+    },
   },
 
   // re-render page if a listing is added by the user
   watch: {
-    '$store.state.addedListing': async function() {
+    "$store.state.addedListing": async function () {
       if (!this.$store.state.user) {
         return [];
       }
-      await this.$store.dispatch("fetchListings")
-    
+      await this.$store.dispatch("fetchListings");
+
       let userId = this.$store.state.user.id;
       let houseListings = this.$store.state.listings;
       this.ownedList = [];
-      
-      for (let i = 0; i < houseListings.length; i++){
-        if(houseListings[i].owner === userId){
-          this.ownedList.push(houseListings[i])
+
+      for (let i = 0; i < houseListings.length; i++) {
+        if (houseListings[i].owner === userId) {
+          this.ownedList.push(houseListings[i]);
         }
       }
-    }
+    },
   },
-}
+};
 </script>
 
 <style scoped>
-.card-Container{
+.card-Container {
   width: 85%;
   height: 100%;
   margin-left: 10px;
   margin-top: 10px;
 }
 
-.reservationCards{
+.reservationCards {
   width: 100%;
   height: 100px;
   margin: 1em 0;
@@ -85,10 +85,9 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-  "img sn sn . p"
-  "img g g . ."
-  "img a . . ."
-  ;
+    "img sn sn . p"
+    "img g g . ."
+    "img a . . .";
 }
 
 .reservationCards > img {
@@ -99,122 +98,110 @@ export default {
   border-radius: 17px 0 0 17px;
 }
 
-.streetName{
+.streetName {
   text-align: left;
   margin: 10px 0 0 10px;
   grid-area: sn;
- 
 }
 
-.beds{
+.beds {
   align-self: center;
   text-align: left;
   margin: 0 0 0 10px;
   grid-area: g;
 }
 
-.area{
+.area {
   text-align: left;
-margin: 0 0 0 10px;
+  margin: 0 0 0 10px;
   grid-area: a;
 }
 
-
-.price{
+.price {
   margin: 0;
   grid-area: p;
   text-align: right;
   color: rgb(114, 209, 233);
 }
 
-.price > span{
+.price > span {
   font-size: 12px;
   font-weight: 200;
   color: black;
 }
 
-
- button {
-    border: none;
-    background: transparent;
-    width: 30px;
-    justify-self: flex-end;
+button {
+  border: none;
+  background: transparent;
+  width: 30px;
+  justify-self: flex-end;
 }
 
-p{
+p {
   font-size: 12px;
 }
+/* font */
 
-@media only screen and (min-width: 320px){
-
-.reservationCards{
- margin-bottom: 30px;
-  width: 100%;
-  height: 200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-  "img img img img"
-  "sn sn p p"
-  "g g . . "
-  "a a . . "
-  ;
-}
-
-.reservationCards > img {
-  height: 100px;
-  border-radius: 17px;
-  } 
-
-  .card-Container{
-    margin: 0 auto;
+@media only screen and (min-width: 320px) {
+  .reservationCards {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "img img img img"
+      "sn sn p p"
+      "g g . . "
+      "a a . . ";
   }
-}
-
-@media only screen and (min-width: 576px){
-.reservationCards{
-  margin-bottom: 35px;
-  height: 100px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas:
-        "img img sn sn p"
-        "img img g g ."
-        "img img a a .";
-}
 
   .reservationCards > img {
-  height: 100%;
-  border-radius: 17px 0 0 17px;
-}
-.card-Container{
-    width: 85%;
-    margin: 0 auto;
+    height: 100px;
+    border-radius: 17px;
   }
 
-
-}
-@media only screen and (min-width: 992px){
-
-.reservationCards{
-  width: 100%;
-  margin: 0 auto 35px auto;
-
-}
-  .card-Container{
-    width: 85%;
-    margin: 0 auto;
-  }
-
-
-}
-@media only screen and (min-width: 1200px){
-
-  .card-Container{
-    width: 85%;
+  .card-Container {
     margin: 0 auto;
   }
 }
 
+@media only screen and (min-width: 576px) {
+  .reservationCards {
+    margin-bottom: 35px;
+    height: 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "img img sn sn p"
+      "img img g g ."
+      "img img a a .";
+  }
+
+  .reservationCards > img {
+    height: 100%;
+    border-radius: 17px 0 0 17px;
+  }
+  .card-Container {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .reservationCards {
+    width: 100%;
+    margin: 0 auto 35px auto;
+  }
+  .card-Container {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .card-Container {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
 </style>
