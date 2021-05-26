@@ -8,7 +8,7 @@
     <transition name="fade" appear>
       <div
         class="confirmationContainer"
-        v-if="img && divSwitch"
+        v-if="divSwitch"
         :style="backgroundStyles(img)"
       >
         <div class="darkerBackGround"></div>
@@ -78,9 +78,15 @@ export default {
     },
 
     backgroundStyles(image) {
-      return {
-        "background-image": `url(${image})`,
-      };
+      if (image) {
+        return {
+          "background-image": `url(${image})`,
+        };
+      } else {
+        image =
+          "https://media.istockphoto.com/photos/woman-giving-thumbs-up-over-plain-background-picture-id1166740465?k=6&m=1166740465&s=612x612&w=0&h=jOD2vW77N6PzuTViLDFuBSA-IUeXWcMTTc4r6Bw-R2A=";
+        return { "background-image": `url(${image})` };
+      }
     },
   },
 };
@@ -112,7 +118,7 @@ p {
   color: white;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(11, minmax(0, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(10vh, 1fr));
   grid-template-areas:
     "h1 h1 h1 h1"
     "h2 h2 h2 h2"
@@ -256,7 +262,6 @@ p {
   .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
       "h1 h1 h1 h1"
       "h2 h2 h2 h2"
@@ -289,10 +294,6 @@ p {
 }
 
 @media (min-width: 992px) {
-  .profilePic {
-    height: 135%;
-  }
-
   .content h2 {
     font-size: 2.5em;
   }
@@ -306,7 +307,6 @@ p {
   .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(11, 1fr);
     grid-template-areas:
       "h1 h1 h1 h1"
       "h2 h2 h2 h2"

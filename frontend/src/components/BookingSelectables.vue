@@ -85,7 +85,7 @@
     class="ConfirmationTemplate"
     v-if="loggedInUser && showConfirmationBox && detailprop && owner"
     :header="'Thank you ' + loggedInUser.firstName"
-    :headerTwo="'Thank you for your booking, the booking is now confirmed'"
+    :headerTwo="'The booking is now confirmed'"
     :headerThree="'Booking number: ' + currentReservationID"
     :text1="'Name: ' + loggedInUser.firstName"
     :text2="'Lastname: ' + loggedInUser.lastName"
@@ -359,6 +359,10 @@ export default {
 /* body.modal-open {
   overflow: hidden;
 } */
+select {
+  cursor: pointer;
+}
+
 .moreCat {
   z-index: -2;
   position: sticky;
@@ -439,9 +443,10 @@ button {
   transition: 0.4s ease-out;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
   font-family: cursive;
+  cursor: pointer;
 }
 
-button:hover {
+.buttons button:hover {
   box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
 }
 
