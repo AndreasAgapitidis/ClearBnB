@@ -19,7 +19,7 @@
 export default {
   data() {
     return {
-      chosenAmenities: this.$store.state.chosenAmenities,
+      chosenAmenities: [],
       amenities: ["Wi-Fi", "Pool", "Balcony", "Disability", "Family friendly"],
     };
   },
@@ -33,8 +33,10 @@ export default {
           (item) => item !== amenity
         );
       }
+      try {
+        this.$parent.chosenAmenities = this.chosenAmenities;
+      } catch (error) {}
 
-      this.$parent.chosenAmenities = this.chosenAmenities;
       try {
         this.$parent.filterAmenities();
       } catch (error) {}
