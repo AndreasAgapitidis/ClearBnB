@@ -218,7 +218,15 @@ export default {
     margin-right: 0;
   }
 }
-
+@media only screen and (min-width: 576px) {
+  .inputCityAndDateContainer {
+    align-items: center;
+    justify-content: center;
+  }
+  .InputContainer {
+    margin-right: 0;
+  }
+}
 @media only screen and (min-width: 992px) {
   .inputCityAndDateContainer {
     align-items: center;
