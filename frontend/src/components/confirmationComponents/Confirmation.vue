@@ -8,7 +8,7 @@
     <transition name="fade" appear>
       <div
         class="confirmationContainer"
-        v-if="img && divSwitch"
+        v-if="divSwitch"
         :style="backgroundStyles(img)"
       >
         <div class="darkerBackGround"></div>

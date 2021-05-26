@@ -49,42 +49,117 @@ export default {
 </script>
 
 <style scoped>
-p {
-  padding: 0;
-  margin: 0;
-}
-
 .amenitiesContainer {
-  padding: 10px;
-  display: grid;
-  gap: 2px;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-auto-rows: 45px;
-  max-width: 50%;
-  margin: auto;
+  max-width: 40%;
 }
 
-.amenityCard,
-.isClicked {
-  width: 100%;
-  height: 100%;
-  background-color: #262626;
-  border-radius: 0 22px 0 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+@media only screen and (min-device-width: 320px) and (max-device-width: 576px) {
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .amenitiesContainer {
+    height: 200px;
+    display: grid;
+    gap: 12px;
+    padding: 10px;
+    grid-template-rows: repeat(auto-fit, minmax(30px, 1fr));
+    grid-auto-rows: 30px;
+    margin: auto;
+  }
+
+  .amenityCard,
+  .isClicked {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    border-radius: 0 22px 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+  }
+  .isClicked {
+    background-color: rgb(177, 230, 235);
+    color: rgb(36, 36, 36);
+    box-shadow: none;
+  }
+  .amenityCard:hover {
+    background-color: rgb(177, 230, 235);
+    color: rgb(36, 36, 36);
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 }
-.isClicked {
-  background-color: rgb(185, 240, 222);
-  color: rgb(36, 36, 36);
-  box-shadow: none;
-}
-.amenityCard:hover {
-  background-color: rgb(185, 240, 222);
-  color: rgb(36, 36, 36);
-  cursor: pointer;
-  transform: scale(1.015);
+@media only screen and (min-device-width: 576px) and (max-device-width: 992px) {
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .amenitiesContainer {
+    padding: 10px;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 45px;
+    margin: auto;
+  }
+
+  .amenitiesContainer {
+    padding: 10px;
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: 45px;
+    max-width: 50%;
+    margin: auto;
+  }
+
+  @media only screen and (min-device-width: 992px) {
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .amenitiesContainer {
+      padding: 10px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-auto-rows: 55px;
+      margin: auto;
+    }
+
+    .amenityCard,
+    .isClicked {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(238, 238, 238);
+      border-radius: 0 22px 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 16px;
+      text-shadow: 1px 1px 2px black;
+      box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+    }
+    .isClicked {
+      background-color: rgb(177, 230, 235);
+      color: rgb(36, 36, 36);
+      box-shadow: none;
+    }
+    .amenityCard:hover {
+      background-color: rgb(177, 230, 235);
+      color: rgb(36, 36, 36);
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
 }
 </style>
