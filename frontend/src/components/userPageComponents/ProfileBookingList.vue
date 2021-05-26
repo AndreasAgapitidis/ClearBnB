@@ -64,6 +64,14 @@ export default {
       );
       let reservations = await response.json();
 
+      // remove reservations that have already happened
+      for (let i = 0; i < reservations.length; i++) {
+        if (new Date(reservations[i].endDate) < new Date().getTime()) {
+          reservations.splice(i, 1);
+          i--;
+        }
+      }
+
       // loop through and add a "listing" property to each reservation in "reservations" array
 
       for (let i = 0; i < reservations.length; i++) {

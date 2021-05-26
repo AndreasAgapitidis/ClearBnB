@@ -2,11 +2,11 @@
   <!-- a -->
   <div class="container">
     <input
-      @keyup.enter="fetchUser(this.userInput)"
+      @keyup.enter="fetchUser(userInput)"
       placeholder="Search first name"
       v-model="userInput"
     />
-    <button @click="fetchUser(this.userInput)">Search</button>
+    <button @click="fetchUser(userInput)">Search</button>
     <div v-if="pressed">
       <UserItem v-for="user of users" v-bind:key="user.id" v-bind:user="user" />
     </div>

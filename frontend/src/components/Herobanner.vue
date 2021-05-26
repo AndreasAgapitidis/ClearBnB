@@ -7,7 +7,11 @@
   <div class="popDestContainer">
     <div class="popDestination">
       <h3>Popular destinations</h3>
-      <h4>Malmö | Stockholm | Madrid</h4>
+      <h4>
+        <a v-on:click="navToSearch">Malmö</a> |
+        <a v-on:click="navToSearch">Stockholm</a> |
+        <a v-on:click="navToSearch">Madrid</a>
+      </h4>
     </div>
   </div>
 
@@ -22,6 +26,13 @@ import InputCityAndPickDate from "../components/searchComponents/InputCityAndPic
 export default {
   components: {
     InputCityAndPickDate,
+  },
+  methods: {
+    navToSearch(e) {
+      console.log(e.target);
+      this.$router.push("/SearchByCity/" + e.target.innerText);
+      window.scrollTo(0, 0);
+    },
   },
 };
 </script>
@@ -109,6 +120,10 @@ h4 {
   background: rgb(165, 165, 165);
 }
 
+a {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 320px) {
   .popDestContainer {
     align-items: center;
@@ -119,7 +134,7 @@ h4 {
   }
 }
 
-@media only screen and (max-width: 576px){
+@media only screen and (max-width: 576px) {
   .popDestination {
     width: 16em;
   }
