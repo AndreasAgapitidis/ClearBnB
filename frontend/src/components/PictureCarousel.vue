@@ -134,7 +134,7 @@ h1 {
   transform: translate(-50%, -50%);
   color: white;
   font-size: 3em;
-  font-family: serif;
+  font-family: "Roboto";
 }
 
 .darken {
@@ -278,11 +278,11 @@ h1 {
 }
 
 .sliderCover {
-  height: 300px;
   width: 100vw;
   object-fit: cover;
   z-index: -1;
   filter: brightness(60%);
+  height: 42vh;
 }
 
 .slides {
@@ -325,6 +325,9 @@ h1 {
 }
 
 @media (min-width: 320px) {
+  h1 {
+    font-size: 2em;
+  }
 }
 
 @media (min-width: 576px) {
@@ -344,6 +347,7 @@ h1 {
     left: 13vw;
     top: 190px;
     transform: none;
+    font-size: 2.5em;
   }
 }
 

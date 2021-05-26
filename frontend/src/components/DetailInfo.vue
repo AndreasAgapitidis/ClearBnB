@@ -168,10 +168,10 @@ export default {
       let check = false;
       for (let i = 0; i < this.detailprop.amenities.length; i++) {
         if (
-          this.detailprop.amenities[i] !== "Wi-Fi" ||
-          this.detailprop.amenities[i] !== "Pool" ||
-          this.detailprop.amenities[i] !== "Balcony" ||
-          this.detailprop.amenities[i] !== "Family friendly" ||
+          this.detailprop.amenities[i] !== "Wi-Fi" &&
+          this.detailprop.amenities[i] !== "Pool" &&
+          this.detailprop.amenities[i] !== "Balcony" &&
+          this.detailprop.amenities[i] !== "Family friendly" &&
           this.detailprop.amenities[i] !== "Disability"
         ) {
           check = true;
@@ -184,8 +184,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
-
 .ownerField {
   cursor: pointer;
 }
@@ -205,7 +203,7 @@ li {
   flex-direction: column;
   place-items: center;
   padding: 5px 0 5px 0;
-  font-family: cursive;
+  font-family: "Roboto";
 }
 
 .DetailInfoContainer {
@@ -253,13 +251,13 @@ li {
 }
 
 .Description h1 {
-  font-size: 3em;
-  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  font-family: "Roboto";
 }
 
 .Description p {
-  font-size: 1.5em;
-  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  font-family: "Roboto";
 }
 
 .details {
@@ -267,17 +265,16 @@ li {
 }
 
 .details p {
-  font-size: 1.5em;
-  font-family: cursive;
+  font-size: 1.2em;
+  font-family: "Roboto";
 }
 
 @media (min-width: 320px) {
   .DetailInfoContainer {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
     grid-template-areas:
-      "des des des des"
       "des des des des"
       "des des des des"
       "det det det det"
