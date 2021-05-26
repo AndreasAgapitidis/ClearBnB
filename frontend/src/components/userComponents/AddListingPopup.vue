@@ -55,7 +55,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Area (Integer)"
+            placeholder="Area"
             v-model="area"
             required
           />
@@ -63,7 +63,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Beds (Integer)"
+            placeholder="Beds"
             v-model="beds"
             required
           />
@@ -71,7 +71,7 @@
             class="txtInput"
             type="number"
             min="1"
-            placeholder="Price per night (Integer)"
+            placeholder="Price per night"
             v-model="price"
             required
           />
@@ -79,24 +79,20 @@
             class="imgInput"
             id="IMG"
             type="text"
-            placeholder="Add image URL (up to 5 images)"
+            :placeholder="'Add image URL (' + (5 - images.length + ' left) ')"
+            :style="{ visibility: images.length < 5 ? 'visible' : 'hidden' }"
             v-model="imageURL"
             required
           />
+
           <button
             class="addImg"
             @click.prevent="addImage"
-            v-if="images.length < 5"
+            :style="{ visibility: imageURL ? 'visible' : 'hidden' }"
           >
             Add image
           </button>
-          <button
-            class="removeImg"
-            @click.prevent="removeImages"
-            v-if="images.length > 0"
-          >
-            Remove all images
-          </button>
+
           <div class="images">
             <img
               :src="image"
@@ -105,6 +101,15 @@
               v-bind:key="image"
             />
           </div>
+
+          <button
+            class="removeImg"
+            @click.prevent="removeImages"
+            :style="{ visibility: images.length > 0 ? 'visible' : 'hidden' }"
+          >
+            Remove all images
+          </button>
+
           <button class="addListing">ADD LISTING</button>
         </form>
       </div>
@@ -191,6 +196,9 @@ export default {
         body: JSON.stringify(listing),
       });
       this.addedListing = await res.json();
+      this.chosenAmenities = [];
+      this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
+      this.$store.dispatch("signalAddedListing"); // this is done to signal that the User Profile Page should re-render
       this.showConfirmationBox = true;
       this.chosenAmenities = [];
     },
@@ -250,6 +258,7 @@ label.checkbox {
 
   max-width: 75vw;
   max-height: 100vh;
+  min-height: 750px;
   background-image: linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
     url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
   background-repeat: no-repeat;
@@ -286,17 +295,24 @@ form {
   justify-content: center;
   margin-top: 20px;
   width: 100%;
-}
+  min-height: 750px;
 
+  text-align-last: center;
+  text-align: -webkit-center;
+}
 .txtInput,
 button,
 .imgInput {
   display: block;
   margin: 0 auto 15px;
-  width: 50%;
-  height: 25px;
+  width: 40%;
+  height: 35px;
   border-radius: 10px;
   border: none;
+}
+
+.amenitiesContainer {
+  width: 40%;
 }
 .removeImg {
   margin-top: 5px;
@@ -316,6 +332,10 @@ button {
   display: block;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .addImg {
   margin: auto;
   width: 50%;
@@ -327,6 +347,14 @@ img {
 }
 .addListing {
   bottom: 0;
+}
+
+.addImages {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  place-content: center;
+  min-height: 50px;
 }
 
 .images {
@@ -346,30 +374,9 @@ img {
   margin-top: 10px;
 }
 
-/*----------- closeBTN ----------- */
-#mdiv {
-  width: 25px;
-  height: 25px;
-  background-color: red;
-  border: 1px solid black;
-  display: flex;
-  float: right;
-}
-
-.mdiv {
-  height: 25px;
-  width: 2px;
-  margin-left: 12px;
-  background-color: black;
-  transform: rotate(45deg);
-  z-index: 1;
-}
-
-.md {
-  height: 25px;
-  width: 2px;
-  background-color: black;
-  transform: rotate(90deg);
-  z-index: 2;
+@media screen and (min-width: 1200px) {
+  .popUpcontainer {
+    width: 50vw;
+  }
 }
 </style>

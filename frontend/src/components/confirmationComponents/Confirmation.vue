@@ -91,6 +91,13 @@ export default {
   z-index: 1;
 }
 
+h1,
+h2,
+h3,
+p {
+  text-shadow: 0px 0px 30px #0e0e0e;
+}
+
 .overlay {
   position: fixed;
   top: 0;
