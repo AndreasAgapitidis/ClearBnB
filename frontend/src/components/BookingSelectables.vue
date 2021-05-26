@@ -234,7 +234,7 @@ export default {
         alert("You need to log in in order to book!");
         window.scrollTo(0, 0);
         return;
-      } else if (this.$store.state.user.isAdmin === 'true') {
+      } else if (this.$store.state.user.isAdmin === "true") {
         alert("You cannot make a personal booking when logged in as an admin");
         return;
       } else if (!this.adult.id) {
@@ -399,6 +399,8 @@ export default {
   align-self: center;
   text-decoration: underline;
   -webkit-text-stroke: thin;
+  font-size: 1.5em;
+  font-family: "Montserrat";
 }
 
 .prieContrainer {
@@ -410,6 +412,8 @@ export default {
 
 .custom-number {
   grid-area: sel;
+  font-size: 1em;
+  font-family: "Montserrat";
 }
 
 select {
@@ -420,7 +424,6 @@ select {
 }
 
 .buttons {
-  margin: 50px 0px;
   display: flex;
   place-content: space-evenly;
   margin: 0px 0px 50px 0px;
@@ -434,6 +437,7 @@ button {
   color: white;
   transition: 0.4s ease-out;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  font-family: cursive;
 }
 
 button:hover {
@@ -446,5 +450,80 @@ button:hover {
 
 .cancel {
   background-color: red;
+}
+
+@media (min-width: 320px) {
+  .calendar {
+    margin-top: 0px;
+  }
+
+  .info-display {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "det det det"
+      "det det det"
+      "sel sel sel"
+      "sel sel sel";
+    margin-top: 0px;
+    justify-content: center;
+    width: 90vw;
+    margin-inline: auto;
+  }
+
+  .moreCat {
+    margin-right: 30vw;
+  }
+}
+@media (min-width: 576px) {
+  .calendar {
+    margin-top: 30px;
+  }
+
+  .info-display {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    grid-template-areas: "det sel";
+    margin-top: 30px;
+  }
+
+  .moreCat {
+    margin-right: 15vw;
+  }
+}
+@media (min-width: 768px) {
+  .calendar {
+    width: 60vw;
+    margin-top: 50px;
+  }
+
+  .info-display {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "det"
+      "sel";
+    width: 60vw;
+    margin-top: 10px;
+  }
+
+  .moreCat {
+    margin-right: 20vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .info-display {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+    grid-template-areas: "det sel";
+    width: 60vw;
+    margin-top: 30px;
+  }
+  .moreCat {
+    margin-right: 12vw;
+  }
 }
 </style>

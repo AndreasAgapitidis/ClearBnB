@@ -43,17 +43,23 @@ export default {
 
   methods:{
 
-    select: function(event) {
-       if(confirm("Are you sure you want to delete this reservation?")){
-      let targetId = event.id;
-      this.$store.dispatch('deleteReservation', targetId);
-       }
+    select: async function(event) {
+      if(confirm("Are you sure you want to delete this reservation?")){
+        let targetId = event.id;
+        await this.$store.dispatch('deleteReservation', targetId);
+
+        // update displayed reservation array to re-render bookings
+        for(let i = 0; i < this.reservationList.length; i++){ 
+          if (this.reservationList[i].id === targetId) {
+            this.reservationList.splice(i, 1);
+          }
+        }
+      }
     }
   },
 
   computed: {
-    reservations: 
-    async function() {
+    reservations: async function() {
       if (!this.$store.state.user) {
         return [];
       }
@@ -75,7 +81,7 @@ export default {
 
 <style scoped>
 .card-Container{
-  width: 350px;
+  width: 85%;
   height: 100%;
   margin-left: 10px;
   margin-top: 10px;
@@ -98,21 +104,21 @@ export default {
 .reservationCards > img {
   grid-area: img;
   height: 100%;
-  width: 120px;
+  width: 100%;
   object-fit: cover;
   border-radius: 17px 0 0 17px;
 }
 
 .streetName{
   text-align: left;
-  margin: 0 0 0 10px;
+  margin: 10px 0 0 10px;
   grid-area: sn;
  
 }
 
 .guests{
   text-align: left;
-margin: 0 0 0 10px;
+margin: 10px 0 0 10px;
   grid-area: g;
 }
 
@@ -149,6 +155,76 @@ margin: 0 0 0 10px;
 
 p{
   font-size: 12px;
+}
+
+@media only screen and (min-width: 320px){
+
+.reservationCards{
+ margin-bottom: 30px;
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "img img img img"
+  "sn sn . p"
+  "ch ch . ."
+  "g g . ca"
+  ;
+}
+
+.reservationCards > img {
+  height: 100px;
+  border-radius: 17px;
+}
+
+.card-Container{
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 576px){
+.reservationCards{
+  margin-bottom: 35px;
+  height: 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+        "img img sn sn p"
+        "img img g g ."
+        "img img ch ch ca";
+}
+
+  .reservationCards > img {
+  height: 100%;
+  border-radius: 17px 0 0 17px;
+}
+
+ .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
+
+}
+@media only screen and (min-width: 992px){
+  .reservationCards{
+  width: 100%;
+  margin: 0 auto 35px auto;
+}
+   .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
+}
+@media only screen and (min-width: 1200px){
+
+   .card-Container{
+     width: 85%;
+    margin: 0 auto;
+  }
+
 }
 
 </style>

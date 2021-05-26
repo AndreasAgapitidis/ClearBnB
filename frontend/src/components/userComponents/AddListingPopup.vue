@@ -77,6 +77,7 @@
           />
           <input
             class="imgInput"
+            id="IMG"
             type="text"
             :placeholder="'Add image URL (' + (5 - images.length + ' left) ')"
             :style="{ visibility: images.length < 5 ? 'visible' : 'hidden' }"
@@ -197,18 +198,20 @@ export default {
       this.addedListing = await res.json();
       this.chosenAmenities = [];
       this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
+      this.$store.dispatch("signalAddedListing"); // this is done to signal that the User Profile Page should re-render
       this.showConfirmationBox = true;
+      this.chosenAmenities = [];
     },
     addImage() {
       if (this.images.length < 5) {
         this.images.push(this.imageURL);
         this.imageURL = "";
       }
-      document.getElementsByClassName("imgInput").removeAttribute(required);
+      document.getElementById("IMG").removeAttribute("required");
     },
     removeImages() {
       this.images = [];
-      document.getElementsByClassName("imgInput").addAttribute(required);
+      document.getElementById("IMG").setAttribute("required", true);
     },
     toggleShowAddListingPopUp() {
       this.$parent.showPopUp = !this.$parent.showPopUp;

@@ -40,4 +40,9 @@ export default {
 </script>
 
 <style scoped>
+
+.container {
+  margin: 0 1em 0 1em;
+}
+
 </style>
