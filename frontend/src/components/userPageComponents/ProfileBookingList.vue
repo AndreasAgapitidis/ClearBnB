@@ -24,9 +24,8 @@
       </p>
 
       <h5 class="price">
-        <br />
-        {{ reservation.price }}SEK<span><br />Total</span>
-      </h5>
+    
+        {{ reservation.price }}SEK</h5>
 
       <button v-on:click="select(reservation)" class="cancel">&#10008;</button>
     </div>
@@ -209,13 +208,13 @@ p {
   }
   .card-Container {
     width: 85%;
-    margin: 0 auto;
+    margin: 1em auto;
   }
 }
 @media only screen and (min-width: 1200px) {
   .card-Container {
     width: 85%;
-    margin: 0 auto;
+    margin: 1em auto;
   }
 }
 </style>
