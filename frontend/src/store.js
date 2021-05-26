@@ -24,6 +24,8 @@ export default createStore({
 
     chosenAmenities: [],
 
+    addedListing: 0, // used purely to watch a variable so that adding a listing re-renders the profile page
+
   },
 
   // this.$store.commit('mutationName')
@@ -64,7 +66,11 @@ export default createStore({
     
     setChosenAmenities(state, chosenAmenities) {
       state.chosenAmenities = chosenAmenities
-    }
+    },
+
+    signalAddedListing(state) {
+      state.addedListing += 1;
+    },
 
   },
 
@@ -171,8 +177,11 @@ export default createStore({
 
       setChosenAmenities(store, chosenAmenities) {
         store.commit('setChosenAmenities', chosenAmenities)
-      }
+      },
 
+      signalAddedListing(store) {
+        store.commit('signalAddedListing')
+      },
     }
 });
 

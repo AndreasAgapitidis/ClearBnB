@@ -352,6 +352,10 @@ select {
   cursor: pointer;
 }
 
+select:focus-visible {
+  outline: none;
+}
+
 .moreCat {
   z-index: -2;
   position: sticky;
@@ -393,8 +397,8 @@ select {
   align-self: center;
   text-decoration: underline;
   -webkit-text-stroke: thin;
-  font-size: 1.5em;
-  font-family: "Montserrat";
+  font-size: 1em;
+  font-family: "Roboto";
 }
 
 .prieContrainer {
@@ -407,7 +411,7 @@ select {
 .custom-number {
   grid-area: sel;
   font-size: 1em;
-  font-family: "Montserrat";
+  font-family: "Roboto";
 }
 
 select {
@@ -431,7 +435,7 @@ button {
   color: white;
   transition: 0.4s ease-out;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
-  font-family: cursive;
+  font-family: "Roboto";
   cursor: pointer;
 }
 
