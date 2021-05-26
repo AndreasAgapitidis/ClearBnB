@@ -186,7 +186,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
+  
     margin-bottom: 2em;
   }
 
@@ -308,7 +308,7 @@ export default {
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-around; 
     margin-bottom: 2em;
   }
 
