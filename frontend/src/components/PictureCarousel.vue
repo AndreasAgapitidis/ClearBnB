@@ -345,7 +345,7 @@ h1 {
 
   h1 {
     left: 13vw;
-    top: 190px;
+    top: 30vh;
     transform: none;
     font-size: 2.5em;
   }
