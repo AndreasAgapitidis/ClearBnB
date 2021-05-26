@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div class="component4">
     <div class="availableHouses">
       <p>Available apt./houses</p>
@@ -116,7 +117,7 @@ export default {
 .HouseCard1,
 .HouseCard2,
 .HouseCard3,
-.HouseCard4{
+.HouseCard4 {
   border: 1px solid black;
   border-radius: 20px;
   width: 150px;
@@ -132,7 +133,6 @@ export default {
 }
 .HouseCard3 {
   grid-area: H3;
-
 }
 .HouseCard4 {
   grid-area: H4;
@@ -162,104 +162,99 @@ export default {
   margin: 0.5em;
 }
 
-.divider{
-    margin: 4em auto;
+.divider {
+  margin: 4em auto;
   width: 85%;
   height: 1px;
   background: rgb(165, 165, 165);
 }
 
-@media only screen and (max-width: 320px){
-
-  .component4{
+@media only screen and (max-width: 320px) {
+  .component4 {
     gap: 1.5em;
     grid-template-columns: 1fr;
     grid-template-rows: 10% 1fr 1fr 1fr 1fr;
     grid-template-areas:
-    "title"
-    "H1"
-    "H2"
-    "H3" 
-    "H4";
+      "title"
+      "H1"
+      "H2"
+      "H3"
+      "H4";
   }
 
   .HouseCard1,
   .HouseCard2,
   .HouseCard3,
-  .HouseCard4{
-  width: 15em ;
-}
-  .availableHouses{
-        text-align: center;
-        font-size: 18px;
+  .HouseCard4 {
+    width: 15em;
+  }
+  .availableHouses {
+    text-align: center;
+    font-size: 18px;
   }
 }
 
-@media only screen and (max-width: 576px){
-  .component4{
+@media only screen and (max-width: 576px) {
+  .component4 {
     width: 85%;
     margin: 0 auto;
   }
-  .availableHouses{
-        text-align: center;
-        font-size: 20px;
+  .availableHouses {
+    text-align: center;
+    font-size: 20px;
   }
   .HouseCard1,
   .HouseCard2,
   .HouseCard3,
-  .HouseCard4{
-  width: 100% ;
-}
+  .HouseCard4 {
+    width: 100%;
+  }
 }
 
-@media only screen and (max-width: 992px){
-   .component4{
+@media only screen and (max-width: 992px) {
+  .component4 {
     width: 85%;
     margin: 10em auto;
   }
- .availableHouses{
-        text-align: left;
-        font-size: 25px;
+  .availableHouses {
+    text-align: left;
+    font-size: 25px;
   }
   .HouseCard1,
   .HouseCard2,
   .HouseCard3,
-  .HouseCard4{
-  width: 100% ;
+  .HouseCard4 {
+    width: 100%;
+  }
 }
 
-}
-
-@media only screen and (min-width: 993px){
-   .component4{
+@media only screen and (min-width: 993px) {
+  .component4 {
     width: 85%;
     margin: 10em auto;
     gap: 1.5em;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 10% 1fr 1fr;
     grid-template-areas:
-    "title ."
-    "H1 H2"
-    "H3 H4";
-  
+      "title ."
+      "H1 H2"
+      "H3 H4";
   }
- .availableHouses{
-        text-align: center;
-         font-size: 25px;
+  .availableHouses {
+    text-align: center;
+    font-size: 25px;
   }
   .HouseCard1,
   .HouseCard2,
   .HouseCard3,
-  .HouseCard4{
-  width:  25rem;
-}
+  .HouseCard4 {
+    width: 25rem;
+  }
 }
 
-@media only screen and (min-width: 1200px){
-  .component4{
+@media only screen and (min-width: 1200px) {
+  .component4 {
     max-width: 1020px;
   }
-
 }
-
 </style>

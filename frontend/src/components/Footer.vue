@@ -1,81 +1,87 @@
 <template>
+  <!-- a -->
   <footer>
     <div class="container">
-      
       <div class="top">
-        
-          <div class="Contact">
-          <img src='../assets/Logo ClearBnB/Footer/Calling.png' alt="">
+        <div class="Contact">
+          <img src="../assets/Logo ClearBnB/Footer/Calling.png" alt="" />
           <h3>Contact us</h3>
-          <p>+99 (0) 101 0000 888</p></div>
-          <div class="Maps">
-          <img src='../assets/Logo ClearBnB/Footer/Location.png' alt="">
+          <p>+99 (0) 101 0000 888</p>
+        </div>
+        <div class="Maps">
+          <img src="../assets/Logo ClearBnB/Footer/Location.png" alt="" />
           <h3>Adress</h3>
-          <p>Blabla street 69<br>23365 155 Schweiz</p>
-          </div>
-          <div class="getBack">
-            <a href="#" @click="scrollToTop()">
-              <img src="../assets/Logo ClearBnB/Footer/Arrow - Up Square.png" alt="">
-            </a>
-          </div>
-        
+          <p>Blabla street 69<br />23365 155 Schweiz</p>
+        </div>
+        <div class="getBack">
+          <a href="#" @click="scrollToTop()">
+            <img
+              src="../assets/Logo ClearBnB/Footer/Arrow - Up Square.png"
+              alt=""
+            />
+          </a>
+        </div>
       </div>
 
-  <div class="divider"></div>
+      <div class="divider"></div>
 
-    <div class="bottom">
-      <div class="left-bottom">
-        <ul>
-        <li><a href="#"><img src='../assets/Logo ClearBnB/Footer/Face.png' alt=""></a></li>
-        <li><a href="#"><img src='../assets/Logo ClearBnB/Footer/Insta.png' alt=""></a></li>
-        <li><a href="#"><img src='../assets/Logo ClearBnB/Footer/Twitter.png' alt=""></a></li>
-      </ul>
+      <div class="bottom">
+        <div class="left-bottom">
+          <ul>
+            <li>
+              <a href="#"
+                ><img src="../assets/Logo ClearBnB/Footer/Face.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="../assets/Logo ClearBnB/Footer/Insta.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="../assets/Logo ClearBnB/Footer/Twitter.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="right-bottom">
+          <p>Copyright Anno 2021</p>
+        </div>
       </div>
-     <div class="right-bottom">
-       <p>Copyright Anno 2021</p>
-     </div>
-      
     </div>
-  </div>
-  
   </footer>
 </template>
 
 <script>
-
 export default {
-  data(){
-    return {
-     
-    }
+  data() {
+    return {};
   },
 
-  methods:
-  {
-    scrollToTop(){
-      window.scrollTo(0,0);
-     
-    }
-  }
-}
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+  },
+};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-footer{
+footer {
   height: auto;
-  
 }
 
-  .container {
+.container {
   height: 20em;
-  background-image: url('../assets/Footer-Header/Footer-Final.png');
+  background-image: url("../assets/Footer-Header/Footer-Final.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   margin: 0px;
-  color: #FAFAFA;
+  color: #fafafa;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
@@ -83,16 +89,15 @@ footer{
   font-family: Roboto, sans-serif;
 }
 
-.top{
- 
+.top {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.top > .Maps h3, p{
+.top > .Maps h3,
+p {
   margin: 0;
- 
 }
 
 .top > .Maps p {
@@ -100,19 +105,17 @@ footer{
   font-size: 13px;
 }
 
-
-.top > 
-.Contact h3, p{
+.top > .Contact h3,
+p {
   margin: 0;
 }
 
-.top > 
-.Contact p{
+.top > .Contact p {
   margin-top: 10px;
   font-size: 13px;
 }
 
-.Maps{
+.Maps {
   text-align: justify;
   margin-top: 20px;
 }
@@ -137,14 +140,13 @@ footer{
   width: 90%;
   margin: 0 auto;
   margin-top: 20px;
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.bottom{
-display: flex;
-justify-content: space-around;
-width: 100%;
-
+.bottom {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .left-bottom > ul {
@@ -161,102 +163,88 @@ width: 100%;
   height: 20px;
   widows: 20px;
   margin-bottom: 15px;
- 
 }
 
-.right-bottom > p{
+.right-bottom > p {
   font-weight: 100;
   font-size: 12px;
   font-style: italic;
   margin-bottom: 15px;
-  
 }
 
-
-@media screen and (max-width: 320px){
-
-  .container{
-   height: 25em;
+@media screen and (max-width: 320px) {
+  .container {
+    height: 25em;
   }
-  .getBack{
+  .getBack {
     display: none;
   }
-  .Maps{
-  text-align: start;
-  margin-top: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-end;
+  .Maps {
+    text-align: start;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
-  .Contact{
+  .Contact {
     justify-content: end;
-
   }
 
-  .bottom{
-flex-direction: column;
-align-items: center;
-
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-}
-
-@media screen and (max-width: 992px){
-   .container{
-   height: 27em;
+@media screen and (max-width: 992px) {
+  .container {
+    height: 27em;
   }
 
-   .Maps{
-  text-align: start;
-  margin-top: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-end;
+  .Maps {
+    text-align: start;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
-  .Contact{
+  .Contact {
     justify-content: end;
-
   }
-
 }
 
-@media screen and (min-width: 992px){
-   .container{
-   height: 27em;
+@media screen and (min-width: 992px) {
+  .container {
+    height: 27em;
   }
 
-    
-   .Maps{
-  text-align: start;
-  margin-top: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-end;
+  .Maps {
+    text-align: start;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
-  .Contact{
+  .Contact {
     justify-content: end;
-
   }
-
 }
 
-@media only screen and (min-width: 1200px){
-  .top{
+@media only screen and (min-width: 1200px) {
+  .top {
     justify-content: space-evenly;
   }
 }
 
-@media only screen and (min-width: 1600px){
-  .container{
+@media only screen and (min-width: 1600px) {
+  .container {
     height: 30vmax;
   }
 }
-
-
 </style>

@@ -1,15 +1,22 @@
 <template>
-  
-  <div class="rentalCard" v-bind:style="{ backgroundImage: 'linear-gradient(to right, rgb(255 255 255 / 0%), rgb(255 255 255 / 90%), rgb(255 255 255 / 100%) ) ,url(' + listing.images[0] + ')' }">
+  <!-- a -->
+
+  <div
+    class="rentalCard"
+    v-bind:style="{
+      backgroundImage:
+        'linear-gradient(to right, rgb(255 255 255 / 0%), rgb(255 255 255 / 90%), rgb(255 255 255 / 100%) ) ,url(' +
+        listing.images[0] +
+        ')',
+    }"
+  >
     <div class="text-container">
-    <h4>{{ listing.address }}</h4>
-    <p> {{listing.description}}</p>
-    <p> Price: {{ listing.price }}sek / night</p>
-    <p>Size: {{ listing.area }}m2</p>
-    
+      <h4>{{ listing.address }}</h4>
+      <p>{{ listing.description }}</p>
+      <p>Price: {{ listing.price }}sek / night</p>
+      <p>Size: {{ listing.area }}m2</p>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -23,27 +30,25 @@ export default {
 </script>
 
 <style scoped>
-.text-container{
+.text-container {
   color: rgb(43, 43, 43);
   margin-right: 2em;
 }
 
-.text-container p{
+.text-container p {
   font-size: 13px;
   margin: 3px;
   text-align: end;
   font-style: italic;
 }
 
-.text-container h4{
+.text-container h4 {
   text-align: end;
-  
 }
 
-.text-conatiner > p:nth-child(1){
+.text-conatiner > p:nth-child(1) {
   color: white;
 }
-
 
 .rentalCard {
   background-size: cover;
@@ -60,7 +65,6 @@ export default {
   align-items: center;
   border-right: 1px solid rgb(75, 75, 75);
   border-bottom: 1px solid rgb(75, 75, 75);
-  
 }
 
 .rentalCard:hover {
@@ -68,12 +72,11 @@ export default {
   cursor: pointer;
 }
 
-.rentalCard:last-child{
+.rentalCard:last-child {
   margin-bottom: 1em;
 }
 
 img {
-  
   width: 100%;
   height: 180px;
   object-fit: cover;

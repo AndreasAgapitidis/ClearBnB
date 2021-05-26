@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div class="container">
     <input
       @keyup.enter="fetchUser(userInput)"
@@ -41,9 +42,7 @@ export default {
 </script>
 
 <style scoped>
-
 .container {
   margin-top: 16px;
 }
-
 </style>

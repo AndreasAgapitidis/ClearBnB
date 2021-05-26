@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <AmenitiesWhenAddingListing @click="filterAmenities" />
 </template>
 
@@ -47,7 +48,4 @@ export default {
 </script>
 
 <style scoped>
-
-
- 
 </style>

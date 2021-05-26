@@ -1,61 +1,56 @@
 <template>
+  <!-- a -->
   <div class="info-Container">
-
-     <div class="about">
+    <div class="about">
       <p class="aboutMe">About me</p>
       <div class="divider"></div>
-      <p>Lorem! <br>
-      Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-      numquam blanditiis harum quisquam eius sed odit.</p></div>
+      <p>
+        Lorem! <br />
+        Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum
+        laborum numquam blanditiis harum quisquam eius sed odit.
+      </p>
+    </div>
 
-        
     <div class="verified">
       <p class="verifiedUserText">Verified user</p>
       <div class="divider"></div>
       <p class="email"><span>&#10004;</span> Email</p>
       <p class="phonenumber"><span>&#10004;</span> Phonenumber</p>
     </div>
-    
-   
-
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
-
-.info-Container{
+.info-Container {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.verified{
+.verified {
   width: 10em;
   height: 80px;
   padding: 10px;
 }
 
-.divider{
+.divider {
   width: 80%;
   height: 1px;
   background: rgb(179, 179, 179);
 }
 
-.about{
+.about {
   width: 20em;
   padding: 10px;
-
 }
 
-p{
+p {
   text-align: left;
   margin-left: 10px;
 }
@@ -71,43 +66,44 @@ p{
   line-height: 20px;
 }
 
-span{
+span {
   color: rgb(22, 150, 5);
 }
 
-@media only screen and (max-width: 320px){
-   .info-Container{
-   flex-direction: column-reverse;
-   justify-content: center;
-    align-items: center;  
+@media only screen and (max-width: 320px) {
+  .info-Container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
-  .about, .verified{
+  .about,
+  .verified {
     width: 85%;
-    
   }
 
-  .divider{
+  .divider {
     display: none;
   }
 
-  .verifiedUserText, .aboutMe{
+  .verifiedUserText,
+  .aboutMe {
     font-weight: bold;
   }
-
 }
 
-@media only screen and (max-width: 576px){
-   .verifiedUserText, .aboutMe{
+@media only screen and (max-width: 576px) {
+  .verifiedUserText,
+  .aboutMe {
     font-weight: bold;
-   }
+  }
 }
 
-@media only screen and (max-width: 992px){
-   .verifiedUserText, .aboutMe{
+@media only screen and (max-width: 992px) {
+  .verifiedUserText,
+  .aboutMe {
     font-weight: bold;
-   }
+  }
 }
-
 </style>

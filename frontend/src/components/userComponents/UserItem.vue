@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div class="userCard">
     <img :src="user.profilePicture" alt="" />
     <ul>
@@ -56,5 +57,4 @@ img {
     display: block;
   }
 }
-
 </style>

@@ -1,13 +1,29 @@
 <template>
+  <!-- a -->
   <div id="signup-overlay">
     <a class="close-btn" @click="close">x</a>
     <div class="signup-container">
       <form @submit.prevent="register">
         <p id="signup-error-text">Email already has account</p>
-        <input v-model="firstName" type="text" placeholder="first name" required />
-        <input v-model="lastName" type="text" placeholder="last name" required />
+        <input
+          v-model="firstName"
+          type="text"
+          placeholder="first name"
+          required
+        />
+        <input
+          v-model="lastName"
+          type="text"
+          placeholder="last name"
+          required
+        />
         <input v-model="email" type="email" placeholder="email" required />
-        <input v-model="password" type="password" placeholder="password" required />
+        <input
+          v-model="password"
+          type="password"
+          placeholder="password"
+          required
+        />
         <button>Register</button>
       </form>
       <div class="login-prompt">
@@ -36,7 +52,7 @@ export default {
         lastName: this.lastName,
         email: this.email,
         password: this.password,
-        isAdmin: 'false',
+        isAdmin: "false",
       };
 
       await this.$store.dispatch("register", credentials);

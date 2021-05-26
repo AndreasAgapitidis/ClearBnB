@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div class="amenitiesContainer">
     <div
       class="amenityCard"

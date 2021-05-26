@@ -1,8 +1,7 @@
 <template>
+  <!-- a -->
   <div class="inputCityAndDateContainer">
-    
     <div class="InputContainer">
-    
       <div
         class="autofill"
         @mouseenter="toggleShowAutoFill"
@@ -26,7 +25,7 @@
       </div>
       <div class="CheckInContainer">
         <h2>Check-in/out</h2>
-      <Calendar />
+        <Calendar />
       </div>
     </div>
   </div>
@@ -216,53 +215,43 @@ input:focus {
   outline: none;
 }
 
-@media only screen and (min-width: 320px){
-  
-  .inputCityAndDateContainer{
+@media only screen and (min-width: 320px) {
+  .inputCityAndDateContainer {
     align-items: center;
   }
-  .InputContainer{
-    margin-right: 0;
-  }
-
-
-}
-
-@media only screen and (min-width: 576px){
-    .inputCityAndDateContainer{
-    align-items: center;
-  }
-  .InputContainer{
+  .InputContainer {
     margin-right: 0;
   }
 }
 
-
-@media only screen and (min-width: 992px){
-
-  
-  .inputCityAndDateContainer{
+@media only screen and (min-width: 576px) {
+  .inputCityAndDateContainer {
     align-items: center;
+  }
+  .InputContainer {
+    margin-right: 0;
+  }
+}
 
-   
-    }
+@media only screen and (min-width: 992px) {
+  .inputCityAndDateContainer {
+    align-items: center;
+  }
 
-  .InputContainer{
+  .InputContainer {
     margin: 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 60%;
     height: 50%;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     border-radius: 50px;
   }
-
-
 }
 
-@media only screen and (min-width: 1200px){
-  .InputContainer{
+@media only screen and (min-width: 1200px) {
+  .InputContainer {
     max-width: 720px;
   }
 }

@@ -1,4 +1,5 @@
 <template>
+  <!-- getAllusers -->
   <div class="container">
     <div v-if="listOfAllUsers" class="renderAllUsersContainer">
       <UserItem
@@ -40,9 +41,7 @@ export default {
 </script>
 
 <style scoped>
-
 .container {
   margin: 0 1em 0 1em;
 }
-
 </style>

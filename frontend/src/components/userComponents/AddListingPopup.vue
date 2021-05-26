@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <transition name="fade" appear>
     <div class="overlay" v-if="!showConfirmationBox">
       <div class="darken" @click="toggleShowAddListingPopUp"></div>
@@ -191,7 +192,7 @@ export default {
         body: JSON.stringify(listing),
       });
       this.addedListing = await res.json();
-      this.$store.dispatch('signalAddedListing') // this is done to signal that the User Profile Page should re-render
+      this.$store.dispatch("signalAddedListing"); // this is done to signal that the User Profile Page should re-render
       this.showConfirmationBox = true;
       this.chosenAmenities = [];
     },

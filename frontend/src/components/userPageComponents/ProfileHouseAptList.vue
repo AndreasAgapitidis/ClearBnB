@@ -1,4 +1,5 @@
 <template>
+  <!-- a -->
   <div v-if="ownedHousing" class="card-Container">
     <div
       v-for="houses in ownedList"
