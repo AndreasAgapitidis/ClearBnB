@@ -23,9 +23,7 @@
         <span>&#8594;</span>
       </p>
 
-      <h5 class="price">
-    
-        {{ reservation.price }}SEK</h5>
+      <h5 class="price">{{ reservation.price }}SEK</h5>
 
       <button v-on:click="select(reservation)" class="cancel">&#10008;</button>
     </div>
@@ -65,6 +63,14 @@ export default {
         "/rest/userlistings/" + this.$store.state.user.id
       );
       let reservations = await response.json();
+
+      // remove reservations that have already happened
+      for (let i = 0; i < reservations.length; i++) {
+        if (new Date(reservations[i].endDate) < new Date().getTime()) {
+          reservations.splice(i, 1);
+          i--;
+        }
+      }
 
       // loop through and add a "listing" property to each reservation in "reservations" array
 
@@ -143,6 +149,7 @@ export default {
 .cancel {
   color: red;
   grid-area: ca;
+  cursor: pointer;
 }
 
 button {

@@ -154,62 +154,65 @@ export default {
 </script>
 
 <style scoped>
-
 .inputCityAndDateContainer {
-    width: 100vw;
-    top: 4em;
-    position: relative;
-    height: 30em;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  top: 4em;
+  position: relative;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+.InputContainer {
+  height: 200px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin-bottom: 2em;
+}
+
+.searchResults {
+  position: absolute;
+  background: rgba(252, 252, 252, 1);
+  max-height: 300px;
+  z-index: 10;
+  width: 220px;
+  border-radius: 0 0 20px 20px;
+  font-size: 10px;
+}
+
+input {
+  width: 220px;
+  height: 4em;
+  font-weight: 200;
+  justify-content: center;
+  border: none;
+  padding-left: 1em;
+  border-radius: 0 20px 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 320px) {
+  .inputCityAndDateContainer {
     align-items: center;
     justify-content: center;
   }
-
-  h2 {
-    color: white;
-    text-shadow: 2px 2px 2px black;
-  }
-
-  .InputContainer {
-    height: 200px;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    margin-bottom: 2em;
-  }
-
-  .searchResults {
-    position: absolute;
-    background: rgba(252, 252, 252, 1);
-    max-height: 300px;
-    z-index: 10;
-    width: 220px;
-    border-radius: 0 0 20px 20px;
-    font-size: 10px;
-  }
-
-  input {
-    width: 220px;
-    height: 4em;
-    font-weight: 200;
-    justify-content: center;
-    border: none;
-    padding-left: 1em;
-    border-radius: 0 20px 0 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
-
-
-@media only screen and (max-width: 320px) {
+}
+@media only screen and (min-width: 576px) {
   .inputCityAndDateContainer {
     align-items: center;
     justify-content: center;
@@ -218,7 +221,6 @@ export default {
     margin-right: 0;
   }
 }
-
 @media only screen and (min-width: 992px) {
   .inputCityAndDateContainer {
     align-items: center;

@@ -206,17 +206,6 @@ export default {
         //       .toISOString()
         //       .substring(0, 10)
         // );
-        console.log(
-          "disabledDates: " +
-            new Date(latestUnavailableDates[i] * 1000 + 86400000)
-              .toISOString()
-              .substring(0, 10)
-        );
-
-        console.log(
-          "start: " + new Date(this.range.start).toISOString().substring(0, 10)
-        );
-
         if (
           new Date(latestUnavailableDates[i] * 1000)
             .toISOString()

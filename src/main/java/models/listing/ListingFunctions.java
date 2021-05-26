@@ -14,6 +14,7 @@ public class ListingFunctions {
     }
 
     public void initFunctions(){
+
         app.get("/rest/listings",(req,res) -> {
             res.json(collection("Listing").find());
         });
@@ -29,7 +30,6 @@ public class ListingFunctions {
             collection("Listing").save(listing);
             // update
             res.json(listing);
-            System.out.println("addedListing!");
 
         });
 
