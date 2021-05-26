@@ -32,6 +32,7 @@ export default {
   margin: 3em 0 5em 0;
   overflow: scroll;
   overflow-x: hidden;
+  min-height: 50vh;
 }
 </style>
 
