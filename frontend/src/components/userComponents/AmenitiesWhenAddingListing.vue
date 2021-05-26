@@ -51,6 +51,9 @@ export default {
 </script>
 
 <style scoped>
+.amenitiesContainer {
+  width: 40%;
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 576px) {
   p {
     padding: 0;
