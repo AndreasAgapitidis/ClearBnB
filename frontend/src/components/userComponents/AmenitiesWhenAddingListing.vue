@@ -35,6 +35,7 @@ export default {
       }
       try {
         this.$parent.chosenAmenities = this.chosenAmenities;
+        this.$emit("updateAmenities", this.chosenAmenities);
       } catch (error) {}
 
       try {

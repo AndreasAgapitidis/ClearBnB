@@ -45,7 +45,7 @@
             <label class="checkbox" for="House">House</label>
             <br />
           </div>
-          <AmenitiesWhenAddingListing />
+          <AmenitiesWhenAddingListing @updateAmenities="updatedAmenities" />
           <textarea
             class="txtInput"
             v-model="description"
@@ -171,6 +171,10 @@ export default {
   },
 
   methods: {
+    updatedAmenities(x) {
+      this.chosenAmenities = x;
+    },
+
     async sendListingToBackEnd() {
       let listing = {
         owner: this.$store.state.user.id,
