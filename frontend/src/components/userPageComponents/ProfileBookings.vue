@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+
   <div class="reservations-Container">
     <ProfileBookingList />
   </div>

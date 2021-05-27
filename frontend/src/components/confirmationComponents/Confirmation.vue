@@ -1,5 +1,5 @@
 <template>
-  <!-- confirmation -->
+  <!-- confirmation1 -->
   <div class="overlay">
     <transition name="fade" appear>
       <div class="darken" v-if="divSwitch"></div>
@@ -70,7 +70,6 @@ export default {
   methods: {
     closeConfirmationBox() {
       this.$parent.showConfirmationBox = false;
-      // window.location.reload();
       document.body.classList.remove("modal-open");
       this.$parent.$parent.showPopUp = false;
       this.divSwitch = false;
@@ -133,7 +132,6 @@ p {
     "btn btn btn btn";
   height: 100%;
   overflow-y: auto;
-  /* margin: 10px; */
   font-family: "Roboto";
   font-size: 1.3em;
 }
@@ -283,7 +281,6 @@ p {
 }
 
 @media (min-width: 576px) {
-  /* For mobile phones: */
   .confirmationContainer {
     width: 60vw;
     height: 85vh;

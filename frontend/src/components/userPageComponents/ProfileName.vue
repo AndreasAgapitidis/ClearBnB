@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+ 
   <div class="ProfileName">
     <h2 v-if="user">{{ user.firstName }} {{ user.lastName }}</h2>
     <h4>Member since December 2016</h4>
@@ -8,11 +8,6 @@
 
 <script>
 export default {
-  /*data() {
-    return {
-      user: this.$store.state.user
-    }
-  },*/
 
   computed: {
     user: function () {

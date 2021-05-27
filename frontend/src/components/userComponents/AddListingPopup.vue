@@ -202,7 +202,7 @@ export default {
       this.addedListing = await res.json();
       this.chosenAmenities = [];
       this.$store.dispatch("setChosenAmenities", this.chosenAmenities);
-      this.$store.dispatch("signalAddedListing"); // this is done to signal that the User Profile Page should re-render
+      this.$store.dispatch("signalAddedListing");
       this.showConfirmationBox = true;
       this.chosenAmenities = [];
     },

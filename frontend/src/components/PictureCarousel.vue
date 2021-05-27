@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+  <!-- a1 -->
   <transition name="fade" appaer>
     <div class="darken" v-if="showModal"></div>
   </transition>
@@ -28,7 +28,6 @@
     />
   </div>
   <div class="slides" v-if="carouselprop">
-    <!-- <button class="btn-left" @click="prevIndex">Prev</button> -->
     <span class="btn-left" @click="prevIndex"></span>
     <div class="container">
       <div
@@ -43,7 +42,6 @@
         />
       </div>
     </div>
-    <!-- <button class="btn-right" @click="nextIndex">Next</button> -->
     <span class="btn-right" @click="nextIndex"></span>
   </div>
 </template>
@@ -58,8 +56,6 @@ export default {
       if (this.count < 0) {
         this.count = this.carouselprop.images.length - 1;
       }
-
-      // document.getElementsByTagName("img").setAttribute(index, (index += 1));
     },
 
     nextIndex() {
@@ -168,8 +164,6 @@ h1 {
   display: grid;
   width: 100%;
   max-width: 80vw;
-  /* place-content: center; */
-  /* place-content: space-evenly; */
   grid-template-areas:
     "mo mo mo"
     "mo mo mo"
@@ -299,14 +293,6 @@ h1 {
   height: 75px;
   width: 50px;
 }
-
-/* button {
-  padding: 5px;
-  height: 20px;
-  border-radius: 10%;
-  border-style: none;
-  border: 2px solid gray;
-} */
 
 .btn-left {
   align-self: center;

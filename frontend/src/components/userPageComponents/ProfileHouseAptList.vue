@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+
   <div v-if="ownedHousing" class="card-Container">
     <div
       v-for="houses in ownedList"
@@ -15,7 +15,7 @@
         {{ houses.price }}SEK<br />
         <span>per Night</span>
       </h5>
-      <!-- <button class="cancel">&#9998;</button> -->
+ 
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
     },
   },
 
-  // re-render page if a listing is added by the user
+
   watch: {
     "$store.state.addedListing": async function () {
       if (!this.$store.state.user) {
@@ -141,7 +141,7 @@ button {
 p {
   font-size: 12px;
 }
-/* font */
+
 
 @media only screen and (min-width: 320px) {
   .reservationCards {

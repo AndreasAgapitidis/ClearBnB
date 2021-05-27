@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+
   <div class="component5">
     <div class="studentTxt">
       <label for="studentTxt">

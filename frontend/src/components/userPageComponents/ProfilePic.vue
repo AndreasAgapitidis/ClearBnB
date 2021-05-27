@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+ 
   <div class="profilepic-container">
     <div class="profilepic"></div>
   </div>

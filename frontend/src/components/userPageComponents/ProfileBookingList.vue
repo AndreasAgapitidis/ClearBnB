@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+  
   <div v-if="reservations" class="card-Container">
     <div
       v-for="reservation in reservationList"
@@ -44,7 +44,6 @@ export default {
         let targetId = event.id;
         await this.$store.dispatch("deleteReservation", targetId);
 
-        // update displayed reservation array to re-render bookings
         for (let i = 0; i < this.reservationList.length; i++) {
           if (this.reservationList[i].id === targetId) {
             this.reservationList.splice(i, 1);
@@ -64,7 +63,6 @@ export default {
       );
       let reservations = await response.json();
 
-      // remove reservations that have already happened
       for (let i = 0; i < reservations.length; i++) {
         if (new Date(reservations[i].endDate) < new Date().getTime()) {
           reservations.splice(i, 1);
@@ -72,7 +70,7 @@ export default {
         }
       }
 
-      // loop through and add a "listing" property to each reservation in "reservations" array
+  
 
       for (let i = 0; i < reservations.length; i++) {
         let res = await fetch("/rest/reservation/" + reservations[i].listingId);
