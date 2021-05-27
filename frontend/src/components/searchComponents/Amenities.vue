@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       chosenAmenities: this.$store.state.chosenAmenities,
-      maxPrice: 0,
+      maxPrice: 50000,
       minGuestNumber: 1,
     };
   },
