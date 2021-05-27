@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+  
   <div v-if="reservations" class="card-Container">
     <div
       v-for="reservation in reservationList"
@@ -43,8 +43,6 @@ export default {
       if (confirm("Are you sure you want to delete this reservation?")) {
         let targetId = event.id;
         await this.$store.dispatch("deleteReservation", targetId);
-
-        // update displayed reservation array to re-render bookings
         for (let i = 0; i < this.reservationList.length; i++) {
           if (this.reservationList[i].id === targetId) {
             this.reservationList.splice(i, 1);
