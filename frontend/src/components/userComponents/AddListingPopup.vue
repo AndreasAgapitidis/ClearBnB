@@ -1,5 +1,4 @@
 <template>
-  <!-- a1 -->
   <transition name="fade" appear>
     <div class="overlay" v-if="!showConfirmationBox">
       <div class="darken" @click="toggleShowAddListingPopUp"></div>

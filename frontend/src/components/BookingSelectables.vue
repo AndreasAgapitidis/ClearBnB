@@ -1,5 +1,4 @@
 <template>
-  <!-- a1 -->
   <div class="calendar" z-index="0">
     <form class="calendar-form">
       <v-date-picker

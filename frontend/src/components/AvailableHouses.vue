@@ -1,5 +1,4 @@
 <template>
-  <!-- a -->
   <div class="component4">
     <div class="availableHouses">
       <p>Available apt./houses</p>
