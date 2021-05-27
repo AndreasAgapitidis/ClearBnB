@@ -11,7 +11,7 @@
     <div class="text-container">
       <h4>{{ listing.address }}</h4>
       <p>{{ listing.description }}</p>
-      <p>Price: {{ listing.price }}sek / night</p>
+      <p>Price: {{ Math.floor(listing.price * 1.15) }}sek / night</p>
       <p>Size: {{ listing.area }}m2</p>
     </div>
   </div>
