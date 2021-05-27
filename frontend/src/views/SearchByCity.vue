@@ -3,7 +3,7 @@
   <div class="SearchByCity-Bg">
     <InputCityAndPickDate />
 
-    <h2>Amenities</h2>
+    <h2>Filter</h2>
     <Amenities />
   </div>
   <ListOfListings v-bind:listings="filteredListings" />
