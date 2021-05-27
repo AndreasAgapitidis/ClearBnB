@@ -37,6 +37,15 @@ import Calendar from "./BookingCalendar.vue";
 
 export default {
   async created() {
+    // reset input and city variables upon creation
+    if (this.$route.params.id) {
+      this.$store.dispatch("setUsersCity", this.$route.params.id)
+      this.userInput = this.$route.params.id
+    } else {
+      this.$store.dispatch("setUsersCity", '')
+      this.userInput = ''
+    }
+    
     await this.$store.dispatch("fetchCities");
     await this.$store.dispatch("fetchListings");
     this.filterIntoUsersChoice(this.$route.params.id);
