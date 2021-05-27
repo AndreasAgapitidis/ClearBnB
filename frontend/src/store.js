@@ -160,7 +160,6 @@ export default createStore({
         
         })
         let deletedReservation = await res.json();
-        console.log(deletedReservation);
         store.commit('deleteReservationById', id)
       },
 

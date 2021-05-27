@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     navToSearch(e) {
-      console.log(e.target);
       this.$router.push("/SearchByCity/" + e.target.innerText);
       window.scrollTo(0, 0);
     },
