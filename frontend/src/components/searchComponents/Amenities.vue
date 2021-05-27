@@ -46,7 +46,7 @@ export default {
         (listing) =>
           (listing.city === this.$route.params.id || !this.$route.params.id) &&
           this.filterDate(listing) &&
-          listing.price * 1.15 < this.maxPrice &&
+          listing.price * 1.15 <= this.maxPrice &&
           listing.beds >= this.minGuestNumber &&
           this.chosenAmenities.every((element) => {
             return listing.amenities.includes(element);
