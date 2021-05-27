@@ -1,5 +1,4 @@
 <template>
-  <!-- a -->
   <AmenitiesWhenAddingListing />
 </template>
 
