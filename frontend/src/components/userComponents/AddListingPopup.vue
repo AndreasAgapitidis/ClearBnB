@@ -267,7 +267,7 @@ label.checkbox {
 
   max-width: 75vw;
   max-height: 100vh;
-  min-height: 750px;
+  min-height: 90vh;
   background-image: linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
     url("https://images.contentstack.io/v3/assets/blte962564a7ccdad95/blt6673351f18e18b68/5d0a6279b58121dc58ed5303/5.2.1Stockholm.jpg?auto=webp&format=pjpg&quality=80&width=1200&height=1200&fit=crop&crop=1200:630,smart");
   background-repeat: no-repeat;
