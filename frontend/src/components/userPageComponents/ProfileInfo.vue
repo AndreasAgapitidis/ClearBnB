@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+
   <div class="info-Container">
     <div class="about">
       <p class="aboutMe">About me</p>

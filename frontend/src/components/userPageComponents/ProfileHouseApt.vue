@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+
   <div class="housing-Container">
     <ProfileHouseAptList />
   </div>
