@@ -1,6 +1,6 @@
 <template>
   <!-- a -->
-  <AmenitiesWhenAddingListing @click="filterAmenities" />
+  <AmenitiesWhenAddingListing />
 </template>
 
 <script>
