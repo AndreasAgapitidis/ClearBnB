@@ -2,8 +2,10 @@
   <!-- a -->
   <div class="component6">
     <div class="LookingForCustomers">
-      <h1>Looking For Customers?</h1>
-      <button class="LandLordBtn">Become a landlord</button>
+      <h1>Looking For Customers?<br>
+        Become a landlord today!
+      </h1>
+      <!-- <button class="LandLordBtn">Become a landlord</button> -->
     </div>
   </div>
 </template>
