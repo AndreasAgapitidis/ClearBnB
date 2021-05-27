@@ -1,8 +1,7 @@
 <template>
-  <!-- a -->
+  <!-- a1 -->
   <div class="calendar" z-index="0">
     <form class="calendar-form">
-      <!-- v-if will run this method/computed once before -->
       <v-date-picker
         v-if="renderTime"
         :masks="masks"
@@ -37,7 +36,6 @@
     </div>
 
     <form class="custom-number" @submit.prevent="addReservation">
-      <!-- <p>Please select the amount of customers:</p> -->
       <label for="adultCustomer"
         ><h4 class="adult">Please select the amount of adults:</h4>
       </label>
@@ -110,7 +108,6 @@ export default {
 
   props: ["detailprop", "owner"],
 
-  // Everytime a data changes, the relevant computed will run
   data() {
     return {
       adult: { id: "1" },
@@ -171,12 +168,6 @@ export default {
       document.body.classList.add("modal-open");
     },
 
-    // Yang: because our method when clicking confirm will force refresh, we don't need to remove class.
-    // closeModal() {
-    //   this.showConfirmationBox = false;
-    //   document.body.classList.remove("modal-open");
-    // },
-
     clearFields() {
       (this.adult.id = 1), (this.child.id = 0);
     },
@@ -185,27 +176,9 @@ export default {
       let res = await fetch("/rest/listings/" + this.detailprop.id);
       let listing = await res.json();
       let latestUnavailableDates = listing.unavailableDates;
-      // console.log(this.detailprop.unavailableDates);
-      // console.log(this.disabledDates);
-      // console.log("start " + this.range.start);
-      // console.log(new Date(this.range.start).toISOString());
-      // console.log("disabled " + this.disabledDates[0]);
-      // console.log("unavailable date: " + this.detailprop.unavailableDates[0]);
-      // console.log(new Date(this.range.start).toISOString().substring(0, 10));
-      // console.log(
-      //   new Date(this.disabledDates[0].getTime() + 86400000)
-      //     .toISOString()
-      //     .substring(0, 10)
-      // );
-      // console.log(this.range.start.getTime() / 1000);
+
       let duplicate = false;
       for (let i = 0; i < latestUnavailableDates.length; i++) {
-        // console.log(
-        //   "DISABLED LIST " +
-        //     new Date(this.disabledDates[i].getTime())
-        //       .toISOString()
-        //       .substring(0, 10)
-        // );
         if (
           new Date(latestUnavailableDates[i] * 1000)
             .toISOString()
@@ -246,14 +219,6 @@ export default {
         return;
       }
 
-      // console.log(this.detailprop.unavailableDates);
-      // console.log(this.range.start);
-      // console.log(this.range.start.getTime());
-
-      // alert(this.range.start);
-      // // this.range.start.setHours(0, 0, 0, 0);
-      // this.range.end.setHours(0, 0, 0, 0);
-
       let reservation = {
         adult: this.adult.id,
         children: this.child.id,
@@ -264,28 +229,15 @@ export default {
         listingId: this.detailprop.id,
       };
 
-      // divding with 1000 to get Unix format we are using in backend listing.unavailableDates
       let dateUnix = this.range.start / 1000;
-      // console.log("date " + dateUnix);
 
       for (let i = 0; i < this.differenceInDays; i++) {
         this.detailprop.unavailableDates.push(dateUnix);
 
-        // 86400 is a day in Unix format
         dateUnix += 86400;
       }
 
       await this.$store.dispatch("postReservation", reservation);
-
-      // for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
-      //   if (
-      //     this.detailprop.unavailableDates[i] ==
-      //     this.range.start.getTime() / 1000
-      //   ) {
-      //     let duplicate = true;
-      //     return console.log("from detailprop: " + duplicate);
-      //   }
-      // }
 
       this.$store.dispatch("putListing", this.detailprop);
 
@@ -304,12 +256,6 @@ export default {
     },
   },
 
-  //   submitForms() {
-  //     document.getElementsByClassName("calendar-form").submit();
-  //     document.getElementsByClassName("custom-number").submit();
-  //   },
-  // },
-
   computed: {
     priceWithProfit() {
       return Math.round(this.detailprop.price * 1.15);
@@ -323,19 +269,12 @@ export default {
     },
 
     renderTime() {
-      // Adding if to avoid sync problem
-      // props didn't fetch info before being looped, thus returning an error
-      // with the if(!this.detailprop), it will stop renderTime from running
-      // but once props got info, the value changed, thus computed will run again
-
       if (!this.detailprop) {
         return;
       }
       for (let i = 0; i < this.detailprop.unavailableDates.length; i++) {
         this.disabledDates.push(
           new Date(this.detailprop.unavailableDates[i] * 1000)
-          // using UnixTimestamp from java which was divided by 1000 to fit as an int
-          // ** changing on sprint 2
         );
       }
       return true;
@@ -345,9 +284,6 @@ export default {
 </script>
 
 <style scoped>
-/* body.modal-open {
-  overflow: hidden;
-} */
 select {
   cursor: pointer;
 }

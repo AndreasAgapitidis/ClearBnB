@@ -1,5 +1,5 @@
 <template>
-  <!-- a -->
+  <!-- a1 -->
   <div class="DetailInfoContainer" v-if="detailprop">
     <div class="Description">
       <h1>Description</h1>
