@@ -1,10 +1,10 @@
 <template>
-  <!-- a -->
+ 
   <div class="component3">
     <div class="picture"></div>
 
     <div class="textWrapper">
-      <!-- <button class="bookNowBtn">Claim discount</button> -->
+   
       <div class="shamelessTxt">
         <label for="shamelessTxt">
           Treat yourself and your family.<br />This gem is located close<br />to
@@ -39,15 +39,7 @@ export default {};
   margin-bottom: 10%;
 }
 
-/* .picture{
-  border-radius: 0px 15px 15px 0px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
-  flex: 1;
-  }  */
+
 
 .shamelessTxt {
   font-size: 16px;
